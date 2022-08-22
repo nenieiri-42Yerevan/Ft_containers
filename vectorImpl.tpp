@@ -38,9 +38,17 @@ namespace	ft
 	/*===================================*/
 	
 	template <typename T, typename Allocator>
-	typename vector<T, Allocator>::size_type	vector<T, Allocator>::size() const
+	typename vector<T, Allocator>::size_type
+	vector<T, Allocator>::size() const
 	{
 		return (this->_size);
+	}
+
+	template <typename T, typename Allocator>
+	typename vector<T, Allocator>::size_type
+	vector<T, Allocator>::capacity() const
+	{
+		return (this->_capacity);
 	}
 }
 
