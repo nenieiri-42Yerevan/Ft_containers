@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:22:31 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/22 16:27:39 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/22 17:47:17 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,30 @@ namespace	ft
 			typedef Allocator			allocator_type;
 			typedef value_type&			reference;
 			typedef const value_type&	const_reference;
-			typedef T*					pointer;
-			typedef const T*			const_pointer;
+			typedef value_type*			pointer;
+			typedef const value_type*	const_pointer;
 			typedef ptrdiff_t			difference_type;
 			typedef size_t				size_type;
-			/* Member types (iterators) */
 
+			/* Member types (iterators) */
 		
 		/* Constructers and Destructer */
 		public:
 			explicit	vector(const allocator_type &alloc = allocator_type());
+			//explicit	vector( size_type n,
+			//					const value_type &val = value_type(),
+			//					const allocator_type &alloc = allocator_type());
 
+		/* Member functions (capacity) */
+		public:
+			size_type					size() const;
+
+		/* Member data */
 		private:
 			size_type					_size;
 			size_type					_capacity;
 			pointer						*_array;
+			allocator_type				_alloc;
 	};
 }
 

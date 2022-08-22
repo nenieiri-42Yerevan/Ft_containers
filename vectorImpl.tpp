@@ -19,12 +19,28 @@
 
 namespace	ft
 {
+
+	/*===================================*/
+    /*    Constructors and Destructor	 */
+    /*===================================*/
+
 	template <typename T, typename Allocator>
 	vector<T, Allocator>::vector(const allocator_type &alloc)
 	{
 		_size = 0;
 		_capacity = 0;
 		_array = NULL;
+		_alloc = alloc;
+	}
+
+	/*===================================*/
+	/* 	  Member functions (capacity)    */
+	/*===================================*/
+	
+	template <typename T, typename Allocator>
+	typename vector<T, Allocator>::size_type	vector<T, Allocator>::size() const
+	{
+		return (this->_size);
 	}
 }
 
