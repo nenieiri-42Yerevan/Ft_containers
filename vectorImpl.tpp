@@ -33,20 +33,29 @@ namespace	ft
 		_alloc = alloc;
 	}
 
+	template <typename T, typename Allocator>
+	vector<T, Allocator>::vector(size_type n, const value_type &val, \
+			const allocator_type &alloc)
+	{
+		_size = n;
+		_capacity = n;
+		_alloc = alloc;
+		_array = _alloc.allocate(n);
+		(void)val;
+	}
+
 	/*===================================*/
 	/* 	  Member functions (capacity)    */
 	/*===================================*/
 	
 	template <typename T, typename Allocator>
-	typename vector<T, Allocator>::size_type
-	vector<T, Allocator>::size() const
+	typename vector<T, Allocator>::size_type	vector<T, Allocator>::size() const
 	{
 		return (this->_size);
 	}
 
 	template <typename T, typename Allocator>
-	typename vector<T, Allocator>::size_type
-	vector<T, Allocator>::capacity() const
+	typename vector<T, Allocator>::size_type	vector<T, Allocator>::capacity() const
 	{
 		return (this->_capacity);
 	}

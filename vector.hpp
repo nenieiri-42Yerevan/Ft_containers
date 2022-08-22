@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:22:31 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/22 18:47:35 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/22 19:54:55 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ namespace	ft
 		/* Constructers and Destructer */
 		public:
 			explicit	vector(const allocator_type &alloc = allocator_type());
-			//explicit	vector( size_type n,
-			//					const value_type &val = value_type(),
-			//					const allocator_type &alloc = allocator_type());
+			explicit	vector( size_type n,
+								const value_type &val = value_type(),
+								const allocator_type &alloc = allocator_type());
 
 		/* Member functions (capacity) */
 		public:
@@ -57,7 +57,7 @@ namespace	ft
 		private:
 			size_type					_size;
 			size_type					_capacity;
-			pointer						*_array;
+			pointer						_array;
 			allocator_type				_alloc;
 	};
 }
