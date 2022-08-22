@@ -6,10 +6,12 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/22 14:44:29 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/22 16:44:17 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
+#include <vector>
 #include "vector.hpp"
 
 int	main()
