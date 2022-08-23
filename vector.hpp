@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:22:31 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/23 19:16:53 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/23 19:47:38 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ namespace	ft
 			size_type					capacity() const;
 			//empty
 			//reserve
-			//shrinktofit
 
 		/* Member functions (Element access) */
 		public:
@@ -72,6 +71,22 @@ namespace	ft
 			const_reference				back() const;
 			pointer						data();
 			const_pointer				data() const;
+
+		/* Member functions (Modifiers) */
+		public:
+			//assign
+			//push_back
+			//pop_back
+			//insert
+			//erase
+			//swap
+			//clear
+			//emplace
+			//emplace_back
+
+		/* Member functions (Allocator) */
+		public:
+			allocator_type				get_allocator() const;
 
 		/* Member data */
 		private:

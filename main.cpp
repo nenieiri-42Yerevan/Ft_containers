@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/23 19:25:35 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/23 19:59:53 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,22 +147,40 @@ void	example5()
 void	example6()
 {
 	/* Example 6 */
-	/* Example for max_size() */
+	/* Example for max_size() and get_allocator()*/
+
+	long double	*p;
 
 	std::vector<long double> vec(5, (long double)(41));
 	std::cout << COLOR_PURPLE_B << "Example 6" << COLOR_END << std::endl;;
 	std::cout << COLOR_YELLOW_B;
 	std::cout << "std::vector -> capacity: " << vec.capacity();
 	std::cout << ", size: " << vec.size();
-	std::cout << ", max_size: " << vec.max_size() << '.';
-	std::cout << COLOR_END << std::endl;
+	std::cout << ", max_size: " << vec.max_size();
+
+	p = vec.get_allocator().allocate(3);
+	for (int i = 0; i < 3; ++i)
+		vec.get_allocator().construct(&p[i], i);
+	std::cout << ", allocated array:";
+	for (int i = 0; i < 3; ++i)
+		std::cout << ' ' << p[i];
+
+	std::cout << '.' << COLOR_END << std::endl;
 
 	ft::vector<long double> ft_vec(5, (long double)(41));
 	std::cout << COLOR_GREEN_B;
 	std::cout << "ft::vector  -> capacity: " << ft_vec.capacity();
 	std::cout << ", size: " << ft_vec.size();
-	std::cout << ", max_size: " << ft_vec.max_size() << '.';
-	std::cout << COLOR_END << std::endl;
+	std::cout << ", max_size: " << ft_vec.max_size();
+
+	p = ft_vec.get_allocator().allocate(3);
+	for (int i = 0; i < 3; ++i)
+		ft_vec.get_allocator().construct(&p[i], i);
+	std::cout << ", allocated array:";
+	for (int i = 0; i < 3; ++i)
+		std::cout << ' ' << p[i];
+
+	std::cout << '.' << COLOR_END << std::endl;
 }
 
 int	main()

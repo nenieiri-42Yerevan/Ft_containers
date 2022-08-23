@@ -147,6 +147,17 @@ namespace	ft
 	{
 		return (this->_array);
 	}
+
+	/*====================================*/
+	/* 	  Member functions (Allocator)    */
+	/*====================================*/
+	
+	template <typename T, typename Allocator>
+	typename vector<T, Allocator>::allocator_type \
+	vector<T, Allocator>::get_allocator() const
+	{
+		return (this->_alloc);
+	}
 }
 
 #endif
