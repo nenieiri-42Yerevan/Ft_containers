@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/23 19:59:53 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/23 20:03:00 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	example3()
 	/* Example 3 */
 	/* Example for const operator[] and for function at() with float*/
 
-	const std::vector<float> vec(10, double(-60));
+	const std::vector<float> vec(10, float(-60));
 	std::cout << COLOR_PURPLE_B << "Example 3" << COLOR_END << std::endl;;
 	std::cout << COLOR_YELLOW_B;
 	std::cout << "std::vector -> at(3): " << vec.at(3);
@@ -78,7 +78,7 @@ void	example3()
 	}
 	std::cout << COLOR_END << std::endl;
 
-	const ft::vector<float> ft_vec(10, double(-60));
+	const ft::vector<float> ft_vec(10, float(-60));
 	std::cout << COLOR_GREEN_B;
 	std::cout << "ft::vector -> at(3): " << ft_vec.at(3);
 	try
