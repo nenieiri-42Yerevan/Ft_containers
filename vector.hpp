@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:22:31 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/23 18:25:19 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/23 19:16:53 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ namespace	ft
 		/* Member functions (capacity) */
 		public:
 			size_type					size() const;
-			//max_size
+			size_type					max_size() const;
 			//resize
 			size_type					capacity() const;
 			//empty

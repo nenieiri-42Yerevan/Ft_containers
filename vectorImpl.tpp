@@ -58,6 +58,13 @@ namespace	ft
 
 	template <typename T, typename Allocator>
 	typename vector<T, Allocator>::size_type \
+	vector<T, Allocator>::max_size() const
+	{
+		return (this->_alloc.max_size());
+	}
+
+	template <typename T, typename Allocator>
+	typename vector<T, Allocator>::size_type \
 	vector<T, Allocator>::capacity() const
 	{
 		return (this->_capacity);
