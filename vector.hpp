@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:22:31 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/23 13:20:34 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/23 13:27:42 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ namespace	ft
 			explicit	vector( size_type n,
 								const value_type &val = value_type(),
 								const allocator_type &alloc = allocator_type());
-			//verevin@ kisat
+			//verevin@ kisata
 
 		/* Member functions (capacity) */
 		public:
