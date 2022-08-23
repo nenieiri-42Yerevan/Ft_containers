@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/23 15:50:10 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/23 18:27:53 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,19 @@ void	example2()
 	/* Example 2 */
 	/* Example for constructor with 2 parametrs with double*/
 	/* Example for operator[] */
-	std::vector<double> vec(10, double(58));
+	std::vector<double> vec(3, double(58));
 	std::cout << COLOR_PURPLE_B << "Example 2" << COLOR_END << std::endl;;
 	std::cout << std::fixed << std::setprecision(2) << COLOR_YELLOW_B;
 	std::cout << "std::vector -> capacity: " << vec.capacity();
 	std::cout << ", size: " << vec.size();
-	std::cout << ", value[8]: " << vec[8] << '.';
+	std::cout << ", value[2]: " << vec[2] << '.';
 	std::cout << COLOR_END << std::endl;
 
-	ft::vector<double> ft_vec(10, double(58));
+	ft::vector<double> ft_vec(3, double(58));
 	std::cout << COLOR_GREEN_B;
 	std::cout << "ft::vector  -> capacity: " << ft_vec.capacity();
 	std::cout << ", size: " << ft_vec.size();
-	std::cout << ", value[8]: " << ft_vec[8] << '.' << std::endl;
+	std::cout << ", value[2]: " << ft_vec[2] << '.' << std::endl;
 	std::cout << COLOR_END << std::endl;
 }
 
@@ -86,6 +86,56 @@ void	example3()
 	{
 		std::cout << e.what() << '.';
 	}
+	std::cout << COLOR_END << std::endl << std::endl;
+}
+
+void	example4()
+{
+	/* Example 4 */
+	/* Example for front() and back() functions*/
+	const std::vector<int> vec(3, double(58));
+	std::cout << COLOR_PURPLE_B << "Example 4" << COLOR_END << std::endl;;
+	std::cout << COLOR_YELLOW_B;
+	std::cout << "std::vector -> capacity: " << vec.capacity();
+	std::cout << ", size: " << vec.size();
+	std::cout << ", value[0]: " << vec[0];
+	std::cout << ", front(): " << vec.front();
+	std::cout << ", value[2]: " << vec[0];
+	std::cout << ", back(): " << vec.back() << '.';
+	std::cout << COLOR_END << std::endl;
+
+	const ft::vector<int> ft_vec(3, int(58));
+	std::cout << COLOR_GREEN_B;
+	std::cout << "ft::vector  -> capacity: " << ft_vec.capacity();
+	std::cout << ", size: " << ft_vec.size();
+	std::cout << ", value[0]: " << ft_vec[0];
+	std::cout << ", front(): " << ft_vec.front();
+	std::cout << ", value[2]: " << ft_vec[0];
+	std::cout << ", back(): " << ft_vec.back() << '.';
+	std::cout << COLOR_END << std::endl << std::endl;
+}
+
+void	example5()
+{
+	/* Example 5 */
+	/* Example for data() */
+	int	*p;
+
+	std::vector<int> vec(5, double(41));
+	std::cout << COLOR_PURPLE_B << "Example 5" << COLOR_END << std::endl;;
+	std::cout << COLOR_YELLOW_B;
+	std::cout << "std::vector -> capacity: " << vec.capacity();
+	std::cout << ", size: " << vec.size();
+	p = vec.data();
+	std::cout << ", p[0]: " << p[0];
+	std::cout << COLOR_END << std::endl;
+
+	ft::vector<int> ft_vec(5, int(41));
+	std::cout << COLOR_GREEN_B;
+	std::cout << "ft::vector  -> capacity: " << ft_vec.capacity();
+	std::cout << ", size: " << ft_vec.size();
+	p = ft_vec.data();
+	std::cout << ", p[0]: " << p[0];
 	std::cout << COLOR_END << std::endl;
 }
 
@@ -94,6 +144,8 @@ int	main()
 	example1();
 	example2();
 	example3();
+	example4();
+	example5();
 
 	return (0);
 }

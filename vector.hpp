@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:22:31 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/23 15:46:43 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/23 18:25:19 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ namespace	ft
 			explicit	vector( size_type n,
 								const value_type &val = value_type(),
 								const allocator_type &alloc = allocator_type());
-			//verevin@ kisata
+			//kisata
 
 		/* Member functions (capacity) */
 		public:
@@ -66,9 +66,12 @@ namespace	ft
 			const_reference				operator[](size_type pos) const;
 			reference					at(size_type pos);
 			const_reference				at(size_type pos) const;
-			//front
-			//back
-			//data
+			reference					front();
+			const_reference				front() const;
+			reference					back();
+			const_reference				back() const;
+			pointer						data();
+			const_pointer				data() const;
 
 		/* Member data */
 		private:

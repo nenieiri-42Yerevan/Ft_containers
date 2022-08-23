@@ -40,8 +40,9 @@ namespace	ft
 		_size = n;
 		_capacity = n;
 		_alloc = alloc;
-		_array = _alloc.allocate(n);
-		(void)val;
+		_array = n ? _alloc.allocate(n) : NULL;
+		for (size_type i = 0; i < n; ++i)
+			_alloc.construct(_array + i, val);
 	}
 
 	/*===================================*/
@@ -102,6 +103,42 @@ namespace	ft
 			throw std::out_of_range("vector::range_check: n (which is "
 					+ std::to_string(pos) + ") >= this->size() (which is "
 					+ std::to_string(this->_size) + ")");
+	}
+
+	template <typename T, typename Allocator>
+	typename vector<T, Allocator>::reference	vector<T, Allocator>::front()
+	{
+		return (this->_array[0]);
+	}
+
+	template <typename T, typename Allocator>
+	typename vector<T, Allocator>::const_reference	vector<T, Allocator>::front() const
+	{
+		return (this->_array[0]);
+	}
+
+	template <typename T, typename Allocator>
+	typename vector<T, Allocator>::reference	vector<T, Allocator>::back()
+	{
+		return (this->_array[this->_size - 1]);
+	}
+
+	template <typename T, typename Allocator>
+	typename vector<T, Allocator>::const_reference	vector<T, Allocator>::back() const
+	{
+		return (this->_array[this->_size - 1]);
+	}
+
+	template <typename T, typename Allocator>
+	typename vector<T, Allocator>::pointer	vector<T, Allocator>::data()
+	{
+		return (this->_array);
+	}
+
+	template <typename T, typename Allocator>
+	typename vector<T, Allocator>::const_pointer	vector<T, Allocator>::data() const
+	{
+		return (this->_array);
 	}
 }
 
