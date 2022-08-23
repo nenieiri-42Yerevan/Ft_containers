@@ -6,77 +6,94 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/23 14:01:26 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/23 14:35:41 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <iomanip>
 #include <vector>
-#include <exception>
+#include <stdexcept>
 #include "vector.hpp"
 #include "MyColors.hpp"
 
-int	main()
+void	example1()
 {
+	/* Example 1 */
 	/* Example for constructor without parametrs with double*/
 	/* Exaple for size and capacity with int*/
-	std::vector<int>	vec1;
+	std::vector<int>	vec;
+	std::cout << COLOR_PURPLE_B << "Example 1" << COLOR_END << std::endl;;
 	std::cout << COLOR_YELLOW_B;
-	std::cout << "std::vector -> capacity: " << vec1.capacity();
-	std::cout << ", size: " << vec1.size() << '.';
-	std::cout << COLOR_END << std::endl;
-	ft::vector<int>		ft_vec1;
-	std::cout << COLOR_GREEN_B;
-	std::cout << "ft::vector  -> capacity: " << ft_vec1.capacity();
-	std::cout << ", size: " << ft_vec1.size() << '.' << std::endl;
+	std::cout << "std::vector -> capacity: " << vec.capacity();
+	std::cout << ", size: " << vec.size() << '.';
 	std::cout << COLOR_END << std::endl;
 
+	ft::vector<int>		ft_vec;
+	std::cout << COLOR_GREEN_B;
+	std::cout << "ft::vector  -> capacity: " << ft_vec.capacity();
+	std::cout << ", size: " << ft_vec.size() << '.' << std::endl;
+	std::cout << COLOR_END << std::endl;
+}
+
+void	example2()
+{
+	/* Example 2 */
 	/* Example for constructor with 2 parametrs with double*/
 	/* Example for operator[] */
-	std::vector<double> vec2(10, double(58));
+	std::vector<double> vec(10, double(58));
+	std::cout << COLOR_PURPLE_B << "Example 2" << COLOR_END << std::endl;;
 	std::cout << std::fixed << std::setprecision(2) << COLOR_YELLOW_B;
-	std::cout << "std::vector -> capacity: " << vec2.capacity();
-	std::cout << ", size: " << vec2.size();
-	std::cout << ", value[8]: " << vec2[8] << '.';
-	std::cout << COLOR_END << std::endl;
-	ft::vector<double> ft_vec2(10, double(58));
-	std::cout << COLOR_GREEN_B;
-	std::cout << "ft::vector  -> capacity: " << ft_vec2.capacity();
-	std::cout << ", size: " << ft_vec2.size();
-	std::cout << ", value[8]: " << ft_vec2[8] << '.' << std::endl;
+	std::cout << "std::vector -> capacity: " << vec.capacity();
+	std::cout << ", size: " << vec.size();
+	std::cout << ", value[8]: " << vec[8] << '.';
 	std::cout << COLOR_END << std::endl;
 
-	/* Example for const operator[] and for function at() */
-	const std::vector<float> vec3(10, double(-60));
+	ft::vector<double> ft_vec(10, double(58));
+	std::cout << COLOR_GREEN_B;
+	std::cout << "ft::vector  -> capacity: " << ft_vec.capacity();
+	std::cout << ", size: " << ft_vec.size();
+	std::cout << ", value[8]: " << ft_vec[8] << '.' << std::endl;
+	std::cout << COLOR_END << std::endl;
+}
+
+void	example3()
+{
+	/* Example 3 */
+	/* Example for const operator[] and for function at() with float*/
+	const std::vector<float> vec(10, double(-60));
+	std::cout << COLOR_PURPLE_B << "Example 3" << COLOR_END << std::endl;;
 	std::cout << COLOR_YELLOW_B;
-	std::cout << "std::vector -> capacity: " << vec3.capacity();
-	std::cout << ", size: " << vec3.size();
-	std::cout << ", value[8]: " << vec3[8];
-	std::cout << ", at(3): " << vec3.at(3);
+	std::cout << "std::vector -> at(3): " << vec.at(3);
 	try
 	{
-		std::cout << ", at(10): " << vec3.at(10) << '.';
+		std::cout << ", at(10): " << vec.at(10) << '.';
 	}
-	catch (const std::exception &e)
+	catch (const std::out_of_range &e)
 	{
-		std::cout << "Out of range" << std::endl;
+		std::cout << e.what() << '.';
 	}
 	std::cout << COLOR_END << std::endl;
-	const ft::vector<float> ft_vec3(10, double(-60));
+
+	const ft::vector<float> ft_vec(10, double(-60));
 	std::cout << COLOR_GREEN_B;
-	std::cout << "ft::vector  -> capacity: " << ft_vec3.capacity();
-	std::cout << ", size: " << ft_vec3.size();
-	std::cout << ", value[8]: " << ft_vec3[8];
-//	std::cout << ", at(3): " << ft_vec3.at(3)
-/*	try
+	std::cout << "ft::vector -> at(3): " << ft_vec.at(3);
+	try
 	{
-		std::cout << ", at(10): " << ft_vec3.at(10) << '.';
+		std::cout << ", at(10): " << ft_vec.at(10) << '.';
 	}
-	catch (const std::exception &e)
+	catch (const std::out_of_range &e)
 	{
-		std::cout << "Out of range" << std::endl;
+		std::cout << e.what() << std::endl << '.';
 	}
-*/	std::cout << COLOR_END << std::endl;
+	std::cout << COLOR_END << std::endl;
+}
+
+int	main()
+{
+	example1();
+	example2();
+	example3();
+
 	return (0);
 }

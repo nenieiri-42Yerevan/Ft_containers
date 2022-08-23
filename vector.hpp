@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:22:31 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/23 13:27:42 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/23 14:17:00 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,8 @@ namespace	ft
 		public:
 			reference					operator[](size_type pos);
 			const_reference				operator[](size_type pos) const;
-			//at
+			reference					at(size_type pos);
+			const_reference				at(size_type pos) const;
 			//front
 			//back
 			//data

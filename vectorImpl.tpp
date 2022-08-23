@@ -79,6 +79,20 @@ namespace	ft
 	{
 		return (this->_array[pos]);
 	}
+
+	template <typename T, typename Allocator>
+	typename vector<T, Allocator>::reference \
+	vector<T, Allocator>::at(size_type pos)
+	{
+		return (this->_array[pos]);
+	}
+
+	template <typename T, typename Allocator>
+	typename vector<T, Allocator>::const_reference \
+	vector<T, Allocator>::at(size_type pos) const
+	{
+		return (this->_array[pos]);
+	}
 }
 
 #endif
