@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/23 14:35:41 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/23 15:50:10 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	example3()
 	std::cout << "std::vector -> at(3): " << vec.at(3);
 	try
 	{
-		std::cout << ", at(10): " << vec.at(10) << '.';
+		std::cout << ", at(13): " << vec.at(13) << '.';
 	}
 	catch (const std::out_of_range &e)
 	{
@@ -80,11 +80,11 @@ void	example3()
 	std::cout << "ft::vector -> at(3): " << ft_vec.at(3);
 	try
 	{
-		std::cout << ", at(10): " << ft_vec.at(10) << '.';
+		std::cout << ", at(13): " << ft_vec.at(13) << '.';
 	}
 	catch (const std::out_of_range &e)
 	{
-		std::cout << e.what() << std::endl << '.';
+		std::cout << e.what() << '.';
 	}
 	std::cout << COLOR_END << std::endl;
 }

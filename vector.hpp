@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:22:31 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/23 14:17:00 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/23 15:46:43 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include <memory>
 # include <cstddef>
+# include <stdexcept>
+# include <string>
 
 namespace	ft
 {

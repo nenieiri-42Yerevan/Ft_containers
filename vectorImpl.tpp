@@ -84,14 +84,24 @@ namespace	ft
 	typename vector<T, Allocator>::reference \
 	vector<T, Allocator>::at(size_type pos)
 	{
-		return (this->_array[pos]);
+		if (pos < this->_size)
+			return (this->_array[pos]);
+		else
+			throw std::out_of_range("vector::range_check: n (which is "
+					+ std::to_string(pos) + ") >= this->size() (which is "
+					+ std::to_string(this->_size) + ")");
 	}
 
 	template <typename T, typename Allocator>
 	typename vector<T, Allocator>::const_reference \
 	vector<T, Allocator>::at(size_type pos) const
 	{
-		return (this->_array[pos]);
+		if (pos < this->_size)
+			return (this->_array[pos]);
+		else
+			throw std::out_of_range("vector::range_check: n (which is "
+					+ std::to_string(pos) + ") >= this->size() (which is "
+					+ std::to_string(this->_size) + ")");
 	}
 }
 
