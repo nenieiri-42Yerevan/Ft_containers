@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:22:31 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/22 19:54:55 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/23 13:20:34 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,10 @@ namespace	ft
 			typedef size_t				size_type;
 
 			/* Member types (iterators) */
+			//iterator
+			//const iterator
+			//reverse iterator
+			//const reverse iterator
 		
 		/* Constructers and Destructer */
 		public:
@@ -42,6 +46,7 @@ namespace	ft
 			explicit	vector( size_type n,
 								const value_type &val = value_type(),
 								const allocator_type &alloc = allocator_type());
+			//verevin@ kisat
 
 		/* Member functions (capacity) */
 		public:
@@ -52,6 +57,15 @@ namespace	ft
 			//empty
 			//reserve
 			//shrinktofit
+
+		/* Member functions (Element access) */
+		public:
+			reference					operator[](size_type pos);
+			const_reference				operator[](size_type pos) const;
+			//at
+			//front
+			//back
+			//data
 
 		/* Member data */
 		private:

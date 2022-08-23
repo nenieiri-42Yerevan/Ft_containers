@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/22 20:00:48 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/23 13:23:30 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main()
 	ft::vector<double> ft_vec2(10, double(58));
 	std::cout << "ft::vector  -> capacity: " << ft_vec2.capacity();
 	std::cout << ", size: " << ft_vec2.size();
-	//std::cout << ", value[8]: " << ft_vec2[8] << '.' << std::endl;
+	std::cout << ", value[8]: " << ft_vec2[8] << '.' << std::endl;
 	std::cout << std::endl;
 	return (0);
 }

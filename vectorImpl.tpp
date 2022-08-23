@@ -49,15 +49,35 @@ namespace	ft
 	/*===================================*/
 	
 	template <typename T, typename Allocator>
-	typename vector<T, Allocator>::size_type	vector<T, Allocator>::size() const
+	typename vector<T, Allocator>::size_type \
+	vector<T, Allocator>::size() const
 	{
 		return (this->_size);
 	}
 
 	template <typename T, typename Allocator>
-	typename vector<T, Allocator>::size_type	vector<T, Allocator>::capacity() const
+	typename vector<T, Allocator>::size_type \
+	vector<T, Allocator>::capacity() const
 	{
 		return (this->_capacity);
+	}
+
+	/*=========================================*/
+	/* 	  Member functions (Element access)    */
+	/*=========================================*/
+	
+	template <typename T, typename Allocator>
+	typename vector<T, Allocator>::reference \
+	vector<T, Allocator>::operator[](size_type pos)
+	{
+		return (this->_array[pos]);
+	}
+
+	template <typename T, typename Allocator>
+	typename vector<T, Allocator>::const_reference \
+	vector<T, Allocator>::operator[](size_type pos) const
+	{
+		return (this->_array[pos]);
 	}
 }
 
