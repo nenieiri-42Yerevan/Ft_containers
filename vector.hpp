@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:22:31 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/24 18:50:47 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/24 19:46:41 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ namespace	ft
 			size_type					max_size() const;
 			//resize
 			size_type					capacity() const;
-			//empty
+			bool						empty() const;
 			void						reserve(size_type new_cap);
 
 		/* Member functions (Element access) */

@@ -81,6 +81,12 @@ namespace	ft
 	}
 
 	template <typename T, typename Allocator>
+	bool	vector<T, Allocator>::empty() const
+	{
+		return (this->_size == 0);
+	}
+
+	template <typename T, typename Allocator>
 	void	vector<T, Allocator>::reserve(size_type new_cap)
 	{
 		pointer		tmp;

@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/24 18:57:03 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/24 19:53:40 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -224,6 +224,7 @@ void	example7()
 	/* Example 7 */
 	/* Example for push_back() and pop_back() */
 	/* Example for clear() function */
+	/* Example for empty() function */
 
 	std::vector<int> vec(5, (int)(42));
 	std::cout << COLOR_PURPLE_B << "Example 7" << COLOR_END << std::endl;;
@@ -235,12 +236,14 @@ void	example7()
 		vec.push_back(i);
 	vec.pop_back();
 	vec.pop_back();
-	std::cout << " values:";
+	std::cout << ", is_empty: " << vec.empty();
+	std::cout << ", values:";
 	for (size_t i = 0; i < vec.size(); ++i)
 		std::cout << ' ' << vec[i];
 	vec.clear();
 	std::cout << ", after clear capacity: " << vec.capacity();
 	std::cout << ", size: " << vec.size();
+	std::cout << ", is_empty: " << vec.empty();
 	std::cout << '.' << COLOR_END << std::endl;
 
 	ft::vector<int> ft_vec(5, (int)(42));
@@ -252,12 +255,14 @@ void	example7()
 		ft_vec.push_back(i);
 	ft_vec.pop_back();
 	ft_vec.pop_back();
-	std::cout << " values:";
+	std::cout << ", is_empty: " << ft_vec.empty();
+	std::cout << ", values:";
 	for (size_t i = 0; i < ft_vec.size(); ++i)
 		std::cout << ' ' << ft_vec[i];
 	ft_vec.clear();
 	std::cout << ", after clear capacity: " << ft_vec.capacity();
 	std::cout << ", size: " << ft_vec.size();
+	std::cout << ", is_empty: " << ft_vec.empty();
 	std::cout << '.' << COLOR_END << std::endl;
 }
 
