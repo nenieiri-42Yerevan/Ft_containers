@@ -216,6 +216,14 @@ namespace	ft
 		this->_size -= 1;
 	}
 
+	template <typename T, typename Allocator>
+	void	vector<T,Allocator>::clear()
+	{
+		for (size_type i = 0; i < this->_size; ++i)
+			this->_alloc.destroy(this->_array + i);
+		this->_size = 0;
+	}
+
 	/*====================================*/
 	/* 	  Member functions (Allocator)    */
 	/*====================================*/

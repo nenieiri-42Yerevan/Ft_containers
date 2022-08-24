@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:22:31 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/24 16:52:23 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/24 18:50:47 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,7 @@ namespace	ft
 			//insert
 			//erase
 			//swap
-			//clear
-			//emplace
-			//emplace_back
+			void						clear();
 
 		/* Member functions (Allocator) */
 		public:
