@@ -19,7 +19,6 @@
 
 namespace	ft
 {
-
 	/*===================================*/
     /*    Constructors and Destructor	 */
     /*===================================*/
@@ -68,6 +67,37 @@ namespace	ft
 	vector<T, Allocator>::capacity() const
 	{
 		return (this->_capacity);
+	}
+
+	template <typename T, typename Allocator>
+	void	vector<T, Allocator>::reserve(size_type new_cap)
+	{
+		pointer		tmp;
+		size_type	i;
+
+		if (this->_size ==  this->max_size())
+			throw std::length_error("vector::out of max_size");
+		else if (new_cap > this->_capacity)
+		{
+			tmp = this->_alloc.allocate(new_cap);
+			try
+			{
+				for (i = 0; i < this->_size; ++i)
+				{
+					this->_alloc.construct(tmp + i, this->_array[i]);
+					this->_alloc.destroy(&(this->_array[i]));
+				}
+			}
+			catch (...)
+			{
+				for (size_type j = 0; j < i; j++)
+                	this->_alloc.destroy(tmp + j);
+				throw ;
+			}
+			this->_alloc.deallocate(this->_array, this->_capacity);
+			this->_capacity = new_cap;
+			this->_array = tmp;
+		}
 	}
 
 	/*=========================================*/
@@ -146,6 +176,26 @@ namespace	ft
 	typename vector<T, Allocator>::const_pointer	vector<T, Allocator>::data() const
 	{
 		return (this->_array);
+	}
+
+	/*====================================*/
+	/* 	  Member functions (Modifiers)    */
+	/*====================================*/
+	
+	template <typename T, typename Allocator>
+	void	vector<T, Allocator>::push_back(const value_type &val)
+	{
+		if (this->_size == this->_capacity)
+		{
+			if (this->_capacity == 0)
+				this->reserve(1);
+			else if (this->max_size() >= this->_capacity * 2)
+				this->reserve(this->_capacity * 2);
+			else
+				this->reserve(this->max_size());
+		}
+		this->_alloc.construct(this->_array + this->_size, val);
+		this->_size += 1;
 	}
 
 	/*====================================*/
