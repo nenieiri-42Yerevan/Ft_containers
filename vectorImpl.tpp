@@ -209,6 +209,13 @@ namespace	ft
 		this->_size += 1;
 	}
 
+	template <typename T, typename Allocator>
+	void	vector<T, Allocator>::pop_back()
+	{
+		this->_alloc.destroy(&this->back());
+		this->_size -= 1;
+	}
+
 	/*====================================*/
 	/* 	  Member functions (Allocator)    */
 	/*====================================*/

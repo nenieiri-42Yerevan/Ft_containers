@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:22:31 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/24 15:10:31 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/24 16:52:23 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ namespace	ft
 			explicit	vector( size_type n,
 								const value_type &val = value_type(),
 								const allocator_type &alloc = allocator_type());
-			//kisata
+			// + 2 hat el ka
 
 		/* Member functions (capacity) */
 		public:
@@ -76,7 +76,7 @@ namespace	ft
 		public:
 			//assign
 			void						push_back(const value_type &val);
-			//pop_back
+			void						pop_back();
 			//insert
 			//erase
 			//swap

@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/24 13:42:32 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/24 18:31:27 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -216,6 +216,41 @@ void	example6()
 	for (int i = 0; i < 3; ++i)
 		std::cout << ' ' << p[i];
 
+	std::cout << '.' << COLOR_END << std::endl << std::endl;;
+}
+
+void	example7()
+{
+	/* Example 7 */
+	/* Example for push_back() and pop_back() */
+
+	std::vector<int> vec(5, (int)(42));
+	std::cout << COLOR_PURPLE_B << "Example 7" << COLOR_END << std::endl;;
+	std::cout << COLOR_YELLOW_B;
+	std::cout << "std::vector -> capacity: " << vec.capacity();
+	std::cout << ", size: " << vec.size();
+
+	for (size_t i = 50; i < 55; ++i)
+		vec.push_back(i);
+	vec.pop_back();
+	vec.pop_back();
+	std::cout << " values:";
+	for (size_t i = 0; i < vec.size(); ++i)
+		std::cout << ' ' << vec[i];
+	std::cout << '.' << COLOR_END << std::endl;
+
+	ft::vector<int> ft_vec(5, (int)(42));
+	std::cout << COLOR_GREEN_B;
+	std::cout << "ft::vector  -> capacity: " << ft_vec.capacity();
+	std::cout << ", size: " << ft_vec.size();
+
+	for (size_t i = 50; i < 55; ++i)
+		ft_vec.push_back(i);
+	ft_vec.pop_back();
+	ft_vec.pop_back();
+	std::cout << " values:";
+	for (size_t i = 0; i < ft_vec.size(); ++i)
+		std::cout << ' ' << ft_vec[i];
 	std::cout << '.' << COLOR_END << std::endl;
 }
 
@@ -227,6 +262,7 @@ int	main()
 	example4();
 	example5();
 	example6();
+	example7();
 
 	return (0);
 }
