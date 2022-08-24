@@ -36,12 +36,23 @@ namespace	ft
 	vector<T, Allocator>::vector(size_type n, const value_type &val, \
 			const allocator_type &alloc)
 	{
+		size_type	i;
+
 		_size = n;
 		_capacity = n;
 		_alloc = alloc;
 		_array = n ? _alloc.allocate(n) : NULL;
-		for (size_type i = 0; i < n; ++i)
-			_alloc.construct(_array + i, val);
+		try
+		{
+			for (i = 0; i < n; ++i)
+				_alloc.construct(_array + i, val);
+		}
+		catch (...)
+		{
+			for (size_type j = 0; j < i; ++j)
+				_alloc.destroy(_array + j);
+			throw ;
+		}
 	}
 
 	/*===================================*/
