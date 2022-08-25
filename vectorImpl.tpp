@@ -51,6 +51,7 @@ namespace	ft
 		{
 			for (size_type j = 0; j < i; ++j)
 				_alloc.destroy(_array + j);
+			this->_alloc.deallocate(this->_array, n);
 			throw ;
 		}
 	}
@@ -109,6 +110,7 @@ namespace	ft
 			{
 				for (size_type j = 0; j < i; j++)
                 	this->_alloc.destroy(tmp + j);
+				this->_alloc.deallocate(tmp, new_cap);
 				throw ;
 			}
 			this->_alloc.deallocate(this->_array, this->_capacity);

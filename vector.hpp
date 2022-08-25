@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:22:31 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/24 19:46:41 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/25 14:04:46 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ namespace	ft
 		public:
 			typedef T					value_type;
 			typedef Allocator			allocator_type;
-			typedef value_type&			reference;
-			typedef const value_type&	const_reference;
-			typedef value_type*			pointer;
-			typedef const value_type*	const_pointer;
+			typedef value_type			&reference;
+			typedef const value_type	&const_reference;
+			typedef value_type			*pointer;
+			typedef const value_type	*const_pointer;
 			typedef ptrdiff_t			difference_type;
 			typedef size_t				size_type;
 
