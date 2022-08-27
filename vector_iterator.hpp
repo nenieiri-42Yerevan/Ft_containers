@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 13:36:50 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/27 13:41:42 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/27 15:22:55 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,17 @@ namespace	ft
 	class	vector_iterator : public iterator<random_access_iterator_tag, T>
 	{
 		public:
-
+			vector_iterator();
+			vector_iterator(const vector_iterator &other);
+			vector_iterator	&operator=(const vector_iterator &other);
+			~vector_iterator();
+		public:
+			bool		operator==(const vector_iterator &other) const;
+			bool		operator!=(const vector_iterator &other) const;
+			reference	operator*() const;
+			pointer		operator->() const;
+		private:
+			pointer		_elem;
 	};
 }
 
