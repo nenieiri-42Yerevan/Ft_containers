@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 13:36:50 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/27 15:22:55 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/27 16:32:35 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,29 @@ namespace	ft
 		public:
 			vector_iterator();
 			vector_iterator(const vector_iterator &other);
-			vector_iterator	&operator=(const vector_iterator &other);
+			vector_iterator		&operator=(const vector_iterator &other);
 			~vector_iterator();
 		public:
-			bool		operator==(const vector_iterator &other) const;
-			bool		operator!=(const vector_iterator &other) const;
-			reference	operator*() const;
-			pointer		operator->() const;
+			bool				operator==(const vector_iterator &other) const;
+			bool				operator!=(const vector_iterator &other) const;
+			reference			operator*() const;
+			pointer				operator->() const;
+			vector_iterator<T>	&operator++();
+			vector_iterator<T>	operator++(int);
+			vector_iterator<T>	&operator--();
+			vector_iterator<T>	operator--(int);
+			reference			operator[](difference_type num) const;
+			vector_iterator<T>	operator+(difference_type num) const;
+			vector_iterator<T>	operator-(difference_type num) const;
+			vector_iterator<T>	&operator+=(difference_type num);
+			vector_iterator<T>	&operator-=(difference_type num);
+			difference_type		operator-(const vector_iterator<T> &other) const;
+			bool				operator>(const vector_iterator<T> &other) const;
+			bool				operator<(const vector_iterator<T> &other) const;
+			bool				operator>=(const vector_iterator<T> &other) const;
+			bool				operator<=(const vector_iterator<T> &other) const;
 		private:
-			pointer		_elem;
+			pointer				_elem;
 	};
 }
 
