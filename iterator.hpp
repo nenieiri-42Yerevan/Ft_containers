@@ -6,12 +6,12 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 15:47:53 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/27 13:07:37 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/27 13:30:10 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ft_ITERATOR_HPP
-# define ft_ITERATOR_HPP
+#ifndef FT_ITERATOR_HPP
+# define FT_ITERATOR_HPP
 
 struct	input_iterator_tag
 {

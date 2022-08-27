@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_VECTORIMPL_TPP
-# define FT_VECTORIMPL_TPP
+#ifndef FT_VECTOR_IMPL_TPP
+# define FT_VECTOR_IMPL_TPP
 
 # ifndef FT_VECTOR_HPP
 # error vectorImpl.tpp should only be included from vector.hpp.
