@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/24 19:53:40 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/28 13:36:52 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void	example3()
 
 	const ft::vector<float> ft_vec(10, float(-60));
 	std::cout << COLOR_GREEN_B;
-	std::cout << "ft::vector -> at(3): " << ft_vec.at(3);
+	std::cout << "ft::vector  -> at(3): " << ft_vec.at(3);
 	try
 	{
 		std::cout << ", at(13): " << ft_vec.at(13) << '.';

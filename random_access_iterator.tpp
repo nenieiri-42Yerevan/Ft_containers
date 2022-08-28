@@ -13,7 +13,7 @@
 #ifndef FT_RANDOM_ACCESS_ITERATOR_TPP
 # define FT_RANDOM_ACCESS_ITERATOR_TPP
 
-# ifndef FT_RANDOM_ACCESS_HPP
+# ifndef FT_RANDOM_ACCESS_ITERATOR_HPP
 # error random_access_iterator.tpp should only be included from random_access_iterator.hpp.
 # endif
 
@@ -36,7 +36,8 @@ namespace	ft
 	}
 
 	template <typename T>
-	random_access_iterator	&random_access_iterator<T>::operator=(const random_access_iterator &other)
+	random_access_iterator<T>	&
+	random_access_iterator<T>::operator=(const random_access_iterator<T> &other)
 	{
 		if (this != &other)
 			this->_elem = other._elem;
@@ -61,26 +62,28 @@ namespace	ft
 	}
 
 	template <typename T>
-	typename reference	random_access_iterator<T>::operator*() const
+	typename random_access_iterator<T>::reference
+	random_access_iterator<T>::operator*() const
 	{
 		return (*(this->_elem));
 	}
 
 	template <typename T>
-	typename pointer	random_access_iterator<T>::operator->() const
+	typename random_access_iterator<T>::pointer
+	random_access_iterator<T>::operator->() const
 	{
 		return (this->_elem);
 	}
 
 	template <typename T>
-	typename random_access_iterator<T>	&random_access_iterator<T>::operator++() const
+	random_access_iterator<T>	&random_access_iterator<T>::operator++()
 	{
 		this->_elem += 1;
 		return (this);
 	}
 
 	template <typename T>
-	typename random_access_iterator<T>	random_access_iterator<T>::operator++(int) const
+	random_access_iterator<T>	random_access_iterator<T>::operator++(int)
 	{
 		random_access_iterator<T>	temp;
 		temp = *this;
@@ -89,14 +92,14 @@ namespace	ft
 	}
 
 	template <typename T>
-	typename random_access_iterator<T>	&random_access_iterator<T>::operator--() const
+	random_access_iterator<T>	&random_access_iterator<T>::operator--()
 	{
 		this->_elem -= 1;
 		return (this);
 	}
 
 	template <typename T>
-	typename random_access_iterator<T>	random_access_iterator<T>::operator--(int) const
+	random_access_iterator<T>	random_access_iterator<T>::operator--(int)
 	{
 		random_access_iterator<T>	temp;
 		temp = *this;
@@ -105,13 +108,16 @@ namespace	ft
 	}
 
 	template <typename T>
-	typename reference	random_access_iterator<T>::operator[](difference_type num);
+	typename random_access_iterator<T>::reference
+	random_access_iterator<T>::operator[](difference_type num) const
 	{
 		return (*(operator+(num)));
 	}
 
 	template <typename T>
-	typename random_access_iterator<T>	random_access_iterator<T>::operator+(difference_type num) const
+	random_access_iterator<T>
+	random_access_iterator<T>::operator+
+	(random_access_iterator<T>::difference_type num) const
 	{
 		random_access_iterator<T>	temp;
 		temp._elem += num;
@@ -119,7 +125,7 @@ namespace	ft
 	}
 
 	template <typename T>
-	typename random_access_iterator<T>	random_access_iterator<T>::operator-(difference_type num) const
+	random_access_iterator<T>	random_access_iterator<T>::operator-(difference_type num) const
 	{
 		random_access_iterator<T>	temp;
 		temp._elem -= num;
@@ -127,14 +133,14 @@ namespace	ft
 	}
 
 	template <typename T>
-	typename random_access_iterator<T>	&random_access_iterator<T>::operator+=(difference_type num)
+	random_access_iterator<T>	&random_access_iterator<T>::operator+=(difference_type num)
 	{
 		this->_elem += num;
 		return (*this);
 	}
 
 	template <typename T>
-	typename random_access_iterator<T>	&random_access_iterator<T>::operator-=(difference_type num)
+	random_access_iterator<T>	&random_access_iterator<T>::operator-=(difference_type num)
 	{
 		this->_elem -= num;
 		return (*this);

@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:22:31 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/28 12:59:49 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/28 13:30:01 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ namespace	ft
 		public:
 			iterator					begin();
 			const_iterator				begin() const;
-			// end
+			iterator					end();
+			const_iterator				end() const;
 			// rbegin
 			// rend
 
@@ -103,6 +104,6 @@ namespace	ft
 	};
 }
 
-# include "vectorImpl.tpp"
+# include "vector_impl.tpp"
 
 #endif

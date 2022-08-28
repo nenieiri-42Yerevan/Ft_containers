@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 15:47:53 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/27 13:30:10 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/28 13:40:02 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ struct iterator_traits
 };
 
 template <class T>
-struct iterator_traits
+struct iterator_traits<T*>
 {
 	typedef random_access_iterator_tag				iterator_category;
 	typedef T										value_type;
@@ -69,7 +69,7 @@ struct iterator_traits
 };
 
 template <class T>
-struct iterator_traits
+struct iterator_traits<const T*>
 {
 	typedef random_access_iterator_tag				iterator_category;
 	typedef T										value_type;
