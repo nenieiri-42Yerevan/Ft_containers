@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:22:31 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/25 14:04:46 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/28 12:59:49 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <cstddef>
 # include <stdexcept>
 # include <string>
+# include "random_access_iterator.hpp"
 
 namespace	ft
 {
@@ -35,10 +36,9 @@ namespace	ft
 			typedef const value_type	*const_pointer;
 			typedef ptrdiff_t			difference_type;
 			typedef size_t				size_type;
-
 			/* Member types (iterators) */
-			//iterator
-			//const iterator
+			typedef random_access_iterator<T>		iterator;
+			typedef random_access_iterator<const T>	const_iterator;
 			//reverse iterator
 			//const reverse iterator
 		
@@ -50,7 +50,15 @@ namespace	ft
 								const allocator_type &alloc = allocator_type());
 			// + 2 hat el ka
 
-		/* Member functions (capacity) */
+		/* Member functions (Iterators) */
+		public:
+			iterator					begin();
+			const_iterator				begin() const;
+			// end
+			// rbegin
+			// rend
+
+		/* Member functions (Capacity) */
 		public:
 			size_type					size() const;
 			size_type					max_size() const;

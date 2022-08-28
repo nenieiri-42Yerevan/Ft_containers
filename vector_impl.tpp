@@ -56,8 +56,36 @@ namespace	ft
 		}
 	}
 
+	/*====================================*/
+	/* 	  Member functions (Iterators)    */
+	/*====================================*/
+
+	template <typename T, typename Allocator>
+	typename vector<T, Allocator>::iterator	vector<T, Allocator>::begin()
+	{
+		return (iterator(this->_array));
+	}
+
+	template <typename T, typename Allocator>
+	typename vector<T, Allocator>::const_iterator	vector<T, Allocator>::begin() const
+	{
+		return (const_iterator(this->_array));
+	}
+
+	template <typename T, typename Allocator>
+	typename vector<T, Allocator>::iterator	vector<T, Allocator>::end()
+	{
+		return (iterator(this->_array + this->_size));
+	}
+
+	template <typename T, typename Allocator>
+	typename vector<T, Allocator>::const_iterator	vector<T, Allocator>::end() const
+	{
+		return (const_iterator(this->_array + this->_size));
+	}
+
 	/*===================================*/
-	/* 	  Member functions (capacity)    */
+	/* 	  Member functions (Capacity)    */
 	/*===================================*/
 	
 	template <typename T, typename Allocator>
