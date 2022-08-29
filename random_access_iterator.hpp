@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 13:36:50 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/28 15:11:10 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/29 09:28:54 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ namespace	ft
             typedef T							value_type;
 		public:
 			random_access_iterator();
-			random_access_iterator(pointer	ptr);
+			random_access_iterator(pointer ptr);
 			random_access_iterator(const random_access_iterator &other);
 			random_access_iterator		&operator=(const random_access_iterator &other);
 			virtual						~random_access_iterator();

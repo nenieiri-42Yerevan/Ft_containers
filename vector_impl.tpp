@@ -38,22 +38,90 @@ namespace	ft
 	{
 		size_type	i;
 
-		_size = n;
-		_capacity = n;
 		_alloc = alloc;
 		_array = n ? _alloc.allocate(n) : NULL;
+		_capacity = n;
+		_size = 0;
 		try
 		{
 			for (i = 0; i < n; ++i)
+			{
 				_alloc.construct(_array + i, val);
+				_size += 1;
+			}
 		}
 		catch (...)
 		{
-			for (size_type j = 0; j < i; ++j)
-				_alloc.destroy(_array + j);
+			this->_clear();
 			this->_alloc.deallocate(this->_array, n);
 			throw ;
 		}
+	}
+
+	template <typename T, typename Allocator>
+	template <typename InputIterator>
+	vector<T, Allocator>::vector(InputIterator first, InputIterator last,
+			const allocator_type &alloc = allocator_type());
+	{
+		difference_type	n;
+
+		n = distance(first, last);
+		_alloc = alloc;
+		_array = this->_alloc.allocate(n);
+		_capacity = n;
+		_size = 0;
+		try
+		{
+			while (first != last)
+			{
+				this->push_back(*first);
+				++first;
+				this->_size += 1;
+			}
+		}
+		catch (...)
+		{
+			this->_clear();
+			this->_alloc.deallocate(this->_array, n);
+			throw ;
+		}
+	}
+
+	template <typename T, typename Allocator>
+	vector<T, Allocator>::vector(const vector &other)
+	{
+		this->_alloc = other._alloc;
+		this->_alloc.allocate(other._capacity);
+		this->_capacity = other._capacity;
+		this->_size = 0;
+		while (this->_size != other._size)
+			this->push_back(other[this->_size]);
+	}
+
+	template <typename T, typename Allocator>
+	vector<T, Allocator>	&vector<T, Allocator>::operator=(const vector &other)
+	{
+		if (this != &other)
+		{
+			this->clear();
+			if (this->_array != 0)
+				this->_alloc.deallocate(this->_array, this->_capacity);
+			this->_alloc = other._alloc;
+			this->_alloc.allocate(other._capacity);
+			this->_capacity = other._capacity;
+			this->_size = 0;
+			while (this->_size != other._size)
+				this->push_back(other[this->_size]);
+		}
+		return (*this);
+	}
+
+	template <typename T, typename Allocator>
+	vector<T, Allocator>::~vector()
+	{
+		this->clear();
+		if (this->_array != 0)
+			this->_alloc.deallocate(this->_array, this->_capacity);
 	}
 
 	/*====================================*/

@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:22:31 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/28 13:30:01 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/29 10:49:30 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ namespace	ft
 			typedef ptrdiff_t			difference_type;
 			typedef size_t				size_type;
 			/* Member types (iterators) */
-			typedef random_access_iterator<T>		iterator;
-			typedef random_access_iterator<const T>	const_iterator;
-			//reverse iterator
-			//const reverse iterator
+			typedef random_access_iterator<T>			iterator;
+			typedef random_access_iterator<const T>		const_iterator;
+//			typedef reverse_iterator<iterator>			reverse_iterator
+//			typedef reverse_iterator<const_iterator>	const_reverse_iterator;
 		
 		/* Constructers and Destructer */
 		public:
@@ -48,7 +48,12 @@ namespace	ft
 			explicit	vector( size_type n,
 								const value_type &val = value_type(),
 								const allocator_type &alloc = allocator_type());
-			// + 2 hat el ka
+			template <typename InputIterator>
+			vector(InputIterator first, InputIterator last,
+					const allocator_type &alloc = allocator_type());
+			vector(const vector &other);
+			vector	&operator=(const vector &other);
+			~vector();
 
 		/* Member functions (Iterators) */
 		public:
