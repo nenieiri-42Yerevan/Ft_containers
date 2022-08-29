@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/29 09:51:31 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/29 11:35:29 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,7 @@ void	example4()
 	/* Example 4 */
 	/* Example for front() and back() functions */
 
-	const std::vector<int> vec(3, double(58));
+	const std::vector<int> vec(3, int(58));
 	std::cout << COLOR_PURPLE_B << "Example 4" << COLOR_END << std::endl;;
 	std::cout << COLOR_YELLOW_B;
 	std::cout << "std::vector -> capacity: " << vec.capacity();
@@ -387,20 +387,20 @@ void	example9()
 	std::cout << ", it2 != it1: " << (ft_it2 != ft_it1);
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
-
+/*
 void	example10()
 {
-	/* Example 10 */
+*/	/* Example 10 */
 	/* Example for const iterators comparison */
-
+/*
 	std::vector<const int> vec;
 	std::cout << COLOR_PURPLE_B << "Example 10" << COLOR_END << std::endl;;
 	std::cout << COLOR_YELLOW_B;
 	std::cout << "std::vector -> ";
-
+*/
 //	for (size_t i = 50; i < 55; ++i)
 //		vec.push_back(i);
-	std::cout << "values:";
+/*	std::cout << "values:";
 	for (size_t i = 0; i < vec.size(); ++i)
 		std::cout << ' ' << vec[i];
 	std::vector<int>::const_iterator	it1 = vec.begin();
@@ -446,7 +446,7 @@ void	example10()
 	std::cout << ", it2 != it1: " << (ft_it4 != ft_it3);
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
-/*
+
 void	example11()
 {
 */	/* Example 11 */
@@ -517,7 +517,7 @@ int	main()
 	example7();
 	example8();
 	example9();
-	example10();
+//	example10();
 //	example11();
 
 	return (0);

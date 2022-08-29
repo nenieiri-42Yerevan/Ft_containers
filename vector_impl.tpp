@@ -52,7 +52,7 @@ namespace	ft
 		}
 		catch (...)
 		{
-			this->_clear();
+			this->clear();
 			this->_alloc.deallocate(this->_array, n);
 			throw ;
 		}
@@ -61,7 +61,7 @@ namespace	ft
 	template <typename T, typename Allocator>
 	template <typename InputIterator>
 	vector<T, Allocator>::vector(InputIterator first, InputIterator last,
-			const allocator_type &alloc = allocator_type());
+			const allocator_type &alloc)
 	{
 		difference_type	n;
 
@@ -81,7 +81,7 @@ namespace	ft
 		}
 		catch (...)
 		{
-			this->_clear();
+			this->clear();
 			this->_alloc.deallocate(this->_array, n);
 			throw ;
 		}
