@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 13:36:50 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/29 09:28:54 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/30 10:28:23 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ namespace	ft
 			random_access_iterator(pointer ptr);
 			random_access_iterator(const random_access_iterator &other);
 			random_access_iterator		&operator=(const random_access_iterator &other);
+			operator 					random_access_iterator<const T> () const;
 			virtual						~random_access_iterator();
 		public:
 			bool						operator==(const random_access_iterator &other) const;
@@ -51,9 +52,14 @@ namespace	ft
 			bool						operator<(const random_access_iterator<T> &other) const;
 			bool						operator>=(const random_access_iterator<T> &other) const;
 			bool						operator<=(const random_access_iterator<T> &other) const;
+			pointer						base() const;
 		private:
 			pointer						_elem;
 	};
+
+	template <typename T_L, typename T_R>
+	typename random_access_iterator<T_L>::difference_type
+	operator-(const random_access_iterator<T_L> &lhs, const random_access_iterator<T_R> &rhs);
 }
 
 # include "random_access_iterator.tpp"

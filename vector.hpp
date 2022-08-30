@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:22:31 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/29 11:29:44 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/29 13:07:21 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdexcept>
 # include <string>
 # include "random_access_iterator.hpp"
+# include "type_traits.hpp"
 
 namespace	ft
 {
@@ -48,9 +49,13 @@ namespace	ft
 			explicit	vector( size_type n,
 								const value_type &val = value_type(),
 								const allocator_type &alloc = allocator_type());
+	
 			template <typename InputIterator>
 			vector(InputIterator first, InputIterator last,
-					const allocator_type &alloc = allocator_type());
+					const allocator_type &alloc = allocator_type(),
+			typename enable_if<!is_integral<InputIterator>::value, 
+								InputIterator>::type* = 0);
+
 			vector(const vector &other);
 			vector	&operator=(const vector &other);
 			~vector();

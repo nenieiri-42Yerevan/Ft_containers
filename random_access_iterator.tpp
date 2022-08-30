@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   random_access_iterator.tpp                                :+:      :+:    :+:   */
+/*   random_access_iterator.tpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -33,6 +33,12 @@ namespace	ft
 	random_access_iterator<T>::random_access_iterator(const random_access_iterator &other)
 	{
 		this->_elem = other._elem;
+	}
+
+	template<typename T>
+	random_access_iterator<T>::operator random_access_iterator<const T> () const
+	{
+		return (random_access_iterator<const T>(this->_elem));
 	}
 
 	template <typename T>
@@ -175,6 +181,21 @@ namespace	ft
 	bool	random_access_iterator<T>::operator<=(const random_access_iterator &other) const
 	{
 		return (this->_elem <= other._elem);
+	}
+
+	template <typename T>
+	typename random_access_iterator<T>::pointer	random_access_iterator<T>::base() const
+	{
+		return (this->_elem);
+	}
+
+	/* For constants  */
+
+	template <typename T_L, typename T_R>
+	typename random_access_iterator<T_L>::difference_type
+	operator-(const random_access_iterator<T_L> &lhs, const random_access_iterator<T_R> &rhs)
+	{
+		return (lhs.base() - rhs.base());
 	}
 }
 

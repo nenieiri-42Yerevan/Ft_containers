@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/29 11:35:29 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/29 19:55:31 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -199,7 +199,11 @@ void	example6()
 		vec.get_allocator().construct(&p[i], i);
 	std::cout << ", allocated array:";
 	for (int i = 0; i < 3; ++i)
+	{
 		std::cout << ' ' << p[i];
+		vec.get_allocator().destroy(&p[i]);
+	}
+	vec.get_allocator().deallocate(p, 3);
 
 	std::cout << '.' << COLOR_END << std::endl;
 
@@ -214,7 +218,11 @@ void	example6()
 		ft_vec.get_allocator().construct(&p[i], i);
 	std::cout << ", allocated array:";
 	for (int i = 0; i < 3; ++i)
+	{
 		std::cout << ' ' << p[i];
+		ft_vec.get_allocator().destroy(&p[i]);
+	}
+	ft_vec.get_allocator().deallocate(p, 3);
 
 	std::cout << '.' << COLOR_END << std::endl << std::endl;;
 }
@@ -387,20 +395,20 @@ void	example9()
 	std::cout << ", it2 != it1: " << (ft_it2 != ft_it1);
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
-/*
+
 void	example10()
 {
-*/	/* Example 10 */
+	/* Example 10 */
 	/* Example for const iterators comparison */
-/*
-	std::vector<const int> vec;
+
+	std::vector< int> vec;
 	std::cout << COLOR_PURPLE_B << "Example 10" << COLOR_END << std::endl;;
 	std::cout << COLOR_YELLOW_B;
 	std::cout << "std::vector -> ";
-*/
-//	for (size_t i = 50; i < 55; ++i)
-//		vec.push_back(i);
-/*	std::cout << "values:";
+
+	for (size_t i = 50; i < 55; ++i)
+		vec.push_back(i);
+	std::cout << "values:";
 	for (size_t i = 0; i < vec.size(); ++i)
 		std::cout << ' ' << vec[i];
 	std::vector<int>::const_iterator	it1 = vec.begin();
@@ -412,15 +420,15 @@ void	example10()
 	std::cout << ", it2 <= it1: " << (it2 <= it1);
 	std::cout << ", it2 == it1: " << (it2 == it1);
 	std::cout << ", it2 != it1: " << (it2 != it1);
-	std::vector<const int>::iterator	it3 = vec.begin() + 2;
-	std::vector<const int>::iterator	it4 = vec.begin() + 2;
+	std::vector<int>::const_iterator	it3 = vec.begin() + 2;
+	std::vector<int>::const_iterator	it4 = vec.begin() + 2;
 	std::cout << ", it2 >= it1: " << (it4 >= it3);
 	std::cout << ", it2 <= it1: " << (it4 <= it3);
 	std::cout << ", it2 == it1: " << (it4 == it3);
 	std::cout << ", it2 != it1: " << (it4 != it3);
 	std::cout << '.' << COLOR_END << std::endl;
 
-	ft::vector<const int> ft_vec;
+	ft::vector<int> ft_vec;
 	std::cout << COLOR_GREEN_B;
 	std::cout << "ft::vector  -> ";
 
@@ -449,9 +457,9 @@ void	example10()
 
 void	example11()
 {
-*/	/* Example 11 */
+	/* Example 11 */
 	/* Example for const and non-const iterators comparison */
-/*
+
 	std::vector<int> vec;
 	std::cout << COLOR_PURPLE_B << "Example 11" << COLOR_END << std::endl;;
 	std::cout << COLOR_YELLOW_B;
@@ -471,7 +479,7 @@ void	example11()
 	std::cout << ", it2 <= it1: " << (it2 <= it1);
 	std::cout << ", it2 == it1: " << (it2 == it1);
 	std::cout << ", it2 != it1: " << (it2 != it1);
-	const std::vector<int>::iterator	it3 = vec.begin() + 2;
+	std::vector<const int>::iterator	it3 = vec.begin() + 2;
 	std::vector<int>::iterator	it4 = vec.begin() + 2;
 	std::cout << ", it2 >= it1: " << (it4 >= it3);
 	std::cout << ", it2 <= it1: " << (it4 <= it3);
@@ -491,21 +499,67 @@ void	example11()
 	ft::vector<const int>::iterator	ft_it1 = ft_vec.begin();
 	ft::vector<int>::iterator	ft_it2 = ft_vec.begin() + 2;
 	std::cout << ", it2 - it1: " << (ft_it2 - ft_it1);
-	std::cout << ", it2 > it1: " << (ft_it2 > ft_it1);
-	std::cout << ", it2 < it1: " << (ft_it2 < ft_it1);
-	std::cout << ", it2 >= it1: " << (ft_it2 >= ft_it1);
-	std::cout << ", it2 <= it1: " << (ft_it2 <= ft_it1);
-	std::cout << ", it2 == it1: " << (ft_it2 == ft_it1);
-	std::cout << ", it2 != it1: " << (ft_it2 != ft_it1);
-	const ft::vector<int>::iterator	ft_it3 = ft_vec.begin() + 2;
+//	std::cout << ", it2 > it1: " << (ft_it2 > ft_it1);
+//	std::cout << ", it2 < it1: " << (ft_it2 < ft_it1);
+//	std::cout << ", it2 >= it1: " << (ft_it2 >= ft_it1);
+//	std::cout << ", it2 <= it1: " << (ft_it2 <= ft_it1);
+//	std::cout << ", it2 == it1: " << (ft_it2 == ft_it1);
+//	std::cout << ", it2 != it1: " << (ft_it2 != ft_it1);
+	ft::vector<const int>::iterator	ft_it3 = ft_vec.begin() + 2;
 	ft::vector<int>::iterator	ft_it4 = ft_vec.begin() + 2;
-	std::cout << ", it2 >= it1: " << (ft_it4 >= ft_it3);
-	std::cout << ", it2 <= it1: " << (ft_it4 <= ft_it3);
-	std::cout << ", it2 == it1: " << (ft_it4 == ft_it3);
-	std::cout << ", it2 != it1: " << (ft_it4 != ft_it3);
-	std::cout << '.' << COLOR_END << std::endl;
+//	std::cout << ", it2 >= it1: " << (ft_it4 >= ft_it3);
+//	std::cout << ", it2 <= it1: " << (ft_it4 <= ft_it3);
+//	std::cout << ", it2 == it1: " << (ft_it4 == ft_it3);
+//	std::cout << ", it2 != it1: " << (ft_it4 != ft_it3);
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
-*/
+
+void	example12()
+{
+	/* Example 12 */
+	/* Example for copy constructors */
+
+	std::vector<double> vec(2, double(58));
+	std::cout << COLOR_PURPLE_B << "Example 12" << COLOR_END << std::endl;;
+	std::cout << std::fixed << std::setprecision(2) << COLOR_YELLOW_B;
+	std::cout << "std::vector -> capacity: " << vec.capacity();
+	std::cout << ", size: " << vec.size();
+	for (size_t i = 50; i < 55; ++i)
+		vec.push_back(i);
+	std::cout << ", values:";
+	for (size_t i = 0; i < vec.size(); ++i)
+		std::cout << ' ' << vec[i];
+	std::cout << ", copy-constructor:";
+	std::vector<double> vec2(vec);
+	for (size_t i = 0; i < vec2.size(); ++i)
+		std::cout << ' ' << vec2[i];
+	vec.push_back(42);
+	vec2 = vec;
+	std::cout << ", copy-assignement:";
+	for (size_t i = 0; i < vec2.size(); ++i)
+		std::cout << ' ' << vec2[i];
+	std::cout << COLOR_END << std::endl;
+
+	ft::vector<double> ft_vec(2, double(58));
+	std::cout << COLOR_GREEN_B;
+	std::cout << "ft::vector  -> capacity: " << ft_vec.capacity();
+	std::cout << ", size: " << ft_vec.size();
+	for (size_t i = 50; i < 55; ++i)
+		ft_vec.push_back(i);
+	std::cout << ", values:";
+	for (size_t i = 0; i < ft_vec.size(); ++i)
+		std::cout << ' ' << ft_vec[i];
+	std::cout << ", copy-constructor:";
+	ft::vector<double> ft_vec2(ft_vec);
+	for (size_t i = 0; i < ft_vec2.size(); ++i)
+		std::cout << ' ' << ft_vec2[i];
+	ft_vec.push_back(42);
+	ft_vec2 = ft_vec;
+	std::cout << ", copy-assignement:";
+	for (size_t i = 0; i < ft_vec2.size(); ++i)
+		std::cout << ' ' << ft_vec2[i];
+	std::cout << COLOR_END << std::endl;
+}
 int	main()
 {
 	example1();
@@ -517,8 +571,9 @@ int	main()
 	example7();
 	example8();
 	example9();
-//	example10();
-//	example11();
+	example10();
+	example11();
+	example12();
 
 	return (0);
 }

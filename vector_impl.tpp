@@ -61,7 +61,8 @@ namespace	ft
 	template <typename T, typename Allocator>
 	template <typename InputIterator>
 	vector<T, Allocator>::vector(InputIterator first, InputIterator last,
-			const allocator_type &alloc)
+			const allocator_type &alloc,
+	typename enable_if<!is_integral<InputIterator>::value, InputIterator>::type*)
 	{
 		difference_type	n;
 
@@ -91,7 +92,7 @@ namespace	ft
 	vector<T, Allocator>::vector(const vector &other)
 	{
 		this->_alloc = other._alloc;
-		this->_alloc.allocate(other._capacity);
+		_array = this->_alloc.allocate(other._capacity);
 		this->_capacity = other._capacity;
 		this->_size = 0;
 		while (this->_size != other._size)
@@ -107,7 +108,7 @@ namespace	ft
 			if (this->_array != 0)
 				this->_alloc.deallocate(this->_array, this->_capacity);
 			this->_alloc = other._alloc;
-			this->_alloc.allocate(other._capacity);
+			_array = this->_alloc.allocate(other._capacity);
 			this->_capacity = other._capacity;
 			this->_size = 0;
 			while (this->_size != other._size)
