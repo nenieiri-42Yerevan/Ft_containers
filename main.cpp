@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/29 19:55:31 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/30 10:39:44 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -499,10 +499,10 @@ void	example11()
 	ft::vector<const int>::iterator	ft_it1 = ft_vec.begin();
 	ft::vector<int>::iterator	ft_it2 = ft_vec.begin() + 2;
 	std::cout << ", it2 - it1: " << (ft_it2 - ft_it1);
-//	std::cout << ", it2 > it1: " << (ft_it2 > ft_it1);
-//	std::cout << ", it2 < it1: " << (ft_it2 < ft_it1);
-//	std::cout << ", it2 >= it1: " << (ft_it2 >= ft_it1);
-//	std::cout << ", it2 <= it1: " << (ft_it2 <= ft_it1);
+	std::cout << ", it2 > it1: " << (ft_it2 > ft_it1);
+	std::cout << ", it2 < it1: " << (ft_it2 < ft_it1);
+	std::cout << ", it2 >= it1: " << (ft_it2 >= ft_it1);
+	std::cout << ", it2 <= it1: " << (ft_it2 <= ft_it1);
 //	std::cout << ", it2 == it1: " << (ft_it2 == ft_it1);
 //	std::cout << ", it2 != it1: " << (ft_it2 != ft_it1);
 	ft::vector<const int>::iterator	ft_it3 = ft_vec.begin() + 2;

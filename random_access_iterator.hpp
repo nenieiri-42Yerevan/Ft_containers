@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 13:36:50 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/30 10:28:23 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/30 10:41:23 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,22 @@ namespace	ft
 	template <typename T_L, typename T_R>
 	typename random_access_iterator<T_L>::difference_type
 	operator-(const random_access_iterator<T_L> &lhs, const random_access_iterator<T_R> &rhs);
+
+	template <typename T_L, typename T_R>
+	bool operator>(const random_access_iterator<T_L> &lhs, \
+					const random_access_iterator<T_R> &rhs);
+
+	template <typename T_L, typename T_R>
+	bool operator<(const random_access_iterator<T_L> &lhs, \
+					const random_access_iterator<T_R> &rhs);
+
+	template <typename T_L, typename T_R>
+	bool operator>=(const random_access_iterator<T_L> &lhs, \
+					const random_access_iterator<T_R> &rhs);
+
+	template <typename T_L, typename T_R>
+	bool operator<=(const random_access_iterator<T_L> &lhs, \
+					const random_access_iterator<T_R> &rhs);
 }
 
 # include "random_access_iterator.tpp"

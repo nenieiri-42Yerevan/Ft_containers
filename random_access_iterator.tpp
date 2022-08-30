@@ -197,6 +197,34 @@ namespace	ft
 	{
 		return (lhs.base() - rhs.base());
 	}
+
+	template <typename T_L, typename T_R>
+	bool operator>(const random_access_iterator<T_L> &lhs, \
+			const random_access_iterator<T_R> &rhs)
+	{
+		return (lhs.base() > rhs.base());
+	}
+
+	template <typename T_L, typename T_R>
+	bool operator<(const random_access_iterator<T_L> &lhs, \
+			const random_access_iterator<T_R> &rhs)
+	{
+		return (lhs.base() < rhs.base());
+	}
+
+	template <typename T_L, typename T_R>
+	bool operator>=(const random_access_iterator<T_L> &lhs, \
+			const random_access_iterator<T_R> &rhs)
+	{
+		return (lhs.base() >= rhs.base());
+	}
+
+	template <typename T_L, typename T_R>
+	bool operator<=(const random_access_iterator<T_L> &lhs, \
+			const random_access_iterator<T_R> &rhs)
+	{
+		return (lhs.base() <= rhs.base());
+	}
 }
 
 #endif
