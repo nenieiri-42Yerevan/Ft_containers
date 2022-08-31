@@ -225,6 +225,28 @@ namespace	ft
 	{
 		return (lhs.base() <= rhs.base());
 	}
+
+	template <typename T_L, typename T_R>
+	bool operator==(const random_access_iterator<T_L> &lhs, \
+			const random_access_iterator<T_R> &rhs)
+	{
+		return (lhs.base() == rhs.base());
+	}
+
+	template <typename T_L, typename T_R>
+	bool operator!=(const random_access_iterator<T_L> &lhs, \
+			const random_access_iterator<T_R> &rhs)
+	{
+		return (lhs.base() != rhs.base());
+	}
+
+	template <typename T>
+	random_access_iterator<T>
+	operator+(typename random_access_iterator<T>::difference_type n, \
+			random_access_iterator<T> &rhs)
+	{
+		return (rhs + n);
+	}
 }
 
 #endif

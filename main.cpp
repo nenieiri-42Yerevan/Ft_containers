@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/30 10:39:44 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/31 17:25:46 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,7 +168,7 @@ void	example5()
 	std::cout << "std::vector -> capacity: " << vec.capacity();
 	std::cout << ", size: " << vec.size();
 	p = vec.data();
-	std::cout << ", p[0]: " << p[0];
+	std::cout << ", p[0]: " << p[0] << '.';
 	std::cout << COLOR_END << std::endl;
 
 	ft::vector<int> ft_vec(5, int(41));
@@ -176,7 +176,7 @@ void	example5()
 	std::cout << "ft::vector  -> capacity: " << ft_vec.capacity();
 	std::cout << ", size: " << ft_vec.size();
 	p = ft_vec.data();
-	std::cout << ", p[0]: " << p[0];
+	std::cout << ", p[0]: " << p[0] << '.';
 	std::cout << COLOR_END << std::endl << std::endl;;
 }
 
@@ -503,14 +503,14 @@ void	example11()
 	std::cout << ", it2 < it1: " << (ft_it2 < ft_it1);
 	std::cout << ", it2 >= it1: " << (ft_it2 >= ft_it1);
 	std::cout << ", it2 <= it1: " << (ft_it2 <= ft_it1);
-//	std::cout << ", it2 == it1: " << (ft_it2 == ft_it1);
-//	std::cout << ", it2 != it1: " << (ft_it2 != ft_it1);
+	std::cout << ", it2 == it1: " << (ft_it2 == ft_it1);
+	std::cout << ", it2 != it1: " << (ft_it2 != ft_it1);
 	ft::vector<const int>::iterator	ft_it3 = ft_vec.begin() + 2;
 	ft::vector<int>::iterator	ft_it4 = ft_vec.begin() + 2;
-//	std::cout << ", it2 >= it1: " << (ft_it4 >= ft_it3);
-//	std::cout << ", it2 <= it1: " << (ft_it4 <= ft_it3);
-//	std::cout << ", it2 == it1: " << (ft_it4 == ft_it3);
-//	std::cout << ", it2 != it1: " << (ft_it4 != ft_it3);
+	std::cout << ", it2 >= it1: " << (ft_it4 >= ft_it3);
+	std::cout << ", it2 <= it1: " << (ft_it4 <= ft_it3);
+	std::cout << ", it2 == it1: " << (ft_it4 == ft_it3);
+	std::cout << ", it2 != it1: " << (ft_it4 != ft_it3);
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
@@ -538,7 +538,7 @@ void	example12()
 	std::cout << ", copy-assignement:";
 	for (size_t i = 0; i < vec2.size(); ++i)
 		std::cout << ' ' << vec2[i];
-	std::cout << COLOR_END << std::endl;
+	std::cout << '.' << COLOR_END << std::endl;
 
 	ft::vector<double> ft_vec(2, double(58));
 	std::cout << COLOR_GREEN_B;
@@ -558,8 +558,196 @@ void	example12()
 	std::cout << ", copy-assignement:";
 	for (size_t i = 0; i < ft_vec2.size(); ++i)
 		std::cout << ' ' << ft_vec2[i];
-	std::cout << COLOR_END << std::endl;
+	std::cout << '.' << COLOR_END << std::endl;
 }
+
+void	example13()
+{
+	/* Example 13 */
+	/* Example for insert */
+
+	std::vector<int> vec(5, int(58));
+	std::cout << COLOR_PURPLE_B << "Example 13" << COLOR_END << std::endl;;
+	std::cout << COLOR_YELLOW_B;
+	std::cout << "std::vector -> capacity: " << vec.capacity();
+	std::cout << ", size: " << vec.size();
+	std::vector<int>::iterator it = vec.begin() + 2;
+	vec.insert(it, 3, 50);
+	vec.insert(vec.begin(), 1, 1);
+	vec.insert(vec.begin(), 0, 2);
+	vec.insert(vec.end(), 3, 2);
+	std::cout << ", values:";
+	for (size_t i = 0; i < vec.size(); ++i)
+		std::cout << ' ' << vec[i];
+	std::cout << ", capacity: " << vec.capacity();
+	std::cout << ", size: " << vec.size();
+	vec.reserve(30);
+	it = vec.begin() + 2;
+	vec.insert(it, 3, -50);
+	vec.insert(vec.begin(), 0, -2);
+	vec.insert(vec.end(), 3, -2);
+	vec.insert(vec.begin(), 1, -1);
+	std::cout << ", values:";
+	for (size_t i = 0; i < vec.size(); ++i)
+		std::cout << ' ' << vec[i];
+	std::cout << ", capacity: " << vec.capacity();
+	std::cout << ", size: " << vec.size();
+	std::cout << '.' << COLOR_END << std::endl;
+
+	ft::vector<int> ft_vec(5, int(58));
+	std::cout << COLOR_GREEN_B;
+	std::cout << "ft::vector  -> capacity: " << ft_vec.capacity();
+	std::cout << ", size: " << ft_vec.size();
+	ft::vector<int>::iterator ft_it = ft_vec.begin() + 2;
+	ft_vec.insert(ft_it, 3, 50);
+	ft_vec.insert(ft_vec.begin(), 1, 1);
+	ft_vec.insert(ft_vec.begin(), 0, 2);
+	ft_vec.insert(ft_vec.end(), 3, 2);
+	std::cout << ", values:";
+	for (size_t i = 0; i < ft_vec.size(); ++i)
+		std::cout << ' ' << ft_vec[i];
+	std::cout << ", capacity: " << ft_vec.capacity();
+	std::cout << ", size: " << ft_vec.size();
+	ft_vec.reserve(30);
+	ft_it = ft_vec.begin() + 2;
+	ft_vec.insert(ft_it, 3, -50);
+	ft_vec.insert(ft_vec.begin(), 0, -2);
+	ft_vec.insert(ft_vec.end(), 3, -2);
+	ft_vec.insert(ft_vec.begin(), 1, -1);
+	std::cout << ", values:";
+	for (size_t i = 0; i < ft_vec.size(); ++i)
+		std::cout << ' ' << ft_vec[i];
+	std::cout << ", capacity: " << ft_vec.capacity();
+	std::cout << ", size: " << ft_vec.size();
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
+}
+
+void	example14()
+{
+	/* Example 14 */
+	/* Example for insert part 2 */
+
+	std::vector<int> vec(5, int(58));
+	std::cout << COLOR_PURPLE_B << "Example 14" << COLOR_END << std::endl;;
+	std::cout << COLOR_YELLOW_B;
+	std::cout << "std::vector -> capacity: " << vec.capacity();
+	std::cout << ", size: " << vec.size();
+	std::vector<int>::iterator it = vec.begin() + 2;
+	vec.insert(it, 1);
+	it = vec.insert(vec.begin(), 1);
+	vec.insert(vec.end(), 1);
+	std::cout << ", values:";
+	for (size_t i = 0; i < vec.size(); ++i)
+		std::cout << ' ' << vec[i];
+	std::cout << ", capacity: " << vec.capacity();
+	std::cout << ", size: " << vec.size();
+	std::cout << ", it: " << *it;
+	vec.reserve(30);
+	it = vec.begin() + 2;
+	std::cout << ", values:";
+	for (size_t i = 0; i < vec.size(); ++i)
+		std::cout << ' ' << vec[i];
+	std::cout << ", capacity: " << vec.capacity();
+	std::cout << ", size: " << vec.size();
+	std::vector<int> vec5;
+	vec5.insert(vec5.begin(), 9);
+	vec5.insert(vec5.end() - 1, 3, 10);
+	std::cout << ", values:";
+	for (size_t i = 0; i < vec5.size(); ++i)
+		std::cout << ' ' << vec5[i];
+	std::cout << ", capacity: " << vec5.capacity();
+	std::cout << ", size: " << vec5.size();
+	std::cout << '.' << COLOR_END << std::endl;
+
+	ft::vector<int> ft_vec(5, int(58));
+	std::cout << COLOR_GREEN_B;
+	std::cout << "ft::vector  -> capacity: " << ft_vec.capacity();
+	std::cout << ", size: " << ft_vec.size();
+	ft::vector<int>::iterator ft_it = ft_vec.begin() + 2;
+	ft_vec.insert(ft_it, 1);
+	ft_it = ft_vec.insert(ft_vec.begin(), 1);
+	ft_vec.insert(ft_vec.end(), 1);
+	std::cout << ", values:";
+	for (size_t i = 0; i < ft_vec.size(); ++i)
+		std::cout << ' ' << ft_vec[i];
+	std::cout << ", capacity: " << ft_vec.capacity();
+	std::cout << ", size: " << ft_vec.size();
+	std::cout << ", it: " << *ft_it;
+	ft_vec.reserve(30);
+	ft_it = ft_vec.begin() + 2;
+	std::cout << ", values:";
+	for (size_t i = 0; i < ft_vec.size(); ++i)
+		std::cout << ' ' << ft_vec[i];
+	std::cout << ", capacity: " << ft_vec.capacity();
+	std::cout << ", size: " << ft_vec.size();
+	ft::vector<int> ft_vec5;
+	ft_vec5.insert(ft_vec5.begin(), 9);
+	ft_vec5.insert(ft_vec5.end() - 1, 3, 10);
+	std::cout << ", values:";
+	for (size_t i = 0; i < ft_vec5.size(); ++i)
+		std::cout << ' ' << ft_vec5[i];
+	std::cout << ", capacity: " << ft_vec5.capacity();
+	std::cout << ", size: " << ft_vec5.size();
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
+}
+
+void	example15()
+{
+	/* Example 15 */
+	/* Example for insert */
+
+	std::vector<int> vec(5, int(58));
+	std::cout << COLOR_PURPLE_B << "Example 13" << COLOR_END << std::endl;;
+	std::cout << COLOR_YELLOW_B;
+	std::cout << "std::vector -> capacity: " << vec.capacity();
+	std::cout << ", size: " << vec.size();
+	std::vector<int> vec1(2, int(42));
+	vec.insert(vec.begin() + 2, vec1.begin(), vec1.end());
+	vec.insert(vec.begin(), vec1.begin(), vec1.end());
+	vec.insert(vec.end(), vec1.begin(), vec1.end());
+	std::cout << ", values:";
+	for (size_t i = 0; i < vec.size(); ++i)
+		std::cout << ' ' << vec[i];
+	std::cout << ", capacity: " << vec.capacity();
+	std::cout << ", size: " << vec.size();
+	vec.reserve(30);
+	std::vector<int> vec2(2, int(21));
+	vec.insert(vec.begin() + 2, vec2.begin(), vec2.end());
+	vec.insert(vec.begin(), vec2.begin(), vec2.end());
+	vec.insert(vec.end(), vec2.begin(), vec2.end());
+	std::cout << ", values:";
+	for (size_t i = 0; i < vec.size(); ++i)
+		std::cout << ' ' << vec[i];
+	std::cout << ", capacity: " << vec.capacity();
+	std::cout << ", size: " << vec.size();
+	std::cout << '.' << COLOR_END << std::endl;
+
+	ft::vector<int> ft_vec(5, int(58));
+	std::cout << COLOR_GREEN_B;
+	std::cout << "ft::vector  -> capacity: " << ft_vec.capacity();
+	std::cout << ", size: " << ft_vec.size();
+	ft::vector<int> ft_vec1(2, int(42));
+	ft_vec.insert(ft_vec.begin() + 2, ft_vec1.begin(), ft_vec1.end());
+	ft_vec.insert(ft_vec.begin(), ft_vec1.begin(), ft_vec1.end());
+	ft_vec.insert(ft_vec.end(), ft_vec1.begin(), ft_vec1.end());
+	std::cout << ", values:";
+	for (size_t i = 0; i < ft_vec.size(); ++i)
+		std::cout << ' ' << ft_vec[i];
+	std::cout << ", capacity: " << ft_vec.capacity();
+	std::cout << ", size: " << ft_vec.size();
+	ft_vec.reserve(30);
+	ft::vector<int> ft_vec2(2, int(21));
+	ft_vec.insert(ft_vec.begin() + 2, ft_vec2.begin(), ft_vec2.end());
+	ft_vec.insert(ft_vec.begin(), ft_vec2.begin(), ft_vec2.end());
+	ft_vec.insert(ft_vec.end(), ft_vec2.begin(), ft_vec2.end());
+	std::cout << ", values:";
+	for (size_t i = 0; i < ft_vec.size(); ++i)
+		std::cout << ' ' << ft_vec[i];
+	std::cout << ", capacity: " << ft_vec.capacity();
+	std::cout << ", size: " << ft_vec.size();
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
+}
+
 int	main()
 {
 	example1();
@@ -574,6 +762,9 @@ int	main()
 	example10();
 	example11();
 	example12();
+	example13();
+	example14();
+	example15();
 
 	return (0);
 }

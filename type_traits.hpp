@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 11:48:05 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/30 10:34:21 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/08/31 17:23:14 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ namespace	ft
 {
 	/* is_integral */
 
-	template <typename T, T v>
+	template <typename T, bool v>
 	struct	integral_constant
 	{
 		typedef T			value_type;
