@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/31 17:25:46 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/01 13:58:23 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -697,7 +697,7 @@ void	example15()
 	/* Example for insert */
 
 	std::vector<int> vec(5, int(58));
-	std::cout << COLOR_PURPLE_B << "Example 13" << COLOR_END << std::endl;;
+	std::cout << COLOR_PURPLE_B << "Example 15" << COLOR_END << std::endl;;
 	std::cout << COLOR_YELLOW_B;
 	std::cout << "std::vector -> capacity: " << vec.capacity();
 	std::cout << ", size: " << vec.size();
@@ -748,6 +748,95 @@ void	example15()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
+void	example16()
+{
+	/* Example 16 */
+	/* Example for erase */
+
+	std::vector<int> vec;
+	std::cout << COLOR_PURPLE_B << "Example 16" << COLOR_END << std::endl;;
+	std::cout << COLOR_YELLOW_B;
+	for (size_t i = 0; i < 9; ++i)
+		vec.push_back(i);
+	std::cout << "std::vector -> capacity: " << vec.capacity();
+	std::cout << ", size: " << vec.size();
+	std::cout << ", values:";
+	for (size_t i = 0; i < vec.size(); ++i)
+		std::cout << ' ' << vec[i];
+	std::vector<int>::iterator it;
+	it = vec.erase(vec.begin() + 1);
+	std::cout << ", it: " << *it;
+	std::cout << ", values:";
+	for (size_t i = 0; i < vec.size(); ++i)
+		std::cout << ' ' << vec[i];
+	it = vec.erase(vec.begin() + 2, vec.end() - 2);
+	std::cout << ", it: " << *it;
+	std::cout << ", values:";
+	for (size_t i = 0; i < vec.size(); ++i)
+		std::cout << ' ' << vec[i];
+	it = vec.erase(vec.begin(), vec.begin() + 1);
+	std::cout << ", it: " << *it;
+	std::cout << ", values:";
+	for (size_t i = 0; i < vec.size(); ++i)
+		std::cout << ' ' << vec[i];
+	it = vec.erase(vec.begin(), vec.begin());
+	std::cout << ", it: " << *it;
+	it = vec.erase(vec.end() - 2, vec.end() - 1);
+	std::cout << ", values:";
+	for (size_t i = 0; i < vec.size(); ++i)
+		std::cout << ' ' << vec[i];
+	std::cout << ", it: " << *it;
+	it = vec.erase(vec.begin(), vec.end());
+	std::cout << ", it: " << *it;
+	std::cout << ", std::vector -> capacity: " << vec.capacity();
+	std::cout << ", size: " << vec.size();
+	std::cout << ", values:";
+	for (size_t i = 0; i < vec.size(); ++i)
+		std::cout << ' ' << vec[i];
+	std::cout << '.' << COLOR_END << std::endl;
+
+	ft::vector<int> ft_vec;
+	std::cout << COLOR_GREEN_B;
+	for (size_t i = 0; i < 9; ++i)
+		ft_vec.push_back(i);
+	std::cout << "ft::vector  -> capacity: " << ft_vec.capacity();
+	std::cout << ", size: " << ft_vec.size();
+	std::cout << ", values:";
+	for (size_t i = 0; i < ft_vec.size(); ++i)
+		std::cout << ' ' << ft_vec[i];
+	ft::vector<int>::iterator ft_it;
+	ft_it = ft_vec.erase(ft_vec.begin() + 1);
+	std::cout << ", it: " << *ft_it;
+	std::cout << ", values:";
+	for (size_t i = 0; i < ft_vec.size(); ++i)
+		std::cout << ' ' << ft_vec[i];
+	ft_it = ft_vec.erase(ft_vec.begin() + 2, ft_vec.end() - 2);
+	std::cout << ", it: " << *ft_it;
+	std::cout << ", values:";
+	for (size_t i = 0; i < ft_vec.size(); ++i)
+		std::cout << ' ' << ft_vec[i];
+	ft_it = ft_vec.erase(ft_vec.begin(), ft_vec.begin() + 1);
+	std::cout << ", it: " << *ft_it;
+	std::cout << ", values:";
+	for (size_t i = 0; i < ft_vec.size(); ++i)
+		std::cout << ' ' << ft_vec[i];
+	ft_it = ft_vec.erase(ft_vec.begin(), ft_vec.begin());
+	std::cout << ", it: " << *ft_it;
+	ft_it = ft_vec.erase(ft_vec.end() - 2, ft_vec.end() - 1);
+	std::cout << ", values:";
+	for (size_t i = 0; i < ft_vec.size(); ++i)
+		std::cout << ' ' << ft_vec[i];
+	std::cout << ", it: " << *ft_it;
+	ft_it = ft_vec.erase(ft_vec.begin(), ft_vec.end());
+	std::cout << ", it: " << *ft_it;
+	std::cout << ", ft::vector  -> capacity: " << ft_vec.capacity();
+	std::cout << ", size: " << ft_vec.size();
+	std::cout << ", values:";
+	for (size_t i = 0; i < ft_vec.size(); ++i)
+		std::cout << ' ' << ft_vec[i];
+	std::cout << '.' << COLOR_END << std::endl;
+}
+
 int	main()
 {
 	example1();
@@ -765,6 +854,7 @@ int	main()
 	example13();
 	example14();
 	example15();
+	example16();
 
 	return (0);
 }

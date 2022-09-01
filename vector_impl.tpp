@@ -467,6 +467,39 @@ namespace	ft
 	}
 
 	template <typename T, typename Allocator>
+	typename vector<T, Allocator>::iterator	vector<T, Allocator>::erase(iterator pos)
+	{
+		return (this->erase(pos, pos + 1));
+	}
+
+	template <typename T, typename Allocator>
+	typename vector<T, Allocator>::iterator
+	vector<T, Allocator>::erase(iterator first, iterator last)
+	{
+		size_type	count;
+		size_type	start;
+		size_type	tmp_start;
+
+		count = last - first;
+		start = first - this->begin();
+		tmp_start = start;
+		while (first != last)
+		{
+			this->_alloc.destroy(&(*first));
+			++first;
+		}
+		while (count != 0 && last < this->end())
+		{
+			this->_alloc.construct(&(this->_array[tmp_start++]), *last);
+			this->_alloc.destroy(&(*last));
+			++last;
+		}
+		this->_size -= count;
+
+		return (this->begin() + start);
+	}
+
+	template <typename T, typename Allocator>
 	void	vector<T,Allocator>::clear()
 	{
 		for (size_type i = 0; i < this->_size; ++i)

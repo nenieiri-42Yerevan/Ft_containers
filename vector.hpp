@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:22:31 by vismaily          #+#    #+#             */
-/*   Updated: 2022/08/31 17:12:08 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/01 12:08:33 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,8 @@ namespace	ft
 			void			insert(iterator pos, InputIt first, InputIt last,
 				typename enable_if<!is_integral<InputIt>::value, InputIt>::type* = 0);
 
-			//erase
+			iterator					erase(iterator pos);
+			iterator					erase(iterator first, iterator last);
 			//swap
 			void						clear();
 
