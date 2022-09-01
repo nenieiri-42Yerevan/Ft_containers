@@ -172,6 +172,17 @@ namespace	ft
 	}
 
 	template <typename T, typename Allocator>
+	void	vector<T, Allocator>::resize(size_type n, value_type val)
+	{
+		if (n > this->max_size())
+			throw std::logic_error("vector:resize, max_size error");
+		else if (n < this->_size)
+			this->erase(this->begin() + n, this->end());
+		else if (n > this->_size)
+			this->insert(this->end(), n - this->_size, val);
+	}
+
+	template <typename T, typename Allocator>
 	typename vector<T, Allocator>::size_type \
 	vector<T, Allocator>::capacity() const
 	{

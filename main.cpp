@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/01 13:58:23 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/01 16:42:29 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -834,7 +834,70 @@ void	example16()
 	std::cout << ", values:";
 	for (size_t i = 0; i < ft_vec.size(); ++i)
 		std::cout << ' ' << ft_vec[i];
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
+}
+
+void	example17()
+{
+	/* Example 17 */
+	/* Example for resize */
+
+	std::vector<int> vec(5, int(42));
+	std::cout << COLOR_PURPLE_B << "Example 17" << COLOR_END << std::endl;;
+	std::cout << COLOR_YELLOW_B;
+	std::cout << "std::vector -> capacity: " << vec.capacity();
+	std::cout << ", size: " << vec.size();
+	std::cout << ", values:";
+	for (size_t i = 0; i < vec.size(); ++i)
+		std::cout << ' ' << vec[i];
+	vec.resize(7);
+	std::cout << ", capacity: " << vec.capacity();
+	std::cout << ", size: " << vec.size();
+	std::cout << ", values:";
+	for (size_t i = 0; i < vec.size(); ++i)
+		std::cout << ' ' << vec[i];
+	vec.resize(11, 21);
+	vec.resize(11);
+	std::cout << ", capacity: " << vec.capacity();
+	std::cout << ", size: " << vec.size();
+	std::cout << ", values:";
+	for (size_t i = 0; i < vec.size(); ++i)
+		std::cout << ' ' << vec[i];
+	vec.resize(6);
+	std::cout << ", capacity: " << vec.capacity();
+	std::cout << ", size: " << vec.size();
+	std::cout << ", values:";
+	for (size_t i = 0; i < vec.size(); ++i)
+		std::cout << ' ' << vec[i];
 	std::cout << '.' << COLOR_END << std::endl;
+
+	ft::vector<int> ft_vec(5, int(42));
+	std::cout << COLOR_GREEN_B;
+	std::cout << "ft::vector  -> capacity: " << ft_vec.capacity();
+	std::cout << ", size: " << ft_vec.size();
+	std::cout << ", values:";
+	for (size_t i = 0; i < ft_vec.size(); ++i)
+		std::cout << ' ' << ft_vec[i];
+	ft_vec.resize(7);
+	std::cout << ", capacity: " << ft_vec.capacity();
+	std::cout << ", size: " << ft_vec.size();
+	std::cout << ", values:";
+	for (size_t i = 0; i < ft_vec.size(); ++i)
+		std::cout << ' ' << ft_vec[i];
+	ft_vec.resize(11, 21);
+	ft_vec.resize(11);
+	std::cout << ", capacity: " << ft_vec.capacity();
+	std::cout << ", size: " << ft_vec.size();
+	std::cout << ", values:";
+	for (size_t i = 0; i < ft_vec.size(); ++i)
+		std::cout << ' ' << ft_vec[i];
+	ft_vec.resize(6);
+	std::cout << ", capacity: " << ft_vec.capacity();
+	std::cout << ", size: " << ft_vec.size();
+	std::cout << ", values:";
+	for (size_t i = 0; i < ft_vec.size(); ++i)
+		std::cout << ' ' << ft_vec[i];
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
 int	main()
@@ -855,6 +918,7 @@ int	main()
 	example14();
 	example15();
 	example16();
+	example17();
 
 	return (0);
 }
