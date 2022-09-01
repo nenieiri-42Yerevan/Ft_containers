@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:22:31 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/01 16:10:56 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/01 19:59:12 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,14 +93,18 @@ namespace	ft
 
 		/* Member functions (Modifiers) */
 		public:
-			//assign
+			void						assign(size_type n, const value_type &val);
+
+			template <typename InputIt>
+			void						assign(InputIt first, InputIt last,
+				typename enable_if<!is_integral<InputIt>::value, InputIt>::type* = 0);
+
 			void						push_back(const value_type &val);
 			void						pop_back();
 			iterator					insert(iterator pos, const T &value);
 			void						insert(iterator pos,size_type count, \
 												const T &value);
-
-			template <class InputIt>
+			template <typename InputIt>
 			void			insert(iterator pos, InputIt first, InputIt last,
 				typename enable_if<!is_integral<InputIt>::value, InputIt>::type* = 0);
 

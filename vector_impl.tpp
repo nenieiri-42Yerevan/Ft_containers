@@ -308,6 +308,23 @@ namespace	ft
 	/*====================================*/
 	/* 	  Member functions (Modifiers)    */
 	/*====================================*/
+
+	template <typename T, typename Allocator>
+	void	vector<T, Allocator>::assign(size_type n, const value_type &val)
+	{
+		this->erase(this->begin(), this->end());
+		this->reserve(n);
+		this->resize(n, val);
+	}
+
+	template <typename T, typename Allocator>
+	template <typename InputIt>
+	void	vector<T, Allocator>::assign(InputIt first, InputIt last,
+	typename enable_if<!is_integral<InputIt>::value, InputIt>::type*)
+	{
+		(void)first;
+		(void)last;
+	}
 	
 	template <typename T, typename Allocator>
 	void	vector<T, Allocator>::push_back(const value_type &val)
@@ -409,7 +426,7 @@ namespace	ft
 	}
 
 	template <typename T, typename Allocator>
-	template <class InputIt>
+	template <typename InputIt>
 	void	vector<T, Allocator>::insert(iterator pos, InputIt first, InputIt last,
 	typename enable_if<!is_integral<InputIt>::value, InputIt>::type*)
 	{
