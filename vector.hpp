@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:22:31 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/01 19:59:12 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/02 11:00:12 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ namespace	ft
 
 			iterator					erase(iterator pos);
 			iterator					erase(iterator first, iterator last);
-			//swap
+			void						swap(vector &other);
 			void						clear();
 
 		/* Member functions (Allocator) */
@@ -124,6 +124,9 @@ namespace	ft
 			pointer						_array;
 			allocator_type				_alloc;
 	};
+
+	template <typename T, typename Allocator>
+	void	swap(vector<T, Allocator> &lhs, vector<T, Allocator> &rhs);
 }
 
 # include "vector_impl.tpp"

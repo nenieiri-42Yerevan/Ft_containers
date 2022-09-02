@@ -529,7 +529,31 @@ namespace	ft
 	}
 
 	template <typename T, typename Allocator>
-	void	vector<T,Allocator>::clear()
+	void	vector<T, Allocator>::swap(vector &other)
+	{
+		pointer			tmp_array;
+		size_type		tmp_size;
+		allocator_type	tmp_alloc;
+
+		tmp_array = this->_array;
+		this->_array = other._array;
+		other._array = tmp_array;
+
+		tmp_size = this->_size;
+		this->_size = other._size;
+		other._size = tmp_size;
+
+		tmp_size = this->_capacity;
+		this->_capacity = other._capacity;
+		other._capacity = tmp_size;
+
+		tmp_alloc = this->_alloc;
+		this->_alloc = other._alloc;
+		other._alloc = tmp_alloc;
+	}
+
+	template <typename T, typename Allocator>
+	void	vector<T, Allocator>::clear()
 	{
 		for (size_type i = 0; i < this->_size; ++i)
 			this->_alloc.destroy(this->_array + i);
@@ -545,6 +569,16 @@ namespace	ft
 	vector<T, Allocator>::get_allocator() const
 	{
 		return (this->_alloc);
+	}
+
+	/*============================*/
+	/* 	  Non-member functions    */
+	/*============================*/
+
+	template <typename T, typename Allocator>
+	void	swap(vector<T, Allocator> &lhs, vector<T, Allocator> &rhs)
+	{
+		lhs.swap(rhs);
 	}
 }
 

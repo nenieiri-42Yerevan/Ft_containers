@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/02 10:04:52 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/02 11:18:55 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1026,6 +1026,124 @@ void	example19()
 	std::cout << '.' << COLOR_END << std::endl;
 }
 
+void	example20()
+{
+	/* Example 20 */
+	/* Example for swaps */
+
+	std::vector<int> vec(3, int(42));
+	std::cout << COLOR_PURPLE_B << "Example 20" << COLOR_END << std::endl;;
+	std::cout << COLOR_YELLOW_B;
+	std::cout << "std::vector1 -> capacity: " << vec.capacity();
+	std::cout << ", size: " << vec.size();
+	std::cout << ", values:";
+	for (size_t i = 0; i < vec.size(); ++i)
+		std::cout << ' ' << vec[i];
+	std::vector<int> vec2(9, int(21));
+	std::cout << ", vector2 capacity: " << vec2.capacity();
+	std::cout << ", size: " << vec2.size();
+	std::cout << ", values:";
+	for (size_t i = 0; i < vec2.size(); ++i)
+		std::cout << ' ' << vec2[i];
+	vec.swap(vec2);
+	std::cout << ", vector1 -> capacity: " << vec.capacity();
+	std::cout << ", size: " << vec.size();
+	std::cout << ", values:";
+	for (size_t i = 0; i < vec.size(); ++i)
+		std::cout << ' ' << vec[i];
+	std::cout << ", vector2 capacity: " << vec2.capacity();
+	std::cout << ", size: " << vec2.size();
+	std::cout << ", values:";
+	for (size_t i = 0; i < vec2.size(); ++i)
+		std::cout << ' ' << vec2[i];
+	std::cout << '.' << COLOR_END << std::endl;
+
+	ft::vector<int> ft_vec(3, int(42));
+	std::cout << COLOR_GREEN_B;
+	std::cout << "ft::vector1  -> capacity: " << ft_vec.capacity();
+	std::cout << ", size: " << ft_vec.size();
+	std::cout << ", values:";
+	for (size_t i = 0; i < ft_vec.size(); ++i)
+		std::cout << ' ' << ft_vec[i];
+	ft::vector<int> ft_vec2(9, int(21));
+	std::cout << ", vector2 capacity: " << ft_vec2.capacity();
+	std::cout << ", size: " << ft_vec2.size();
+	std::cout << ", values:";
+	for (size_t i = 0; i < ft_vec2.size(); ++i)
+		std::cout << ' ' << ft_vec2[i];
+	ft_vec.swap(ft_vec2);
+	std::cout << ", vector1 -> capacity: " << ft_vec.capacity();
+	std::cout << ", size: " << ft_vec.size();
+	std::cout << ", values:";
+	for (size_t i = 0; i < ft_vec.size(); ++i)
+		std::cout << ' ' << ft_vec[i];
+	std::cout << ", vector2 capacity: " << ft_vec2.capacity();
+	std::cout << ", size: " << ft_vec2.size();
+	std::cout << ", values:";
+	for (size_t i = 0; i < ft_vec2.size(); ++i)
+		std::cout << ' ' << ft_vec2[i];
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
+}
+
+void	example21()
+{
+	/* Example 21 */
+	/* Example for swaps part 2 */
+
+	std::vector<int> vec(3, int(42));
+	std::cout << COLOR_PURPLE_B << "Example 21" << COLOR_END << std::endl;;
+	std::cout << COLOR_YELLOW_B;
+	std::cout << "std::vector1 -> capacity: " << vec.capacity();
+	std::cout << ", size: " << vec.size();
+	std::cout << ", values:";
+	for (size_t i = 0; i < vec.size(); ++i)
+		std::cout << ' ' << vec[i];
+	std::vector<int> vec2(9, int(21));
+	std::cout << ", vector2 capacity: " << vec2.capacity();
+	std::cout << ", size: " << vec2.size();
+	std::cout << ", values:";
+	for (size_t i = 0; i < vec2.size(); ++i)
+		std::cout << ' ' << vec2[i];
+	swap(vec, vec2);
+	std::cout << ", vector1 -> capacity: " << vec.capacity();
+	std::cout << ", size: " << vec.size();
+	std::cout << ", values:";
+	for (size_t i = 0; i < vec.size(); ++i)
+		std::cout << ' ' << vec[i];
+	std::cout << ", vector2 capacity: " << vec2.capacity();
+	std::cout << ", size: " << vec2.size();
+	std::cout << ", values:";
+	for (size_t i = 0; i < vec2.size(); ++i)
+		std::cout << ' ' << vec2[i];
+	std::cout << '.' << COLOR_END << std::endl;
+
+	ft::vector<int> ft_vec(3, int(42));
+	std::cout << COLOR_GREEN_B;
+	std::cout << "ft::vector1  -> capacity: " << ft_vec.capacity();
+	std::cout << ", size: " << ft_vec.size();
+	std::cout << ", values:";
+	for (size_t i = 0; i < ft_vec.size(); ++i)
+		std::cout << ' ' << ft_vec[i];
+	ft::vector<int> ft_vec2(9, int(21));
+	std::cout << ", vector2 capacity: " << ft_vec2.capacity();
+	std::cout << ", size: " << ft_vec2.size();
+	std::cout << ", values:";
+	for (size_t i = 0; i < ft_vec2.size(); ++i)
+		std::cout << ' ' << ft_vec2[i];
+	swap(ft_vec, ft_vec2);
+	std::cout << ", vector1 -> capacity: " << ft_vec.capacity();
+	std::cout << ", size: " << ft_vec.size();
+	std::cout << ", values:";
+	for (size_t i = 0; i < ft_vec.size(); ++i)
+		std::cout << ' ' << ft_vec[i];
+	std::cout << ", vector2 capacity: " << ft_vec2.capacity();
+	std::cout << ", size: " << ft_vec2.size();
+	std::cout << ", values:";
+	for (size_t i = 0; i < ft_vec2.size(); ++i)
+		std::cout << ' ' << ft_vec2[i];
+	std::cout << '.' << COLOR_END << std::endl;
+}
+
 int	main()
 {
 	example1();
@@ -1047,6 +1165,8 @@ int	main()
 	example17();
 	example18();
 	example19();
+	example20();
+	example21();
 
 	return (0);
 }
