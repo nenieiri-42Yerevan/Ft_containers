@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:22:31 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/02 11:00:12 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/02 13:15:00 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,24 @@ namespace	ft
 
 	template <typename T, typename Allocator>
 	void	swap(vector<T, Allocator> &lhs, vector<T, Allocator> &rhs);
+
+	template <typename T, typename Allocator>
+	bool	operator==(const vector<T, Allocator> &lhs, const vector<T, Allocator> &rhs);
+
+	template <typename T, typename Allocator>
+	bool	operator!=(const vector<T, Allocator> &lhs, const vector<T, Allocator> &rhs);
+
+	template <typename T, typename Allocator>
+	bool	operator<(const vector<T, Allocator> &lhs, const vector<T, Allocator> &rhs);
+
+	template <typename T, typename Allocator>
+	bool	operator<=(const vector<T, Allocator> &lhs, const vector<T, Allocator> &rhs);
+
+	template <typename T, typename Allocator>
+	bool	operator>(const vector<T, Allocator> &lhs, const vector<T, Allocator> &rhs);
+
+	template <typename T, typename Allocator>
+	bool	operator>=(const vector<T, Allocator> &lhs, const vector<T, Allocator> &rhs);
 }
 
 # include "vector_impl.tpp"

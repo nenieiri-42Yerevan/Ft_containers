@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/02 11:18:55 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/02 13:30:58 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1141,6 +1141,129 @@ void	example21()
 	std::cout << ", values:";
 	for (size_t i = 0; i < ft_vec2.size(); ++i)
 		std::cout << ' ' << ft_vec2[i];
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
+}
+
+void	example22()
+{
+	/* Example 22 */
+	/* Example for relational operators */
+
+	std::vector<char> vec1;
+	std::vector<char> vec2;
+	std::cout << COLOR_PURPLE_B << "Example 22" << COLOR_END << std::endl;;
+	std::cout << COLOR_YELLOW_B;
+	vec1.push_back('h');
+	vec1.push_back('e');
+	vec1.push_back('l');
+	vec1.push_back('l');
+	vec1.push_back('o');
+	vec2.push_back('h');
+	vec2.push_back('e');
+	vec2.push_back('l');
+	vec2.push_back('l');
+	vec2.push_back('o');
+	std::cout << "std::vector -> ";
+	std::cout << "values1: ";
+	for (size_t i = 0; i < vec1.size(); ++i)
+		std::cout << vec1[i];
+	std::cout << ", values2: ";
+	for (size_t i = 0; i < vec2.size(); ++i)
+		std::cout << vec2[i];
+	std::cout << ", == " << (vec1 == vec2);
+	std::cout << ", != " << (vec1 != vec2);
+	std::cout << ", < " << (vec1 < vec2);
+	std::cout << ", <= " << (vec1 <= vec2);
+	std::cout << ", > " << (vec1 > vec2);
+	std::cout << ", >= " << (vec1 >= vec2);
+	vec2.push_back('o');
+	std::cout << ", == " << (vec1 == vec2);
+	std::cout << ", != " << (vec1 != vec2);
+	std::cout << ", < " << (vec1 < vec2);
+	std::cout << ", <= " << (vec1 <= vec2);
+	std::cout << ", > " << (vec1 > vec2);
+	std::cout << ", >= " << (vec1 >= vec2);
+	vec1.push_back('o');
+	vec1.push_back('o');
+	std::cout << ", == " << (vec1 == vec2);
+	std::cout << ", != " << (vec1 != vec2);
+	std::cout << ", < " << (vec1 < vec2);
+	std::cout << ", <= " << (vec1 <= vec2);
+	std::cout << ", > " << (vec1 > vec2);
+	std::cout << ", >= " << (vec1 >= vec2);
+	vec1.pop_back();
+	vec1.erase(vec1.begin() + 1);
+	vec1.insert(vec1.begin() + 1, 'E');
+	std::cout << ", values1: ";
+	for (size_t i = 0; i < vec1.size(); ++i)
+		std::cout << vec1[i];
+	std::cout << ", values2: ";
+	for (size_t i = 0; i < vec2.size(); ++i)
+		std::cout << vec2[i];
+	std::cout << ", == " << (vec1 == vec2);
+	std::cout << ", != " << (vec1 != vec2);
+	std::cout << ", < " << (vec1 < vec2);
+	std::cout << ", <= " << (vec1 <= vec2);
+	std::cout << ", > " << (vec1 > vec2);
+	std::cout << ", >= " << (vec1 >= vec2);
+	std::cout << '.' << COLOR_END << std::endl;
+
+	ft::vector<char> ft_vec1;
+	ft::vector<char> ft_vec2;
+	std::cout << COLOR_GREEN_B;
+	ft_vec1.push_back('h');
+	ft_vec1.push_back('e');
+	ft_vec1.push_back('l');
+	ft_vec1.push_back('l');
+	ft_vec1.push_back('o');
+	ft_vec2.push_back('h');
+	ft_vec2.push_back('e');
+	ft_vec2.push_back('l');
+	ft_vec2.push_back('l');
+	ft_vec2.push_back('o');
+	std::cout << "ft::vector  -> ";
+	std::cout << "values1: ";
+	for (size_t i = 0; i < ft_vec1.size(); ++i)
+		std::cout << ft_vec1[i];
+	std::cout << ", values2: ";
+	for (size_t i = 0; i < ft_vec2.size(); ++i)
+		std::cout << ft_vec2[i];
+	std::cout << ", == " << (ft_vec1 == ft_vec2);
+	std::cout << ", != " << (ft_vec1 != ft_vec2);
+	std::cout << ", < " << (ft_vec1 < ft_vec2);
+	std::cout << ", <= " << (ft_vec1 <= ft_vec2);
+	std::cout << ", > " << (ft_vec1 > ft_vec2);
+	std::cout << ", >= " << (ft_vec1 >= ft_vec2);
+	ft_vec2.push_back('o');
+	std::cout << ", == " << (ft_vec1 == ft_vec2);
+	std::cout << ", != " << (ft_vec1 != ft_vec2);
+	std::cout << ", < " << (ft_vec1 < ft_vec2);
+	std::cout << ", <= " << (ft_vec1 <= ft_vec2);
+	std::cout << ", > " << (ft_vec1 > ft_vec2);
+	std::cout << ", >= " << (ft_vec1 >= ft_vec2);
+	ft_vec1.push_back('o');
+	ft_vec1.push_back('o');
+	std::cout << ", == " << (ft_vec1 == ft_vec2);
+	std::cout << ", != " << (ft_vec1 != ft_vec2);
+	std::cout << ", < " << (ft_vec1 < ft_vec2);
+	std::cout << ", <= " << (ft_vec1 <= ft_vec2);
+	std::cout << ", > " << (ft_vec1 > ft_vec2);
+	std::cout << ", >= " << (ft_vec1 >= ft_vec2);
+	ft_vec1.pop_back();
+	ft_vec1.erase(ft_vec1.begin() + 1);
+	ft_vec1.insert(ft_vec1.begin() + 1, 'E');
+	std::cout << ", values1: ";
+	for (size_t i = 0; i < ft_vec1.size(); ++i)
+		std::cout << ft_vec1[i];
+	std::cout << ", values2: ";
+	for (size_t i = 0; i < ft_vec2.size(); ++i)
+		std::cout << ft_vec2[i];
+	std::cout << ", == " << (ft_vec1 == ft_vec2);
+	std::cout << ", != " << (ft_vec1 != ft_vec2);
+	std::cout << ", < " << (ft_vec1 < ft_vec2);
+	std::cout << ", <= " << (ft_vec1 <= ft_vec2);
+	std::cout << ", > " << (ft_vec1 > ft_vec2);
+	std::cout << ", >= " << (ft_vec1 >= ft_vec2);
 	std::cout << '.' << COLOR_END << std::endl;
 }
 
@@ -1167,6 +1290,7 @@ int	main()
 	example19();
 	example20();
 	example21();
+	example22();
 
 	return (0);
 }
