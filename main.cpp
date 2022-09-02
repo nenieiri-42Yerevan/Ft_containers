@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/02 13:30:58 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/02 13:33:44 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,19 @@
 #include <stdexcept>
 #include "vector.hpp"
 #include "MyColors.hpp"
+
+#ifndef	MYCOLORS_HPP
+# define MYCOLORS_HPP
+
+# define COLOR_YELLOW_B "\033[1;33m"
+# define COLOR_PURPLE_B "\033[1;35m"
+# define COLOR_BLUE_B "\033[1;34m"
+# define COLOR_GREEN_B "\033[1;32m"
+# define COLOR_GREEN "\033[0;32m"
+# define COLOR_RED_B "\033[1;31m"
+# define COLOR_END "\033[0m"
+
+#endif
 
 void	example1()
 {
