@@ -314,7 +314,7 @@ namespace	ft
 	{
 		this->erase(this->begin(), this->end());
 		this->reserve(n);
-		this->resize(n, val);
+		this->insert(this->begin(), n, val);
 	}
 
 	template <typename T, typename Allocator>
@@ -322,8 +322,9 @@ namespace	ft
 	void	vector<T, Allocator>::assign(InputIt first, InputIt last,
 	typename enable_if<!is_integral<InputIt>::value, InputIt>::type*)
 	{
-		(void)first;
-		(void)last;
+		this->erase(this->begin(), this->end());
+		this->reserve(last - first);
+		this->insert(this->begin(), first, last);
 	}
 	
 	template <typename T, typename Allocator>
