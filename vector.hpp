@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:22:31 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/02 17:00:01 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/03 12:28:27 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ namespace	ft
 			/* Member types (iterators) */
 			typedef random_access_iterator<T>			iterator;
 			typedef random_access_iterator<const T>		const_iterator;
+			typedef reverse_iterator<const_iterator>	const_reverse_iterator;
 			typedef reverse_iterator<iterator>			reverse_iterator;
-			//typedef reverse_iterator<const_iterator>	const_reverse_iterator;
 		
 		/* Constructers and Destructer */
 		public:
@@ -67,8 +67,10 @@ namespace	ft
 			const_iterator				begin() const;
 			iterator					end();
 			const_iterator				end() const;
-			// rbegin
-			// rend
+			reverse_iterator			rbegin();
+			const_reverse_iterator		rbegin() const;
+			reverse_iterator			rend();
+			const_reverse_iterator		rend() const;
 
 		/* Member functions (Capacity) */
 		public:

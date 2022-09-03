@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/03 11:05:04 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/03 12:37:07 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	example1()
 	/* Exaple for push_back */
 
 	std::vector<int>	vec;
-	std::cout << COLOR_PURPLE_B << "Example 1" << COLOR_END << std::endl;;
+	std::cout << COLOR_PURPLE_B << "Example 1" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
 	std::cout << "std::vector -> capacity: " << vec.capacity();
 	std::cout << ", size: " << vec.size();
@@ -93,7 +93,7 @@ void	example2()
 	/* Example for operator[] */
 
 	std::vector<double> vec(3, double(58));
-	std::cout << COLOR_PURPLE_B << "Example 2" << COLOR_END << std::endl;;
+	std::cout << COLOR_PURPLE_B << "Example 2" << COLOR_END << std::endl;
 	std::cout << std::fixed << std::setprecision(2) << COLOR_YELLOW_B;
 	std::cout << "std::vector -> capacity: " << vec.capacity();
 	std::cout << ", size: " << vec.size();
@@ -114,7 +114,7 @@ void	example3()
 	/* Example for const operator[] and for function at() with float */
 
 	const std::vector<float> vec(10, float(-60));
-	std::cout << COLOR_PURPLE_B << "Example 3" << COLOR_END << std::endl;;
+	std::cout << COLOR_PURPLE_B << "Example 3" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
 	std::cout << "std::vector -> at(3): " << vec.at(3);
 	try
@@ -147,7 +147,7 @@ void	example4()
 	/* Example for front() and back() functions */
 
 	const std::vector<int> vec(3, int(58));
-	std::cout << COLOR_PURPLE_B << "Example 4" << COLOR_END << std::endl;;
+	std::cout << COLOR_PURPLE_B << "Example 4" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
 	std::cout << "std::vector -> capacity: " << vec.capacity();
 	std::cout << ", size: " << vec.size();
@@ -176,7 +176,7 @@ void	example5()
 	int	*p;
 
 	std::vector<int> vec(5, int(41));
-	std::cout << COLOR_PURPLE_B << "Example 5" << COLOR_END << std::endl;;
+	std::cout << COLOR_PURPLE_B << "Example 5" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
 	std::cout << "std::vector -> capacity: " << vec.capacity();
 	std::cout << ", size: " << vec.size();
@@ -190,7 +190,7 @@ void	example5()
 	std::cout << ", size: " << ft_vec.size();
 	p = ft_vec.data();
 	std::cout << ", p[0]: " << p[0] << '.';
-	std::cout << COLOR_END << std::endl << std::endl;;
+	std::cout << COLOR_END << std::endl << std::endl;
 }
 
 void	example6()
@@ -201,7 +201,7 @@ void	example6()
 	long double	*p;
 
 	std::vector<long double> vec(5, (long double)(41));
-	std::cout << COLOR_PURPLE_B << "Example 6" << COLOR_END << std::endl;;
+	std::cout << COLOR_PURPLE_B << "Example 6" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
 	std::cout << "std::vector -> capacity: " << vec.capacity();
 	std::cout << ", size: " << vec.size();
@@ -237,7 +237,7 @@ void	example6()
 	}
 	ft_vec.get_allocator().deallocate(p, 3);
 
-	std::cout << '.' << COLOR_END << std::endl << std::endl;;
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
 void	example7()
@@ -248,7 +248,7 @@ void	example7()
 	/* Example for empty() function */
 
 	std::vector<int> vec(5, (int)(42));
-	std::cout << COLOR_PURPLE_B << "Example 7" << COLOR_END << std::endl;;
+	std::cout << COLOR_PURPLE_B << "Example 7" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
 	std::cout << "std::vector -> capacity: " << vec.capacity();
 	std::cout << ", size: " << vec.size();
@@ -294,7 +294,7 @@ void	example8()
 
 	std::vector<int> vec;
 	std::vector<int>::iterator	it;
-	std::cout << COLOR_PURPLE_B << "Example 8" << COLOR_END << std::endl;;
+	std::cout << COLOR_PURPLE_B << "Example 8" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
 	std::cout << "std::vector -> ";
 
@@ -356,7 +356,7 @@ void	example9()
 	std::vector<int> vec;
 	std::vector<int>::iterator	it1;
 	std::vector<int>::iterator	it2;
-	std::cout << COLOR_PURPLE_B << "Example 9" << COLOR_END << std::endl;;
+	std::cout << COLOR_PURPLE_B << "Example 9" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
 	std::cout << "std::vector -> ";
 
@@ -415,7 +415,7 @@ void	example10()
 	/* Example for const iterators comparison */
 
 	std::vector< int> vec;
-	std::cout << COLOR_PURPLE_B << "Example 10" << COLOR_END << std::endl;;
+	std::cout << COLOR_PURPLE_B << "Example 10" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
 	std::cout << "std::vector -> ";
 
@@ -474,7 +474,7 @@ void	example11()
 	/* Example for const and non-const iterators comparison */
 
 	std::vector<int> vec;
-	std::cout << COLOR_PURPLE_B << "Example 11" << COLOR_END << std::endl;;
+	std::cout << COLOR_PURPLE_B << "Example 11" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
 	std::cout << "std::vector -> ";
 
@@ -533,7 +533,7 @@ void	example12()
 	/* Example for copy constructors */
 
 	std::vector<double> vec(2, double(58));
-	std::cout << COLOR_PURPLE_B << "Example 12" << COLOR_END << std::endl;;
+	std::cout << COLOR_PURPLE_B << "Example 12" << COLOR_END << std::endl;
 	std::cout << std::fixed << std::setprecision(2) << COLOR_YELLOW_B;
 	std::cout << "std::vector -> capacity: " << vec.capacity();
 	std::cout << ", size: " << vec.size();
@@ -580,7 +580,7 @@ void	example13()
 	/* Example for insert */
 
 	std::vector<int> vec(5, int(58));
-	std::cout << COLOR_PURPLE_B << "Example 13" << COLOR_END << std::endl;;
+	std::cout << COLOR_PURPLE_B << "Example 13" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
 	std::cout << "std::vector -> capacity: " << vec.capacity();
 	std::cout << ", size: " << vec.size();
@@ -641,7 +641,7 @@ void	example14()
 	/* Example for insert part 2 */
 
 	std::vector<int> vec(5, int(58));
-	std::cout << COLOR_PURPLE_B << "Example 14" << COLOR_END << std::endl;;
+	std::cout << COLOR_PURPLE_B << "Example 14" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
 	std::cout << "std::vector -> capacity: " << vec.capacity();
 	std::cout << ", size: " << vec.size();
@@ -710,7 +710,7 @@ void	example15()
 	/* Example for insert */
 
 	std::vector<int> vec(5, int(58));
-	std::cout << COLOR_PURPLE_B << "Example 15" << COLOR_END << std::endl;;
+	std::cout << COLOR_PURPLE_B << "Example 15" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
 	std::cout << "std::vector -> capacity: " << vec.capacity();
 	std::cout << ", size: " << vec.size();
@@ -767,7 +767,7 @@ void	example16()
 	/* Example for erase */
 
 	std::vector<int> vec;
-	std::cout << COLOR_PURPLE_B << "Example 16" << COLOR_END << std::endl;;
+	std::cout << COLOR_PURPLE_B << "Example 16" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
 	for (size_t i = 0; i < 9; ++i)
 		vec.push_back(i);
@@ -856,7 +856,7 @@ void	example17()
 	/* Example for resize */
 
 	std::vector<int> vec(5, int(42));
-	std::cout << COLOR_PURPLE_B << "Example 17" << COLOR_END << std::endl;;
+	std::cout << COLOR_PURPLE_B << "Example 17" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
 	std::cout << "std::vector -> capacity: " << vec.capacity();
 	std::cout << ", size: " << vec.size();
@@ -919,7 +919,7 @@ void	example18()
 	/* Example for assign */
 
 	std::vector<int> vec(5, int(42));
-	std::cout << COLOR_PURPLE_B << "Example 18" << COLOR_END << std::endl;;
+	std::cout << COLOR_PURPLE_B << "Example 18" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
 	std::cout << "std::vector -> capacity: " << vec.capacity();
 	std::cout << ", size: " << vec.size();
@@ -980,7 +980,7 @@ void	example19()
 	/* Example for assign part 2 */
 
 	std::vector<int> vec(5, int(42));
-	std::cout << COLOR_PURPLE_B << "Example 19" << COLOR_END << std::endl;;
+	std::cout << COLOR_PURPLE_B << "Example 19" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
 	std::cout << "std::vector -> capacity: " << vec.capacity();
 	std::cout << ", size: " << vec.size();
@@ -1045,7 +1045,7 @@ void	example20()
 	/* Example for swaps */
 
 	std::vector<int> vec(3, int(42));
-	std::cout << COLOR_PURPLE_B << "Example 20" << COLOR_END << std::endl;;
+	std::cout << COLOR_PURPLE_B << "Example 20" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
 	std::cout << "std::vector1 -> capacity: " << vec.capacity();
 	std::cout << ", size: " << vec.size();
@@ -1104,7 +1104,7 @@ void	example21()
 	/* Example for swaps part 2 */
 
 	std::vector<int> vec(3, int(42));
-	std::cout << COLOR_PURPLE_B << "Example 21" << COLOR_END << std::endl;;
+	std::cout << COLOR_PURPLE_B << "Example 21" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
 	std::cout << "std::vector1 -> capacity: " << vec.capacity();
 	std::cout << ", size: " << vec.size();
@@ -1164,7 +1164,7 @@ void	example22()
 
 	std::vector<char> vec1;
 	std::vector<char> vec2;
-	std::cout << COLOR_PURPLE_B << "Example 22" << COLOR_END << std::endl;;
+	std::cout << COLOR_PURPLE_B << "Example 22" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
 	vec1.push_back('h');
 	vec1.push_back('e');
@@ -1286,7 +1286,7 @@ void	example23()
 	/* Example for reverse iterator */
 
 	std::vector<int> vec;
-	std::cout << COLOR_PURPLE_B << "Example 23" << COLOR_END << std::endl;;
+	std::cout << COLOR_PURPLE_B << "Example 23" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
 	for (size_t i = 0; i < 5; ++i)
 		vec.push_back(i);
@@ -1352,6 +1352,79 @@ void	example23()
 	std::cout << ", it: " << ft_rit3[3];
 	ft::vector<int>::reverse_iterator	ft_rit4(ft_rit3);
 	std::cout << ", it: " << *ft_rit4;
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
+}
+
+void	example24()
+{
+	/* Example 24 */
+	/* Example for rbegin, rend */
+
+	std::vector<int> vec;
+	std::cout << COLOR_PURPLE_B << "Example 24" << COLOR_END << std::endl;
+	std::cout << COLOR_YELLOW_B;
+	for (size_t i = 0; i < 5; ++i)
+		vec.push_back(i);
+	std::cout << "std::vector -> capacity: " << vec.capacity();
+	std::cout << ", size: " << vec.size();
+	std::cout << ", values:";
+	for (size_t i = 0; i < vec.size(); ++i)
+		std::cout << ' ' << vec[i];
+	std::vector<int>::reverse_iterator	rit1;
+	rit1 = vec.rbegin();
+	std::cout << ", it: " << *rit1;
+	rit1 = vec.rend() - 1;
+	std::cout << ", it: " << *rit1;
+	std::vector<int>::reverse_iterator	rit2(rit1);
+	std::cout << ", it: " << *(rit2 - 1);
+	std::vector<int>::const_reverse_iterator	rit3 = rit2;
+	std::cout << ", it: " << *rit3;
+	std::cout << ", == " << (rit3 == rit2);
+	std::cout << ", != " << (rit3 != rit2);
+	std::cout << ", < " << (rit3 < rit2);
+	std::cout << ", <= " << (rit3 <= rit2);
+	std::cout << ", > " << (rit3 > rit2);
+	std::cout << ", >= " << (rit3 >= rit2);
+	rit3 = rit2 - 1;
+	std::cout << ", == " << (rit3 == rit2);
+	std::cout << ", != " << (rit3 != rit2);
+	std::cout << ", < " << (rit3 < rit2);
+	std::cout << ", <= " << (rit3 <= rit2);
+	std::cout << ", > " << (rit3 > rit2);
+	std::cout << ", >= " << (rit3 >= rit2);
+	std::cout << '.' << COLOR_END << std::endl;
+
+	ft::vector<int> ft_vec;
+	std::cout << COLOR_GREEN_B;
+	for (size_t i = 0; i < 5; ++i)
+		ft_vec.push_back(i);
+	std::cout << "ft::vector  -> capacity: " << ft_vec.capacity();
+	std::cout << ", size: " << ft_vec.size();
+	std::cout << ", values:";
+	for (size_t i = 0; i < ft_vec.size(); ++i)
+		std::cout << ' ' << ft_vec[i];
+	ft::vector<int>::reverse_iterator	ft_rit1;
+	ft_rit1 = ft_vec.rbegin();
+	std::cout << ", it: " << *ft_rit1;
+	ft_rit1 = ft_vec.rend() - 1;
+	std::cout << ", it: " << *ft_rit1;
+	ft::vector<int>::reverse_iterator	ft_rit2(ft_rit1);
+	std::cout << ", it: " << *(ft_rit2 - 1);
+	ft::vector<int>::const_reverse_iterator	ft_rit3 = ft_rit2;
+	std::cout << ", it: " << *ft_rit3;
+	std::cout << ", == " << (ft_rit3 == ft_rit2);
+	std::cout << ", != " << (ft_rit3 != ft_rit2);
+	std::cout << ", < " << (ft_rit3 < ft_rit2);
+	std::cout << ", <= " << (ft_rit3 <= ft_rit2);
+	std::cout << ", > " << (ft_rit3 > ft_rit2);
+	std::cout << ", >= " << (ft_rit3 >= ft_rit2);
+	ft_rit3 = ft_rit2 - 1;
+	std::cout << ", == " << (ft_rit3 == ft_rit2);
+	std::cout << ", != " << (ft_rit3 != ft_rit2);
+	std::cout << ", < " << (ft_rit3 < ft_rit2);
+	std::cout << ", <= " << (ft_rit3 <= ft_rit2);
+	std::cout << ", > " << (ft_rit3 > ft_rit2);
+	std::cout << ", >= " << (ft_rit3 >= ft_rit2);
 	std::cout << '.' << COLOR_END << std::endl;
 }
 
@@ -1380,6 +1453,7 @@ int	main()
 	example21();
 	example22();
 	example23();
+	example24();
 
 	return (0);
 }

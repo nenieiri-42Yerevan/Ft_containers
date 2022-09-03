@@ -153,6 +153,32 @@ namespace	ft
 		return (const_iterator(this->_array + this->_size));
 	}
 
+	template <typename T, typename Allocator>
+	typename vector<T, Allocator>::reverse_iterator	vector<T, Allocator>::rbegin()
+	{
+		return (reverse_iterator(this->end()));
+	}
+
+	template <typename T, typename Allocator>
+	typename vector<T, Allocator>::const_reverse_iterator \
+	vector<T, Allocator>::rbegin() const
+	{
+		return (const_reverse_iterator(this->end()));
+	}
+
+	template <typename T, typename Allocator>
+	typename vector<T, Allocator>::reverse_iterator	vector<T, Allocator>::rend()
+	{
+		return (reverse_iterator(this->begin()));
+	}
+
+	template <typename T, typename Allocator>
+	typename vector<T, Allocator>::const_reverse_iterator \
+	vector<T, Allocator>::rend() const
+	{
+		return (const_reverse_iterator(this->begin()));
+	}
+
 	/*===================================*/
 	/* 	  Member functions (Capacity)    */
 	/*===================================*/

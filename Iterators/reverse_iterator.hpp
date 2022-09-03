@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:36:06 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/02 17:14:06 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/03 12:25:59 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,30 @@ namespace	ft
 		protected:
 			iterator_type	_elem;
 	};
+
+	template <typename It1, typename It2>
+	bool	operator==(const reverse_iterator<It1> &lhs, \
+						const reverse_iterator<It2> &rhs);
+
+	template <typename It1, typename It2>
+	bool	operator!=(const reverse_iterator<It1> &lhs, \
+						const reverse_iterator<It2> &rhs);
+
+	template <typename It1, typename It2>
+	bool	operator<(const reverse_iterator<It1> &lhs, \
+						const reverse_iterator<It2> &rhs);
+
+	template <typename It1, typename It2>
+	bool	operator<=(const reverse_iterator<It1> &lhs, \
+						const reverse_iterator<It2> &rhs);
+
+	template <typename It1, typename It2>
+	bool	operator>(const reverse_iterator<It1> &lhs, \
+						const reverse_iterator<It2> &rhs);
+
+	template <typename It1, typename It2>
+	bool	operator>=(const reverse_iterator<It1> &lhs, \
+						const reverse_iterator<It2> &rhs);
 }
 
 # include "reverse_iterator.tpp"
