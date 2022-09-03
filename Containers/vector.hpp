@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:22:31 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/03 15:04:20 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/03 16:34:05 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 # include <cstddef>
 # include <stdexcept>
 # include <string>
-# include "./Iterators/random_access_iterator.hpp"
-# include "./Iterators/reverse_iterator.hpp"
-# include "type_traits.hpp"
+# include "../Iterators/iterator.hpp"
+# include "../type_traits.hpp"
+# include "../algorithm.hpp"
 
 namespace	ft
 {

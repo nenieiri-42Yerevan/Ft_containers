@@ -6,14 +6,12 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:36:06 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/03 13:22:28 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/03 16:32:39 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_REVERSE_ITERATOR_HPP
 # define FT_REVERSE_ITERATOR_HPP
-
-# include "iterator.hpp"
 
 namespace	ft
 {

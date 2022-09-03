@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/03 15:22:04 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/03 16:38:55 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 #include <iomanip>
 #include <vector>
 #include <stdexcept>
-#include "vector.hpp"
-#include "MyColors.hpp"
+#include "./Containers/vector.hpp"
 
 #ifndef	MYCOLORS_HPP
 # define MYCOLORS_HPP

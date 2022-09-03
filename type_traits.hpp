@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 11:48:05 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/03 14:57:39 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/03 16:28:53 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 namespace	ft
 {
-	/* is_integral */
+	/*===================================*/
+	/*            Is_integra             */
+	/*===================================*/
 
 	template <typename T, T v>
 	struct	integral_constant
@@ -38,7 +40,9 @@ namespace	ft
 	template <> struct	is_integral<unsigned long> : integral_constant<unsigned long, true> {};
 	template <> struct	is_integral<unsigned long long> : integral_constant<unsigned long long, true> {};
 
-	/* enable_if */
+	/*===================================*/
+	/*             Enable_if             */
+	/*===================================*/
 
 	template <bool B, class T = void>
 	struct enable_if
