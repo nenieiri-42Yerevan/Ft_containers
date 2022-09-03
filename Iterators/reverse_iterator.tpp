@@ -183,6 +183,27 @@ namespace	ft
 	{
 		return (lhs.base() <= rhs.base());
 	}
+
+	template <typename It>
+	reverse_iterator<It> operator+(typename reverse_iterator<It>::difference_type n, \
+									const reverse_iterator<It> &it)
+	{
+		return (it + n);
+	}
+
+	template <typename It>
+	typename reverse_iterator<It>::difference_type \
+	operator-(const reverse_iterator<It> &lhs, const reverse_iterator<It> &rhs)
+	{
+		return (rhs.base() - lhs.base());
+	}
+
+	template <typename L_It, typename R_It>
+	typename reverse_iterator<R_It>::difference_type \
+	operator-(const reverse_iterator<L_It> &lhs, const reverse_iterator<R_It> &rhs)
+	{
+		return (rhs.base() - lhs.base());
+	}
 }
 
 #endif

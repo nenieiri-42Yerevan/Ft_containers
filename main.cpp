@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/03 12:37:07 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/03 13:25:20 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1392,6 +1392,11 @@ void	example24()
 	std::cout << ", <= " << (rit3 <= rit2);
 	std::cout << ", > " << (rit3 > rit2);
 	std::cout << ", >= " << (rit3 >= rit2);
+	std::cout << ", + " << *(1 + rit3);
+	rit2 += 3;
+	rit3 += 3;
+	std::cout << ", - " << (rit2 - rit1);
+	std::cout << ", - " << (rit3 - rit2);
 	std::cout << '.' << COLOR_END << std::endl;
 
 	ft::vector<int> ft_vec;
@@ -1425,6 +1430,11 @@ void	example24()
 	std::cout << ", <= " << (ft_rit3 <= ft_rit2);
 	std::cout << ", > " << (ft_rit3 > ft_rit2);
 	std::cout << ", >= " << (ft_rit3 >= ft_rit2);
+	std::cout << ", + " << *(1 + ft_rit3);
+	ft_rit2 += 3;
+	ft_rit3 += 3;
+	std::cout << ", - " << (ft_rit2 - ft_rit1);
+	std::cout << ", - " << (ft_rit3 - ft_rit2);
 	std::cout << '.' << COLOR_END << std::endl;
 }
 
