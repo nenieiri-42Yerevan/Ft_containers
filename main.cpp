@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/02 13:33:44 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/03 11:05:04 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -571,7 +571,7 @@ void	example12()
 	std::cout << ", copy-assignement:";
 	for (size_t i = 0; i < ft_vec2.size(); ++i)
 		std::cout << ' ' << ft_vec2[i];
-	std::cout << '.' << COLOR_END << std::endl;
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
 void	example13()
@@ -1036,7 +1036,7 @@ void	example19()
 	std::cout << ", values:";
 	for (size_t i = 0; i < ft_vec.size(); ++i)
 		std::cout << ' ' << ft_vec[i];
-	std::cout << '.' << COLOR_END << std::endl;
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
 void	example20()
@@ -1277,6 +1277,81 @@ void	example22()
 	std::cout << ", <= " << (ft_vec1 <= ft_vec2);
 	std::cout << ", > " << (ft_vec1 > ft_vec2);
 	std::cout << ", >= " << (ft_vec1 >= ft_vec2);
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
+}
+
+void	example23()
+{
+	/* Example 23 */
+	/* Example for reverse iterator */
+
+	std::vector<int> vec;
+	std::cout << COLOR_PURPLE_B << "Example 23" << COLOR_END << std::endl;;
+	std::cout << COLOR_YELLOW_B;
+	for (size_t i = 0; i < 5; ++i)
+		vec.push_back(i);
+	std::cout << "std::vector -> capacity: " << vec.capacity();
+	std::cout << ", size: " << vec.size();
+	std::cout << ", values:";
+	for (size_t i = 0; i < vec.size(); ++i)
+		std::cout << ' ' << vec[i];
+	std::vector<int>::reverse_iterator	rit(vec.end());
+	std::cout << ", it: " << *rit;
+	std::cout << ", it: " << *(rit++);
+	std::cout << ", it: " << *(++rit);
+	std::cout << ", it: " << *(rit--);
+	std::cout << ", it: " << *(--rit);
+	std::vector<int>::reverse_iterator	rit2(vec.begin() + 1);
+	std::cout << ", it: " << *rit2;
+	std::cout << ", it: " << *(rit2 - 1);
+	rit2 -= 2;
+	std::cout << ", it: " << *rit2;
+	std::cout << ", it: " << *(rit2 + 1);
+	rit2 += 1;
+	std::cout << ", it: " << *rit2;
+	std::vector<int>::reverse_iterator	rit3;
+	rit3 = rit2;
+	std::cout << ", it: " << *rit3;
+	rit3 = rit3 - 2;
+	std::cout << ", it: " << *(rit3.base());
+	std::cout << ", it: " << rit3[1];
+	std::cout << ", it: " << rit3[3];
+	std::vector<int>::reverse_iterator	rit4(rit3);
+	std::cout << ", it: " << *rit4;
+	std::cout << '.' << COLOR_END << std::endl;
+
+	ft::vector<int> ft_vec;
+	std::cout << COLOR_GREEN_B;
+	for (size_t i = 0; i < 5; ++i)
+		ft_vec.push_back(i);
+	std::cout << "ft::vector  -> capacity: " << ft_vec.capacity();
+	std::cout << ", size: " << ft_vec.size();
+	std::cout << ", values:";
+	for (size_t i = 0; i < ft_vec.size(); ++i)
+		std::cout << ' ' << ft_vec[i];
+	ft::vector<int>::reverse_iterator	ft_rit(ft_vec.end());
+	std::cout << ", it: " << *ft_rit;
+	std::cout << ", it: " << *(ft_rit++);
+	std::cout << ", it: " << *(++ft_rit);
+	std::cout << ", it: " << *(ft_rit--);
+	std::cout << ", it: " << *(--ft_rit);
+	ft::vector<int>::reverse_iterator	ft_rit2(ft_vec.begin() + 1);
+	std::cout << ", it: " << *ft_rit2;
+	std::cout << ", it: " << *(ft_rit2 - 1);
+	ft_rit2 -= 2;
+	std::cout << ", it: " << *ft_rit2;
+	std::cout << ", it: " << *(ft_rit2 + 1);
+	ft_rit2 += 1;
+	std::cout << ", it: " << *ft_rit2;
+	ft::vector<int>::reverse_iterator	ft_rit3;
+	ft_rit3 = ft_rit2;
+	std::cout << ", it: " << *ft_rit3;
+	ft_rit3 = ft_rit3 - 2;
+	std::cout << ", it: " << *(ft_rit3.base());
+	std::cout << ", it: " << ft_rit3[1];
+	std::cout << ", it: " << ft_rit3[3];
+	ft::vector<int>::reverse_iterator	ft_rit4(ft_rit3);
+	std::cout << ", it: " << *ft_rit4;
 	std::cout << '.' << COLOR_END << std::endl;
 }
 
@@ -1304,6 +1379,7 @@ int	main()
 	example20();
 	example21();
 	example22();
+	example23();
 
 	return (0);
 }

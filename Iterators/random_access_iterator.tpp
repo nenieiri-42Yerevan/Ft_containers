@@ -101,7 +101,7 @@ namespace	ft
 	random_access_iterator<T>	&random_access_iterator<T>::operator--()
 	{
 		this->_elem -= 1;
-		return (this);
+		return (*this);
 	}
 
 	template <typename T>

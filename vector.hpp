@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:22:31 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/02 14:31:52 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/02 17:00:01 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdexcept>
 # include <string>
 # include "./Iterators/random_access_iterator.hpp"
+# include "./Iterators/reverse_iterator.hpp"
 # include "type_traits.hpp"
 
 namespace	ft
@@ -40,8 +41,8 @@ namespace	ft
 			/* Member types (iterators) */
 			typedef random_access_iterator<T>			iterator;
 			typedef random_access_iterator<const T>		const_iterator;
-//			typedef reverse_iterator<iterator>			reverse_iterator
-//			typedef reverse_iterator<const_iterator>	const_reverse_iterator;
+			typedef reverse_iterator<iterator>			reverse_iterator;
+			//typedef reverse_iterator<const_iterator>	const_reverse_iterator;
 		
 		/* Constructers and Destructer */
 		public:
