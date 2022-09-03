@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:22:31 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/03 12:28:27 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/03 15:04:20 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ namespace	ft
 			vector(InputIterator first, InputIterator last,
 					const allocator_type &alloc = allocator_type(),
 			typename enable_if<!is_integral<InputIterator>::value, 
-								InputIterator>::type* = 0);
+								bool>::type = true);
 
 			vector(const vector &other);
 			vector	&operator=(const vector &other);
@@ -100,7 +100,7 @@ namespace	ft
 
 			template <typename InputIt>
 			void						assign(InputIt first, InputIt last,
-				typename enable_if<!is_integral<InputIt>::value, InputIt>::type* = 0);
+				typename enable_if<!is_integral<InputIt>::value, bool>::type = true);
 
 			void						push_back(const value_type &val);
 			void						pop_back();
@@ -109,7 +109,7 @@ namespace	ft
 												const T &value);
 			template <typename InputIt>
 			void			insert(iterator pos, InputIt first, InputIt last,
-				typename enable_if<!is_integral<InputIt>::value, InputIt>::type* = 0);
+				typename enable_if<!is_integral<InputIt>::value, bool>::type = true);
 
 			iterator					erase(iterator pos);
 			iterator					erase(iterator first, iterator last);

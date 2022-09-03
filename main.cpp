@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/03 13:25:20 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/03 15:22:04 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1435,6 +1435,43 @@ void	example24()
 	ft_rit3 += 3;
 	std::cout << ", - " << (ft_rit2 - ft_rit1);
 	std::cout << ", - " << (ft_rit3 - ft_rit2);
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
+}
+
+class A
+{
+	public:
+		A* operator &() const
+		{
+			std::cout << "operator&()" << std::endl;;
+			return (0);
+		}
+};
+
+void	example25()
+{
+	/* Example 25 */
+	/* Example for & and address */
+
+	std::vector<A> vec;
+	std::cout << COLOR_PURPLE_B << "Example 25" << COLOR_END << std::endl;
+	std::cout << COLOR_YELLOW_B;
+	for (size_t i = 0; i < 5; ++i)
+		vec.push_back(A());
+	vec.reserve(20);
+	std::cout << "std::vector -> capacity: " << vec.capacity();
+	std::cout << ", size: " << vec.size();
+	std::cout << ", values:";
+	std::cout << '.' << COLOR_END << std::endl;
+
+	ft::vector<A> ft_vec;
+	std::cout << COLOR_GREEN_B;
+	for (size_t i = 0; i < 5; ++i)
+		ft_vec.push_back(A());
+	ft_vec.reserve(20);
+	std::cout << "ft::vector  -> capacity: " << ft_vec.capacity();
+	std::cout << ", size: " << ft_vec.size();
+	std::cout << ", values:";
 	std::cout << '.' << COLOR_END << std::endl;
 }
 
@@ -1464,6 +1501,7 @@ int	main()
 	example22();
 	example23();
 	example24();
+	example25();
 
 	return (0);
 }

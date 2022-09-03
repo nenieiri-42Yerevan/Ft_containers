@@ -62,7 +62,7 @@ namespace	ft
 	template <typename InputIterator>
 	vector<T, Allocator>::vector(InputIterator first, InputIterator last,
 			const allocator_type &alloc,
-	typename enable_if<!is_integral<InputIterator>::value, InputIterator>::type*)
+	typename enable_if<!is_integral<InputIterator>::value, bool>::type)
 	{
 		difference_type	n;
 
@@ -237,7 +237,7 @@ namespace	ft
 				for (i = 0; i < this->_size; ++i)
 				{
 					this->_alloc.construct(tmp + i, this->_array[i]);
-					this->_alloc.destroy(&(this->_array[i]));
+					this->_alloc.destroy(this->_alloc.address(this->_array[i]));
 				}
 			}
 			catch (...)
@@ -346,7 +346,7 @@ namespace	ft
 	template <typename T, typename Allocator>
 	template <typename InputIt>
 	void	vector<T, Allocator>::assign(InputIt first, InputIt last,
-	typename enable_if<!is_integral<InputIt>::value, InputIt>::type*)
+	typename enable_if<!is_integral<InputIt>::value, bool>::type)
 	{
 		this->erase(this->begin(), this->end());
 		this->reserve(last - first);
@@ -419,7 +419,7 @@ namespace	ft
 				for (; i + j < (this->_size + count); ++i)
 					this->_alloc.construct(tmp + i + j, this->_array[i]);
 				for (int t = 0; i < this->_size; ++t)
-					this->_alloc.destroy(&(this->_array[t]));
+					this->_alloc.destroy(this->_alloc.address(this->_array[t]));
 			}
 			catch (...)
 			{
@@ -455,7 +455,7 @@ namespace	ft
 	template <typename T, typename Allocator>
 	template <typename InputIt>
 	void	vector<T, Allocator>::insert(iterator pos, InputIt first, InputIt last,
-	typename enable_if<!is_integral<InputIt>::value, InputIt>::type*)
+	typename enable_if<!is_integral<InputIt>::value, bool>::type)
 	{
 		pointer		tmp;
 		size_type	start;
@@ -488,7 +488,7 @@ namespace	ft
 				for (; i + j < (this->_size + count); ++i)
 					this->_alloc.construct(tmp + i + j, this->_array[i]);
 				for (int t = 0; i < this->_size; ++t)
-					this->_alloc.destroy(&(this->_array[t]));
+					this->_alloc.destroy(this->_alloc.address(this->_array[t]));
 			}
 			catch (...)
 			{
@@ -540,13 +540,13 @@ namespace	ft
 		tmp_start = start;
 		while (first != last)
 		{
-			this->_alloc.destroy(&(*first));
+			this->_alloc.destroy(this->_alloc.address(*first));
 			++first;
 		}
 		while (count != 0 && last < this->end())
 		{
-			this->_alloc.construct(&(this->_array[tmp_start++]), *last);
-			this->_alloc.destroy(&(*last));
+			this->_alloc.construct(this->_alloc.address(this->_array[tmp_start++]), *last);
+			this->_alloc.destroy(this->_alloc.address(*last));
 			++last;
 		}
 		this->_size -= count;
