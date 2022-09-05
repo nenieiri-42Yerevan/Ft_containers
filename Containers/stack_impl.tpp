@@ -1,21 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   stack_impl.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/03 18:56:29 by vismaily         ###   ########.fr       */
+/*   Created: 2022/09/05 16:13:48 by vismaily          #+#    #+#             */
+/*   Updated: 2022/09/05 16:15:32 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	vector_test();
+#ifndef FT_STACK_TPP
+# define FT_STACK_TPP
 
-int	main()
+# ifndef FT_STACK_HPP
+#  error stack_impl.tpp should only be included from stack.hpp.
+# endif
+
+namespace	ft
 {
-	int a;
-	//vector_test();
-
-	return (0);
 }
+
+#endif

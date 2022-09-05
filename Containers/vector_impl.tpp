@@ -14,7 +14,7 @@
 # define FT_VECTOR_IMPL_TPP
 
 # ifndef FT_VECTOR_HPP
-# error vectorImpl.tpp should only be included from vector.hpp.
+#  error vector_impl.tpp should only be included from vector.hpp.
 # endif
 
 namespace	ft

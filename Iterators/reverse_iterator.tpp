@@ -14,7 +14,7 @@
 # define FT_REVERSE_ITERATOR_TPP
 
 # ifndef FT_REVERSE_ITERATOR_HPP
-# error reverse_iterator.tpp should only be included from reverse_iterator.hpp.
+#  error reverse_iterator.tpp should only be included from reverse_iterator.hpp.
 # endif
 
 namespace	ft
