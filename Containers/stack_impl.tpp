@@ -19,6 +19,107 @@
 
 namespace	ft
 {
+	/*===================================*/
+    /*    Constructors and Destructor	 */
+    /*===================================*/
+
+	template <typename T, typename Container>
+	stack<T, Container>::stack(const container_type &cont)
+	{
+		this->_cont = Container;
+	}
+
+	template <typename T, typename Container>
+	stack<T, Container>&	stack<T, Allocator>operator=(const stack &other);
+	{
+		this->_cont = other._cont;
+	}
+
+	template <typename T, typename Container>
+	stack<T, Container>::~stack()
+	{
+		this->_cont.clear();
+	}
+
+	/*=============================*/
+    /*       Member functions      */
+    /*=============================*/
+
+	template <typename T, typename Container>
+	typename stack<T, Container>::reference	stack<T, Container>::top()
+	{
+		return (this->_cont.back());
+	}
+
+	template <typename T, typename Container>
+	typename stack<T, Container>::const_reference	stack<T, Container>::top() const
+	{
+		return (this->_cont.back());
+	}
+
+	template <typename T, typename Container>
+	bool	stack<T, Container>::empty() const
+	{
+		return (this->_cont.empty());
+	}
+
+	template <typename T, typename Container>
+	typename stack<T, Container>::size_type	stack<T, Container>::size() const
+	{
+		return (this->_cont.size());
+	}
+
+	template <typename T, typename Container>
+	void	stack<T, Container>::push(const_reference value)
+	{
+		this->_cont.push_back(value);
+	}
+
+	template <typename T, typename Container>
+	void	stack<T, Container>::pop()
+	{
+		this->_cont.pop_back();
+	}
+
+	/*=================================*/
+    /*       Non-member functions      */
+    /*=================================*/
+
+	template <typename T, typename Container>
+	bool	operator==(const stack<T, Container> &lhs, const stack<T, Container> &rhs)
+	{
+		return (lhs._cont == rhs._cont);
+	}
+
+	template <typename T, typename Container>
+	bool	operator!=(const stack<T, Container> &lhs, const stack<T, Container> &rhs)
+	{
+		return (lhs._cont != rhs._cont);
+	}
+
+	template <typename T, typename Container>
+	bool	operator>(const stack<T, Container> &lhs, const stack<T, Container> &rhs)
+	{
+		return (lhs._cont > rhs._cont);
+	}
+
+	template <typename T, typename Container>
+	bool	operator>=(const stack<T, Container> &lhs, const stack<T, Container> &rhs)
+	{
+		return (lhs._cont >= rhs._cont);
+	}
+
+	template <typename T, typename Container>
+	bool	operator<(const stack<T, Container> &lhs, const stack<T, Container> &rhs)
+	{
+		return (lhs._cont < rhs._cont);
+	}
+
+	template <typename T, typename Container>
+	bool	operator<=(const stack<T, Container> &lhs, const stack<T, Container> &rhs)
+	{
+		return (lhs._cont <= rhs._cont);
+	}
 }
 
 #endif
