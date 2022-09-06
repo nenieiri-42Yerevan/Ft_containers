@@ -6,16 +6,17 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/03 18:56:29 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/06 17:29:06 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	vector_test();
+void	stack_test();
 
 int	main()
 {
-	int a;
-	//vector_test();
+//	vector_test();
+//	stack_test();
 
 	return (0);
 }

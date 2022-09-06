@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 18:10:37 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/03 18:12:47 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/06 16:45:46 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,12 @@
 
 #endif
 
-void	example1()
+static void	example1()
 {
 	/* Example 1 */
 	/* Example for constructor without parametrs */
-	/* Exaple for size and capacity with int */
-	/* Exaple for size and capacity with int */
-	/* Exaple for push_back */
+	/* Example for size and capacity with int */
+	/* Example for push_back */
 
 	std::vector<int>	vec;
 	std::cout << COLOR_PURPLE_B << "Example 1" << COLOR_END << std::endl;
@@ -85,7 +84,7 @@ void	example1()
 	std::cout << COLOR_END << std::endl;
 }
 
-void	example2()
+static void	example2()
 {
 	/* Example 2 */
 	/* Example for constructor with 2 parametrs with double */
@@ -107,7 +106,7 @@ void	example2()
 	std::cout << COLOR_END << std::endl;
 }
 
-void	example3()
+static void	example3()
 {
 	/* Example 3 */
 	/* Example for const operator[] and for function at() with float */
@@ -140,7 +139,7 @@ void	example3()
 	std::cout << COLOR_END << std::endl << std::endl;
 }
 
-void	example4()
+static void	example4()
 {
 	/* Example 4 */
 	/* Example for front() and back() functions */
@@ -167,7 +166,7 @@ void	example4()
 	std::cout << COLOR_END << std::endl << std::endl;
 }
 
-void	example5()
+static void	example5()
 {
 	/* Example 5 */
 	/* Example for data() */
@@ -192,7 +191,7 @@ void	example5()
 	std::cout << COLOR_END << std::endl << std::endl;
 }
 
-void	example6()
+static void	example6()
 {
 	/* Example 6 */
 	/* Example for max_size() and get_allocator() */
@@ -239,7 +238,7 @@ void	example6()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-void	example7()
+static void	example7()
 {
 	/* Example 7 */
 	/* Example for push_back() and pop_back() */
@@ -286,7 +285,7 @@ void	example7()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-void	example8()
+static void	example8()
 {
 	/* Example 8 */
 	/* Example for iterators */
@@ -347,7 +346,7 @@ void	example8()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-void	example9()
+static void	example9()
 {
 	/* Example 9 */
 	/* Example for iterators comparison */
@@ -408,7 +407,7 @@ void	example9()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-void	example10()
+static void	example10()
 {
 	/* Example 10 */
 	/* Example for const iterators comparison */
@@ -467,7 +466,7 @@ void	example10()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-void	example11()
+static void	example11()
 {
 	/* Example 11 */
 	/* Example for const and non-const iterators comparison */
@@ -526,7 +525,7 @@ void	example11()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-void	example12()
+static void	example12()
 {
 	/* Example 12 */
 	/* Example for copy constructors */
@@ -573,7 +572,7 @@ void	example12()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-void	example13()
+static void	example13()
 {
 	/* Example 13 */
 	/* Example for insert */
@@ -634,7 +633,7 @@ void	example13()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-void	example14()
+static void	example14()
 {
 	/* Example 14 */
 	/* Example for insert part 2 */
@@ -703,7 +702,7 @@ void	example14()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-void	example15()
+static void	example15()
 {
 	/* Example 15 */
 	/* Example for insert */
@@ -760,7 +759,7 @@ void	example15()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-void	example16()
+static void	example16()
 {
 	/* Example 16 */
 	/* Example for erase */
@@ -849,7 +848,7 @@ void	example16()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-void	example17()
+static void	example17()
 {
 	/* Example 17 */
 	/* Example for resize */
@@ -912,7 +911,7 @@ void	example17()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-void	example18()
+static void	example18()
 {
 	/* Example 18 */
 	/* Example for assign */
@@ -973,7 +972,7 @@ void	example18()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-void	example19()
+static void	example19()
 {
 	/* Example 19 */
 	/* Example for assign part 2 */
@@ -1038,7 +1037,7 @@ void	example19()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-void	example20()
+static void	example20()
 {
 	/* Example 20 */
 	/* Example for swaps */
@@ -1097,7 +1096,7 @@ void	example20()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-void	example21()
+static void	example21()
 {
 	/* Example 21 */
 	/* Example for swaps part 2 */
@@ -1156,7 +1155,7 @@ void	example21()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-void	example22()
+static void	example22()
 {
 	/* Example 22 */
 	/* Example for relational operators */
@@ -1279,7 +1278,7 @@ void	example22()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-void	example23()
+static void	example23()
 {
 	/* Example 23 */
 	/* Example for reverse iterator */
@@ -1354,7 +1353,7 @@ void	example23()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-void	example24()
+static void	example24()
 {
 	/* Example 24 */
 	/* Example for rbegin, rend */
@@ -1447,7 +1446,7 @@ class A
 		}
 };
 
-void	example25()
+static void	example25()
 {
 	/* Example 25 */
 	/* Example for & and address */
