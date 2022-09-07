@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algorithm.hpp                                      :+:      :+:    :+:   */
+/*   algorithm_impl.tpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_ALGORITHM_HPP
-# define FT_ALGORITHM_HPP
+#ifndef FT_ALGORITHM_IMPL_TPP
+# define FT_ALGORITHM_IMPL_TPP
+
+# ifndef FT_ALGORITHM_HPP
+#  error algorithm_impl.tpp should only be included from algorithm.hpp.
+# endif
 
 namespace	ft
 {

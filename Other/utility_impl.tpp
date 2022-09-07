@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_UTILITY_TPP
-# define FT_UTILITY_TPP
+#ifndef FT_UTILITY_IMPL_TPP
+# define FT_UTILITY_IMPL_TPP
 
 # ifndef FT_UTILITY_HPP
 #  error utility_impl.tpp should only be included from utility.hpp.
