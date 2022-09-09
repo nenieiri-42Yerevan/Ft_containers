@@ -73,11 +73,51 @@ namespace	ft
 	template <typename T>
 	binary_search_tree<T>::binary_search_tree()
 	{
+		this->_head = 0;
+	}
+
+	template <typename T>
+	binary_search_tree<T>::binary_search_tree(const binary_search_tree<T> &other)
+	{
+		this->_head = other._head;
+	}
+
+	template <typename T>
+	binary_search_tree<T>	&binary_search_tree<T>::operator=( \
+										const binary_search_tree<T> &other)
+	{
+		if (this != &other)
+			this->_head = other._head;
+		return (*this);
 	}
 
 	template <typename T>
 	binary_search_tree<T>::~binary_search_tree()
 	{
+	}
+
+	template <typename T>
+	node<typename binary_search_tree<T>::value_type> *
+	binary_search_tree<T>::get_head() const
+	{
+		return (this->_head);
+	}
+
+	template <typename T>
+	void	binary_search_tree<T>::inorder_tree_walk(node<value_type> *x)
+	{
+		if (x != NULL)
+		{
+			inorder_tree_walk(x->left);
+			std::cout << x->data << std::endl;
+			inorder_tree_walk(x->right);
+		}
+	}
+
+	template <typename T>
+	void	binary_search_tree<T>::inorder_tree_walk()
+	{
+		inorder_tree_walk(this->_head);
 	}
 }
 

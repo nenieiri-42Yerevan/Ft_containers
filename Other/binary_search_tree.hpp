@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:30:35 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/09 14:40:30 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/09 17:11:37 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,17 @@ namespace	ft
 
 		public:
 			binary_search_tree();
+			binary_search_tree(const binary_search_tree &other);
+			binary_search_tree	&operator=(const binary_search_tree &other);
 			~binary_search_tree();
+
+		public:
+			node<value_type>	*get_head() const;
+			void				inorder_tree_walk(node<value_type> *x);
+			void				inorder_tree_walk();
+
+		private:
+			node<value_type>	*_head;
 	};
 }
 

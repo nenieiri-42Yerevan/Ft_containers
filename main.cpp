@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/09 14:46:30 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/09 17:17:05 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "Containers/stack.hpp"
 #include "Other/binary_search_tree.hpp"
 #include <iostream>
+#include <string>
 
 void	vector_test();
 void	stack_test();
@@ -33,6 +34,11 @@ int	main()
 	std::cout << n3.data << std::endl;
 	n1 = n2;
 	std::cout << n1.data << std::endl;
+
+	ft::binary_search_tree<int>	tree1;
+	ft::binary_search_tree<std::string>	tree2;
+
+	tree1.inorder_tree_walk();
 
 	return (0);
 }
