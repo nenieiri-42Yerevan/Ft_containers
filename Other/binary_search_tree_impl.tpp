@@ -19,6 +19,66 @@
 
 namespace	ft
 {
+	/*===================================*/
+    /*                Node               */
+    /*===================================*/
+
+	template <typename T>
+	node<T>::node() : data()
+	{
+		this->left = NULL;
+		this->right = NULL;
+		this->p = NULL;
+	}
+
+	template <typename T>
+	node<T>::node(const T &elem) : data(elem)
+	{
+		this->left = NULL;
+		this->right = NULL;
+		this->p = NULL;
+	}
+
+	template <typename T>
+	node<T>::node(const node &other)
+	{
+		this->data = other.data;
+		this->left = other.left;
+		this->right = other.right;
+		this->p = other.p;
+	}
+
+	template <typename T>
+	node<T>	&node<T>::operator=(const node &other)
+	{
+		if (this != &other)
+		{
+			this->data = other.data;
+			this->left = other.left;
+			this->right = other.right;
+			this->p = other.p;
+		}
+		return (*this);
+	}
+
+	template <typename T>
+	node<T>::~node()
+	{
+	}
+
+	/*===================================*/
+    /*                Tree               */
+    /*===================================*/
+
+	template <typename T>
+	binary_search_tree<T>::binary_search_tree()
+	{
+	}
+
+	template <typename T>
+	binary_search_tree<T>::~binary_search_tree()
+	{
+	}
 }
 
 #endif
