@@ -97,14 +97,13 @@ namespace	ft
 	}
 
 	template <typename T>
-	node<typename binary_search_tree<T>::value_type> *
-	binary_search_tree<T>::get_head() const
+	typename binary_search_tree<T>::node_ptr binary_search_tree<T>::get_head() const
 	{
 		return (this->_head);
 	}
 
 	template <typename T>
-	void	binary_search_tree<T>::inorder_tree_walk(node<value_type> *x)
+	void	binary_search_tree<T>::inorder_tree_walk(node_ptr x)
 	{
 		if (x != NULL)
 		{

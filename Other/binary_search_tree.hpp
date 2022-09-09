@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:30:35 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/09 17:11:37 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/09 18:37:29 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,9 @@ namespace	ft
 	{
 		/* Member types */
 		public:
-			typedef T		value_type;
+			typedef T			value_type;
+			typedef node<T>		node_type;
+			typedef node<T>		*node_ptr;
 
 		public:
 			binary_search_tree();
@@ -48,12 +50,13 @@ namespace	ft
 			~binary_search_tree();
 
 		public:
-			node<value_type>	*get_head() const;
-			void				inorder_tree_walk(node<value_type> *x);
+			node_ptr			get_head() const;
+			void				inorder_tree_walk(node_ptr x);
 			void				inorder_tree_walk();
+			//void				tree_insert(node_ptr x);
 
 		private:
-			node<value_type>	*_head;
+			node_ptr			_head;
 	};
 }
 
