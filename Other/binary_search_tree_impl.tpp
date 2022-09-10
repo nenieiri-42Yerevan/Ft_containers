@@ -107,12 +107,6 @@ namespace	ft
     /*======================================*/
 
 	template <typename T>
-	typename binary_search_tree<T>::node_ptr binary_search_tree<T>::get_head() const
-	{
-		return (this->_head);
-	}
-
-	template <typename T>
 	typename binary_search_tree<T>::node_ptr
 	binary_search_tree<T>::create_node(value_type data)
 	{
@@ -120,6 +114,34 @@ namespace	ft
 
 		new_node = new node<value_type>(data);
 		return (new_node);
+	}
+
+	template <typename T>
+	typename binary_search_tree<T>::node_ptr binary_search_tree<T>::get_head() const
+	{
+		return (this->_head);
+	}
+
+	template <typename T>
+	int	binary_search_tree<T>::get_height(node_ptr head) const
+	{
+		if (head == 0)
+			return (0);
+		else
+		{
+			int lheight = get_height(head->left);
+			int rheight = get_height(head->right);
+			if (lheight > rheight)
+				return (lheight + 1);
+			else
+				return (rheight + 1);
+		}
+	}
+
+	template <typename T>
+	int	binary_search_tree<T>::get_height() const
+	{
+		return (get_height(this->_head));
 	}
 
 	/*=====================================*/
@@ -178,54 +200,96 @@ namespace	ft
 	}
 
 	template <typename T>
-	void	binary_search_tree<T>::reverse_preorder_tree_walk(node_ptr head) const
+	void	binary_search_tree<T>::preorder_tree_walk_reverse(node_ptr head) const
 	{
 		if (head != NULL)
 		{
 			std::cout << head->data << ' ';
-			reverse_preorder_tree_walk(head->right);
-			reverse_preorder_tree_walk(head->left);
+			preorder_tree_walk_reverse(head->right);
+			preorder_tree_walk_reverse(head->left);
 		}
 	}
 
 	template <typename T>
-	void	binary_search_tree<T>::reverse_preorder_tree_walk() const
+	void	binary_search_tree<T>::preorder_tree_walk_reverse() const
 	{
-		reverse_preorder_tree_walk(this->_head);
+		preorder_tree_walk_reverse(this->_head);
 	}
 
 	template <typename T>
-	void	binary_search_tree<T>::reverse_inorder_tree_walk(node_ptr head) const
+	void	binary_search_tree<T>::inorder_tree_walk_reverse(node_ptr head) const
 	{
 		if (head != NULL)
 		{
-			reverse_inorder_tree_walk(head->right);
+			inorder_tree_walk_reverse(head->right);
 			std::cout << head->data << ' ';
-			reverse_inorder_tree_walk(head->left);
+			inorder_tree_walk_reverse(head->left);
 		}
 	}
 
 	template <typename T>
-	void	binary_search_tree<T>::reverse_inorder_tree_walk() const
+	void	binary_search_tree<T>::inorder_tree_walk_reverse() const
 	{
-		reverse_inorder_tree_walk(this->_head);
+		inorder_tree_walk_reverse(this->_head);
 	}
 
 	template <typename T>
-	void	binary_search_tree<T>::reverse_postorder_tree_walk(node_ptr head) const
+	void	binary_search_tree<T>::postorder_tree_walk_reverse(node_ptr head) const
 	{
 		if (head != NULL)
 		{
-			reverse_postorder_tree_walk(head->right);
-			reverse_postorder_tree_walk(head->left);
+			postorder_tree_walk_reverse(head->right);
+			postorder_tree_walk_reverse(head->left);
 			std::cout << head->data << ' ';
 		}
 	}
 
 	template <typename T>
-	void	binary_search_tree<T>::reverse_postorder_tree_walk() const
+	void	binary_search_tree<T>::postorder_tree_walk_reverse() const
 	{
-		reverse_postorder_tree_walk(this->_head);
+		postorder_tree_walk_reverse(this->_head);
+	}
+
+	template <typename T>
+	void	binary_search_tree<T>::print_level(node_ptr head, int level) const
+	{
+		if (head != 0)
+		{
+			if (level == 1)
+				std::cout << head->data << " ";
+			else if (level > 1)
+			{
+				print_level(head->left, level - 1);
+				print_level(head->right, level - 1);
+			}
+		}
+	}
+
+	template <typename T>
+	void	binary_search_tree<T>::print_level(int level) const
+	{
+		print_level(this->_head, level);
+	}
+
+	template <typename T>
+	void	binary_search_tree<T>::print_level_reverse(node_ptr head, int level) const
+	{
+		if (head != 0)
+		{
+			if (level == 1)
+				std::cout << head->data << " ";
+			else if (level > 1)
+			{
+				print_level_reverse(head->right, level - 1);
+				print_level_reverse(head->left, level - 1);
+			}
+		}
+	}
+
+	template <typename T>
+	void	binary_search_tree<T>::print_level_reverse(int level) const
+	{
+		print_level_reverse(this->_head, level);
 	}
 
 	/*=====================================*/

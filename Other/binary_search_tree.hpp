@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:30:35 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/10 17:48:20 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/10 19:19:30 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,10 @@ namespace	ft
 
 		/* Tree functional */
 		public:
-			node_ptr			get_head() const;
 			node_ptr			create_node(value_type data);
+			node_ptr			get_head() const;
+			int					get_height(node_ptr head) const;
+			int					get_height() const;
 
 		/* Tree walks */
 		public:
@@ -63,12 +65,18 @@ namespace	ft
 			void				inorder_tree_walk() const;
 			void				postorder_tree_walk(node_ptr head) const;
 			void				postorder_tree_walk() const;
-			void				reverse_preorder_tree_walk(node_ptr head) const;
-			void				reverse_preorder_tree_walk() const;
-			void				reverse_inorder_tree_walk(node_ptr head) const;
-			void				reverse_inorder_tree_walk() const;
-			void				reverse_postorder_tree_walk(node_ptr head) const;
-			void				reverse_postorder_tree_walk() const;
+
+			void				preorder_tree_walk_reverse(node_ptr head) const;
+			void				preorder_tree_walk_reverse() const;
+			void				inorder_tree_walk_reverse(node_ptr head) const;
+			void				inorder_tree_walk_reverse() const;
+			void				postorder_tree_walk_reverse(node_ptr head) const;
+			void				postorder_tree_walk_reverse() const;
+
+			void				print_level(node_ptr head, int level) const;
+			void				print_level(int level) const;
+			void				print_level_reverse(node_ptr head, int level) const;
+			void				print_level_reverse(int level) const;
 
 		/* Insert and delete*/
 		public:
