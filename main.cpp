@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/09 17:17:05 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/10 17:50:55 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,23 @@ int	main()
 //	vector_test();
 //	stack_test();
 //	map_test();
-	ft::node<int>	n1;
-	ft::node<int>	n2(42);
-	ft::node<int>	n3(n2);
+	ft::node<int>	*n1 = new ft::node<int>(42);
+	ft::node<int>	*n2 = new ft::node<int>(88);
 
-	std::cout << n1.data << std::endl;
-	std::cout << n2.data << std::endl;
-	std::cout << n3.data << std::endl;
-	n1 = n2;
-	std::cout << n1.data << std::endl;
-
-	ft::binary_search_tree<int>	tree1;
-	ft::binary_search_tree<std::string>	tree2;
-
-	tree1.inorder_tree_walk();
+	ft::binary_search_tree<int>	tree1(n1);
+	tree1.tree_insert(n2);
+	tree1.tree_insert(89);
+	tree1.tree_insert(56);
+	tree1.tree_insert(-5656);
+	tree1.tree_insert(-56);
+	tree1.tree_insert(0);
+	tree1.tree_insert(1);
+	tree1.reverse_inorder_tree_walk();
+	std::cout << std::endl;
+	tree1.reverse_preorder_tree_walk();
+	std::cout << std::endl;
+	tree1.reverse_postorder_tree_walk();
+	std::cout << std::endl;
 
 	return (0);
 }
