@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/11 13:24:43 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/11 16:42:05 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ int	main()
 	tree1.tree_insert(0);
 	tree1.tree_insert(1);
 	tree1.tree_insert(n3);
+	tree1.tree_delete(42);
 	tree1.print_tree();
+
 	return (0);
 }

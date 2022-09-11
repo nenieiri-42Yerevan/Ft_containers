@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:30:35 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/11 13:13:17 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/11 16:43:23 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,11 +91,17 @@ namespace	ft
 			void				print_tree(node_ptr head) const;
 			void				print_tree() const;
 
-		/* Insert and delete*/
+		/* Insert and delete */
 		public:
 			void				tree_insert(node_ptr root, node_ptr new_node);
 			void				tree_insert(node_ptr new_node);
 			void				tree_insert(value_type value);
+			void				tree_delete(node_ptr old_node);
+			void				tree_delete(value_type value);
+
+		/* Helper methods */
+		private:
+			void				transplant(node_ptr u, node_ptr v);
 
 		private:
 			node_ptr			_head;

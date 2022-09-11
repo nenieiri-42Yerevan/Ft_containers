@@ -488,6 +488,52 @@ namespace	ft
 	{
 		this->tree_insert(this->_head, this->create_node(value));
 	}
+
+	template <typename T>
+	void	binary_search_tree<T>::tree_delete(node_ptr old_node)
+	{
+		node_ptr	u;
+
+		if (old_node->left == 0)
+			this->transplant(old_node, old_node->right);
+		else if (old_node->right == 0)
+			this->transplant(old_node, old_node->left);
+		else
+		{
+			u = this->min(old_node->right);
+			if (u != old_node->right)
+			{
+				this->transplant(u, u->right);
+				u->right = old_node->right;
+				u->right->p = u;
+			}
+			this->transplant(old_node, u);
+			u->left = old_node->left;
+			u->left->p = u;
+		}
+		delete old_node;
+	}
+
+	template <typename T>
+	void	binary_search_tree<T>::tree_delete(value_type value)
+	{
+		this->tree_delete(this->search(value));
+	}
+
+	template <typename T>
+	void	binary_search_tree<T>::transplant(node_ptr u, node_ptr v)
+	{
+		if (u == NULL)
+			return ;
+		if (u->p == NULL)
+			this->_head = v;
+		else if (u == u->p->left)
+			u->p->left = v;
+		else
+			u->p->right = v;
+		if (v != NULL)
+			v->p = u->p;
+	}
 }
 
 #endif
