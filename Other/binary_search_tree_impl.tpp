@@ -206,7 +206,6 @@ namespace	ft
 			}
 			return (parent);
 		}
-
 	}
 
 	template <typename T>
@@ -236,7 +235,6 @@ namespace	ft
 			}
 			return (parent);
 		}
-
 	}
 
 	template <typename T>
@@ -244,6 +242,42 @@ namespace	ft
 	binary_search_tree<T>::predecessor() const
 	{
 		return (this->predecessor(this->_head));
+	}
+
+	template <typename T>
+	typename binary_search_tree<T>::node_ptr \
+	binary_search_tree<T>::search(node_ptr head, value_type key) const
+	{
+		if (head == 0 || head->data == key)
+			return (head);
+		if (head->data > key)
+			return (this->search(head->left, key));
+		else
+			return (this->search(head->right, key));
+	}
+
+	/* Iterative search */
+	/*
+	template <typename T>
+	typename binary_search_tree<T>::node_ptr \
+	binary_search_tree<T>::search(node_ptr head, value_type key) const
+	{
+		while (head != 0 && head->data != key)
+		{
+			if (head->data > key)
+				head = head->left;
+			else
+				head = head->right;
+		}
+		return (head);
+	}
+	*/
+
+	template <typename T>
+	typename binary_search_tree<T>::node_ptr \
+	binary_search_tree<T>::search(value_type key) const
+	{
+		return (this->search(this->_head, key));
 	}
 
 	/*=====================================*/
