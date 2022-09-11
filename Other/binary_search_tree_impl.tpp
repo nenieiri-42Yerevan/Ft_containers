@@ -195,14 +195,14 @@ namespace	ft
 		if (head == 0)
 			return (0);
 		if (head->right != 0)
-			return (this-min(head->right));
+			return (this->min(head->right));
 		else
 		{
-			parent = head.p;
-			while (parent != 0 && head != parent->right)
+			parent = head->p;
+			while (parent != 0 && head == parent->right)
 			{
 				head = parent;
-				parent = head.p;
+				parent = head->p;
 			}
 			return (parent);
 		}
@@ -214,6 +214,36 @@ namespace	ft
 	binary_search_tree<T>::successor() const
 	{
 		return (this->successor(this->_head));
+	}
+
+	template <typename T>
+	typename binary_search_tree<T>::node_ptr \
+	binary_search_tree<T>::predecessor(node_ptr head) const
+	{
+		node_ptr	parent;
+
+		if (head == 0)
+			return (0);
+		if (head->left != 0)
+			return (this->max(head->left));
+		else
+		{
+			parent = head->p;
+			while (parent != 0 && head == parent->left)
+			{
+				head = parent;
+				parent = head->p;
+			}
+			return (parent);
+		}
+
+	}
+
+	template <typename T>
+	typename binary_search_tree<T>::node_ptr \
+	binary_search_tree<T>::predecessor() const
+	{
+		return (this->predecessor(this->_head));
 	}
 
 	/*=====================================*/

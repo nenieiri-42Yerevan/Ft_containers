@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/11 12:11:16 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/11 13:10:19 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	main()
 //	map_test();
 	ft::node<int>	*n1 = new ft::node<int>(42);
 	ft::node<int>	*n2 = new ft::node<int>(88);
+	ft::node<int>	*n3 = new ft::node<int>(10);
 
 	ft::binary_search_tree<int>	tree1(n1);
 	tree1.tree_insert(n2);
@@ -36,8 +37,7 @@ int	main()
 	tree1.tree_insert(-56);
 	tree1.tree_insert(0);
 	tree1.tree_insert(1);
-	tree1.tree_insert(10);
-	std::cout << tree1.max()->data << std::endl << std::endl;
+	tree1.tree_insert(n3);
 	tree1.print_tree();
 	return (0);
 }
