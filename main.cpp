@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/10 19:22:31 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/11 12:11:16 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,8 @@ int	main()
 	tree1.tree_insert(-56);
 	tree1.tree_insert(0);
 	tree1.tree_insert(1);
-	tree1.inorder_tree_walk_reverse();
-	std::cout << std::endl;
-	tree1.preorder_tree_walk_reverse();
-	std::cout << std::endl;
-	tree1.postorder_tree_walk_reverse();
-	std::cout << std::endl;
-	std::cout << std::endl;
-	std::cout << std::endl;
-
+	tree1.tree_insert(10);
+	std::cout << tree1.max()->data << std::endl << std::endl;
+	tree1.print_tree();
 	return (0);
 }

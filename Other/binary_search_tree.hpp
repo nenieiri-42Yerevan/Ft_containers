@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:30:35 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/10 19:19:30 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/11 12:10:43 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,14 @@ namespace	ft
 		public:
 			node_ptr			create_node(value_type data);
 			node_ptr			get_head() const;
-			int					get_height(node_ptr head) const;
-			int					get_height() const;
+			int					height(node_ptr head) const;
+			int					height() const;
+			node_ptr			min(node_ptr head) const;
+			node_ptr			min() const;
+			node_ptr			max(node_ptr head) const;
+			node_ptr			max() const;
 
-		/* Tree walks */
+		/* Tree walk */
 		public:
 			void				preorder_tree_walk(node_ptr head) const;
 			void				preorder_tree_walk() const;
@@ -77,6 +81,9 @@ namespace	ft
 			void				print_level(int level) const;
 			void				print_level_reverse(node_ptr head, int level) const;
 			void				print_level_reverse(int level) const;
+
+			void				print_tree(node_ptr head) const;
+			void				print_tree() const;
 
 		/* Insert and delete*/
 		public:

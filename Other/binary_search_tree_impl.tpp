@@ -123,14 +123,14 @@ namespace	ft
 	}
 
 	template <typename T>
-	int	binary_search_tree<T>::get_height(node_ptr head) const
+	int	binary_search_tree<T>::height(node_ptr head) const
 	{
 		if (head == 0)
 			return (0);
 		else
 		{
-			int lheight = get_height(head->left);
-			int rheight = get_height(head->right);
+			int lheight = height(head->left);
+			int rheight = height(head->right);
 			if (lheight > rheight)
 				return (lheight + 1);
 			else
@@ -139,13 +139,55 @@ namespace	ft
 	}
 
 	template <typename T>
-	int	binary_search_tree<T>::get_height() const
+	int	binary_search_tree<T>::height() const
 	{
-		return (get_height(this->_head));
+		return (this->height(this->_head));
+	}
+
+	template <typename T>
+	void	binary_search_tree<T>::print_tree() const
+	{
+		this->print_tree(this->_head);
+	}
+
+	template <typename T>
+	typename binary_search_tree<T>::node_ptr \
+	binary_search_tree<T>::min(node_ptr head) const
+	{
+		if (head == 0)
+			return (0);
+		while (head->left != 0)
+			head = head->left;
+		return (head);
+	}
+
+	template <typename T>
+	typename binary_search_tree<T>::node_ptr \
+	binary_search_tree<T>::min() const
+	{
+		return (this->min(this->_head));
+	}
+
+	template <typename T>
+	typename binary_search_tree<T>::node_ptr \
+	binary_search_tree<T>::max(node_ptr head) const
+	{
+		if (head == 0)
+			return (0);
+		while (head->right != 0)
+			head = head->right;
+		return (head);
+	}
+
+	template <typename T>
+	typename binary_search_tree<T>::node_ptr \
+	binary_search_tree<T>::max() const
+	{
+		return (this->max(this->_head));
 	}
 
 	/*=====================================*/
-    /*            Tree  |  Walks           */
+    /*            Tree  |  Walk            */
     /*=====================================*/
 
 	template <typename T>
@@ -162,7 +204,7 @@ namespace	ft
 	template <typename T>
 	void	binary_search_tree<T>::preorder_tree_walk() const
 	{
-		preorder_tree_walk(this->_head);
+		this->preorder_tree_walk(this->_head);
 	}
 
 	template <typename T>
@@ -179,7 +221,7 @@ namespace	ft
 	template <typename T>
 	void	binary_search_tree<T>::inorder_tree_walk() const
 	{
-		inorder_tree_walk(this->_head);
+		this->inorder_tree_walk(this->_head);
 	}
 
 	template <typename T>
@@ -196,7 +238,7 @@ namespace	ft
 	template <typename T>
 	void	binary_search_tree<T>::postorder_tree_walk() const
 	{
-		postorder_tree_walk(this->_head);
+		this->postorder_tree_walk(this->_head);
 	}
 
 	template <typename T>
@@ -213,7 +255,7 @@ namespace	ft
 	template <typename T>
 	void	binary_search_tree<T>::preorder_tree_walk_reverse() const
 	{
-		preorder_tree_walk_reverse(this->_head);
+		this->preorder_tree_walk_reverse(this->_head);
 	}
 
 	template <typename T>
@@ -230,7 +272,7 @@ namespace	ft
 	template <typename T>
 	void	binary_search_tree<T>::inorder_tree_walk_reverse() const
 	{
-		inorder_tree_walk_reverse(this->_head);
+		this->inorder_tree_walk_reverse(this->_head);
 	}
 
 	template <typename T>
@@ -247,7 +289,7 @@ namespace	ft
 	template <typename T>
 	void	binary_search_tree<T>::postorder_tree_walk_reverse() const
 	{
-		postorder_tree_walk_reverse(this->_head);
+		this->postorder_tree_walk_reverse(this->_head);
 	}
 
 	template <typename T>
@@ -268,7 +310,7 @@ namespace	ft
 	template <typename T>
 	void	binary_search_tree<T>::print_level(int level) const
 	{
-		print_level(this->_head, level);
+		this->print_level(this->_head, level);
 	}
 
 	template <typename T>
@@ -289,7 +331,24 @@ namespace	ft
 	template <typename T>
 	void	binary_search_tree<T>::print_level_reverse(int level) const
 	{
-		print_level_reverse(this->_head, level);
+		this->print_level_reverse(this->_head, level);
+	}
+
+	template <typename T>
+	void	binary_search_tree<T>::print_tree(node_ptr head) const
+	{
+		int	tree_height;
+		int level;
+
+		tree_height = this->height(head);
+		level = 1;
+		while (level <= tree_height)
+		{
+			std::cout << "Level " << level - 1 << " - | ";
+			print_level(head, level);
+			std::cout << "|" << std::endl;
+			++level;
+		}
 	}
 
 	/*=====================================*/
@@ -327,13 +386,13 @@ namespace	ft
 	template <typename T>
 	void	binary_search_tree<T>::tree_insert(node_ptr new_node)
 	{
-		binary_search_tree<T>::tree_insert(this->_head, new_node);
+		this->tree_insert(this->_head, new_node);
 	}
 
 	template <typename T>
 	void	binary_search_tree<T>::tree_insert(value_type value)
 	{
-		binary_search_tree<T>::tree_insert(this->_head, create_node(value));
+		this->tree_insert(this->_head, this->create_node(value));
 	}
 }
 
