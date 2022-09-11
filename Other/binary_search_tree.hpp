@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:30:35 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/11 12:10:43 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/11 12:22:33 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ namespace	ft
 			node_ptr			min() const;
 			node_ptr			max(node_ptr head) const;
 			node_ptr			max() const;
+			node_ptr			successor(node_ptr head) const;
+			node_ptr			successor() const;
 
 		/* Tree walk */
 		public:

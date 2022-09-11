@@ -186,6 +186,36 @@ namespace	ft
 		return (this->max(this->_head));
 	}
 
+	template <typename T>
+	typename binary_search_tree<T>::node_ptr \
+	binary_search_tree<T>::successor(node_ptr head) const
+	{
+		node_ptr	parent;
+
+		if (head == 0)
+			return (0);
+		if (head->right != 0)
+			return (this-min(head->right));
+		else
+		{
+			parent = head.p;
+			while (parent != 0 && head != parent->right)
+			{
+				head = parent;
+				parent = head.p;
+			}
+			return (parent);
+		}
+
+	}
+
+	template <typename T>
+	typename binary_search_tree<T>::node_ptr \
+	binary_search_tree<T>::successor() const
+	{
+		return (this->successor(this->_head));
+	}
+
 	/*=====================================*/
     /*            Tree  |  Walk            */
     /*=====================================*/
