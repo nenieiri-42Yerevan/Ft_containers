@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:30:35 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/11 16:43:23 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/11 17:44:01 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ namespace	ft
 
 		public:
 			binary_search_tree();
-			//binary_search_tree(const binary_search_tree &other);
+			binary_search_tree(const binary_search_tree &other);
 			binary_search_tree(const node_ptr head);
-			//binary_search_tree	&operator=(const binary_search_tree &other);
-			//~binary_search_tree();
+			binary_search_tree	&operator=(const binary_search_tree &other);
+			~binary_search_tree();
 
 		/* Tree functional */
 		public:
@@ -93,7 +93,6 @@ namespace	ft
 
 		/* Insert and delete */
 		public:
-			void				tree_insert(node_ptr root, node_ptr new_node);
 			void				tree_insert(node_ptr new_node);
 			void				tree_insert(value_type value);
 			void				tree_delete(node_ptr old_node);
@@ -102,6 +101,8 @@ namespace	ft
 		/* Helper methods */
 		private:
 			void				transplant(node_ptr u, node_ptr v);
+			void				delete_all(node_ptr head);
+			void				deep_copy(node_ptr other_node);
 
 		private:
 			node_ptr			_head;

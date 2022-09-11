@@ -76,32 +76,39 @@ namespace	ft
 		this->_head = 0;
 	}
 
-/*	template <typename T>
+	template <typename T>
 	binary_search_tree<T>::binary_search_tree(const binary_search_tree<T> &other)
 	{
-		this->_head = other._head;
+		this->_head = 0;
+		this->deep_copy(other.get_head());
 	}
-*/
+
 	template <typename T>
 	binary_search_tree<T>::binary_search_tree(const node_ptr head)
 	{
 		this->_head = head;
 	}
-/*
+
 	template <typename T>
 	binary_search_tree<T>	&binary_search_tree<T>::operator=( \
 										const binary_search_tree<T> &other)
 	{
 		if (this != &other)
-			this->_head = other._head;
+		{
+			this->delete_all(this->_head);
+			this->_head = 0;
+			this->deep_copy(other.get_head());
+		}
 		return (*this);
 	}
 
 	template <typename T>
 	binary_search_tree<T>::~binary_search_tree()
 	{
+		this->delete_all(this->_head);
+		this->_head = 0;
 	}
-*/
+
 	/*======================================*/
     /*           Tree  | fuctional          */
     /*======================================*/
@@ -450,12 +457,12 @@ namespace	ft
     /*=====================================*/
 
 	template <typename T>
-	void	binary_search_tree<T>::tree_insert(node_ptr root, node_ptr new_node)
+	void	binary_search_tree<T>::tree_insert(node_ptr new_node)
 	{
 		node_ptr	tmp;
 		node_ptr	parent;
 
-		tmp = root;
+		tmp = this->_head;
 		parent = 0;
 		while (tmp != 0)
 		{
@@ -467,10 +474,7 @@ namespace	ft
 		}
 		new_node->p = parent;
 		if (parent == 0)
-		{
-			root = new_node;
 			this->_head = new_node;
-		}
 		else if (new_node->data < parent->data)
 			parent->left = new_node;
 		else
@@ -478,15 +482,9 @@ namespace	ft
 	}
 
 	template <typename T>
-	void	binary_search_tree<T>::tree_insert(node_ptr new_node)
-	{
-		this->tree_insert(this->_head, new_node);
-	}
-
-	template <typename T>
 	void	binary_search_tree<T>::tree_insert(value_type value)
 	{
-		this->tree_insert(this->_head, this->create_node(value));
+		this->tree_insert(this->create_node(value));
 	}
 
 	template <typename T>
@@ -533,6 +531,28 @@ namespace	ft
 			u->p->right = v;
 		if (v != NULL)
 			v->p = u->p;
+	}
+
+	template <typename T>
+	void	binary_search_tree<T>::delete_all(node_ptr head)
+	{
+		if (head != 0)
+		{
+			this->delete_all(head->left);
+			this->delete_all(head->right);
+			delete head;
+		}
+	}
+
+	template <typename T>
+	void	binary_search_tree<T>::deep_copy(node_ptr other_node)
+	{
+		if (other_node != 0)
+		{
+			this->tree_insert(create_node(other_node->data));
+			this->deep_copy(other_node->left);
+			this->deep_copy(other_node->right);
+		}
 	}
 }
 
