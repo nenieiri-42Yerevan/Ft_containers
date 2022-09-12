@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:30:35 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/11 17:44:01 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/12 18:43:30 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,11 @@ namespace	ft
 		node		*left;
 		node		*right;
 		node		*p;
+		bool		multi;
 	};
 
 	/* Tree */
-	template <typename T>
+	template <typename T, bool multivalues = false>
 	class	binary_search_tree
 	{
 		/* Member types */
@@ -43,6 +44,7 @@ namespace	ft
 			typedef node<T>		node_type;
 			typedef node<T>		*node_ptr;
 
+		/* Constructors and destructors */
 		public:
 			binary_search_tree();
 			binary_search_tree(const binary_search_tree &other);
@@ -54,6 +56,7 @@ namespace	ft
 		public:
 			node_ptr			create_node(value_type data);
 			node_ptr			get_head() const;
+			int					get_count() const;
 			int					height(node_ptr head) const;
 			int					height() const;
 			node_ptr			min(node_ptr head) const;
@@ -93,8 +96,8 @@ namespace	ft
 
 		/* Insert and delete */
 		public:
-			void				tree_insert(node_ptr new_node);
-			void				tree_insert(value_type value);
+			int					tree_insert(node_ptr new_node);
+			int					tree_insert(value_type value);
 			void				tree_delete(node_ptr old_node);
 			void				tree_delete(value_type value);
 
@@ -106,6 +109,7 @@ namespace	ft
 
 		private:
 			node_ptr			_head;
+			int					_elem_count;
 	};
 }
 

@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/11 17:55:58 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/12 19:59:53 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,26 +22,16 @@ void	map_test();
 
 int	barev()
 {
-	ft::node<int>	*n1 = new ft::node<int>(42);
-	ft::node<int>	*n2 = new ft::node<int>(88);
-	ft::node<int>	*n3 = new ft::node<int>(10);
-
-	ft::binary_search_tree<int>	tree1(n1);
-	tree1.tree_insert(n2);
-	tree1.tree_insert(89);
-	tree1.tree_insert(56);
-	tree1.tree_insert(-5656);
-	tree1.tree_insert(-56);
-	tree1.tree_insert(0);
-	tree1.tree_insert(1);
-	tree1.tree_insert(n3);
-	tree1.tree_delete(42);
+	ft::binary_search_tree<int, true>	tree1;
+	tree1.tree_insert(42);
+	tree1.tree_insert(42);
+	tree1.tree_insert(42);
+	tree1.tree_insert(42);
+	tree1.tree_insert(42);
 	tree1.print_tree();
 
 	std::cout << std::endl;
-	ft::binary_search_tree<int>	tree2(tree1);
-	tree2.print_tree();
-
+	tree1.print_tree();
 	return (0);
 }
 

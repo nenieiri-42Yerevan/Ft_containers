@@ -29,6 +29,7 @@ namespace	ft
 		this->left = NULL;
 		this->right = NULL;
 		this->p = NULL;
+		this->multi = false;
 	}
 
 	template <typename T>
@@ -37,6 +38,7 @@ namespace	ft
 		this->left = NULL;
 		this->right = NULL;
 		this->p = NULL;
+		this->multi = false;
 	}
 
 	template <typename T>
@@ -46,6 +48,7 @@ namespace	ft
 		this->left = other.left;
 		this->right = other.right;
 		this->p = other.p;
+		this->multi = other.multi;
 	}
 
 	template <typename T>
@@ -57,6 +60,7 @@ namespace	ft
 			this->left = other.left;
 			this->right = other.right;
 			this->p = other.p;
+			this->multi = other.multi;
 		}
 		return (*this);
 	}
@@ -70,28 +74,30 @@ namespace	ft
     /*   Tree  | Constructors and destructors   */
     /*==========================================*/
 
-	template <typename T>
-	binary_search_tree<T>::binary_search_tree()
+	template <typename T, bool multivalues>
+	binary_search_tree<T, multivalues>::binary_search_tree()
 	{
 		this->_head = 0;
 	}
 
-	template <typename T>
-	binary_search_tree<T>::binary_search_tree(const binary_search_tree<T> &other)
+	template <typename T, bool multivalues>
+	binary_search_tree<T, multivalues>::binary_search_tree( \
+			const binary_search_tree<T, multivalues> &other)
 	{
 		this->_head = 0;
 		this->deep_copy(other.get_head());
 	}
 
-	template <typename T>
-	binary_search_tree<T>::binary_search_tree(const node_ptr head)
+	template <typename T, bool multivalues>
+	binary_search_tree<T, multivalues>::binary_search_tree(const node_ptr head)
 	{
 		this->_head = head;
 	}
 
-	template <typename T>
-	binary_search_tree<T>	&binary_search_tree<T>::operator=( \
-										const binary_search_tree<T> &other)
+	template <typename T, bool multivalues>
+	binary_search_tree<T, multivalues>	&
+	binary_search_tree<T, multivalues>::operator=( \
+			const binary_search_tree<T, multivalues> &other)
 	{
 		if (this != &other)
 		{
@@ -102,8 +108,8 @@ namespace	ft
 		return (*this);
 	}
 
-	template <typename T>
-	binary_search_tree<T>::~binary_search_tree()
+	template <typename T, bool multivalues>
+	binary_search_tree<T, multivalues>::~binary_search_tree()
 	{
 		this->delete_all(this->_head);
 		this->_head = 0;
@@ -113,9 +119,9 @@ namespace	ft
     /*           Tree  | fuctional          */
     /*======================================*/
 
-	template <typename T>
-	typename binary_search_tree<T>::node_ptr
-	binary_search_tree<T>::create_node(value_type data)
+	template <typename T, bool multivalues>
+	typename binary_search_tree<T, multivalues>::node_ptr
+	binary_search_tree<T, multivalues>::create_node(value_type data)
 	{
 		node<value_type>	*new_node;
 
@@ -123,14 +129,21 @@ namespace	ft
 		return (new_node);
 	}
 
-	template <typename T>
-	typename binary_search_tree<T>::node_ptr binary_search_tree<T>::get_head() const
+	template <typename T, bool multivalues>
+	typename binary_search_tree<T, multivalues>::node_ptr \
+	binary_search_tree<T, multivalues>::get_head() const
 	{
 		return (this->_head);
 	}
 
-	template <typename T>
-	int	binary_search_tree<T>::height(node_ptr head) const
+	template <typename T, bool multivalues>
+	int	binary_search_tree<T, multivalues>::get_count() const
+	{
+		return (this->_elem_count);
+	}
+
+	template <typename T, bool multivalues>
+	int	binary_search_tree<T, multivalues>::height(node_ptr head) const
 	{
 		if (head == 0)
 			return (0);
@@ -145,21 +158,21 @@ namespace	ft
 		}
 	}
 
-	template <typename T>
-	int	binary_search_tree<T>::height() const
+	template <typename T, bool multivalues>
+	int	binary_search_tree<T, multivalues>::height() const
 	{
 		return (this->height(this->_head));
 	}
 
-	template <typename T>
-	void	binary_search_tree<T>::print_tree() const
+	template <typename T, bool multivalues>
+	void	binary_search_tree<T, multivalues>::print_tree() const
 	{
 		this->print_tree(this->_head);
 	}
 
-	template <typename T>
-	typename binary_search_tree<T>::node_ptr \
-	binary_search_tree<T>::min(node_ptr head) const
+	template <typename T, bool multivalues>
+	typename binary_search_tree<T, multivalues>::node_ptr \
+	binary_search_tree<T, multivalues>::min(node_ptr head) const
 	{
 		if (head == 0)
 			return (0);
@@ -168,16 +181,16 @@ namespace	ft
 		return (head);
 	}
 
-	template <typename T>
-	typename binary_search_tree<T>::node_ptr \
-	binary_search_tree<T>::min() const
+	template <typename T, bool multivalues>
+	typename binary_search_tree<T, multivalues>::node_ptr \
+	binary_search_tree<T, multivalues>::min() const
 	{
 		return (this->min(this->_head));
 	}
 
-	template <typename T>
-	typename binary_search_tree<T>::node_ptr \
-	binary_search_tree<T>::max(node_ptr head) const
+	template <typename T, bool multivalues>
+	typename binary_search_tree<T, multivalues>::node_ptr \
+	binary_search_tree<T, multivalues>::max(node_ptr head) const
 	{
 		if (head == 0)
 			return (0);
@@ -186,16 +199,16 @@ namespace	ft
 		return (head);
 	}
 
-	template <typename T>
-	typename binary_search_tree<T>::node_ptr \
-	binary_search_tree<T>::max() const
+	template <typename T, bool multivalues>
+	typename binary_search_tree<T, multivalues>::node_ptr \
+	binary_search_tree<T, multivalues>::max() const
 	{
 		return (this->max(this->_head));
 	}
 
-	template <typename T>
-	typename binary_search_tree<T>::node_ptr \
-	binary_search_tree<T>::successor(node_ptr head) const
+	template <typename T, bool multivalues>
+	typename binary_search_tree<T, multivalues>::node_ptr \
+	binary_search_tree<T, multivalues>::successor(node_ptr head) const
 	{
 		node_ptr	parent;
 
@@ -215,16 +228,16 @@ namespace	ft
 		}
 	}
 
-	template <typename T>
-	typename binary_search_tree<T>::node_ptr \
-	binary_search_tree<T>::successor() const
+	template <typename T, bool multivalues>
+	typename binary_search_tree<T, multivalues>::node_ptr \
+	binary_search_tree<T, multivalues>::successor() const
 	{
 		return (this->successor(this->_head));
 	}
 
-	template <typename T>
-	typename binary_search_tree<T>::node_ptr \
-	binary_search_tree<T>::predecessor(node_ptr head) const
+	template <typename T, bool multivalues>
+	typename binary_search_tree<T, multivalues>::node_ptr \
+	binary_search_tree<T, multivalues>::predecessor(node_ptr head) const
 	{
 		node_ptr	parent;
 
@@ -244,16 +257,16 @@ namespace	ft
 		}
 	}
 
-	template <typename T>
-	typename binary_search_tree<T>::node_ptr \
-	binary_search_tree<T>::predecessor() const
+	template <typename T, bool multivalues>
+	typename binary_search_tree<T, multivalues>::node_ptr \
+	binary_search_tree<T, multivalues>::predecessor() const
 	{
 		return (this->predecessor(this->_head));
 	}
 
-	template <typename T>
-	typename binary_search_tree<T>::node_ptr \
-	binary_search_tree<T>::search(node_ptr head, value_type key) const
+	template <typename T, bool multivalues>
+	typename binary_search_tree<T, multivalues>::node_ptr \
+	binary_search_tree<T, multivalues>::search(node_ptr head, value_type key) const
 	{
 		if (head == 0 || head->data == key)
 			return (head);
@@ -265,9 +278,9 @@ namespace	ft
 
 	/* Iterative search */
 	/*
-	template <typename T>
-	typename binary_search_tree<T>::node_ptr \
-	binary_search_tree<T>::search(node_ptr head, value_type key) const
+	template <typename T, bool multivalues>
+	typename binary_search_tree<T, multivalues>::node_ptr \
+	binary_search_tree<T, multivalues>::search(node_ptr head, value_type key) const
 	{
 		while (head != 0 && head->data != key)
 		{
@@ -280,9 +293,9 @@ namespace	ft
 	}
 	*/
 
-	template <typename T>
-	typename binary_search_tree<T>::node_ptr \
-	binary_search_tree<T>::search(value_type key) const
+	template <typename T, bool multivalues>
+	typename binary_search_tree<T, multivalues>::node_ptr \
+	binary_search_tree<T, multivalues>::search(value_type key) const
 	{
 		return (this->search(this->_head, key));
 	}
@@ -291,8 +304,8 @@ namespace	ft
     /*            Tree  |  Walk            */
     /*=====================================*/
 
-	template <typename T>
-	void	binary_search_tree<T>::preorder_tree_walk(node_ptr head) const
+	template <typename T, bool multivalues>
+	void	binary_search_tree<T, multivalues>::preorder_tree_walk(node_ptr head) const
 	{
 		if (head != NULL)
 		{
@@ -302,14 +315,14 @@ namespace	ft
 		}
 	}
 
-	template <typename T>
-	void	binary_search_tree<T>::preorder_tree_walk() const
+	template <typename T, bool multivalues>
+	void	binary_search_tree<T, multivalues>::preorder_tree_walk() const
 	{
 		this->preorder_tree_walk(this->_head);
 	}
 
-	template <typename T>
-	void	binary_search_tree<T>::inorder_tree_walk(node_ptr head) const
+	template <typename T, bool multivalues>
+	void	binary_search_tree<T, multivalues>::inorder_tree_walk(node_ptr head) const
 	{
 		if (head != NULL)
 		{
@@ -319,14 +332,14 @@ namespace	ft
 		}
 	}
 
-	template <typename T>
-	void	binary_search_tree<T>::inorder_tree_walk() const
+	template <typename T, bool multivalues>
+	void	binary_search_tree<T, multivalues>::inorder_tree_walk() const
 	{
 		this->inorder_tree_walk(this->_head);
 	}
 
-	template <typename T>
-	void	binary_search_tree<T>::postorder_tree_walk(node_ptr head) const
+	template <typename T, bool multivalues>
+	void	binary_search_tree<T, multivalues>::postorder_tree_walk(node_ptr head) const
 	{
 		if (head != NULL)
 		{
@@ -336,14 +349,15 @@ namespace	ft
 		}
 	}
 
-	template <typename T>
-	void	binary_search_tree<T>::postorder_tree_walk() const
+	template <typename T, bool multivalues>
+	void	binary_search_tree<T, multivalues>::postorder_tree_walk() const
 	{
 		this->postorder_tree_walk(this->_head);
 	}
 
-	template <typename T>
-	void	binary_search_tree<T>::preorder_tree_walk_reverse(node_ptr head) const
+	template <typename T, bool multivalues>
+	void	binary_search_tree<T, multivalues>::preorder_tree_walk_reverse \
+	(node_ptr head) const
 	{
 		if (head != NULL)
 		{
@@ -353,14 +367,15 @@ namespace	ft
 		}
 	}
 
-	template <typename T>
-	void	binary_search_tree<T>::preorder_tree_walk_reverse() const
+	template <typename T, bool multivalues>
+	void	binary_search_tree<T, multivalues>::preorder_tree_walk_reverse() const
 	{
 		this->preorder_tree_walk_reverse(this->_head);
 	}
 
-	template <typename T>
-	void	binary_search_tree<T>::inorder_tree_walk_reverse(node_ptr head) const
+	template <typename T, bool multivalues>
+	void	binary_search_tree<T, multivalues>::inorder_tree_walk_reverse \
+	(node_ptr head) const
 	{
 		if (head != NULL)
 		{
@@ -370,14 +385,15 @@ namespace	ft
 		}
 	}
 
-	template <typename T>
-	void	binary_search_tree<T>::inorder_tree_walk_reverse() const
+	template <typename T, bool multivalues>
+	void	binary_search_tree<T, multivalues>::inorder_tree_walk_reverse() const
 	{
 		this->inorder_tree_walk_reverse(this->_head);
 	}
 
-	template <typename T>
-	void	binary_search_tree<T>::postorder_tree_walk_reverse(node_ptr head) const
+	template <typename T, bool multivalues>
+	void	binary_search_tree<T, multivalues>::postorder_tree_walk_reverse \
+	(node_ptr head) const
 	{
 		if (head != NULL)
 		{
@@ -387,14 +403,15 @@ namespace	ft
 		}
 	}
 
-	template <typename T>
-	void	binary_search_tree<T>::postorder_tree_walk_reverse() const
+	template <typename T, bool multivalues>
+	void	binary_search_tree<T, multivalues>::postorder_tree_walk_reverse() const
 	{
 		this->postorder_tree_walk_reverse(this->_head);
 	}
 
-	template <typename T>
-	void	binary_search_tree<T>::print_level(node_ptr head, int level) const
+	template <typename T, bool multivalues>
+	void	binary_search_tree<T, multivalues>::print_level \
+	(node_ptr head, int level) const
 	{
 		if (head != 0)
 		{
@@ -408,14 +425,15 @@ namespace	ft
 		}
 	}
 
-	template <typename T>
-	void	binary_search_tree<T>::print_level(int level) const
+	template <typename T, bool multivalues>
+	void	binary_search_tree<T, multivalues>::print_level(int level) const
 	{
 		this->print_level(this->_head, level);
 	}
 
-	template <typename T>
-	void	binary_search_tree<T>::print_level_reverse(node_ptr head, int level) const
+	template <typename T, bool multivalues>
+	void	binary_search_tree<T, multivalues>::print_level_reverse \
+	(node_ptr head, int level) const
 	{
 		if (head != 0)
 		{
@@ -429,14 +447,14 @@ namespace	ft
 		}
 	}
 
-	template <typename T>
-	void	binary_search_tree<T>::print_level_reverse(int level) const
+	template <typename T, bool multivalues>
+	void	binary_search_tree<T, multivalues>::print_level_reverse(int level) const
 	{
 		this->print_level_reverse(this->_head, level);
 	}
 
-	template <typename T>
-	void	binary_search_tree<T>::print_tree(node_ptr head) const
+	template <typename T, bool multivalues>
+	void	binary_search_tree<T, multivalues>::print_tree(node_ptr head) const
 	{
 		int	tree_height;
 		int level;
@@ -456,8 +474,8 @@ namespace	ft
     /*          Insert and delete          */
     /*=====================================*/
 
-	template <typename T>
-	void	binary_search_tree<T>::tree_insert(node_ptr new_node)
+	template <typename T, bool multivalues>
+	int	binary_search_tree<T, multivalues>::tree_insert(node_ptr new_node)
 	{
 		node_ptr	tmp;
 		node_ptr	parent;
@@ -467,7 +485,17 @@ namespace	ft
 		while (tmp != 0)
 		{
 			parent = tmp;
-			if (new_node->data < tmp->data)
+			if (new_node->data == tmp->data)
+			{
+				if (multivalues == false)
+					return (-1);
+				if (tmp->multi == false)
+					tmp = tmp->right;
+				else
+					tmp = tmp->left;
+				parent->multi = !(parent->multi);
+			}
+			else if (new_node->data < tmp->data)
 				tmp = tmp->left;
 			else
 				tmp = tmp->right;
@@ -475,20 +503,36 @@ namespace	ft
 		new_node->p = parent;
 		if (parent == 0)
 			this->_head = new_node;
+		else if (new_node->data == parent->data)
+		{
+			if (parent->multi == true)
+				parent->right = new_node;
+			else
+				parent->left = new_node;
+		}
 		else if (new_node->data < parent->data)
 			parent->left = new_node;
 		else
 			parent->right = new_node;
+		++(this->_elem_count);
+		return (0);
 	}
 
-	template <typename T>
-	void	binary_search_tree<T>::tree_insert(value_type value)
+	template <typename T, bool multivalues>
+	int	binary_search_tree<T, multivalues>::tree_insert(value_type value)
 	{
-		this->tree_insert(this->create_node(value));
+		node_ptr	new_node;
+		int			res;
+
+		new_node = this->create_node(value);
+		res = this->tree_insert(new_node);
+		if (res == -1)
+			delete new_node;
+		return (res);
 	}
 
-	template <typename T>
-	void	binary_search_tree<T>::tree_delete(node_ptr old_node)
+	template <typename T, bool multivalues>
+	void	binary_search_tree<T, multivalues>::tree_delete(node_ptr old_node)
 	{
 		node_ptr	u;
 
@@ -510,16 +554,17 @@ namespace	ft
 			u->left->p = u;
 		}
 		delete old_node;
+		--(this->_elem_count);
 	}
 
-	template <typename T>
-	void	binary_search_tree<T>::tree_delete(value_type value)
+	template <typename T, bool multivalues>
+	void	binary_search_tree<T, multivalues>::tree_delete(value_type value)
 	{
 		this->tree_delete(this->search(value));
 	}
 
-	template <typename T>
-	void	binary_search_tree<T>::transplant(node_ptr u, node_ptr v)
+	template <typename T, bool multivalues>
+	void	binary_search_tree<T, multivalues>::transplant(node_ptr u, node_ptr v)
 	{
 		if (u == NULL)
 			return ;
@@ -533,8 +578,8 @@ namespace	ft
 			v->p = u->p;
 	}
 
-	template <typename T>
-	void	binary_search_tree<T>::delete_all(node_ptr head)
+	template <typename T, bool multivalues>
+	void	binary_search_tree<T, multivalues>::delete_all(node_ptr head)
 	{
 		if (head != 0)
 		{
@@ -544,8 +589,8 @@ namespace	ft
 		}
 	}
 
-	template <typename T>
-	void	binary_search_tree<T>::deep_copy(node_ptr other_node)
+	template <typename T, bool multivalues>
+	void	binary_search_tree<T, multivalues>::deep_copy(node_ptr other_node)
 	{
 		if (other_node != 0)
 		{
