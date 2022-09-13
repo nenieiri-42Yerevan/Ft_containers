@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 16:13:48 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/06 17:48:50 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/13 15:40:13 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ namespace	ft
 	{
 		/* Member types */
 		public:
-			typedef Container					container_type;
+			typedef Container							container_type;
 			typedef typename Container::value_type		value_type;
 			typedef typename Container::size_type		size_type;
 			typedef typename Container::reference		reference;

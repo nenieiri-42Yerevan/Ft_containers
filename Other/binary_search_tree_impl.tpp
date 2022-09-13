@@ -23,8 +23,8 @@ namespace	ft
     /*              Node               */
     /*=================================*/
 
-	template <typename T>
-	node<T>::node() : data()
+	template <typename T, bool multivalues>
+	binary_search_tree<T, multivalues>::node::node() : data()
 	{
 		this->left = NULL;
 		this->right = NULL;
@@ -32,8 +32,8 @@ namespace	ft
 		this->multi = false;
 	}
 
-	template <typename T>
-	node<T>::node(const T &elem) : data(elem)
+	template <typename T, bool multivalues>
+	binary_search_tree<T, multivalues>::node::node(const T &elem) : data(elem)
 	{
 		this->left = NULL;
 		this->right = NULL;
@@ -41,8 +41,8 @@ namespace	ft
 		this->multi = false;
 	}
 
-	template <typename T>
-	node<T>::node(const node &other)
+	template <typename T, bool multivalues>
+	binary_search_tree<T, multivalues>::node::node(const node &other)
 	{
 		this->data = other.data;
 		this->left = other.left;
@@ -51,8 +51,9 @@ namespace	ft
 		this->multi = other.multi;
 	}
 
-	template <typename T>
-	node<T>	&node<T>::operator=(const node &other)
+	template <typename T, bool multivalues>
+	typename binary_search_tree<T, multivalues>::node	&
+	binary_search_tree<T, multivalues>::node::operator=(const node &other)
 	{
 		if (this != &other)
 		{
@@ -65,8 +66,8 @@ namespace	ft
 		return (*this);
 	}
 
-	template <typename T>
-	node<T>::~node()
+	template <typename T, bool multivalues>
+	binary_search_tree<T, multivalues>::node::~node()
 	{
 	}
 
@@ -123,9 +124,9 @@ namespace	ft
 	typename binary_search_tree<T, multivalues>::node_ptr
 	binary_search_tree<T, multivalues>::create_node(value_type data)
 	{
-		node<value_type>	*new_node;
+		node_ptr	new_node;
 
-		new_node = new node<value_type>(data);
+		new_node = new node(data);
 		return (new_node);
 	}
 

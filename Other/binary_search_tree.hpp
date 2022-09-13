@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:30:35 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/12 18:43:30 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/13 16:10:28 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,32 +17,31 @@
 
 namespace	ft
 {
-	/* Node */
-	template <typename T>
-	struct	node
-	{
-		node();
-		node(const T &elem);
-		node(const node &other);
-		node		&operator=(const node &other);
-		~node();
-
-		T			data;
-		node		*left;
-		node		*right;
-		node		*p;
-		bool		multi;
-	};
-
 	/* Tree */
 	template <typename T, bool multivalues = false>
 	class	binary_search_tree
 	{
+		/* Node */
+		private:
+		struct	node
+		{
+			node();
+			node(const T &elem);
+			node(const node &other);
+			node		&operator=(const node &other);
+			~node();
+
+			T			data;
+			node		*left;
+			node		*right;
+			node		*p;
+			bool		multi;
+		};
+
 		/* Member types */
 		public:
 			typedef T			value_type;
-			typedef node<T>		node_type;
-			typedef node<T>		*node_ptr;
+			typedef node		*node_ptr;
 
 		/* Constructors and destructors */
 		public:

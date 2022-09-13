@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/12 19:59:53 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/13 16:26:31 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,6 @@ void	map_test();
 
 int	barev()
 {
-	ft::binary_search_tree<int, true>	tree1;
-	tree1.tree_insert(42);
-	tree1.tree_insert(42);
-	tree1.tree_insert(42);
-	tree1.tree_insert(42);
-	tree1.tree_insert(42);
-	tree1.print_tree();
-
-	std::cout << std::endl;
-	tree1.print_tree();
 	return (0);
 }
 
