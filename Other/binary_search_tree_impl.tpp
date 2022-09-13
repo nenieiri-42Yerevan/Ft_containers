@@ -564,6 +564,10 @@ namespace	ft
 		this->tree_delete(this->search(value));
 	}
 
+	/*=====================================*/
+    /*          Helper methods             */
+    /*=====================================*/
+
 	template <typename T, bool multivalues>
 	void	binary_search_tree<T, multivalues>::transplant(node_ptr u, node_ptr v)
 	{

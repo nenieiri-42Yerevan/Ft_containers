@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   map_impl.tpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/13 16:28:38 by vismaily         ###   ########.fr       */
+/*   Created: 2022/09/13 16:44:23 by vismaily          #+#    #+#             */
+/*   Updated: 2022/09/13 16:44:23 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Containers/vector.hpp"
-#include "Containers/stack.hpp"
-#include "Other/binary_search_tree.hpp"
-#include <iostream>
-#include <string>
+#ifndef FT_MAP_IMPL_TPP
+# define FT_MAP_IMPL_TPP
 
-void	vector_test();
-void	stack_test();
-void	map_test();
+# ifndef FT_MAP_HPP
+#  error map_impl.tpp should only be included from map.hpp.
+# endif
 
-int	barev()
+namespace	ft
 {
-	return (0);
 }
 
-int	main()
-{
-//	vector_test();
-//	stack_test();
-//	map_test();
-	barev();
-}
+#endif
