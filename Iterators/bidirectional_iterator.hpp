@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:08:57 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/14 16:44:55 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/14 17:30:05 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ namespace	ft
 																iterator_category;
 			typedef typename iterator<bidirectional_iteraotr_tag, T>::pointer	pointer;
 			typedef typename iterator<bidirectional_iteraotr_tag, T>::reference	reference;
-			typedef typename iterator<bidirectional_iteraotr_tag, T>::value_type	reference;
+			typedef typename iterator<bidirectional_iteraotr_tag, T>::value_type	value_type;
 			typedef typename iterator<bidirectional_iteraotr_tag, T>::difference_type \
 																difference_type;
 		public:

@@ -565,6 +565,66 @@ namespace	ft
 	}
 
 	/*=====================================*/
+    /*               Iterators             */
+    /*=====================================*/
+
+	template <typename T, bool multivalues>
+	typename binary_search_tree<T, multivalues>::iterator \
+	binary_search_tree<T, multivalues>::begin()
+	{
+		return (iterator(this->min()));
+	}
+
+	template <typename T, bool multivalues>
+	typename binary_search_tree<T, multivalues>::const_iterator \
+	binary_search_tree<T, multivalues>::begin() const
+	{
+		return (const_iterator(this->min()));
+	}
+
+	template <typename T, bool multivalues>
+	typename binary_search_tree<T, multivalues>::iterator \
+	binary_search_tree<T, multivalues>::end()
+	{
+		return (iterator(this->max()->right));
+	}
+
+	template <typename T, bool multivalues>
+	typename binary_search_tree<T, multivalues>::const_iterator \
+	binary_search_tree<T, multivalues>::end() const
+	{
+		return (const_iterator(this->max()->right));
+	}
+
+	template <typename T, bool multivalues>
+	typename binary_search_tree<T, multivalues>::reverse_iterator \
+	binary_search_tree<T, multivalues>::rbegin()
+	{
+		return (reverse_iterator(this->end()));
+	}
+
+	template <typename T, bool multivalues>
+	typename binary_search_tree<T, multivalues>::const_reverse_iterator \
+	binary_search_tree<T, multivalues>::rbegin() const
+	{
+		return (const_reverse_iterator(this->end()));
+	}
+
+	template <typename T, bool multivalues>
+	typename binary_search_tree<T, multivalues>::reverse_iterator \
+	binary_search_tree<T, multivalues>::rend()
+	{
+		return (reverse_iterator(this->begin()));
+	}
+
+	template <typename T, bool multivalues>
+	typename binary_search_tree<T, multivalues>::const_reverse_iterator \
+	binary_search_tree<T, multivalues>::rend() const
+	{
+		return (const_reverse_iterator(this->begin()));
+	}
+
+	/*=====================================*/
     /*          Helper methods             */
     /*=====================================*/
 

@@ -43,7 +43,7 @@ namespace	ft
 
 	template <typename T>
 	bidirectional_iterator<T>	&
-	bidirectional_iterator<T>::operator(const bidirectional_iterator<T> &other)
+	bidirectional_iterator<T>::operator=(const bidirectional_iterator<T> &other)
 	{
 		if (this != &other)
 			this->_elem = other._elem;
@@ -70,7 +70,7 @@ namespace	ft
 				this->_elem = this->_elem->p;
 			else
 			{
-				while (this->_elem == this->_elem->p-right)
+				while (this->_elem == this->_elem->p->right)
 					this->_elem = this->_elem->p;
 				this->_elem = this->_elem->p;
 			}
@@ -80,7 +80,7 @@ namespace	ft
 	template <typename T>
 	bidirectional_iterator<T>	bidirectional_iterator<T>::operator++(int)
 	{
-		binary_search_tree<T>	tmp;
+		bidirectional_iterator<T>	tmp;
 
 		tmp = *this;
 		this->operator++();
@@ -102,7 +102,7 @@ namespace	ft
 				this->_elem = this->_elem->p;
 			else
 			{
-				while (this->_elem == this->_elem->p-left)
+				while (this->_elem == this->_elem->p->left)
 					this->_elem = this->_elem->p;
 				this->_elem = this->_elem->p;
 			}
@@ -112,7 +112,7 @@ namespace	ft
 	template <typename T>
 	bidirectional_iterator<T>	bidirectional_iterator<T>::operator--(int)
 	{
-		binary_search_tree<T>	tmp;
+		bidirectional_iterator<T>	tmp;
 
 		tmp = *this;
 		this->operator--();
@@ -121,14 +121,14 @@ namespace	ft
 
 	template <typename T>
 	typename bidirectional_iterator<T>::reference \
-	bidirectional_iterator::operator*()
+	bidirectional_iterator<T>::operator*() const
 	{
 		return (*(this->_elem));
 	}
 
 	template <typename T>
 	typename bidirectional_iterator<T>::pointer \
-	bidirectional_iterator::operator->()
+	bidirectional_iterator<T>::operator->() const
 	{
 		return (this->_elem);
 	}

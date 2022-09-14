@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:30:35 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/13 20:18:59 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/14 17:31:00 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define FT_BINARY_SEARCH_TREE_HPP
 
 # include <iostream>
+# include "../Iterators/bidirectional_iterator.hpp"
+# include "../Iterators/reverse_iterator.hpp"
 
 namespace	ft
 {
@@ -40,8 +42,13 @@ namespace	ft
 
 		/* Member types */
 		public:
-			typedef T			value_type;
-			typedef node		*node_ptr;
+			typedef T								value_type;
+			typedef node							*node_ptr;
+
+			typedef bidirectional_iterator<T>			iterator;
+			typedef bidirectional_iterator<const T>		const_iterator;
+			typedef reverse_iterator<const_iterator>	const_reverse_iterator;
+			typedef reverse_iterator<iterator>			reverse_iterator;
 
 		/* Constructors and destructors */
 		public:
@@ -99,6 +106,17 @@ namespace	ft
 			int					tree_insert(value_type value);
 			void				tree_delete(node_ptr old_node);
 			void				tree_delete(value_type value);
+
+		/* Iterators */
+		public:
+			iterator				begin();
+			const_iterator			begin() const;
+			iterator				end();
+			const_iterator			end() const;
+			reverse_iterator		rbegin();
+			const_reverse_iterator	rbegin() const;
+			reverse_iterator		rend();
+			const_reverse_iterator	rend() const;
 
 		/* Helper methods */
 		private:
