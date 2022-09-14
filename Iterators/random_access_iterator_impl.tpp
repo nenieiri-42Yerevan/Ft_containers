@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   random_access_iterator.tpp                         :+:      :+:    :+:   */
+/*   random_access_iterator_impl.tpp                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_RANDOM_ACCESS_ITERATOR_TPP
-# define FT_RANDOM_ACCESS_ITERATOR_TPP
+#ifndef FT_RANDOM_ACCESS_ITERATOR_IMPL_TPP
+# define FT_RANDOM_ACCESS_ITERATOR_IMPL_TPP
 
 # ifndef FT_RANDOM_ACCESS_ITERATOR_HPP
-#  error random_access_iterator.tpp should only be included from random_access_iterator.hpp.
+#  error random_access_iterator_impl.tpp should only be included from random_access_iterator.hpp.
 # endif
 
 namespace	ft

@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:30:35 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/13 16:10:28 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/13 20:18:59 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ namespace	ft
 			void				delete_all(node_ptr head);
 			void				deep_copy(node_ptr other_node);
 
+		/* Member data */
 		private:
 			node_ptr			_head;
 			int					_elem_count;

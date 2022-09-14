@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:36:06 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/03 16:32:39 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/14 15:16:07 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,6 @@ namespace	ft
 	operator-(const reverse_iterator<L_It> &lhs, const reverse_iterator<R_It> &rhs);
 }
 
-# include "reverse_iterator.tpp"
+# include "reverse_iterator_impl.tpp"
 
 #endif

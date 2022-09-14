@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 13:36:50 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/03 16:34:31 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/14 15:13:13 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,6 @@ namespace	ft
 		random_access_iterator<T>::difference_type n, random_access_iterator<T> &rhs);
 }
 
-# include "random_access_iterator.tpp"
+# include "random_access_iterator_impl.tpp"
 
 #endif
