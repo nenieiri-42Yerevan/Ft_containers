@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/14 14:27:20 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/15 15:34:29 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,13 @@ void	vector_test();
 void	stack_test();
 void	map_test();
 
+/*
 int	barev()
 {
-	std::map<int, std::string> A;
-	A.insert(std::make_pair(0, "A"));
 	A.insert(std::make_pair(-2, "C"));
 	A.insert(std::make_pair(2, "D"));
 	A.insert(std::make_pair(-3, "E"));
 	A.insert(std::make_pair(1, "G"));
-//	A.insert(std::make_pair(-1, "F"));
 	A.insert(std::make_pair(3, "H"));
 	A.insert(std::make_pair(4, "H"));
 	A.insert(std::make_pair(5, "H"));
@@ -48,11 +46,10 @@ int	barev()
 	std::cout << it->first << std::endl;
 	return (0);
 }
-
+*/
 int	main()
 {
 //	vector_test();
 //	stack_test();
-//	map_test();
-	barev();
+	map_test();
 }

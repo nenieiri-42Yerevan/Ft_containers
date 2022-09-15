@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:44:23 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/14 16:59:46 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/15 17:33:11 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 # define FT_MAP_HPP
 
 # include <memory>
-# include <functional>
 # include "../Other/utility.hpp"
 # include "../Other/binary_search_tree.hpp"
+# include "../Other/functional.hpp"
 
 namespace	ft
 {
 	template <
 		typename Key,
 		typename T,
-		typename Compare = std::less<Key>,
-		typename Allocator = std::allocator<ft::pair<const Key, T> >,
+		typename Compare = ft::less<Key>,
+		typename Allocator = std::allocator<ft::pair<const Key, T> >
 	> class	map
 	{
 		/* Member types */
@@ -32,25 +32,47 @@ namespace	ft
 			typedef Key						key_type;
 			typedef T						mapped_type;
 			typedef ft::pair<const Key, T>	value_type;
-			typedef Comapre					key_compare;
+			typedef Compare					key_compare;
 			typedef size_t					size_type;
 			typedef ptrdiff_t				difference_type;
 			typedef Allocator				allocator_type;
 			typedef value_type				&reference;
 			typedef const value_type		&const_reference;
-			// pointer
-			// const_pointer
-			// iterator
-			// const_iterator
-			// reverse_iterator
-			// const_reverse_iterator
+			typedef value_type				*pointer;
+			typedef const value_type		*const_pointer;
 
-			// value_compare
+			typedef typename binary_search_tree<value_type>::iterator \
+														iterator;
+			typedef typename binary_search_tree<value_type>::const_iterator \
+														const_iterator;
+			typedef typename binary_search_tree<value_type>::reverse_iterator \
+														reverse_iterator;
+			typedef typename binary_search_tree<value_type>::const_reverse_iterator \
+														const_reverse_iterator;
+
+		/* Constructors and destructors */
+		public:
+			explicit	map(const key_compare &comp = key_compare(),
+							const allocator_type &alloc = allocator_type());
+/*
+			template <typename InputIterator>
+			map(InputIterator first, InputIterator last,
+					const key_compare &comp = key_compare(),
+					const allocator_type &alloc = allocator_type());
+
+			map(const map &x);
+*/
+
+		/* Modifires */
+		public:
+			void	insert(const value_type &val);
 
 		/* Member data */
 		private:
-			binary_search_tree				_tree;
+			binary_search_tree<value_type, key_compare, allocator_type, false> _tree;
 	};
 }
+
+# include "map_impl.tpp"
 
 #endif

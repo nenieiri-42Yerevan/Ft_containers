@@ -6,12 +6,14 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:08:57 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/14 17:30:05 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/15 12:56:12 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_BIDIRECTIONAL_ITERATOR_HPP
 # define FT_BIDIRECTIONAL_ITERATOR_HPP
+
+# include "iterator.hpp"
 
 namespace	ft
 {

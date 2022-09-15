@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:30:35 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/14 17:31:00 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/15 18:30:01 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,20 @@
 # define FT_BINARY_SEARCH_TREE_HPP
 
 # include <iostream>
+# include <memory>
 # include "../Iterators/bidirectional_iterator.hpp"
 # include "../Iterators/reverse_iterator.hpp"
+# include "../Other/functional.hpp"
 
 namespace	ft
 {
 	/* Tree */
-	template <typename T, bool multivalues = false>
-	class	binary_search_tree
+	template <
+		typename T,
+		typename Compare = ft::less<T>,
+		typename Alloc = std::allocator<T>,
+		bool multivalues = false
+	> class	binary_search_tree
 	{
 		/* Node */
 		private:
@@ -43,6 +49,8 @@ namespace	ft
 		/* Member types */
 		public:
 			typedef T								value_type;
+			typedef Compare							key_compare;
+			typedef Alloc							allocator_type;
 			typedef node							*node_ptr;
 
 			typedef bidirectional_iterator<T>			iterator;
@@ -52,9 +60,12 @@ namespace	ft
 
 		/* Constructors and destructors */
 		public:
-			binary_search_tree();
+			binary_search_tree(const key_compare &comp = key_compare(),
+							const allocator_type &alloc = allocator_type());
+			binary_search_tree(const node_ptr head, \
+								const key_compare &comp = key_compare(),
+								const allocator_type &alloc = allocator_type());
 			binary_search_tree(const binary_search_tree &other);
-			binary_search_tree(const node_ptr head);
 			binary_search_tree	&operator=(const binary_search_tree &other);
 			~binary_search_tree();
 
@@ -127,6 +138,9 @@ namespace	ft
 		/* Member data */
 		private:
 			node_ptr			_head;
+			allocator_type		_alloc;
+			typename allocator_type::rebind<node_ptr>::other	_alloc_node;
+			key_compare			_comp;
 			int					_elem_count;
 	};
 }
