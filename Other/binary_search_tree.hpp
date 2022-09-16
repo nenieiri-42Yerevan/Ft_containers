@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:30:35 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/15 18:30:01 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/16 12:10:14 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,9 @@ namespace	ft
 			typedef bidirectional_iterator<const T>		const_iterator;
 			typedef reverse_iterator<const_iterator>	const_reverse_iterator;
 			typedef reverse_iterator<iterator>			reverse_iterator;
+		private:
+			typedef typename allocator_type::template rebind<node>::other \
+														allocator_node_type;
 
 		/* Constructors and destructors */
 		public:
@@ -139,7 +142,7 @@ namespace	ft
 		private:
 			node_ptr			_head;
 			allocator_type		_alloc;
-			typename allocator_type::rebind<node_ptr>::other	_alloc_node;
+			allocator_node_type	_alloc_node;
 			key_compare			_comp;
 			int					_elem_count;
 	};

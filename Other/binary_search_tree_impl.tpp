@@ -79,29 +79,32 @@ namespace	ft
 
 	template <typename T, typename Compare, typename Alloc, bool multivalues>
 	binary_search_tree<T, Compare, Alloc, multivalues>::binary_search_tree
-		(const key_compare &comp, const allocator_type &alloc)
+		(const key_compare &comp, const allocator_type &alloc) :
+		_alloc(alloc),
+		_alloc_node(allocator_node_type()),
+		_comp(comp)
 	{
 		this->_head = 0;
-		this->_alloc = alloc;
-		this->_comp = comp;
 	}
 
 	template <typename T, typename Compare, typename Alloc, bool multivalues>
 	binary_search_tree<T, Compare, Alloc, multivalues>::binary_search_tree
-		(const node_ptr head, const key_compare &comp, const allocator_type &alloc)
+		(const node_ptr head, const key_compare &comp, const allocator_type &alloc) :
+		_alloc(alloc),
+		_alloc_node(allocator_node_type()),
+		_comp(comp)
 	{
 		this->_head = head;
-		this->_alloc = alloc;
-		this->_comp = comp;
 	}
 
 	template <typename T, typename Compare, typename Alloc, bool multivalues>
 	binary_search_tree<T, Compare, Alloc, multivalues>::binary_search_tree( \
-			const binary_search_tree<T, Compare, Alloc, multivalues> &other)
+		const binary_search_tree<T, Compare, Alloc, multivalues> &other) :
+		_alloc(other._alloc),
+		_alloc_node(other._alloc_node),
+		_comp(other._comp)
 	{
 		this->_head = 0;
-		this->_alloc = other._alloc;
-		this->_comp = other._comp;
 		this->deep_copy(other.get_head());
 	}
 
@@ -115,6 +118,7 @@ namespace	ft
 			this->delete_all(this->_head);
 			this->_head = 0;
 			this->_alloc = other._alloc;
+			this->_alloc_node = other._alloc_node;
 			this->_comp = other._comp;
 			this->deep_copy(other.get_head());
 		}
@@ -558,8 +562,8 @@ namespace	ft
 		res = this->tree_insert(new_node);
 		if (res == -1)
 		{
-			this->_alloc.destroy(new_node);
-			this->_alloc.deallocate(new_node, 1);
+			this->_alloc_node.destroy(new_node);
+			this->_alloc_node.deallocate(new_node, 1);
 		}
 		return (res);
 	}
@@ -587,8 +591,8 @@ namespace	ft
 			u->left = old_node->left;
 			u->left->p = u;
 		}
-		this->_alloc.destroy(old_node);
-		this->_alloc.deallocate(old_node, 1);
+		this->_alloc_node.destroy(old_node);
+		this->_alloc_node.deallocate(old_node, 1);
 		--(this->_elem_count);
 	}
 
@@ -687,8 +691,8 @@ namespace	ft
 		{
 			this->delete_all(head->left);
 			this->delete_all(head->right);
-			//this->_alloc.destroy(head);
-			//this->_alloc.deallocate(head, 1);
+			this->_alloc_node.destroy(head);
+			this->_alloc_node.deallocate(head, 1);
 		}
 	}
 
