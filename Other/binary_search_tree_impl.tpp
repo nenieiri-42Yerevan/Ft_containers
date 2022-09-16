@@ -319,6 +319,14 @@ namespace	ft
     /*=============================*/
 
 	template <typename T, typename Compare, typename Alloc, bool multivalues>
+	bool	binary_search_tree<T, Compare, Alloc, multivalues>::empty() const
+	{
+		if (this->_size == 0)
+			return (true);
+		return (false);
+	}
+
+	template <typename T, typename Compare, typename Alloc, bool multivalues>
 	typename binary_search_tree<T, Compare, Alloc, multivalues>::size_type \
 		binary_search_tree<T, Compare, Alloc, multivalues>::size() const
 	{

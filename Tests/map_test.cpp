@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:41:32 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/16 15:10:44 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/16 16:56:22 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,7 @@ static void	example2()
 	std::cout << COLOR_YELLOW_B;
 	std::cout << "std::pair -> ";
 	std::cout << "size: " << A.size();
+	std::cout << ", empty: " << A.empty();
 	std::cout << ", size: " << A.max_size();
 	A.insert(pair1);
 	std::cout << ", size: " << A.size();
@@ -133,6 +134,7 @@ static void	example2()
 	std::cout << ", second: " << pair1.second;
 	std::cout << ", size: " << A.size();
 	std::cout << ", size: " << A.max_size();
+	std::cout << ", empty: " << A.empty();
 	std::cout << COLOR_END << '.' << std::endl;
 
 	ft::pair<int, std::string>	ft_pair1;
@@ -142,6 +144,7 @@ static void	example2()
 	std::cout << COLOR_GREEN_B;
 	std::cout << "ft::pair  -> ";
 	std::cout << "size: " << ft_A.size();
+	std::cout << ", empty: " << ft_A.empty();
 	std::cout << ", size: " << ft_A.max_size();
 	ft_A.insert(ft_pair1);
 	std::cout << ", size: " << ft_A.size();
@@ -152,6 +155,7 @@ static void	example2()
 	std::cout << ", second: " << ft_pair1.second;
 	std::cout << ", size: " << ft_A.size();
 	std::cout << ", size: " << ft_A.max_size();
+	std::cout << ", empty: " << ft_A.empty();
 	std::cout << COLOR_END << '.' << std::endl << std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:44:23 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/16 15:08:59 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/16 16:46:45 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ namespace	ft
 
 		/* Capacity */
 		public:
-			//bool							empty() const;
+			bool							empty() const;
 			size_type						size() const;
 			size_type						max_size() const;
 
