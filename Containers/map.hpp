@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:44:23 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/15 17:33:11 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/16 14:43:10 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,18 @@ namespace	ft
 
 			map(const map &x);
 */
+
+		/* Iterators */
+		public:
+			//iterator						begin();
+			// const_iterator					begin() const;
+			// end
+			// rbegin
+			// rend
+
+		/* Capacity */
+		public:
+			size_type						size() const;
 
 		/* Modifires */
 		public:

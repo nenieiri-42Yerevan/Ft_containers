@@ -42,14 +42,36 @@ namespace	ft
 	{
 	}
 */
-	/*=====================================*/
-	/*     Constructors and destructors    */
-	/*=====================================*/
+	/*==================================*/
+	/*            Iterators             */
+	/*==================================*/
+/*
+	template <typename Key, typename T, typename Compare, typename Allocator>
+	typename map<Key, T, Compare, Allocator>::iterator	\
+	map<Key, T, Compare, Allocator>::begin()
+	{
+		return (this->_tree.begin());
+	}
+*/
+	/*==================================*/
+	/*            Capacity              */
+	/*==================================*/
+
+	template <typename Key, typename T, typename Compare, typename Allocator>
+	typename map<Key, T, Compare, Allocator>::size_type \
+		map<Key, T, Compare, Allocator>::size() const
+	{
+		return (this->_tree.get_size());
+	}
+
+	/*==================================*/
+	/*            Modifires             */
+	/*==================================*/
 
 	template <typename Key, typename T, typename Compare, typename Allocator>
 	void	map<Key, T, Compare, Allocator>::insert(const value_type &val)
 	{
-		this->_tree.insert(val);
+		this->_tree.tree_insert(val);
 	}
 }
 

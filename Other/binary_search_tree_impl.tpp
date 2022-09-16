@@ -155,9 +155,9 @@ namespace	ft
 	}
 
 	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	int	binary_search_tree<T, Compare, Alloc, multivalues>::get_count() const
+	int	binary_search_tree<T, Compare, Alloc, multivalues>::get_size() const
 	{
-		return (this->_elem_count);
+		return (this->_size);
 	}
 
 	template <typename T, typename Compare, typename Alloc, bool multivalues>
@@ -547,7 +547,7 @@ namespace	ft
 			parent->left = new_node;
 		else
 			parent->right = new_node;
-		++(this->_elem_count);
+		++(this->_size);
 		return (0);
 	}
 
@@ -593,7 +593,7 @@ namespace	ft
 		}
 		this->_alloc_node.destroy(old_node);
 		this->_alloc_node.deallocate(old_node, 1);
-		--(this->_elem_count);
+		--(this->_size);
 	}
 
 	template <typename T, typename Compare, typename Alloc, bool multivalues>

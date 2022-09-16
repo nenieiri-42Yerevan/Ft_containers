@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:30:35 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/16 12:10:14 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/16 14:40:11 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ namespace	ft
 		public:
 			node_ptr			create_node(value_type data);
 			node_ptr			get_head() const;
-			int					get_count() const;
+			int					get_size() const;
 			int					height(node_ptr head) const;
 			int					height() const;
 			node_ptr			min(node_ptr head) const;
@@ -144,7 +144,7 @@ namespace	ft
 			allocator_type		_alloc;
 			allocator_node_type	_alloc_node;
 			key_compare			_comp;
-			int					_elem_count;
+			int					_size;
 	};
 }
 

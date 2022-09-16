@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:41:32 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/15 15:40:59 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/16 14:52:08 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include <utility>
 #include <string>
 #include <map>
-#include "../Other/utility.hpp"
 #include "../Containers/map.hpp"
 
 #ifndef	MYCOLORS_HPP
@@ -114,27 +113,41 @@ static void	example1()
 static void	example2()
 {
 	/* Example 1 */
-	/* Example for map constructors */
+	/* Example for map constructors, size, empty, max_size */
 
 	std::pair<int, std::string>	pair1;
 	pair1.first = 0; 
 	pair1.second = "A"; 
 	std::map<int, std::string> A;
-//	A.insert(ft_pair1);
 	std::cout << COLOR_PURPLE_B << "Example 1" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
-	std::cout << "std::pair -> first: " << pair1.first;
+	std::cout << "std::pair -> ";
+	std::cout << "size: " << A.size();
+	A.insert(pair1);
+	std::cout << ", size: " << A.size();
+	A.insert(std::make_pair(-1, "B"));
+	std::cout << ", size: " << A.size();
+	A.insert(std::make_pair(1, "C"));
+	std::cout << ", pair -> first: " << pair1.first;
 	std::cout << ", second: " << pair1.second;
+	std::cout << ", size: " << A.size();
 	std::cout << COLOR_END << '.' << std::endl;
 
 	ft::pair<int, std::string>	ft_pair1;
 	ft_pair1.first = 0; 
 	ft_pair1.second = "A"; 
 	ft::map<int, std::string> ft_A;
-//	ft_A.insert(ft_pair1);
 	std::cout << COLOR_GREEN_B;
-	std::cout << "ft::pair  -> first: " << ft_pair1.first;
+	std::cout << "ft::pair  -> ";
+	std::cout << "size: " << ft_A.size();
+	ft_A.insert(ft_pair1);
+	std::cout << ", size: " << ft_A.size();
+	ft_A.insert(ft::make_pair(-1, "B"));
+	std::cout << ", size: " << ft_A.size();
+	ft_A.insert(ft::make_pair(1, "C"));
+	std::cout << ", pair -> first: " << ft_pair1.first;
 	std::cout << ", second: " << ft_pair1.second;
+	std::cout << ", size: " << ft_A.size();
 	std::cout << COLOR_END << '.' << std::endl << std::endl;
 }
 
