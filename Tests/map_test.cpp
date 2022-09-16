@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:41:32 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/16 16:56:22 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/16 18:33:18 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,7 @@ static void	example2()
 	pair1.first = 0; 
 	pair1.second = "A"; 
 	std::map<int, std::string> A;
+	std::map<int, std::string>::iterator it1;
 	std::cout << COLOR_PURPLE_B << "Example 1" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
 	std::cout << "std::pair -> ";
@@ -141,6 +142,7 @@ static void	example2()
 	ft_pair1.first = 0; 
 	ft_pair1.second = "A"; 
 	ft::map<int, std::string> ft_A;
+	ft::map<int, std::string>::iterator ft_it1;
 	std::cout << COLOR_GREEN_B;
 	std::cout << "ft::pair  -> ";
 	std::cout << "size: " << ft_A.size();

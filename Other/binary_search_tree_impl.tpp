@@ -84,6 +84,7 @@ namespace	ft
 		_alloc_node(allocator_node_type()),
 		_comp(comp)
 	{
+		this->_size = 0;
 		this->_head = 0;
 	}
 
@@ -94,17 +95,19 @@ namespace	ft
 		_alloc_node(allocator_node_type()),
 		_comp(comp)
 	{
+		this->_size = 1;
 		this->_head = head;
 	}
 
 	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	binary_search_tree<T, Compare, Alloc, multivalues>::binary_search_tree( \
-		const binary_search_tree<T, Compare, Alloc, multivalues> &other) :
+	binary_search_tree<T, Compare, Alloc, multivalues>::binary_search_tree
+		(const binary_search_tree<T, Compare, Alloc, multivalues> &other) :
 		_alloc(other._alloc),
 		_alloc_node(other._alloc_node),
 		_comp(other._comp)
 	{
 		this->_head = 0;
+		this->_size = other._size;
 		this->deep_copy(other.get_head());
 	}
 
@@ -120,6 +123,7 @@ namespace	ft
 			this->_alloc = other._alloc;
 			this->_alloc_node = other._alloc_node;
 			this->_comp = other._comp;
+			this->_size = other._size;
 			this->deep_copy(other.get_head());
 		}
 		return (*this);
@@ -631,7 +635,7 @@ namespace	ft
 	typename binary_search_tree<T, Compare, Alloc, multivalues>::iterator \
 		binary_search_tree<T, Compare, Alloc, multivalues>::begin()
 	{
-		return (iterator(this->min()));
+		return (iterator(this->min())->data);
 	}
 
 	template <typename T, typename Compare, typename Alloc, bool multivalues>

@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:44:23 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/16 16:46:45 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/16 18:37:29 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,14 @@ namespace	ft
 			typedef value_type				*pointer;
 			typedef const value_type		*const_pointer;
 
-			typedef typename binary_search_tree<value_type>::iterator \
-														iterator;
-			typedef typename binary_search_tree<value_type>::const_iterator \
-														const_iterator;
-			typedef typename binary_search_tree<value_type>::reverse_iterator \
-														reverse_iterator;
-			typedef typename binary_search_tree<value_type>::const_reverse_iterator \
-														const_reverse_iterator;
+			typedef typename binary_search_tree<value_type, key_compare, \
+				allocator_type, false>::iterator	iterator;
+			typedef typename binary_search_tree<value_type, key_compare, \
+				allocator_type, false>::const_iterator	const_iterator;
+			typedef typename binary_search_tree<value_type, key_compare, \
+				allocator_type, false>::reverse_iterator	reverse_iterator;
+			typedef typename binary_search_tree<value_type, key_compare, \
+				allocator_type, false>::const_reverse_iterator	const_reverse_iterator;
 
 		/* Constructors and destructors */
 		public:
@@ -65,7 +65,7 @@ namespace	ft
 
 		/* Iterators */
 		public:
-			//iterator						begin();
+			iterator						begin();
 			// const_iterator					begin() const;
 			// end
 			// rbegin

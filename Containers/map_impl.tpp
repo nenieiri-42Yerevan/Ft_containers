@@ -45,14 +45,14 @@ namespace	ft
 	/*==================================*/
 	/*            Iterators             */
 	/*==================================*/
-/*
+
 	template <typename Key, typename T, typename Compare, typename Allocator>
 	typename map<Key, T, Compare, Allocator>::iterator	\
 	map<Key, T, Compare, Allocator>::begin()
 	{
 		return (this->_tree.begin());
 	}
-*/
+
 	/*==================================*/
 	/*            Capacity              */
 	/*==================================*/

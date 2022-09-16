@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:30:35 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/16 16:46:45 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/16 18:43:06 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,7 +150,7 @@ namespace	ft
 			allocator_type		_alloc;
 			allocator_node_type	_alloc_node;
 			key_compare			_comp;
-			int					_size;
+			size_type			_size;
 	};
 }
 
