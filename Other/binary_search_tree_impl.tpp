@@ -155,12 +155,6 @@ namespace	ft
 	}
 
 	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	int	binary_search_tree<T, Compare, Alloc, multivalues>::get_size() const
-	{
-		return (this->_size);
-	}
-
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
 	int	binary_search_tree<T, Compare, Alloc, multivalues>::height(node_ptr head) const
 	{
 		if (head == 0)
@@ -318,6 +312,24 @@ namespace	ft
 	binary_search_tree<T, Compare, Alloc, multivalues>::search(value_type key) const
 	{
 		return (this->search(this->_head, key));
+	}
+
+	/*=============================*/
+    /*           Capacity          */
+    /*=============================*/
+
+	template <typename T, typename Compare, typename Alloc, bool multivalues>
+	typename binary_search_tree<T, Compare, Alloc, multivalues>::size_type \
+		binary_search_tree<T, Compare, Alloc, multivalues>::size() const
+	{
+		return (this->_size);
+	}
+
+	template <typename T, typename Compare, typename Alloc, bool multivalues>
+	typename binary_search_tree<T, Compare, Alloc, multivalues>::size_type \
+		binary_search_tree<T, Compare, Alloc, multivalues>::max_size() const
+	{
+		return (this->_alloc_node.max_size());
 	}
 
 	/*=====================================*/

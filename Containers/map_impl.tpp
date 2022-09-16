@@ -56,12 +56,25 @@ namespace	ft
 	/*==================================*/
 	/*            Capacity              */
 	/*==================================*/
-
+/*
+	template <typename Key, typename T, typename Compare, typename Allocator>
+		bool	map<Key, T, Compare, Allocator>::empty() const
+	{
+		return (this->_tree.empty());
+	}
+*/
 	template <typename Key, typename T, typename Compare, typename Allocator>
 	typename map<Key, T, Compare, Allocator>::size_type \
 		map<Key, T, Compare, Allocator>::size() const
 	{
-		return (this->_tree.get_size());
+		return (this->_tree.size());
+	}
+
+	template <typename Key, typename T, typename Compare, typename Allocator>
+	typename map<Key, T, Compare, Allocator>::size_type \
+		map<Key, T, Compare, Allocator>::max_size() const
+	{
+		return (this->_tree.max_size());
 	}
 
 	/*==================================*/

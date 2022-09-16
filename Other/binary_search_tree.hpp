@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:30:35 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/16 14:40:11 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/16 15:05:16 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ namespace	ft
 			typedef Compare							key_compare;
 			typedef Alloc							allocator_type;
 			typedef node							*node_ptr;
+			typedef size_t							size_type;
 
 			typedef bidirectional_iterator<T>			iterator;
 			typedef bidirectional_iterator<const T>		const_iterator;
@@ -76,7 +77,6 @@ namespace	ft
 		public:
 			node_ptr			create_node(value_type data);
 			node_ptr			get_head() const;
-			int					get_size() const;
 			int					height(node_ptr head) const;
 			int					height() const;
 			node_ptr			min(node_ptr head) const;
@@ -89,6 +89,11 @@ namespace	ft
 			node_ptr			predecessor() const;
 			node_ptr			search(node_ptr head, value_type key) const;
 			node_ptr			search(value_type key) const;
+
+		/* Capacity */
+		public:
+			size_type			size() const;
+			size_type			max_size() const;
 
 		/* Tree walk */
 		public:
