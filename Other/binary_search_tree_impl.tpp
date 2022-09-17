@@ -148,6 +148,9 @@ namespace	ft
 
 		new_node = this->_alloc_node.allocate(1);
 		this->_alloc_node.construct(new_node, data);
+		new_node->left = _null_node;
+		new_node->right = _null_node;
+		new_node->p = _null_node;
 		return (new_node);
 	}
 
@@ -649,14 +652,14 @@ namespace	ft
 	typename binary_search_tree<T, Compare, Alloc, multivalues>::iterator \
 		binary_search_tree<T, Compare, Alloc, multivalues>::end()
 	{
-		return (iterator(this->max()->right));
+		return (iterator(this->_null_node));
 	}
 
 	template <typename T, typename Compare, typename Alloc, bool multivalues>
 	typename binary_search_tree<T, Compare, Alloc, multivalues>::const_iterator \
 		binary_search_tree<T, Compare, Alloc, multivalues>::end() const
 	{
-		return (const_iterator(this->max()->right));
+		return (const_iterator(this->_null_node));
 	}
 
 	template <typename T, typename Compare, typename Alloc, bool multivalues>

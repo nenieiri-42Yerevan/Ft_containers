@@ -53,6 +53,13 @@ namespace	ft
 		return (this->_tree.begin());
 	}
 
+	template <typename Key, typename T, typename Compare, typename Allocator>
+	typename map<Key, T, Compare, Allocator>::iterator	\
+	map<Key, T, Compare, Allocator>::end()
+	{
+		return (this->_tree.end());
+	}
+
 	/*==================================*/
 	/*            Capacity              */
 	/*==================================*/

@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:44:23 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/16 18:37:29 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/17 15:20:15 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,8 @@ namespace	ft
 		public:
 			iterator						begin();
 			// const_iterator					begin() const;
-			// end
+			iterator						end();
+			// const_iterator					end() const;
 			// rbegin
 			// rend
 
