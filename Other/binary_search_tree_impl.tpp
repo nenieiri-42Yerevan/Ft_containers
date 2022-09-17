@@ -85,7 +85,7 @@ namespace	ft
 		_comp(comp)
 	{
 		this->_size = 0;
-		this->_head = 0;
+		this->_head = this->_null_node;
 	}
 
 	template <typename T, typename Compare, typename Alloc, bool multivalues>
@@ -106,7 +106,7 @@ namespace	ft
 		_alloc_node(other._alloc_node),
 		_comp(other._comp)
 	{
-		this->_head = 0;
+		this->_head = this->_null_node;
 		this->_size = other._size;
 		this->deep_copy(other.get_head());
 	}
@@ -119,7 +119,7 @@ namespace	ft
 		if (this != &other)
 		{
 			this->delete_all(this->_head);
-			this->_head = 0;
+			this->_head = this->_null_node;
 			this->_alloc = other._alloc;
 			this->_alloc_node = other._alloc_node;
 			this->_comp = other._comp;
@@ -164,8 +164,8 @@ namespace	ft
 	template <typename T, typename Compare, typename Alloc, bool multivalues>
 	int	binary_search_tree<T, Compare, Alloc, multivalues>::height(node_ptr head) const
 	{
-		if (head == 0)
-			return (0);
+		if (head == this->_null_node)
+			return (this->_null_node);
 		else
 		{
 			int lheight = height(head->left);
@@ -193,9 +193,9 @@ namespace	ft
 	typename binary_search_tree<T, Compare, Alloc, multivalues>::node_ptr \
 	binary_search_tree<T, Compare, Alloc, multivalues>::min(node_ptr head) const
 	{
-		if (head == 0)
-			return (0);
-		while (head->left != 0)
+		if (head == this->_null_node)
+			return (this->_null_node);
+		while (head->left != this->_null_node)
 			head = head->left;
 		return (head);
 	}
@@ -211,9 +211,9 @@ namespace	ft
 	typename binary_search_tree<T, Compare, Alloc, multivalues>::node_ptr \
 	binary_search_tree<T, Compare, Alloc, multivalues>::max(node_ptr head) const
 	{
-		if (head == 0)
-			return (0);
-		while (head->right != 0)
+		if (head == this->_null_node)
+			return (this->_null_node);
+		while (head->right != this->_null_node)
 			head = head->right;
 		return (head);
 	}
@@ -231,14 +231,14 @@ namespace	ft
 	{
 		node_ptr	parent;
 
-		if (head == 0)
-			return (0);
-		if (head->right != 0)
+		if (head == this->_null_node)
+			return (this->_null_node);
+		if (head->right != this->_null_node)
 			return (this->min(head->right));
 		else
 		{
 			parent = head->p;
-			while (parent != 0 && head == parent->right)
+			while (parent != this->_null_node && head == parent->right)
 			{
 				head = parent;
 				parent = head->p;
@@ -260,14 +260,14 @@ namespace	ft
 	{
 		node_ptr	parent;
 
-		if (head == 0)
-			return (0);
-		if (head->left != 0)
+		if (head == this->_null_node)
+			return (this->_null_node);
+		if (head->left != this->_null_node)
 			return (this->max(head->left));
 		else
 		{
 			parent = head->p;
-			while (parent != 0 && head == parent->left)
+			while (parent != this->_null_node && head == parent->left)
 			{
 				head = parent;
 				parent = head->p;
@@ -288,7 +288,7 @@ namespace	ft
 	binary_search_tree<T, Compare, Alloc, multivalues>::search
 		(node_ptr head, value_type key) const
 	{
-		if (head == 0 || head->data == key)
+		if (head == this->_null_node || head->data == key)
 			return (head);
 		if (head->data > key)
 			return (this->search(head->left, key));
@@ -303,7 +303,7 @@ namespace	ft
 	binary_search_tree<T, Compare, Alloc, multivalues>::search
 		(node_ptr head, value_type key) const
 	{
-		while (head != 0 && head->data != key)
+		while (head != this->_null_node && head->data != key)
 		{
 			if (head->data > key)
 				head = head->left;
@@ -355,7 +355,7 @@ namespace	ft
 	void	binary_search_tree<T, Compare, Alloc, multivalues>::preorder_tree_walk
 		(node_ptr head) const
 	{
-		if (head != NULL)
+		if (head != this->_null_node)
 		{
 			std::cout << head->data << ' ';
 			preorder_tree_walk(head->left);
@@ -374,7 +374,7 @@ namespace	ft
 	void	binary_search_tree<T, Compare, Alloc, multivalues>::inorder_tree_walk
 		(node_ptr head) const
 	{
-		if (head != NULL)
+		if (head != this->_null_node)
 		{
 			inorder_tree_walk(head->left);
 			std::cout << head->data << ' ';
@@ -393,7 +393,7 @@ namespace	ft
 	void	binary_search_tree<T, Compare, Alloc, multivalues>::postorder_tree_walk
 		(node_ptr head) const
 	{
-		if (head != NULL)
+		if (head != this->_null_node)
 		{
 			postorder_tree_walk(head->left);
 			postorder_tree_walk(head->right);
@@ -412,7 +412,7 @@ namespace	ft
 	void	binary_search_tree<T, Compare, Alloc, multivalues>::preorder_tree_walk_reverse
 		(node_ptr head) const
 	{
-		if (head != NULL)
+		if (head != this->_null_node)
 		{
 			std::cout << head->data << ' ';
 			preorder_tree_walk_reverse(head->right);
@@ -431,7 +431,7 @@ namespace	ft
 	void	binary_search_tree<T, Compare, Alloc, multivalues>::inorder_tree_walk_reverse
 		(node_ptr head) const
 	{
-		if (head != NULL)
+		if (head != this->_null_node)
 		{
 			inorder_tree_walk_reverse(head->right);
 			std::cout << head->data << ' ';
@@ -450,7 +450,7 @@ namespace	ft
 	void	binary_search_tree<T, Compare, Alloc, multivalues>::postorder_tree_walk_reverse
 		(node_ptr head) const
 	{
-		if (head != NULL)
+		if (head != this->_null_node)
 		{
 			postorder_tree_walk_reverse(head->right);
 			postorder_tree_walk_reverse(head->left);
@@ -469,7 +469,7 @@ namespace	ft
 	void	binary_search_tree<T, Compare, Alloc, multivalues>::print_level \
 		(node_ptr head, int level) const
 	{
-		if (head != 0)
+		if (head != this->_null_node)
 		{
 			if (level == 1)
 				std::cout << head->data << " ";
@@ -492,7 +492,7 @@ namespace	ft
 	void	binary_search_tree<T, Compare, Alloc, multivalues>::print_level_reverse \
 		(node_ptr head, int level) const
 	{
-		if (head != 0)
+		if (head != this->_null_node)
 		{
 			if (level == 1)
 				std::cout << head->data << " ";
@@ -541,8 +541,8 @@ namespace	ft
 		node_ptr	parent;
 
 		tmp = this->_head;
-		parent = 0;
-		while (tmp != 0)
+		parent = this->_null_node;
+		while (tmp != this->_null_node)
 		{
 			parent = tmp;
 			if (new_node->data == tmp->data)
@@ -561,7 +561,7 @@ namespace	ft
 				tmp = tmp->right;
 		}
 		new_node->p = parent;
-		if (parent == 0)
+		if (parent == this->_null_node)
 			this->_head = new_node;
 		else if (new_node->data == parent->data)
 		{
@@ -601,9 +601,9 @@ namespace	ft
 	{
 		node_ptr	u;
 
-		if (old_node->left == 0)
+		if (old_node->left == this->_null_node)
 			this->transplant(old_node, old_node->right);
-		else if (old_node->right == 0)
+		else if (old_node->right == this->_null_node)
 			this->transplant(old_node, old_node->left);
 		else
 		{
@@ -698,15 +698,15 @@ namespace	ft
 	void	binary_search_tree<T, Compare, Alloc, multivalues>::transplant \
 		(node_ptr u, node_ptr v)
 	{
-		if (u == NULL)
+		if (u == this->_null_node)
 			return ;
-		if (u->p == NULL)
+		if (u->p == this->_null_node)
 			this->_head = v;
 		else if (u == u->p->left)
 			u->p->left = v;
 		else
 			u->p->right = v;
-		if (v != NULL)
+		if (v != this->_null_node)
 			v->p = u->p;
 	}
 
@@ -714,7 +714,7 @@ namespace	ft
 	void	binary_search_tree<T, Compare, Alloc, multivalues>::delete_all \
 		(node_ptr head)
 	{
-		if (head != 0)
+		if (head != this->_null_node)
 		{
 			this->delete_all(head->left);
 			this->delete_all(head->right);
@@ -727,7 +727,7 @@ namespace	ft
 	void	binary_search_tree<T, Compare, Alloc, multivalues>::deep_copy \
 		(node_ptr other_node)
 	{
-		if (other_node != 0)
+		if (other_node != this->_null_node)
 		{
 			this->tree_insert(create_node(other_node->data));
 			this->deep_copy(other_node->left);

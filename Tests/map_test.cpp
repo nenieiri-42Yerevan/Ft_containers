@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:41:32 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/17 16:38:42 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/17 18:38:27 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static void	example1()
 	std::cout << ", >=: " << (pair1 >= pair2);
 	std::cout << ", >=: " << (pair1 >= pair3);
 	std::cout << ", >=: " << (pair4 >= pair5);
-	std::cout << COLOR_END << '.' << std::endl;
+	std::cout << '.' << COLOR_END << std::endl;
 
 	ft::pair<int, std::string>	ft_pair1;
 	std::cout << COLOR_GREEN_B;
@@ -107,7 +107,7 @@ static void	example1()
 	std::cout << ", >=: " << (ft_pair1 >= ft_pair2);
 	std::cout << ", >=: " << (ft_pair1 >= ft_pair3);
 	std::cout << ", >=: " << (ft_pair4 >= ft_pair5);
-	std::cout << COLOR_END << '.' << std::endl << std::endl;
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
 static void	example2()
@@ -146,7 +146,7 @@ static void	example2()
 	std::cout << ", " << (--it1)->second;
 	std::cout << ", " << (it1--)->second;
 	std::cout << ", " << it1->second;
-	std::cout << COLOR_END << '.' << std::endl;
+	std::cout << '.' << COLOR_END << std::endl;
 
 	ft::pair<int, std::string>	ft_pair1;
 	ft_pair1.first = 0; 
@@ -177,7 +177,7 @@ static void	example2()
 	std::cout << ", " << (--ft_it1)->second;
 	std::cout << ", " << (ft_it1--)->second;
 	std::cout << ", " << ft_it1->second;
-	std::cout << COLOR_END << '.' << std::endl << std::endl;
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
 static void	example3()
@@ -199,13 +199,11 @@ static void	example3()
 	std::cout << ", size: " << A.size();
 	A.insert(std::make_pair(1, "C"));
 	std::cout << ", size: " << A.size();
-	it1 = A.end();
-//	std::cout << ", it: " << (*it1).first;
-//	std::cout << ", " << it1->first;
-//	std::cout << ", " << it1->second;
-//	std::cout << ", " << (it1--)->second;
-//	std::cout << ", " << it1->second;
-	std::cout << COLOR_END << '.' << std::endl;
+	it1 = A.begin();
+	it2 = A.end();
+	std::cout << ", " << it1->first;
+	std::cout << ", " << (it1 == it2);
+	std::cout << '.' << COLOR_END << std::endl;
 
 	ft::map<int, std::string> ft_A;
 	ft::map<int, std::string>::iterator ft_it1;
@@ -220,13 +218,11 @@ static void	example3()
 	std::cout << ", size: " << ft_A.size();
 	ft_A.insert(ft::make_pair(1, "C"));
 	std::cout << ", size: " << ft_A.size();
-	ft_it1 = ft_A.end();
-//	std::cout << ", it: " << (*ft_it1).first;
-	//std::cout << ", " << ft_it1->first;
-//	std::cout << ", " << ft_it1->second;
-//	std::cout << ", " << (ft_it1--)->second;
-//	std::cout << ", " << ft_it1->second;
-	std::cout << COLOR_END << '.' << std::endl << std::endl;
+	ft_it1 = ft_A.begin();
+	ft_it2 = ft_A.end();
+	std::cout << ", " << ft_it1->first;
+	std::cout << ", " << (ft_it1 == ft_it2);
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
 void	map_test()
