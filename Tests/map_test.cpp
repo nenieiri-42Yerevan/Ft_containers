@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:41:32 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/17 18:38:27 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/17 18:52:00 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -203,6 +203,9 @@ static void	example3()
 	it2 = A.end();
 	std::cout << ", " << it1->first;
 	std::cout << ", " << (it1 == it2);
+	std::cout << ", " << (--it2)->second;
+	std::cout << ", " << (it2--)->second;
+	std::cout << ", " << it2->second;
 	std::cout << '.' << COLOR_END << std::endl;
 
 	ft::map<int, std::string> ft_A;
@@ -222,6 +225,9 @@ static void	example3()
 	ft_it2 = ft_A.end();
 	std::cout << ", " << ft_it1->first;
 	std::cout << ", " << (ft_it1 == ft_it2);
+	std::cout << ", " << (--ft_it2)->second;
+	std::cout << ", " << (ft_it2--)->second;
+	std::cout << ", " << ft_it2->second;
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
