@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:41:32 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/16 18:33:18 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/17 15:09:34 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,15 +112,16 @@ static void	example1()
 
 static void	example2()
 {
-	/* Example 1 */
+	/* Example 2 */
 	/* Example for map constructors, size, empty, max_size */
+	/* Example for iterators */
 
 	std::pair<int, std::string>	pair1;
 	pair1.first = 0; 
 	pair1.second = "A"; 
 	std::map<int, std::string> A;
 	std::map<int, std::string>::iterator it1;
-	std::cout << COLOR_PURPLE_B << "Example 1" << COLOR_END << std::endl;
+	std::cout << COLOR_PURPLE_B << "Example 2" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
 	std::cout << "std::pair -> ";
 	std::cout << "size: " << A.size();
@@ -136,6 +137,15 @@ static void	example2()
 	std::cout << ", size: " << A.size();
 	std::cout << ", size: " << A.max_size();
 	std::cout << ", empty: " << A.empty();
+	it1 = A.begin();
+	std::cout << ", it: " << (*it1).first;
+	std::cout << ", " << it1->first;
+	std::cout << ", " << it1->second;
+	std::cout << ", " << (it1++)->first;
+	std::cout << ", " << (++it1)->first;
+	std::cout << ", " << (--it1)->second;
+	std::cout << ", " << (it1--)->second;
+	std::cout << ", " << it1->second;
 	std::cout << COLOR_END << '.' << std::endl;
 
 	ft::pair<int, std::string>	ft_pair1;
@@ -158,6 +168,15 @@ static void	example2()
 	std::cout << ", size: " << ft_A.size();
 	std::cout << ", size: " << ft_A.max_size();
 	std::cout << ", empty: " << ft_A.empty();
+	ft_it1 = ft_A.begin();
+	std::cout << ", it: " << (*ft_it1).first;
+	std::cout << ", " << ft_it1->first;
+	std::cout << ", " << ft_it1->second;
+	std::cout << ", " << (ft_it1++)->first;
+	std::cout << ", " << (++ft_it1)->first;
+	std::cout << ", " << (--ft_it1)->second;
+	std::cout << ", " << (ft_it1--)->second;
+	std::cout << ", " << ft_it1->second;
 	std::cout << COLOR_END << '.' << std::endl << std::endl;
 }
 

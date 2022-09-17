@@ -635,7 +635,7 @@ namespace	ft
 	typename binary_search_tree<T, Compare, Alloc, multivalues>::iterator \
 		binary_search_tree<T, Compare, Alloc, multivalues>::begin()
 	{
-		return (iterator(this->min())->data);
+		return (iterator(this->min()));
 	}
 
 	template <typename T, typename Compare, typename Alloc, bool multivalues>

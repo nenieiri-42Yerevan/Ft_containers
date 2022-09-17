@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:30:35 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/16 18:43:06 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/17 14:10:56 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ namespace	ft
 			typedef node							*node_ptr;
 			typedef size_t							size_type;
 
-			typedef bidirectional_iterator<T>			iterator;
-			typedef bidirectional_iterator<const T>		const_iterator;
-			typedef reverse_iterator<const_iterator>	const_reverse_iterator;
-			typedef reverse_iterator<iterator>			reverse_iterator;
+			typedef bidirectional_iterator<node, T>				iterator;
+			typedef bidirectional_iterator<const node, const T>	const_iterator;
+			typedef reverse_iterator<const_iterator>			const_reverse_iterator;
+			typedef reverse_iterator<iterator>					reverse_iterator;
 		private:
 			typedef typename allocator_type::template rebind<node>::other \
 														allocator_node_type;
