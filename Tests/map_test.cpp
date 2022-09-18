@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:41:32 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/18 18:46:17 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/18 19:01:13 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -324,12 +324,189 @@ static void	example4()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
+static void	example5()
+{
+	/* Example 5 */
+	/* Example for iterators comparison */
+
+	std::map<int, std::string>				tree;
+	std::map<int, std::string>::iterator	it1;
+	std::map<int, std::string>::iterator	it2;
+	std::cout << COLOR_PURPLE_B << "Example 5" << COLOR_END << std::endl;
+	std::cout << COLOR_YELLOW_B;
+	std::cout << "std::map -> ";
+	tree.insert(std::make_pair(0, "0A"));
+	tree.insert(std::make_pair(-2, "-2B"));
+	tree.insert(std::make_pair(2, "2C"));
+	tree.insert(std::make_pair(-1, "-1D"));
+	tree.insert(std::make_pair(-3, "-3E"));
+	tree.insert(std::make_pair(1, "1F"));
+	tree.insert(std::make_pair(3, "3J"));
+
+	it1 = tree.begin();
+	it2 = tree.begin();
+	++it2;
+	++it2;
+	/*
+	std::cout << ", it2 - it1: " << (it2 - it1);
+	std::cout << ", it2 > it1: " << (it2 > it1);
+	std::cout << ", it2 < it1: " << (it2 < it1);
+	std::cout << ", it2 >= it1: " << (it2 >= it1);
+	std::cout << ", it2 <= it1: " << (it2 <= it1);
+	std::cout << ", it2 == it1: " << (it2 == it1);
+	std::cout << ", it2 != it1: " << (it2 != it1);
+	it1 = it2;
+	std::cout << ", it2 >= it1: " << (it2 >= it1);
+	std::cout << ", it2 <= it1: " << (it2 <= it1);
+	std::cout << ", it2 == it1: " << (it2 == it1);
+	std::cout << ", it2 != it1: " << (it2 != it1);
+*/	std::cout << '.' << COLOR_END << std::endl;
+
+	ft::map<int, std::string>			ft_tree;
+	ft::map<int, std::string>::iterator	ft_it1;
+	ft::map<int, std::string>::iterator	ft_it2;
+	std::cout << COLOR_GREEN_B;
+	std::cout << "ft::map ->  ";
+	ft_tree.insert(ft::make_pair(0, "0A"));
+	ft_tree.insert(ft::make_pair(-2, "-2B"));
+	ft_tree.insert(ft::make_pair(2, "2C"));
+	ft_tree.insert(ft::make_pair(-1, "-1D"));
+	ft_tree.insert(ft::make_pair(-3, "-3E"));
+	ft_tree.insert(ft::make_pair(1, "1F"));
+	ft_tree.insert(ft::make_pair(3, "3J"));
+
+	ft_it1 = ft_tree.begin();
+	ft_it2 = ft_tree.begin();
+	++ft_it2;
+	++ft_it2;
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
+}
+/*
+static void	example10()
+{*/
+	/* Example 10 */
+	/* Example for const iterators comparison */
+/*
+	std::vector< int> vec;
+	std::cout << COLOR_PURPLE_B << "Example 10" << COLOR_END << std::endl;
+	std::cout << COLOR_YELLOW_B;
+	std::cout << "std::vector -> ";
+
+	for (size_t i = 50; i < 55; ++i)
+		vec.push_back(i);
+	std::cout << "values:";
+	for (size_t i = 0; i < vec.size(); ++i)
+		std::cout << ' ' << vec[i];
+	std::vector<int>::const_iterator	it1 = vec.begin();
+	std::vector<int>::const_iterator	it2 = vec.begin() + 2;
+	std::cout << ", it2 - it1: " << (it2 - it1);
+	std::cout << ", it2 > it1: " << (it2 > it1);
+	std::cout << ", it2 < it1: " << (it2 < it1);
+	std::cout << ", it2 >= it1: " << (it2 >= it1);
+	std::cout << ", it2 <= it1: " << (it2 <= it1);
+	std::cout << ", it2 == it1: " << (it2 == it1);
+	std::cout << ", it2 != it1: " << (it2 != it1);
+	std::vector<int>::const_iterator	it3 = vec.begin() + 2;
+	std::vector<int>::const_iterator	it4 = vec.begin() + 2;
+	std::cout << ", it2 >= it1: " << (it4 >= it3);
+	std::cout << ", it2 <= it1: " << (it4 <= it3);
+	std::cout << ", it2 == it1: " << (it4 == it3);
+	std::cout << ", it2 != it1: " << (it4 != it3);
+	std::cout << '.' << COLOR_END << std::endl;
+
+	ft::vector<int> ft_vec;
+	std::cout << COLOR_GREEN_B;
+	std::cout << "ft::vector  -> ";
+
+	for (size_t i = 50; i < 55; ++i)
+		ft_vec.push_back(i);
+	std::cout << "values:";
+	for (size_t i = 0; i < ft_vec.size(); ++i)
+		std::cout << ' ' << ft_vec[i];
+	ft::vector<int>::const_iterator	ft_it1 = ft_vec.begin();
+	ft::vector<int>::const_iterator	ft_it2 = ft_vec.begin() + 2;
+	std::cout << ", it2 - it1: " << (ft_it2 - ft_it1);
+	std::cout << ", it2 > it1: " << (ft_it2 > ft_it1);
+	std::cout << ", it2 < it1: " << (ft_it2 < ft_it1);
+	std::cout << ", it2 >= it1: " << (ft_it2 >= ft_it1);
+	std::cout << ", it2 <= it1: " << (ft_it2 <= ft_it1);
+	std::cout << ", it2 == it1: " << (ft_it2 == ft_it1);
+	std::cout << ", it2 != it1: " << (ft_it2 != ft_it1);
+	ft::vector<int>::const_iterator	ft_it3 = ft_vec.begin() + 2;
+	ft::vector<int>::const_iterator	ft_it4 = ft_vec.begin() + 2;
+	std::cout << ", it2 >= it1: " << (ft_it4 >= ft_it3);
+	std::cout << ", it2 <= it1: " << (ft_it4 <= ft_it3);
+	std::cout << ", it2 == it1: " << (ft_it4 == ft_it3);
+	std::cout << ", it2 != it1: " << (ft_it4 != ft_it3);
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
+}
+
+static void	example11()
+{*/
+	/* Example 11 */
+	/* Example for const and non-const iterators comparison */
+/*
+	std::vector<int> vec;
+	std::cout << COLOR_PURPLE_B << "Example 11" << COLOR_END << std::endl;
+	std::cout << COLOR_YELLOW_B;
+	std::cout << "std::vector -> ";
+
+	for (size_t i = 50; i < 55; ++i)
+		vec.push_back(i);
+	std::cout << "values:";
+	for (size_t i = 0; i < vec.size(); ++i)
+		std::cout << ' ' << vec[i];
+	std::vector<const int>::iterator	it1 = vec.begin();
+	std::vector<int>::iterator	it2 = vec.begin() + 2;
+	std::cout << ", it2 - it1: " << (it2 - it1);
+	std::cout << ", it2 > it1: " << (it2 > it1);
+	std::cout << ", it2 < it1: " << (it2 < it1);
+	std::cout << ", it2 >= it1: " << (it2 >= it1);
+	std::cout << ", it2 <= it1: " << (it2 <= it1);
+	std::cout << ", it2 == it1: " << (it2 == it1);
+	std::cout << ", it2 != it1: " << (it2 != it1);
+	std::vector<const int>::iterator	it3 = vec.begin() + 2;
+	std::vector<int>::iterator	it4 = vec.begin() + 2;
+	std::cout << ", it2 >= it1: " << (it4 >= it3);
+	std::cout << ", it2 <= it1: " << (it4 <= it3);
+	std::cout << ", it2 == it1: " << (it4 == it3);
+	std::cout << ", it2 != it1: " << (it4 != it3);
+	std::cout << '.' << COLOR_END << std::endl;
+
+	ft::vector<int> ft_vec;
+	std::cout << COLOR_GREEN_B;
+	std::cout << "ft::vector  -> ";
+
+	for (size_t i = 50; i < 55; ++i)
+		ft_vec.push_back(i);
+	std::cout << "values:";
+	for (size_t i = 0; i < ft_vec.size(); ++i)
+		std::cout << ' ' << ft_vec[i];
+	ft::vector<const int>::iterator	ft_it1 = ft_vec.begin();
+	ft::vector<int>::iterator	ft_it2 = ft_vec.begin() + 2;
+	std::cout << ", it2 - it1: " << (ft_it2 - ft_it1);
+	std::cout << ", it2 > it1: " << (ft_it2 > ft_it1);
+	std::cout << ", it2 < it1: " << (ft_it2 < ft_it1);
+	std::cout << ", it2 >= it1: " << (ft_it2 >= ft_it1);
+	std::cout << ", it2 <= it1: " << (ft_it2 <= ft_it1);
+	std::cout << ", it2 == it1: " << (ft_it2 == ft_it1);
+	std::cout << ", it2 != it1: " << (ft_it2 != ft_it1);
+	ft::vector<const int>::iterator	ft_it3 = ft_vec.begin() + 2;
+	ft::vector<int>::iterator	ft_it4 = ft_vec.begin() + 2;
+	std::cout << ", it2 >= it1: " << (ft_it4 >= ft_it3);
+	std::cout << ", it2 <= it1: " << (ft_it4 <= ft_it3);
+	std::cout << ", it2 == it1: " << (ft_it4 == ft_it3);
+	std::cout << ", it2 != it1: " << (ft_it4 != ft_it3);
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
+}
+*/
 void	map_test()
 {
 	example1();
 	example2();
 	example3();
 	example4();
+	example5();
 }
 
 #endif
