@@ -84,6 +84,10 @@ namespace	ft
 		_alloc_node(allocator_node_type()),
 		_comp(comp)
 	{
+		this->_null_node = this->_alloc_node.allocate(1);
+		this->_alloc_node.construct(this->_null_node);
+		this->_null_node->p = this->_null_node;
+
 		this->_size = 0;
 		this->_head = this->_null_node;
 	}
@@ -95,6 +99,10 @@ namespace	ft
 		_alloc_node(allocator_node_type()),
 		_comp(comp)
 	{
+		this->_null_node = this->_alloc_node.allocate(1);
+		this->_alloc_node.construct(this->_null_node);
+		this->_null_node->p = this->_null_node;
+
 		this->_size = 1;
 		this->_head = head;
 	}
@@ -106,6 +114,10 @@ namespace	ft
 		_alloc_node(other._alloc_node),
 		_comp(other._comp)
 	{
+		this->_null_node = this->_alloc_node.allocate(1);
+		this->_alloc_node.construct(this->_null_node);
+		this->_null_node->p = this->_null_node;
+
 		this->_head = this->_null_node;
 		this->_size = other._size;
 		this->deep_copy(other.get_head());
@@ -119,9 +131,11 @@ namespace	ft
 		if (this != &other)
 		{
 			this->delete_all(this->_head);
-			this->_head = this->_null_node;
+
 			this->_alloc = other._alloc;
 			this->_alloc_node = other._alloc_node;
+
+			this->_head = this->_null_node;
 			this->_comp = other._comp;
 			this->_size = other._size;
 			this->deep_copy(other.get_head());
@@ -133,6 +147,8 @@ namespace	ft
 	binary_search_tree<T, Compare, Alloc, multivalues>::~binary_search_tree()
 	{
 		this->delete_all(this->_head);
+		this->_alloc_node.destroy(this->_null_node);
+		this->_alloc_node.deallocate(this->_null_node, 1);
 		this->_head = 0;
 	}
 
