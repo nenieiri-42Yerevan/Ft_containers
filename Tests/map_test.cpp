@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:41:32 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/17 18:52:00 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/18 14:37:18 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,18 +194,26 @@ static void	example3()
 	std::cout << COLOR_YELLOW_B;
 	std::cout << "std -> ";
 	std::cout << (it1 == it2);
-	A.insert(std::make_pair(0, "A"));
-	A.insert(std::make_pair(-1, "B"));
+	A.insert(std::make_pair(0, "0A"));
+	A.insert(std::make_pair(-2, "-2B"));
 	std::cout << ", size: " << A.size();
-	A.insert(std::make_pair(1, "C"));
+	A.insert(std::make_pair(2, "2C"));
+	A.insert(std::make_pair(-1, "-1D"));
+	A.insert(std::make_pair(-3, "-3E"));
+	A.insert(std::make_pair(1, "1F"));
+	A.insert(std::make_pair(3, "3J"));
 	std::cout << ", size: " << A.size();
 	it1 = A.begin();
 	it2 = A.end();
+	std::cout << ", it: " << (it1 == it2);
 	std::cout << ", " << it1->first;
-	std::cout << ", " << (it1 == it2);
 	std::cout << ", " << (--it2)->second;
 	std::cout << ", " << (it2--)->second;
 	std::cout << ", " << it2->second;
+	it2 = A.end();
+	std::cout << ", loop:";
+	while (it1 != it2)
+		std::cout << " " << (it1++)->second;
 	std::cout << '.' << COLOR_END << std::endl;
 
 	ft::map<int, std::string> ft_A;
@@ -216,18 +224,26 @@ static void	example3()
 	std::cout << COLOR_GREEN_B;
 	std::cout << "ft  -> ";
 	std::cout << (ft_it1 == ft_it2);
-	ft_A.insert(ft::make_pair(0, "A"));
-	ft_A.insert(ft::make_pair(-1, "B"));
+	ft_A.insert(ft::make_pair(0, "0A"));
+	ft_A.insert(ft::make_pair(-2, "-2B"));
 	std::cout << ", size: " << ft_A.size();
-	ft_A.insert(ft::make_pair(1, "C"));
+	ft_A.insert(ft::make_pair(2, "2C"));
+	ft_A.insert(ft::make_pair(-1, "-1D"));
+	ft_A.insert(ft::make_pair(-3, "-3E"));
+	ft_A.insert(ft::make_pair(1, "1F"));
+	ft_A.insert(ft::make_pair(3, "3J"));
 	std::cout << ", size: " << ft_A.size();
 	ft_it1 = ft_A.begin();
 	ft_it2 = ft_A.end();
+	std::cout << ", it: " << (ft_it1 == ft_it2);
 	std::cout << ", " << ft_it1->first;
-	std::cout << ", " << (ft_it1 == ft_it2);
 	std::cout << ", " << (--ft_it2)->second;
 	std::cout << ", " << (ft_it2--)->second;
 	std::cout << ", " << ft_it2->second;
+	ft_it2 = ft_A.end();
+	std::cout << ", loop:";
+	while (ft_it1 != ft_it2)
+		std::cout << " " << (ft_it1++)->second;
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 

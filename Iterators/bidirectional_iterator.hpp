@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:08:57 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/17 14:25:17 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/18 13:30:26 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ namespace	ft
 																difference_type;
 		public:
 			bidirectional_iterator();
-			bidirectional_iterator(pointer ptr);
+			bidirectional_iterator(pointer head, pointer ptr);
 			bidirectional_iterator(const bidirectional_iterator &other);
 			bidirectional_iterator		&operator=(const bidirectional_iterator &other);
 			operator					bidirectional_iterator<const T, const pair_type> () const;
@@ -48,6 +48,7 @@ namespace	ft
 			bool		operator==(const bidirectional_iterator &other) const;
 			bool		operator!=(const bidirectional_iterator &other) const;
 		private:
+			pointer						_head;
 			pointer						_elem;
 	};
 }
