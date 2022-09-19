@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 11:48:05 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/03 16:57:41 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/19 16:40:23 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 namespace	ft
 {
 	/*===================================*/
-	/*            Is_integral            */
+	/*         Integral_constant         */
 	/*===================================*/
 
 	template <typename T, T v>
@@ -25,6 +25,13 @@ namespace	ft
 		typedef T			value_type;
 		static const T		value = v;
 	};
+
+	typedef ft::integral_constant<bool, true>	true_type;
+	typedef ft::integral_constant<bool, false>	false_type;
+
+	/*===================================*/
+	/*            Is_integral            */
+	/*===================================*/
 
 	template <typename T> struct	is_integral : integral_constant<bool, false> {};
 
@@ -53,6 +60,20 @@ namespace	ft
 	struct enable_if<true, T>
 	{
 		typedef T			type;
+	};
+
+	/*===================================*/
+	/*             Is_same               */
+	/*===================================*/
+
+	template <typename T, typename U>
+	struct	is_same : ft::false_type
+	{
+	};
+
+	template <typename T>
+	struct	is_same<T, T> : ft::true_type
+	{
 	};
 }
 

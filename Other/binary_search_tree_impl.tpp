@@ -23,8 +23,13 @@ namespace	ft
     /*              Node               */
     /*=================================*/
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	binary_search_tree<T, Compare, Alloc, multivalues>::node::node() : data()
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> binary_search_tree<T, Compare, Alloc, multivalues>::node::node() :
+		data()
 	{
 		this->left = NULL;
 		this->right = NULL;
@@ -32,8 +37,13 @@ namespace	ft
 		this->multi = false;
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	binary_search_tree<T, Compare, Alloc, multivalues>::node::node(const T &elem) \
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> binary_search_tree<T, Compare, Alloc, multivalues>::node::node \
+		(const T &elem)
 		: data(elem)
 	{
 		this->left = NULL;
@@ -42,8 +52,13 @@ namespace	ft
 		this->multi = false;
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	binary_search_tree<T, Compare, Alloc, multivalues>::node::node(const node &other)
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> binary_search_tree<T, Compare, Alloc, multivalues>::node::node \
+		(const node &other)
 	{
 		this->data = other.data;
 		this->left = other.left;
@@ -52,9 +67,13 @@ namespace	ft
 		this->multi = other.multi;
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	typename binary_search_tree<T, Compare, Alloc, multivalues>::node	&
-	binary_search_tree<T, Compare, Alloc, multivalues>::node::operator=
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> typename binary_search_tree<T, Compare, Alloc, multivalues>::node &
+		binary_search_tree<T, Compare, Alloc, multivalues>::node::operator=
 		(const node &other)
 	{
 		if (this != &other)
@@ -68,8 +87,12 @@ namespace	ft
 		return (*this);
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	binary_search_tree<T, Compare, Alloc, multivalues>::node::~node()
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> binary_search_tree<T, Compare, Alloc, multivalues>::node::~node()
 	{
 	}
 
@@ -77,8 +100,12 @@ namespace	ft
     /*   Tree  | Constructors and destructors   */
     /*==========================================*/
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	binary_search_tree<T, Compare, Alloc, multivalues>::binary_search_tree
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> binary_search_tree<T, Compare, Alloc, multivalues>::binary_search_tree
 		(const key_compare &comp, const allocator_type &alloc) :
 		_alloc(alloc),
 		_alloc_node(allocator_node_type()),
@@ -92,9 +119,13 @@ namespace	ft
 		this->_head = this->_null_node;
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	binary_search_tree<T, Compare, Alloc, multivalues>::binary_search_tree
-		(const node_ptr head, const key_compare &comp, const allocator_type &alloc) :
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> binary_search_tree<T, Compare, Alloc, multivalues>::binary_search_tree
+	(const node_ptr head, const key_compare &comp, const allocator_type &alloc) :
 		_alloc(alloc),
 		_alloc_node(allocator_node_type()),
 		_comp(comp)
@@ -107,8 +138,12 @@ namespace	ft
 		this->_head = head;
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	binary_search_tree<T, Compare, Alloc, multivalues>::binary_search_tree
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> binary_search_tree<T, Compare, Alloc, multivalues>::binary_search_tree
 		(const binary_search_tree<T, Compare, Alloc, multivalues> &other) :
 		_alloc(other._alloc),
 		_alloc_node(other._alloc_node),
@@ -123,10 +158,14 @@ namespace	ft
 		this->deep_copy(other.get_head());
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	binary_search_tree<T, Compare, Alloc, multivalues>	&
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> binary_search_tree<T, Compare, Alloc, multivalues>	&
 	binary_search_tree<T, Compare, Alloc, multivalues>::operator=( \
-			const binary_search_tree<T, Compare, Alloc, multivalues> &other)
+		const binary_search_tree<T, Compare, Alloc, multivalues> &other)
 	{
 		if (this != &other)
 		{
@@ -143,8 +182,12 @@ namespace	ft
 		return (*this);
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	binary_search_tree<T, Compare, Alloc, multivalues>::~binary_search_tree()
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> binary_search_tree<T, Compare, Alloc, multivalues>::~binary_search_tree()
 	{
 		this->delete_all(this->_head);
 		this->_alloc_node.destroy(this->_null_node);
@@ -156,9 +199,14 @@ namespace	ft
     /*           Tree  | fuctional          */
     /*======================================*/
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	typename binary_search_tree<T, Compare, Alloc, multivalues>::node_ptr
-	binary_search_tree<T, Compare, Alloc, multivalues>::create_node(value_type data)
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> typename binary_search_tree<T, Compare, Alloc, multivalues>::node_ptr
+	binary_search_tree<T, Compare, Alloc, multivalues>::create_node \
+		(value_type data)
 	{
 		node_ptr	new_node;
 
@@ -170,18 +218,27 @@ namespace	ft
 		return (new_node);
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	typename binary_search_tree<T, Compare, Alloc, multivalues>::node_ptr \
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> typename binary_search_tree<T, Compare, Alloc, multivalues>::node_ptr
 	binary_search_tree<T, Compare, Alloc, multivalues>::get_head() const
 	{
 		return (this->_head);
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	int	binary_search_tree<T, Compare, Alloc, multivalues>::height(node_ptr head) const
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> int	binary_search_tree<T, Compare, Alloc, multivalues>::height \
+		(node_ptr head) const
 	{
 		if (head == this->_null_node)
-			return (this->_null_node);
+			return (0);
 		else
 		{
 			int lheight = height(head->left);
@@ -193,21 +250,25 @@ namespace	ft
 		}
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	int	binary_search_tree<T, Compare, Alloc, multivalues>::height() const
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> int	binary_search_tree<T, Compare, Alloc, multivalues>::height \
+		() const
 	{
 		return (this->height(this->_head));
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	void	binary_search_tree<T, Compare, Alloc, multivalues>::print_tree() const
-	{
-		this->print_tree(this->_head);
-	}
-
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	typename binary_search_tree<T, Compare, Alloc, multivalues>::node_ptr \
-	binary_search_tree<T, Compare, Alloc, multivalues>::min(node_ptr head) const
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> typename binary_search_tree<T, Compare, Alloc, multivalues>::node_ptr
+		binary_search_tree<T, Compare, Alloc, multivalues>::min \
+		(node_ptr head) const
 	{
 		if (head == this->_null_node)
 			return (this->_null_node);
@@ -216,16 +277,25 @@ namespace	ft
 		return (head);
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	typename binary_search_tree<T, Compare, Alloc, multivalues>::node_ptr \
-	binary_search_tree<T, Compare, Alloc, multivalues>::min() const
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> typename binary_search_tree<T, Compare, Alloc, multivalues>::node_ptr
+		binary_search_tree<T, Compare, Alloc, multivalues>::min() const
 	{
 		return (this->min(this->_head));
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	typename binary_search_tree<T, Compare, Alloc, multivalues>::node_ptr \
-	binary_search_tree<T, Compare, Alloc, multivalues>::max(node_ptr head) const
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> typename binary_search_tree<T, Compare, Alloc, multivalues>::node_ptr
+		binary_search_tree<T, Compare, Alloc, multivalues>::max \
+		(node_ptr head) const
 	{
 		if (head == this->_null_node)
 			return (this->_null_node);
@@ -234,16 +304,25 @@ namespace	ft
 		return (head);
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	typename binary_search_tree<T, Compare, Alloc, multivalues>::node_ptr \
-	binary_search_tree<T, Compare, Alloc, multivalues>::max() const
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> typename binary_search_tree<T, Compare, Alloc, multivalues>::node_ptr
+		binary_search_tree<T, Compare, Alloc, multivalues>::max() const
 	{
 		return (this->max(this->_head));
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	typename binary_search_tree<T, Compare, Alloc, multivalues>::node_ptr \
-	binary_search_tree<T, Compare, Alloc, multivalues>::successor(node_ptr head) const
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> typename binary_search_tree<T, Compare, Alloc, multivalues>::node_ptr
+		binary_search_tree<T, Compare, Alloc, multivalues>::successor \
+		(node_ptr head) const
 	{
 		node_ptr	parent;
 
@@ -263,16 +342,26 @@ namespace	ft
 		}
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	typename binary_search_tree<T, Compare, Alloc, multivalues>::node_ptr \
-	binary_search_tree<T, Compare, Alloc, multivalues>::successor() const
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> typename binary_search_tree<T, Compare, Alloc, multivalues>::node_ptr
+		binary_search_tree<T, Compare, Alloc, multivalues>::successor \
+		() const
 	{
 		return (this->successor(this->_head));
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	typename binary_search_tree<T, Compare, Alloc, multivalues>::node_ptr \
-	binary_search_tree<T, Compare, Alloc, multivalues>::predecessor(node_ptr head) const
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> typename binary_search_tree<T, Compare, Alloc, multivalues>::node_ptr
+		binary_search_tree<T, Compare, Alloc, multivalues>::predecessor \
+		(node_ptr head) const
 	{
 		node_ptr	parent;
 
@@ -292,21 +381,31 @@ namespace	ft
 		}
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	typename binary_search_tree<T, Compare, Alloc, multivalues>::node_ptr \
-	binary_search_tree<T, Compare, Alloc, multivalues>::predecessor() const
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> typename binary_search_tree<T, Compare, Alloc, multivalues>::node_ptr
+		binary_search_tree<T, Compare, Alloc, multivalues>::predecessor \
+		() const
 	{
 		return (this->predecessor(this->_head));
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	typename binary_search_tree<T, Compare, Alloc, multivalues>::node_ptr \
-	binary_search_tree<T, Compare, Alloc, multivalues>::search
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> typename binary_search_tree<T, Compare, Alloc, multivalues>::node_ptr
+		binary_search_tree<T, Compare, Alloc, multivalues>::search
 		(node_ptr head, value_type key) const
 	{
-		if (head == this->_null_node || head->data == key)
+		if (head == this->_null_node || \
+				(!this->_comp(head->data, key) && !this->_comp(key, head->data)))
 			return (head);
-		if (head->data > key)
+		if (this->_comp(key, head->data))
 			return (this->search(head->left, key));
 		else
 			return (this->search(head->right, key));
@@ -314,14 +413,19 @@ namespace	ft
 
 	/* Iterative search */
 	/*
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	typename binary_search_tree<T, Compare, Alloc, multivalues>::node_ptr \
-	binary_search_tree<T, Compare, Alloc, multivalues>::search
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> typename binary_search_tree<T, Compare, Alloc, multivalues>::node_ptr
+		binary_search_tree<T, Compare, Alloc, multivalues>::search
 		(node_ptr head, value_type key) const
 	{
-		while (head != this->_null_node && head->data != key)
+		while (head != this->_null_node && \
+			(this->_comp(head->data, key) || this->_comp(key, head->data))
 		{
-			if (head->data > key)
+			if (this->_comp(key, head->data))
 				head = head->left;
 			else
 				head = head->right;
@@ -330,9 +434,14 @@ namespace	ft
 	}
 	*/
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	typename binary_search_tree<T, Compare, Alloc, multivalues>::node_ptr \
-	binary_search_tree<T, Compare, Alloc, multivalues>::search(value_type key) const
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> typename binary_search_tree<T, Compare, Alloc, multivalues>::node_ptr
+		binary_search_tree<T, Compare, Alloc, multivalues>::search \
+		(value_type key) const
 	{
 		return (this->search(this->_head, key));
 	}
@@ -341,24 +450,38 @@ namespace	ft
     /*           Capacity          */
     /*=============================*/
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	bool	binary_search_tree<T, Compare, Alloc, multivalues>::empty() const
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> bool	binary_search_tree<T, Compare, Alloc, multivalues>::empty \
+		() const
 	{
 		if (this->_size == 0)
 			return (true);
 		return (false);
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	typename binary_search_tree<T, Compare, Alloc, multivalues>::size_type \
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> typename binary_search_tree<T, Compare, Alloc, multivalues>::size_type
 		binary_search_tree<T, Compare, Alloc, multivalues>::size() const
 	{
 		return (this->_size);
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	typename binary_search_tree<T, Compare, Alloc, multivalues>::size_type \
-		binary_search_tree<T, Compare, Alloc, multivalues>::max_size() const
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> typename binary_search_tree<T, Compare, Alloc, multivalues>::size_type
+		binary_search_tree<T, Compare, Alloc, multivalues>::max_size \
+		() const
 	{
 		return (this->_alloc_node.max_size());
 	}
@@ -367,8 +490,12 @@ namespace	ft
     /*            Tree  |  Walk            */
     /*=====================================*/
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	void	binary_search_tree<T, Compare, Alloc, multivalues>::preorder_tree_walk
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> void	binary_search_tree<T, Compare, Alloc, multivalues>::preorder_tree_walk
 		(node_ptr head) const
 	{
 		if (head != this->_null_node)
@@ -379,15 +506,23 @@ namespace	ft
 		}
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	void	binary_search_tree<T, Compare, Alloc, multivalues>::preorder_tree_walk
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> void	binary_search_tree<T, Compare, Alloc, multivalues>::preorder_tree_walk
 		() const
 	{
 		this->preorder_tree_walk(this->_head);
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	void	binary_search_tree<T, Compare, Alloc, multivalues>::inorder_tree_walk
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> void	binary_search_tree<T, Compare, Alloc, multivalues>::inorder_tree_walk
 		(node_ptr head) const
 	{
 		if (head != this->_null_node)
@@ -398,15 +533,23 @@ namespace	ft
 		}
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	void	binary_search_tree<T, Compare, Alloc, multivalues>::inorder_tree_walk
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> void	binary_search_tree<T, Compare, Alloc, multivalues>::inorder_tree_walk
 		() const
 	{
 		this->inorder_tree_walk(this->_head);
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	void	binary_search_tree<T, Compare, Alloc, multivalues>::postorder_tree_walk
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> void	binary_search_tree<T, Compare, Alloc, multivalues>::postorder_tree_walk
 		(node_ptr head) const
 	{
 		if (head != this->_null_node)
@@ -417,16 +560,24 @@ namespace	ft
 		}
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	void	binary_search_tree<T, Compare, Alloc, multivalues>::postorder_tree_walk
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> void	binary_search_tree<T, Compare, Alloc, multivalues>::postorder_tree_walk
 		() const
 	{
 		this->postorder_tree_walk(this->_head);
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	void	binary_search_tree<T, Compare, Alloc, multivalues>::preorder_tree_walk_reverse
-		(node_ptr head) const
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> void	binary_search_tree<T, Compare, Alloc, multivalues>::
+		preorder_tree_walk_reverse(node_ptr head) const
 	{
 		if (head != this->_null_node)
 		{
@@ -436,16 +587,24 @@ namespace	ft
 		}
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	void	binary_search_tree<T, Compare, Alloc, multivalues>::preorder_tree_walk_reverse
-		() const
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> void	binary_search_tree<T, Compare, Alloc, multivalues>::
+		preorder_tree_walk_reverse() const
 	{
 		this->preorder_tree_walk_reverse(this->_head);
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	void	binary_search_tree<T, Compare, Alloc, multivalues>::inorder_tree_walk_reverse
-		(node_ptr head) const
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> void	binary_search_tree<T, Compare, Alloc, multivalues>::
+		inorder_tree_walk_reverse(node_ptr head) const
 	{
 		if (head != this->_null_node)
 		{
@@ -455,16 +614,24 @@ namespace	ft
 		}
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	void	binary_search_tree<T, Compare, Alloc, multivalues>::inorder_tree_walk_reverse
-		() const
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> void	binary_search_tree<T, Compare, Alloc, multivalues>::
+		inorder_tree_walk_reverse() const
 	{
 		this->inorder_tree_walk_reverse(this->_head);
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	void	binary_search_tree<T, Compare, Alloc, multivalues>::postorder_tree_walk_reverse
-		(node_ptr head) const
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> void	binary_search_tree<T, Compare, Alloc, multivalues>::
+		postorder_tree_walk_reverse (node_ptr head) const
 	{
 		if (head != this->_null_node)
 		{
@@ -474,15 +641,23 @@ namespace	ft
 		}
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	void	binary_search_tree<T, Compare, Alloc, multivalues>::postorder_tree_walk_reverse
-		() const
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> void	binary_search_tree<T, Compare, Alloc, multivalues>::
+		postorder_tree_walk_reverse() const
 	{
 		this->postorder_tree_walk_reverse(this->_head);
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	void	binary_search_tree<T, Compare, Alloc, multivalues>::print_level \
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> void	binary_search_tree<T, Compare, Alloc, multivalues>::print_level
 		(node_ptr head, int level) const
 	{
 		if (head != this->_null_node)
@@ -497,16 +672,24 @@ namespace	ft
 		}
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	void	binary_search_tree<T, Compare, Alloc, multivalues>::print_level
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> void	binary_search_tree<T, Compare, Alloc, multivalues>::print_level
 		(int level) const
 	{
 		this->print_level(this->_head, level);
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	void	binary_search_tree<T, Compare, Alloc, multivalues>::print_level_reverse \
-		(node_ptr head, int level) const
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> void	binary_search_tree<T, Compare, Alloc, multivalues>::
+		print_level_reverse(node_ptr head, int level) const
 	{
 		if (head != this->_null_node)
 		{
@@ -520,15 +703,23 @@ namespace	ft
 		}
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	void	binary_search_tree<T, Compare, Alloc, multivalues>::print_level_reverse
-		(int level) const
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> void	binary_search_tree<T, Compare, Alloc, multivalues>::
+		print_level_reverse(int level) const
 	{
 		this->print_level_reverse(this->_head, level);
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	void	binary_search_tree<T, Compare, Alloc, multivalues>::print_tree \
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> void	binary_search_tree<T, Compare, Alloc, multivalues>::print_tree
 		(node_ptr head) const
 	{
 		int	tree_height;
@@ -545,12 +736,27 @@ namespace	ft
 		}
 	}
 
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> void	binary_search_tree<T, Compare, Alloc, multivalues>::print_tree
+		() const
+	{
+		this->print_tree(this->_head);
+	}
+
 	/*=====================================*/
     /*          Insert and delete          */
     /*=====================================*/
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	int	binary_search_tree<T, Compare, Alloc, multivalues>::tree_insert \
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> int	binary_search_tree<T, Compare, Alloc, multivalues>::tree_insert
 		(node_ptr new_node)
 	{
 		node_ptr	tmp;
@@ -561,7 +767,8 @@ namespace	ft
 		while (tmp != this->_null_node)
 		{
 			parent = tmp;
-			if (new_node->data == tmp->data)
+			if (!this->_comp(new_node->data, tmp->data) && \
+				!this->_comp(tmp->data, new_node->data))
 			{
 				if (multivalues == false)
 					return (-1);
@@ -571,7 +778,7 @@ namespace	ft
 					tmp = tmp->left;
 				parent->multi = !(parent->multi);
 			}
-			else if (new_node->data < tmp->data)
+			else if (this->_comp(new_node->data, tmp->data))
 				tmp = tmp->left;
 			else
 				tmp = tmp->right;
@@ -579,14 +786,15 @@ namespace	ft
 		new_node->p = parent;
 		if (parent == this->_null_node)
 			this->_head = new_node;
-		else if (new_node->data == parent->data)
+		else if (!this->_comp(new_node->data, parent->data) && \
+				!this->_comp(parent->data, new_node->data))
 		{
 			if (parent->multi == true)
 				parent->right = new_node;
 			else
 				parent->left = new_node;
 		}
-		else if (new_node->data < parent->data)
+		else if (this->_comp(new_node->data, parent->data))
 			parent->left = new_node;
 		else
 			parent->right = new_node;
@@ -594,8 +802,12 @@ namespace	ft
 		return (0);
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	int	binary_search_tree<T, Compare, Alloc, multivalues>::tree_insert \
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> int	binary_search_tree<T, Compare, Alloc, multivalues>::tree_insert
 		(value_type value)
 	{
 		node_ptr	new_node;
@@ -611,8 +823,12 @@ namespace	ft
 		return (res);
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	void	binary_search_tree<T, Compare, Alloc, multivalues>::tree_delete
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> void	binary_search_tree<T, Compare, Alloc, multivalues>::tree_delete
 		(node_ptr old_node)
 	{
 		node_ptr	u;
@@ -639,8 +855,12 @@ namespace	ft
 		--(this->_size);
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	void	binary_search_tree<T, Compare, Alloc, multivalues>::tree_delete \
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> void	binary_search_tree<T, Compare, Alloc, multivalues>::tree_delete
 		(value_type value)
 	{
 		this->tree_delete(this->search(value));
@@ -650,58 +870,96 @@ namespace	ft
     /*               Iterators             */
     /*=====================================*/
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	typename binary_search_tree<T, Compare, Alloc, multivalues>::iterator \
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> typename binary_search_tree<T, Compare, Alloc, multivalues>::iterator
 		binary_search_tree<T, Compare, Alloc, multivalues>::begin()
 	{
 		return (iterator(this->_head, this->min()));
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	typename binary_search_tree<T, Compare, Alloc, multivalues>::const_iterator \
-		binary_search_tree<T, Compare, Alloc, multivalues>::begin() const
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> typename binary_search_tree<T, Compare, Alloc, multivalues>::
+		const_iterator binary_search_tree<T, Compare, Alloc, multivalues>::
+		begin() const
 	{
 		return (const_iterator(this->_head, this->min()));
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	typename binary_search_tree<T, Compare, Alloc, multivalues>::iterator \
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> typename binary_search_tree<T, Compare, Alloc, multivalues>::iterator
 		binary_search_tree<T, Compare, Alloc, multivalues>::end()
 	{
 		return (iterator(this->_head, this->_null_node));
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	typename binary_search_tree<T, Compare, Alloc, multivalues>::const_iterator \
-		binary_search_tree<T, Compare, Alloc, multivalues>::end() const
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> typename binary_search_tree<T, Compare, Alloc, multivalues>::
+		const_iterator binary_search_tree<T, Compare, Alloc, multivalues>::
+		end() const
 	{
 		return (const_iterator(this->_head, this->_null_node));
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	typename binary_search_tree<T, Compare, Alloc, multivalues>::reverse_iterator \
-		binary_search_tree<T, Compare, Alloc, multivalues>::rbegin()
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> typename binary_search_tree<T, Compare, Alloc, multivalues>::
+		reverse_iterator binary_search_tree<T, Compare, Alloc, multivalues>::
+		rbegin()
 	{
 		return (reverse_iterator(this->end()));
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	typename binary_search_tree<T, Compare, Alloc, multivalues>::const_reverse_iterator \
-		binary_search_tree<T, Compare, Alloc, multivalues>::rbegin() const
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> typename binary_search_tree<T, Compare, Alloc, multivalues>::
+		const_reverse_iterator binary_search_tree<T, Compare, Alloc, multivalues>::
+		rbegin() const
 	{
 		return (const_reverse_iterator(this->end()));
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	typename binary_search_tree<T, Compare, Alloc, multivalues>::reverse_iterator \
-		binary_search_tree<T, Compare, Alloc, multivalues>::rend()
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> typename binary_search_tree<T, Compare, Alloc, multivalues>::
+		reverse_iterator binary_search_tree<T, Compare, Alloc, multivalues>::
+		rend()
 	{
 		return (reverse_iterator(this->begin()));
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	typename binary_search_tree<T, Compare, Alloc, multivalues>::const_reverse_iterator \
-		binary_search_tree<T, Compare, Alloc, multivalues>::rend() const
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> typename binary_search_tree<T, Compare, Alloc, multivalues>::
+		const_reverse_iterator binary_search_tree<T, Compare, Alloc, multivalues>::
+		rend() const
 	{
 		return (const_reverse_iterator(this->begin()));
 	}
@@ -710,8 +968,12 @@ namespace	ft
     /*          Helper methods             */
     /*=====================================*/
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	void	binary_search_tree<T, Compare, Alloc, multivalues>::transplant \
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> void	binary_search_tree<T, Compare, Alloc, multivalues>::transplant
 		(node_ptr u, node_ptr v)
 	{
 		if (u == this->_null_node)
@@ -726,8 +988,12 @@ namespace	ft
 			v->p = u->p;
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	void	binary_search_tree<T, Compare, Alloc, multivalues>::delete_all \
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> void	binary_search_tree<T, Compare, Alloc, multivalues>::delete_all
 		(node_ptr head)
 	{
 		if (head != this->_null_node)
@@ -739,8 +1005,12 @@ namespace	ft
 		}
 	}
 
-	template <typename T, typename Compare, typename Alloc, bool multivalues>
-	void	binary_search_tree<T, Compare, Alloc, multivalues>::deep_copy \
+	template <
+		typename T,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> void	binary_search_tree<T, Compare, Alloc, multivalues>::deep_copy \
 		(node_ptr other_node)
 	{
 		if (other_node != this->_null_node)
