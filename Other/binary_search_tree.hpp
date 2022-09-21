@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:30:35 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/19 19:50:27 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/21 16:53:29 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ namespace	ft
 	/* Tree */
 	template <
 		typename T,
+		typename KeyOfValue,
 		typename Compare = ft::less<T>,
 		typename Alloc = std::allocator<T>,
 		bool multivalues = false
@@ -64,10 +65,12 @@ namespace	ft
 
 		/* Constructors and destructors */
 		public:
-			binary_search_tree(const key_compare &comp = key_compare(),
+			binary_search_tree(bool is_pair = false, \
+							const key_compare &comp = key_compare(), \
 							const allocator_type &alloc = allocator_type());
 			binary_search_tree(const node_ptr head, \
-								const key_compare &comp = key_compare(),
+								bool is_pair = false, \
+								const key_compare &comp = key_compare(), \
 								const allocator_type &alloc = allocator_type());
 			binary_search_tree(const binary_search_tree &other);
 			binary_search_tree	&operator=(const binary_search_tree &other);
@@ -143,6 +146,7 @@ namespace	ft
 			void				transplant(node_ptr u, node_ptr v);
 			void				delete_all(node_ptr head);
 			void				deep_copy(node_ptr other_node);
+			bool				comp_data(value_type v1, value_type v2);
 
 		/* Member data */
 		private:
@@ -152,6 +156,7 @@ namespace	ft
 			allocator_node_type	_alloc_node;
 			key_compare			_comp;
 			size_type			_size;
+			bool				_is_pair;
 	};
 }
 
