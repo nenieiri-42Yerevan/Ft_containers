@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 16:22:46 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/21 17:40:54 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/21 17:44:11 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,22 @@ namespace	ft
 		{
 			return (x.first);
 		}
+
+		const typename Pair::first_type	&operator()(const Pair &x)
+		{
+			return (x.first);
+		}
 	};
 
 	template <typename T>
 	struct	select_self : unary_function<T, T>
 	{
 		T	&operator()(T &x)
+		{
+			return (x);
+		}
+
+		const T	&operator()(const T &x)
 		{
 			return (x);
 		}

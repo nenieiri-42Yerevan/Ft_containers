@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:41:32 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/21 13:52:21 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/21 19:39:22 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -342,25 +342,19 @@ static void	example5()
 	tree.insert(std::make_pair(-3, "-3E"));
 	tree.insert(std::make_pair(1, "1F"));
 	tree.insert(std::make_pair(3, "3J"));
-
 	it1 = tree.begin();
 	it2 = tree.begin();
 	++it2;
 	++it2;
-	/*
-	std::cout << ", it2 - it1: " << (it2 - it1);
-	std::cout << ", it2 > it1: " << (it2 > it1);
-	std::cout << ", it2 < it1: " << (it2 < it1);
-	std::cout << ", it2 >= it1: " << (it2 >= it1);
-	std::cout << ", it2 <= it1: " << (it2 <= it1);
-	std::cout << ", it2 == it1: " << (it2 == it1);
-	std::cout << ", it2 != it1: " << (it2 != it1);
+	std::cout << ", ==: " << (it2 == it1);
+	std::cout << ", !=: " << (it2 != it1);
 	it1 = it2;
-	std::cout << ", it2 >= it1: " << (it2 >= it1);
-	std::cout << ", it2 <= it1: " << (it2 <= it1);
-	std::cout << ", it2 == it1: " << (it2 == it1);
-	std::cout << ", it2 != it1: " << (it2 != it1);
-*/	std::cout << '.' << COLOR_END << std::endl;
+	std::cout << ", ==: " << (it2 == it1);
+	std::cout << ", !=: " << (it2 != it1);
+	++it1;
+	std::cout << ", ==: " << (it2 == it1);
+	std::cout << ", !=: " << (it2 != it1);
+	std::cout << '.' << COLOR_END << std::endl;
 
 	ft::map<int, std::string>			ft_tree;
 	ft::map<int, std::string>::iterator	ft_it1;
@@ -374,11 +368,18 @@ static void	example5()
 	ft_tree.insert(ft::make_pair(-3, "-3E"));
 	ft_tree.insert(ft::make_pair(1, "1F"));
 	ft_tree.insert(ft::make_pair(3, "3J"));
-
 	ft_it1 = ft_tree.begin();
 	ft_it2 = ft_tree.begin();
 	++ft_it2;
 	++ft_it2;
+	std::cout << ", ==: " << (ft_it2 == ft_it1);
+	std::cout << ", !=: " << (ft_it2 != ft_it1);
+	ft_it1 = ft_it2;
+	std::cout << ", ==: " << (ft_it2 == ft_it1);
+	std::cout << ", !=: " << (ft_it2 != ft_it1);
+	++ft_it1;
+	std::cout << ", ==: " << (ft_it2 == ft_it1);
+	std::cout << ", !=: " << (ft_it2 != ft_it1);
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 /*
