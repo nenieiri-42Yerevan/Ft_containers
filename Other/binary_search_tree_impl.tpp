@@ -112,7 +112,7 @@ namespace	ft
 		typename Alloc,
 		bool multivalues
 	> binary_search_tree<T, KeyOfValue, Compare, Alloc, multivalues>::binary_search_tree
-		(bool is_pair, const key_compare &comp, const allocator_type &alloc) :
+		(const key_compare &comp, const allocator_type &alloc) :
 		_alloc(alloc),
 		_alloc_node(allocator_node_type()),
 		_comp(comp)
@@ -122,7 +122,6 @@ namespace	ft
 		this->_null_node->p = this->_null_node;
 
 		this->_size = 0;
-		this->_is_pair = is_pair;
 		this->_head = this->_null_node;
 	}
 
@@ -133,8 +132,7 @@ namespace	ft
 		typename Alloc,
 		bool multivalues
 	> binary_search_tree<T, KeyOfValue, Compare, Alloc, multivalues>::binary_search_tree
-		(const node_ptr head, bool is_pair, \
-		 const key_compare &comp, const allocator_type &alloc) :
+		(const node_ptr head, const key_compare &comp, const allocator_type &alloc) :
 		_alloc(alloc),
 		_alloc_node(allocator_node_type()),
 		_comp(comp)
@@ -142,7 +140,6 @@ namespace	ft
 		this->_null_node = this->_alloc_node.allocate(1);
 		this->_alloc_node.construct(this->_null_node);
 		this->_null_node->p = this->_null_node;
-		this->_is_pair = is_pair;
 
 		this->_size = 1;
 		this->_head = head;
@@ -167,7 +164,6 @@ namespace	ft
 		this->_head = this->_null_node;
 		this->_size = other._size;
 		this->deep_copy(other.get_head());
-		this->_is_pair = other._is_pair;
 	}
 
 	template <
@@ -190,7 +186,6 @@ namespace	ft
 			this->_head = this->_null_node;
 			this->_comp = other._comp;
 			this->_size = other._size;
-			this->_is_pair = other._is_pair;
 			this->deep_copy(other.get_head());
 		}
 		return (*this);

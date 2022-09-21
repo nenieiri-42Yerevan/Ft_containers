@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:30:35 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/21 16:53:29 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/21 17:25:19 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,9 @@ namespace	ft
 
 		/* Constructors and destructors */
 		public:
-			binary_search_tree(bool is_pair = false, \
-							const key_compare &comp = key_compare(), \
-							const allocator_type &alloc = allocator_type());
+			binary_search_tree(const key_compare &comp = key_compare(), \
+								const allocator_type &alloc = allocator_type());
 			binary_search_tree(const node_ptr head, \
-								bool is_pair = false, \
 								const key_compare &comp = key_compare(), \
 								const allocator_type &alloc = allocator_type());
 			binary_search_tree(const binary_search_tree &other);
@@ -156,7 +154,6 @@ namespace	ft
 			allocator_node_type	_alloc_node;
 			key_compare			_comp;
 			size_type			_size;
-			bool				_is_pair;
 	};
 }
 

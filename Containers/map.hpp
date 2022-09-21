@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:44:23 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/19 19:57:20 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/21 17:25:52 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,18 @@ namespace	ft
 			typedef value_type				*pointer;
 			typedef const value_type		*const_pointer;
 
-			typedef typename binary_search_tree<value_type, key_compare, \
-					allocator_type, false>::iterator	iterator;
-			typedef typename binary_search_tree<value_type, key_compare, \
-					allocator_type, false>::const_iterator	const_iterator;
-			typedef typename binary_search_tree<value_type, key_compare, \
-					allocator_type, false>::reverse_iterator	reverse_iterator;
-			typedef typename binary_search_tree<value_type, key_compare, \
-					allocator_type, false>::const_reverse_iterator	const_reverse_iterator;
+			typedef typename binary_search_tree<value_type, \
+					select_first<value_type>, key_compare, allocator_type, \
+					false>::iterator	iterator;
+			typedef typename binary_search_tree<value_type, \
+					select_first<value_type>, key_compare, allocator_type, \
+					false>::const_iterator	const_iterator;
+			typedef typename binary_search_tree<value_type, \
+					select_first<value_type>, key_compare, allocator_type, \
+					false>::reverse_iterator	reverse_iterator;
+			typedef typename binary_search_tree<value_type, \
+					select_first<value_type>, key_compare, allocator_type, \
+					false>::const_reverse_iterator	const_reverse_iterator;
 
 		/* Constructors and destructors */
 		public:
@@ -84,8 +88,8 @@ namespace	ft
 
 		/* Member data */
 		private:
-			binary_search_tree<value_type, key_compare, \
-								allocator_type, false> _tree;
+			binary_search_tree<value_type, select_first<value_type>, \
+								key_compare, allocator_type, false> _tree;
 	};
 }
 

@@ -25,7 +25,7 @@ namespace	ft
 
 	template <typename Key, typename T, typename Compare, typename Allocator>
 	map<Key, T, Compare, Allocator>::map(const key_compare &comp, \
-		const allocator_type &alloc) : _tree(true, comp, alloc)
+		const allocator_type &alloc) : _tree(comp, alloc)
 	{
 	}
 /*
