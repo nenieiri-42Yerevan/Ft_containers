@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:41:32 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/22 17:52:56 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/22 18:07:59 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <utility>
 #include <string>
 #include <map>
+#include <functional>
 #include "../Containers/map.hpp"
 
 #ifndef	MYCOLORS_HPP
@@ -502,6 +503,75 @@ static void	example7()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
+static void	example8()
+{
+	/* Example 8 */
+	/* Example for other compare function */
+
+	std::map<int, std::string, std::greater<int> > A;
+	std::map<int, std::string, std::greater<int> >::iterator it1;
+	std::map<int, std::string, std::greater<int> >::iterator it2;
+	it1 = A.begin();
+	it2 = A.end();
+	std::cout << COLOR_PURPLE_B << "Example 8" << COLOR_END << std::endl;
+	std::cout << COLOR_YELLOW_B;
+	std::cout << "std -> ";
+	std::cout << (it1 == it2);
+	A.insert(std::make_pair(0, "0A"));
+	A.insert(std::make_pair(-2, "-2B"));
+	std::cout << ", size: " << A.size();
+	A.insert(std::make_pair(2, "2C"));
+	A.insert(std::make_pair(-1, "-1D"));
+	A.insert(std::make_pair(-3, "-3E"));
+	A.insert(std::make_pair(1, "1F"));
+	A.insert(std::make_pair(3, "3J"));
+	std::cout << ", size: " << A.size();
+	it1 = A.begin();
+	it2 = A.end();
+	std::cout << ", it: " << (it1 == it2);
+	std::cout << ", " << it1->first;
+	std::cout << ", " << (--it2)->second;
+	std::cout << ", " << (it2--)->second;
+	std::cout << ", " << it2->second;
+	it2->second = "hello";
+	it2 = A.end();
+	std::cout << ", loop:";
+	while (it1 != it2)
+		std::cout << " " << (it1++)->second;
+	std::cout << '.' << COLOR_END << std::endl;
+
+	ft::map<int, std::string, std::greater<int> > ft_A;
+	ft::map<int, std::string, std::greater<int> >::iterator ft_it1;
+	ft::map<int, std::string, std::greater<int> >::iterator ft_it2;
+	ft_it1 = ft_A.begin();
+	ft_it2 = ft_A.end();
+	std::cout << COLOR_GREEN_B;
+	std::cout << "ft  -> ";
+	std::cout << (ft_it1 == ft_it2);
+	ft_A.insert(ft::make_pair(0, "0A"));
+	ft_A.insert(ft::make_pair(-2, "-2B"));
+	std::cout << ", size: " << ft_A.size();
+	ft_A.insert(ft::make_pair(2, "2C"));
+	ft_A.insert(ft::make_pair(-1, "-1D"));
+	ft_A.insert(ft::make_pair(-3, "-3E"));
+	ft_A.insert(ft::make_pair(1, "1F"));
+	ft_A.insert(ft::make_pair(3, "3J"));
+	std::cout << ", size: " << ft_A.size();
+	ft_it1 = ft_A.begin();
+	ft_it2 = ft_A.end();
+	std::cout << ", it: " << (ft_it1 == ft_it2);
+	std::cout << ", " << ft_it1->first;
+	std::cout << ", " << (--ft_it2)->second;
+	std::cout << ", " << (ft_it2--)->second;
+	std::cout << ", " << ft_it2->second;
+	ft_it2->second = "hello";
+	ft_it2 = ft_A.end();
+	std::cout << ", loop:";
+	while (ft_it1 != ft_it2)
+		std::cout << " " << (ft_it1++)->second;
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
+}
+
 void	map_test()
 {
 	example1();
@@ -511,6 +581,7 @@ void	map_test()
 	example5();
 	example6();
 	example7();
+	example8();
 }
 
 #endif
