@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:41:32 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/23 16:21:24 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/23 19:01:01 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -706,6 +706,39 @@ static void	example11()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
+static void	example12()
+{
+	/* Example 12 */
+	/* Example for find */
+
+	std::cout << COLOR_PURPLE_B << "Example 12" << COLOR_END << std::endl;
+	std::cout << COLOR_YELLOW_B;
+	std::map<char, int>	A;
+	A.insert(std::make_pair('a', 0));
+	A.insert(std::make_pair('b', -2));
+	A.insert(std::make_pair('c', 2));
+	A.insert(std::make_pair('d', -1));
+	A.insert(std::make_pair('e', 1));
+	A.insert(std::make_pair('f', -3));
+	A.insert(std::make_pair('j', 3));
+	std::cout << "std::map -> ";
+	std::cout << " size: " << A.find('t')->first;
+	std::cout << '.' << COLOR_END << std::endl;
+
+	std::cout << COLOR_GREEN_B;
+	ft::map<char, int>	ft_A;
+	ft_A.insert(ft::make_pair('a', 0));
+	ft_A.insert(ft::make_pair('b', -2));
+	ft_A.insert(ft::make_pair('c', 2));
+	ft_A.insert(ft::make_pair('d', -1));
+	ft_A.insert(ft::make_pair('e', 1));
+	ft_A.insert(ft::make_pair('f', -3));
+	ft_A.insert(ft::make_pair('j', 3));
+	std::cout << "ft::map ->  ";
+	std::cout << " size: " << ft_A.find('t')->first;
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
+}
+
 void	map_test()
 {
 	example1();
@@ -719,6 +752,7 @@ void	map_test()
 	example9();
 	example10();
 	example11();
+	example12();
 }
 
 #endif

@@ -1109,7 +1109,7 @@ namespace	ft
 		bool multivalues
 	>
 	bool binary_search_tree<T, KeyOfValue, Compare, Alloc, multivalues>:: \
-		comp_data(value_type v1, value_type v2)
+		comp_data(value_type v1, value_type v2) const
 	{
 		return (_comp(KeyOfValue()(v1), KeyOfValue()(v2)));
 	}
