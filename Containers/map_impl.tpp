@@ -90,6 +90,50 @@ namespace	ft
 		return (this->_tree.end());
 	}
 
+	template <
+		typename Key,
+		typename T,
+		typename Compare,
+		typename Allocator
+	> typename map<Key, T, Compare, Allocator>::reverse_iterator \
+		map<Key, T, Compare, Allocator>::rbegin()
+	{
+		return (this->_tree.rbegin());
+	}
+
+	template <
+		typename Key,
+		typename T,
+		typename Compare,
+		typename Allocator
+	> typename map<Key, T, Compare, Allocator>::const_reverse_iterator \
+		map<Key, T, Compare, Allocator>::rbegin() const
+	{
+		return (this->_tree.rbegin());
+	}
+
+	template <
+		typename Key,
+		typename T,
+		typename Compare,
+		typename Allocator
+	> typename map<Key, T, Compare, Allocator>::reverse_iterator \
+		map<Key, T, Compare, Allocator>::rend()
+	{
+		return (this->_tree.rend());
+	}
+
+	template <
+		typename Key,
+		typename T,
+		typename Compare,
+		typename Allocator
+	> typename map<Key, T, Compare, Allocator>::const_reverse_iterator \
+		map<Key, T, Compare, Allocator>::rend() const
+	{
+		return (this->_tree.rend());
+	}
+
 	/*==================================*/
 	/*            Capacity              */
 	/*==================================*/
@@ -124,6 +168,20 @@ namespace	ft
 		map<Key, T, Compare, Allocator>::max_size() const
 	{
 		return (this->_tree.max_size());
+	}
+
+	/*==================================*/
+	/*         Element access           */
+	/*==================================*/
+
+	template <
+		typename Key,
+		typename T,
+		typename Compare,
+		typename Allocator
+	> typename map<Key, T, Compare, Allocator>::mapped_type & \
+		operator[](const key_type &key)
+	{
 	}
 
 	/*==================================*/

@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:44:23 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/21 17:25:52 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/23 11:41:55 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,14 +73,21 @@ namespace	ft
 			const_iterator					begin() const;
 			iterator						end();
 			const_iterator					end() const;
-			// rbegin
-			// rend
+			reverse_iterator				rbegin();
+			const_reverse_iterator			rbegin() const;
+			reverse_iterator				rend();
+			const_reverse_iterator			rend() const;
 
 		/* Capacity */
 		public:
 			bool							empty() const;
 			size_type						size() const;
 			size_type						max_size() const;
+
+		/* Element access */
+		public:
+			mapped_type						&operator[](const key_type &key);
+			//at
 
 		/* Modifires */
 		public:

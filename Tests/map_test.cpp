@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:41:32 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/22 18:07:59 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/22 19:06:50 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -572,6 +572,71 @@ static void	example8()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
+static void	example9()
+{
+	/* Example 9 */
+	/* Example for reverse iterator */
+
+	std::map<int, std::string>						A;
+	std::map<int, std::string>::reverse_iterator	it1;
+	std::map<int, std::string>::reverse_iterator	it2;
+	it1 = A.rbegin();
+	it2 = A.rend();
+	std::cout << COLOR_PURPLE_B << "Example 9" << COLOR_END << std::endl;
+	std::cout << COLOR_YELLOW_B;
+	std::cout << "std -> ";
+	std::cout << (it1 == it2);
+	A.insert(std::make_pair(0, "0A"));
+	A.insert(std::make_pair(-2, "-2B"));
+	A.insert(std::make_pair(2, "2C"));
+	A.insert(std::make_pair(-1, "-1D"));
+	A.insert(std::make_pair(-3, "-3E"));
+	A.insert(std::make_pair(1, "1F"));
+	A.insert(std::make_pair(3, "3J"));
+	it1 = A.rbegin();
+	it2 = A.rend();
+	std::cout << ", it: " << (it1 == it2);
+	std::cout << ", " << it1->first;
+	std::cout << ", " << (--it2)->second;
+	std::cout << ", " << (it2--)->second;
+	std::cout << ", " << it2->second;
+	it2->second = "hello";
+	it2 = A.rend();
+	std::cout << ", loop:";
+	while (it1 != it2)
+		std::cout << " " << (it1++)->second;
+	std::cout << '.' << COLOR_END << std::endl;
+
+	ft::map<int, std::string>					ft_A;
+	ft::map<int, std::string>::reverse_iterator ft_it1;
+	ft::map<int, std::string>::reverse_iterator ft_it2;
+	ft_it1 = ft_A.rbegin();
+	ft_it2 = ft_A.rend();
+	std::cout << COLOR_GREEN_B;
+	std::cout << "ft  -> ";
+	std::cout << (ft_it1 == ft_it2);
+	ft_A.insert(ft::make_pair(0, "0A"));
+	ft_A.insert(ft::make_pair(-2, "-2B"));
+	ft_A.insert(ft::make_pair(2, "2C"));
+	ft_A.insert(ft::make_pair(-1, "-1D"));
+	ft_A.insert(ft::make_pair(-3, "-3E"));
+	ft_A.insert(ft::make_pair(1, "1F"));
+	ft_A.insert(ft::make_pair(3, "3J"));
+	ft_it1 = ft_A.rbegin();
+	ft_it2 = ft_A.rend();
+	std::cout << ", it: " << (ft_it1 == ft_it2);
+	std::cout << ", " << ft_it1->first;
+	std::cout << ", " << (--ft_it2)->second;
+	std::cout << ", " << (ft_it2--)->second;
+	std::cout << ", " << ft_it2->second;
+	ft_it2->second = "hello";
+	ft_it2 = ft_A.rend();
+	std::cout << ", loop:";
+	while (ft_it1 != ft_it2)
+		std::cout << " " << (ft_it1++)->second;
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
+}
+
 void	map_test()
 {
 	example1();
@@ -582,6 +647,7 @@ void	map_test()
 	example6();
 	example7();
 	example8();
+	example9();
 }
 
 #endif

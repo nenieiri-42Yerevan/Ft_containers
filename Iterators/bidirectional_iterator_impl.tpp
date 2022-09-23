@@ -28,7 +28,7 @@ namespace	ft
 
 	template <typename T, typename pair_type>
 	bidirectional_iterator<T, pair_type>::bidirectional_iterator \
-		(pointer head, pointer ptr) :
+		(node_pointer head, node_pointer ptr) :
 		_head(head),
 		_elem(ptr)
 	{
