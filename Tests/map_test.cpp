@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:41:32 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/22 19:06:50 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/23 15:23:21 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -637,6 +637,53 @@ static void	example9()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
+static void	example10()
+{
+	/* Example 10 */
+	/* Example for key and value compare */
+
+	std::cout << COLOR_PURPLE_B << "Example 10" << COLOR_END << std::endl;
+	std::map<char, int>	A;
+	A.insert(std::make_pair('x', 1001));
+	A.insert(std::make_pair('y', 2002));
+	A.insert(std::make_pair('z', 3003));
+	std::pair<char, int> highest = *(A.rbegin());
+	std::map<char, int>::iterator	it = A.begin();
+	std::cout << COLOR_YELLOW_B;
+	std::cout << "std ->";
+	do
+	{
+		std::cout << " " << it->first << " => " << it->second;
+	} while (A.value_comp()(*it++, highest));
+	std::map<char, int>::value_compare	cmp = A.value_comp();
+	std::cout << " " << cmp(*A.begin(), *A.begin());
+	std::cout << " " << cmp(*A.begin(), *(++A.begin()));
+	std::map<char, int>::key_compare	key_cmp = A.key_comp();
+	std::cout << " " << key_cmp('a', 'b');
+	std::cout << " " << key_cmp('a', 'a');
+	std::cout << '.' << COLOR_END << std::endl;
+
+	ft::map<char, int>	ft_A;
+	ft_A.insert(ft::make_pair('x', 1001));
+	ft_A.insert(ft::make_pair('y', 2002));
+	ft_A.insert(ft::make_pair('z', 3003));
+	ft::pair<char, int> ft_highest = *(ft_A.rbegin());
+	ft::map<char, int>::iterator	ft_it = ft_A.begin();
+	std::cout << COLOR_YELLOW_B;
+	std::cout << "ft  ->";
+	do
+	{
+		std::cout << " " << ft_it->first << " => " << ft_it->second;
+	} while (ft_A.value_comp()(*ft_it++, ft_highest));
+	ft::map<char, int>::value_compare	ft_cmp = ft_A.value_comp();
+	std::cout << " " << ft_cmp(*ft_A.begin(), *ft_A.begin());
+	std::cout << " " << ft_cmp(*ft_A.begin(), *(++ft_A.begin()));
+	ft::map<char, int>::key_compare	ft_key_cmp = ft_A.key_comp();
+	std::cout << " " << ft_key_cmp('a', 'b');
+	std::cout << " " << ft_key_cmp('a', 'a');
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
+}
+
 void	map_test()
 {
 	example1();
@@ -648,6 +695,7 @@ void	map_test()
 	example7();
 	example8();
 	example9();
+	example10();
 }
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:44:23 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/23 11:41:55 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/23 15:12:50 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,29 @@ namespace	ft
 					select_first<value_type>, key_compare, allocator_type, \
 					false>::const_reverse_iterator	const_reverse_iterator;
 
+		/* Member clases */
+		public:
+			class	value_compare : binary_function<value_type, value_type, bool>
+			{
+				public:
+					value_compare(key_compare c) : _comp(c)
+					{
+					}
+
+					bool	operator()(const value_type &lhs, \
+										const value_type &rhs) const
+					{
+						return (this->_comp(lhs.first, rhs.first));
+					}
+
+				protected:
+					key_compare	_comp;
+
+				private:
+					friend class	map<key_type, value_type, \
+										key_compare, allocator_type>;
+			};
+
 		/* Constructors and destructors */
 		public:
 			explicit	map(const key_compare &comp = key_compare(),
@@ -86,12 +109,17 @@ namespace	ft
 
 		/* Element access */
 		public:
-			mapped_type						&operator[](const key_type &key);
+			//mapped_type						&operator[](const key_type &key);
 			//at
 
 		/* Modifires */
 		public:
 			void	insert(const value_type &val);
+
+		/* Observers */
+		public:
+			key_compare						key_comp() const;
+			value_compare					value_comp() const;
 
 		/* Member data */
 		private:

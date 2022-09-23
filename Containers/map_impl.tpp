@@ -173,7 +173,7 @@ namespace	ft
 	/*==================================*/
 	/*         Element access           */
 	/*==================================*/
-
+/*
 	template <
 		typename Key,
 		typename T,
@@ -183,7 +183,7 @@ namespace	ft
 		operator[](const key_type &key)
 	{
 	}
-
+*/
 	/*==================================*/
 	/*            Modifires             */
 	/*==================================*/
@@ -192,6 +192,32 @@ namespace	ft
 	void	map<Key, T, Compare, Allocator>::insert(const value_type &val)
 	{
 		this->_tree.tree_insert(val);
+	}
+
+	/*==================================*/
+	/*            Observers             */
+	/*==================================*/
+
+	template <
+		typename Key,
+		typename T,
+		typename Compare,
+		typename Allocator
+	> typename map<Key, T, Compare, Allocator>::key_compare \
+		map<Key, T, Compare, Allocator>::key_comp() const
+	{
+		return (key_compare());
+	}
+
+	template <
+		typename Key,
+		typename T,
+		typename Compare,
+		typename Allocator
+	> typename map<Key, T, Compare, Allocator>::value_compare \
+		map<Key, T, Compare, Allocator>::value_comp() const
+	{
+		return (value_compare(key_compare()));
 	}
 }
 

@@ -63,7 +63,8 @@ namespace	ft
 		iterator_type	tmp;
 
 		tmp = this->_elem;
-		return (*(--tmp));
+		--tmp;
+		return (*tmp);
 	}
 
 	template <typename It>
