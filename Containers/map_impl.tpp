@@ -224,7 +224,6 @@ namespace	ft
 	/*            Operations            */
 	/*==================================*/
 
-
 	template <
 		typename Key,
 		typename T,
@@ -235,6 +234,20 @@ namespace	ft
 	{
 		value_type	tmp(key, T());
 		iterator	it(_tree.get_head(), _tree.search(tmp));
+		
+		return (it);
+	}
+
+	template <
+		typename Key,
+		typename T,
+		typename Compare,
+		typename Allocator
+	> typename map<Key, T, Compare, Allocator>::const_iterator \
+		map<Key, T, Compare, Allocator>::find(const Key &key) const
+	{
+		value_type		tmp(key, T());
+		const_iterator	it(_tree.get_head(), _tree.search(tmp));
 		
 		return (it);
 	}
