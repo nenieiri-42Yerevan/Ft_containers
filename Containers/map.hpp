@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:44:23 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/23 15:12:50 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/23 16:24:52 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,11 +115,27 @@ namespace	ft
 		/* Modifires */
 		public:
 			void	insert(const value_type &val);
+			//insert
+			//erase
+			//swap
+			//clear
 
 		/* Observers */
 		public:
 			key_compare						key_comp() const;
 			value_compare					value_comp() const;
+
+		/* Operations */
+		public:
+			//find
+			//count
+			//lower_bound
+			//upper_bound
+			//equal_range
+
+		/* Allocator */
+		public:
+			allocator_type					get_allocator() const;
 
 		/* Member data */
 		private:

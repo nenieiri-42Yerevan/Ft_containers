@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:30:35 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/21 17:25:19 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/23 16:01:52 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,6 +138,10 @@ namespace	ft
 			const_reverse_iterator	rbegin() const;
 			reverse_iterator		rend();
 			const_reverse_iterator	rend() const;
+
+		/* Allocator */
+		public:
+			allocator_type			get_allocator() const;
 
 		/* Helper methods */
 		private:

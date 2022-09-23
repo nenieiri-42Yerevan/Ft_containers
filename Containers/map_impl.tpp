@@ -219,6 +219,21 @@ namespace	ft
 	{
 		return (value_compare(key_compare()));
 	}
+
+	/*==================================*/
+	/*            Allocator             */
+	/*==================================*/
+
+	template <
+		typename Key,
+		typename T,
+		typename Compare,
+		typename Allocator
+	> typename map<Key, T, Compare, Allocator>::allocator_type \
+		map<Key, T, Compare, Allocator>::get_allocator() const
+	{
+		return (this->_tree.get_allocator());
+	}
 }
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:41:32 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/23 15:23:21 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/23 16:21:24 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -643,6 +643,7 @@ static void	example10()
 	/* Example for key and value compare */
 
 	std::cout << COLOR_PURPLE_B << "Example 10" << COLOR_END << std::endl;
+	std::cout << COLOR_YELLOW_B;
 	std::map<char, int>	A;
 	A.insert(std::make_pair('x', 1001));
 	A.insert(std::make_pair('y', 2002));
@@ -663,13 +664,13 @@ static void	example10()
 	std::cout << " " << key_cmp('a', 'a');
 	std::cout << '.' << COLOR_END << std::endl;
 
+	std::cout << COLOR_GREEN_B;
 	ft::map<char, int>	ft_A;
 	ft_A.insert(ft::make_pair('x', 1001));
 	ft_A.insert(ft::make_pair('y', 2002));
 	ft_A.insert(ft::make_pair('z', 3003));
 	ft::pair<char, int> ft_highest = *(ft_A.rbegin());
 	ft::map<char, int>::iterator	ft_it = ft_A.begin();
-	std::cout << COLOR_YELLOW_B;
 	std::cout << "ft  ->";
 	do
 	{
@@ -681,6 +682,27 @@ static void	example10()
 	ft::map<char, int>::key_compare	ft_key_cmp = ft_A.key_comp();
 	std::cout << " " << ft_key_cmp('a', 'b');
 	std::cout << " " << ft_key_cmp('a', 'a');
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
+}
+
+static void	example11()
+{
+	/* Example 11 */
+	/* Example for get_allocator */
+
+	std::cout << COLOR_PURPLE_B << "Example 11" << COLOR_END << std::endl;
+	std::cout << COLOR_YELLOW_B;
+	std::map<char, int>			A;
+	std::pair<const char, int>	*p;
+	p = A.get_allocator().allocate(42);
+	A.get_allocator().deallocate(p, 42);
+	std::cout << '.' << COLOR_END << std::endl;
+
+	std::cout << COLOR_GREEN_B;
+	ft::map<char, int>			ft_A;
+	ft::pair<const char, int>	*ft_p;
+	ft_p = ft_A.get_allocator().allocate(42);
+	ft_A.get_allocator().deallocate(ft_p, 42);
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
@@ -696,6 +718,7 @@ void	map_test()
 	example8();
 	example9();
 	example10();
+	example11();
 }
 
 #endif

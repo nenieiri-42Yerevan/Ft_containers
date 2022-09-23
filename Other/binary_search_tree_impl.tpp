@@ -1025,6 +1025,23 @@ namespace	ft
 	}
 
 	/*=====================================*/
+    /*         	    Allocator              */
+    /*=====================================*/
+
+	template <
+		typename T,
+		typename KeyOfValue,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> typename binary_search_tree<T, KeyOfValue, Compare, Alloc, multivalues>::
+		allocator_type binary_search_tree<T, KeyOfValue, Compare, Alloc, multivalues>::
+		get_allocator() const
+	{
+		return (this->_alloc);
+	}
+
+	/*=====================================*/
     /*          Helper methods             */
     /*=====================================*/
 
