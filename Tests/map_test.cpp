@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:41:32 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/23 19:49:12 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/24 13:54:45 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -747,6 +747,49 @@ static void	example12()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
+static void	example13()
+{
+	/* Example 13 */
+	/* Example for count */
+
+	std::cout << COLOR_PURPLE_B << "Example 13" << COLOR_END << std::endl;
+	std::cout << COLOR_YELLOW_B;
+	std::map<char, int>	A;
+	A.insert(std::make_pair('d', 0));
+	A.insert(std::make_pair('d', 0));
+	A.insert(std::make_pair('b', -2));
+	A.insert(std::make_pair('f', 2));
+	A.insert(std::make_pair('c', -1));
+	A.insert(std::make_pair('c', -1));
+	A.insert(std::make_pair('c', -1));
+	A.insert(std::make_pair('c', -1));
+	A.insert(std::make_pair('e', 1));
+	A.insert(std::make_pair('g', 3));
+	std::cout << "std::map -> ";
+	std::cout << "count:";
+	for (char c = 'a'; c < 'k'; ++c)
+		std::cout << " " << A.count(c);
+	std::cout << '.' << COLOR_END << std::endl;
+
+	std::cout << COLOR_GREEN_B;
+	ft::map<char, int>	ft_A;
+	ft_A.insert(ft::make_pair('d', 0));
+	ft_A.insert(ft::make_pair('d', 0));
+	ft_A.insert(ft::make_pair('b', -2));
+	ft_A.insert(ft::make_pair('f', 2));
+	ft_A.insert(ft::make_pair('c', -1));
+	ft_A.insert(ft::make_pair('c', -1));
+	ft_A.insert(ft::make_pair('c', -1));
+	ft_A.insert(ft::make_pair('c', -1));
+	ft_A.insert(ft::make_pair('e', 1));
+	ft_A.insert(ft::make_pair('g', 3));
+	std::cout << "ft::map ->  ";
+	std::cout << "count:";
+	for (char c = 'a'; c < 'k'; ++c)
+		std::cout << " " << ft_A.count(c);
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
+}
+
 void	map_test()
 {
 	example1();
@@ -761,6 +804,7 @@ void	map_test()
 	example10();
 	example11();
 	example12();
+	example13();
 }
 
 #endif

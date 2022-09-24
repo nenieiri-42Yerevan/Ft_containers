@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:44:23 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/23 19:50:41 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/24 13:57:59 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,9 +127,9 @@ namespace	ft
 
 		/* Operations */
 		public:
-			iterator						find(const Key &key);
-			const_iterator					find(const Key &key) const;
-			//count
+			iterator						find(const key_type &key);
+			const_iterator					find(const key_type &key) const;
+			size_type						count(const key_type &key) const;
 			//lower_bound
 			//upper_bound
 			//equal_range

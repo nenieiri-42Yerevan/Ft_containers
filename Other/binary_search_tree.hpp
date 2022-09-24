@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:30:35 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/23 18:38:50 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/24 13:52:03 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,14 +88,24 @@ namespace	ft
 			node_ptr			successor() const;
 			node_ptr			predecessor(node_ptr head) const;
 			node_ptr			predecessor() const;
-			node_ptr			search(node_ptr head, value_type key) const;
-			node_ptr			search(value_type key) const;
 
 		/* Capacity */
 		public:
 			bool				empty() const;
 			size_type			size() const;
 			size_type			max_size() const;
+
+		/* Operations */
+		public:
+			node_ptr			search(node_ptr head, const value_type &pair) const;
+			node_ptr			search(const value_type &pair) const;
+
+			/* Count */
+			void				count_in_level(node_ptr head, \
+								const value_type &pair, int level, \
+								size_type &count) const;
+			size_type			count(node_ptr head, const value_type &pair) const;
+			size_type			count(const value_type &pair) const;
 
 		/* Tree walk */
 		public:

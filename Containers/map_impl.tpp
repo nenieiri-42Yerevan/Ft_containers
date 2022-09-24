@@ -230,7 +230,7 @@ namespace	ft
 		typename Compare,
 		typename Allocator
 	> typename map<Key, T, Compare, Allocator>::iterator \
-		map<Key, T, Compare, Allocator>::find(const Key &key)
+		map<Key, T, Compare, Allocator>::find(const key_type &key)
 	{
 		value_type	tmp(key, T());
 		iterator	it(_tree.get_head(), _tree.search(tmp));
@@ -244,12 +244,25 @@ namespace	ft
 		typename Compare,
 		typename Allocator
 	> typename map<Key, T, Compare, Allocator>::const_iterator \
-		map<Key, T, Compare, Allocator>::find(const Key &key) const
+		map<Key, T, Compare, Allocator>::find(const key_type &key) const
 	{
 		value_type		tmp(key, T());
 		const_iterator	it(_tree.get_head(), _tree.search(tmp));
 		
 		return (it);
+	}
+
+	template <
+		typename Key,
+		typename T,
+		typename Compare,
+		typename Allocator
+	> typename map<Key, T, Compare, Allocator>::size_type \
+		map<Key, T, Compare, Allocator>::count(const key_type &key) const
+	{
+		value_type		tmp(key, T());
+
+		return (_tree.count(tmp));
 	}
 
 	/*==================================*/
