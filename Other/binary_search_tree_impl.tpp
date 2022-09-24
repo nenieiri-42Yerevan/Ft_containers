@@ -641,6 +641,56 @@ namespace	ft
 		return (it1);
 	}
 
+	template <
+		typename T,
+		typename KeyOfValue,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> typename binary_search_tree<T, KeyOfValue, Compare, Alloc, multivalues>::iterator
+		binary_search_tree<T, KeyOfValue, Compare, Alloc, multivalues>::upper_bound
+		(const value_type &data)
+	{
+		iterator	it1;
+		iterator	it2;
+
+		it1 = this->begin();
+		it2 = this->end();
+		while (it1 != it2)
+		{
+			if (this->comp_data(data, *it1))
+				break ;
+			++it1;
+		}
+
+		return (it1);
+	}
+
+	template <
+		typename T,
+		typename KeyOfValue,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> typename binary_search_tree<T, KeyOfValue, Compare, Alloc, multivalues>::const_iterator
+		binary_search_tree<T, KeyOfValue, Compare, Alloc, multivalues>::upper_bound
+		(const value_type &data) const
+	{
+		const_iterator	it1;
+		const_iterator	it2;
+		while (it1 != it2)
+		{
+			if (this->comp_data(data, *it1))
+				break ;
+			++it1;
+		}
+
+		it1 = this->begin();
+		it2 = this->end();
+
+		return (it1);
+	}
+
 	/*=====================================*/
     /*            Tree  |  Walk            */
     /*=====================================*/

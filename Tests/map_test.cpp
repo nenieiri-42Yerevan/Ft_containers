@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:41:32 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/24 14:59:33 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/24 18:14:16 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -813,9 +813,34 @@ static void	example14()
 	std::cout << "bound:";
 	for (; itlow != itup; ++itlow)
 		std::cout << " " << itlow->first;
+	itlow = A.lower_bound('0');
+	itup = A.lower_bound('e');
+	std::cout << ", bound:";
+	for (; itlow != itup; ++itlow)
+		std::cout << " " << itlow->first;
 	itlow = A.lower_bound('c');
 	itup = A.lower_bound('x');
-	std::cout << " bound:";
+	std::cout << ", bound:";
+	for (; itlow != itup; ++itlow)
+		std::cout << " " << itlow->first;
+	itlow = A.upper_bound('c');
+	itup = A.upper_bound('e');
+	std::cout << ", upper_bound:";
+	for (; itlow != itup; ++itlow)
+		std::cout << " " << itlow->first;
+	itlow = A.upper_bound('0');
+	itup = A.upper_bound('e');
+	std::cout << ", bound:";
+	for (; itlow != itup; ++itlow)
+		std::cout << " " << itlow->first;
+	itlow = A.upper_bound('c');
+	itup = A.upper_bound('x');
+	std::cout << ", bound:";
+	for (; itlow != itup; ++itlow)
+		std::cout << " " << itlow->first;
+	itlow = A.lower_bound('b');
+	itup = A.upper_bound('d');
+	std::cout << ", up_low_bound:";
 	for (; itlow != itup; ++itlow)
 		std::cout << " " << itlow->first;
 	std::cout << '.' << COLOR_END << std::endl;
@@ -837,9 +862,34 @@ static void	example14()
 	std::cout << "bound:";
 	for (; ft_itlow != ft_itup; ++ft_itlow)
 		std::cout << " " << ft_itlow->first;
+	ft_itlow = ft_A.lower_bound('0');
+	ft_itup = ft_A.lower_bound('e');
+	std::cout << ", bound:";
+	for (; ft_itlow != ft_itup; ++ft_itlow)
+		std::cout << " " << ft_itlow->first;
 	ft_itlow = ft_A.lower_bound('c');
 	ft_itup = ft_A.lower_bound('x');
-	std::cout << " bound:";
+	std::cout << ", bound:";
+	for (; ft_itlow != ft_itup; ++ft_itlow)
+		std::cout << " " << ft_itlow->first;
+	ft_itlow = ft_A.upper_bound('c');
+	ft_itup = ft_A.upper_bound('e');
+	std::cout << ", upper_bound:";
+	for (; ft_itlow != ft_itup; ++ft_itlow)
+		std::cout << " " << ft_itlow->first;
+	ft_itlow = ft_A.upper_bound('0');
+	ft_itup = ft_A.upper_bound('e');
+	std::cout << ", bound:";
+	for (; ft_itlow != ft_itup; ++ft_itlow)
+		std::cout << " " << ft_itlow->first;
+	ft_itlow = ft_A.upper_bound('c');
+	ft_itup = ft_A.upper_bound('x');
+	std::cout << ", bound:";
+	for (; ft_itlow != ft_itup; ++ft_itlow)
+		std::cout << " " << ft_itlow->first;
+	ft_itlow = ft_A.lower_bound('b');
+	ft_itup = ft_A.upper_bound('d');
+	std::cout << ", up_low_bound:";
 	for (; ft_itlow != ft_itup; ++ft_itlow)
 		std::cout << " " << ft_itlow->first;
 	std::cout << '.' << COLOR_END << std::endl << std::endl;

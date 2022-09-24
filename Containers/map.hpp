@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:44:23 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/24 14:21:15 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/24 17:57:24 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,8 @@ namespace	ft
 			size_type						count(const key_type &key) const;
 			iterator						lower_bound(const key_type &key);
 			const_iterator					lower_bound(const key_type &key) const;
-			//upper_bound
+			iterator						upper_bound(const key_type &key);
+			const_iterator					upper_bound(const key_type &key) const;
 			//equal_range
 
 		/* Allocator */

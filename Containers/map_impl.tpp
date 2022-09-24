@@ -291,6 +291,32 @@ namespace	ft
 		return (_tree.lower_bound(tmp));
 	}
 
+	template <
+		typename Key,
+		typename T,
+		typename Compare,
+		typename Allocator
+	> typename map<Key, T, Compare, Allocator>::iterator \
+		map<Key, T, Compare, Allocator>::upper_bound(const key_type &key) 
+	{
+		value_type		tmp(key, T());
+
+		return (_tree.upper_bound(tmp));
+	}
+
+	template <
+		typename Key,
+		typename T,
+		typename Compare,
+		typename Allocator
+	> typename map<Key, T, Compare, Allocator>::const_iterator \
+		map<Key, T, Compare, Allocator>::upper_bound(const key_type &key) const
+	{
+		value_type		tmp(key, T());
+
+		return (_tree.upper_bound(tmp));
+	}
+
 	/*==================================*/
 	/*            Allocator             */
 	/*==================================*/
