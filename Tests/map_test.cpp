@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:41:32 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/24 13:54:45 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/24 14:59:33 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -335,7 +335,7 @@ static void	example5()
 	std::map<int, std::string>::iterator	it2;
 	std::cout << COLOR_PURPLE_B << "Example 5" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
-	std::cout << "std::map -> ";
+	std::cout << "std::map ->";
 	tree.insert(std::make_pair(0, "0A"));
 	tree.insert(std::make_pair(-2, "-2B"));
 	tree.insert(std::make_pair(2, "2C"));
@@ -361,7 +361,7 @@ static void	example5()
 	ft::map<int, std::string>::iterator	ft_it1;
 	ft::map<int, std::string>::iterator	ft_it2;
 	std::cout << COLOR_GREEN_B;
-	std::cout << "ft::map ->  ";
+	std::cout << "ft::map  ->";
 	ft_tree.insert(ft::make_pair(0, "0A"));
 	ft_tree.insert(ft::make_pair(-2, "-2B"));
 	ft_tree.insert(ft::make_pair(2, "2C"));
@@ -394,7 +394,7 @@ static void	example6()
 	std::map<int, std::string>::const_iterator	it2;
 	std::cout << COLOR_PURPLE_B << "Example 6" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
-	std::cout << "std::map -> ";
+	std::cout << "std::map ->";
 	tree.insert(std::make_pair(0, "0A"));
 	tree.insert(std::make_pair(-2, "-2B"));
 	tree.insert(std::make_pair(2, "2C"));
@@ -420,7 +420,7 @@ static void	example6()
 	ft::map<int, std::string>::const_iterator	ft_it1;
 	ft::map<int, std::string>::const_iterator	ft_it2;
 	std::cout << COLOR_GREEN_B;
-	std::cout << "ft::map ->  ";
+	std::cout << "ft::map  ->";
 	ft_tree.insert(ft::make_pair(0, "0A"));
 	ft_tree.insert(ft::make_pair(-2, "-2B"));
 	ft_tree.insert(ft::make_pair(2, "2C"));
@@ -453,7 +453,7 @@ static void	example7()
 	std::map<int, std::string>::const_iterator	it2;
 	std::cout << COLOR_PURPLE_B << "Example 7" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
-	std::cout << "std::map -> ";
+	std::cout << "std::map ->";
 	tree.insert(std::make_pair(0, "0A"));
 	tree.insert(std::make_pair(-2, "-2B"));
 	tree.insert(std::make_pair(2, "2C"));
@@ -480,7 +480,7 @@ static void	example7()
 	ft::map<int, std::string>::iterator			ft_it1;
 	ft::map<int, std::string>::const_iterator	ft_it2;
 	std::cout << COLOR_GREEN_B;
-	std::cout << "ft::map ->  ";
+	std::cout << "ft::map  ->";
 	ft_tree.insert(ft::make_pair(0, "0A"));
 	ft_tree.insert(ft::make_pair(-2, "-2B"));
 	ft_tree.insert(ft::make_pair(2, "2C"));
@@ -519,7 +519,7 @@ static void	example8()
 	std::cout << (it1 == it2);
 	A.insert(std::make_pair(0, "0A"));
 	A.insert(std::make_pair(-2, "-2B"));
-	std::cout << ", size: " << A.size();
+	std::cout << " size: " << A.size();
 	A.insert(std::make_pair(2, "2C"));
 	A.insert(std::make_pair(-1, "-1D"));
 	A.insert(std::make_pair(-3, "-3E"));
@@ -550,7 +550,7 @@ static void	example8()
 	std::cout << (ft_it1 == ft_it2);
 	ft_A.insert(ft::make_pair(0, "0A"));
 	ft_A.insert(ft::make_pair(-2, "-2B"));
-	std::cout << ", size: " << ft_A.size();
+	std::cout << " size: " << ft_A.size();
 	ft_A.insert(ft::make_pair(2, "2C"));
 	ft_A.insert(ft::make_pair(-1, "-1D"));
 	ft_A.insert(ft::make_pair(-3, "-3E"));
@@ -595,7 +595,7 @@ static void	example9()
 	A.insert(std::make_pair(3, "3J"));
 	it1 = A.rbegin();
 	it2 = A.rend();
-	std::cout << ", it: " << (it1 == it2);
+	std::cout << " it: " << (it1 == it2);
 	std::cout << ", " << it1->first;
 	std::cout << ", " << (--it2)->second;
 	std::cout << ", " << (it2--)->second;
@@ -624,7 +624,7 @@ static void	example9()
 	ft_A.insert(ft::make_pair(3, "3J"));
 	ft_it1 = ft_A.rbegin();
 	ft_it2 = ft_A.rend();
-	std::cout << ", it: " << (ft_it1 == ft_it2);
+	std::cout << " it: " << (ft_it1 == ft_it2);
 	std::cout << ", " << ft_it1->first;
 	std::cout << ", " << (--ft_it2)->second;
 	std::cout << ", " << (ft_it2--)->second;
@@ -738,7 +738,7 @@ static void	example12()
 	ft_A.insert(ft::make_pair('e', 1));
 	ft_A.insert(ft::make_pair('a', -3));
 	ft_A.insert(ft::make_pair('j', 3));
-	std::cout << "ft::map ->  ";
+	std::cout << "ft::map  -> ";
 	std::cout << "find: " << ft_A.find('e')->first;
 	ft::map<char, int>::const_iterator	ft_it1 = ft_A.find('a');
 	ft::map<char, int>::const_iterator	ft_it2 = ft_A.find('o');
@@ -783,10 +783,65 @@ static void	example13()
 	ft_A.insert(ft::make_pair('c', -1));
 	ft_A.insert(ft::make_pair('e', 1));
 	ft_A.insert(ft::make_pair('g', 3));
-	std::cout << "ft::map ->  ";
+	std::cout << "ft::map  -> ";
 	std::cout << "count:";
 	for (char c = 'a'; c < 'k'; ++c)
 		std::cout << " " << ft_A.count(c);
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
+}
+
+static void	example14()
+{
+	/* Example 14 */
+	/* Example for bounds */
+
+	std::cout << COLOR_PURPLE_B << "Example 14" << COLOR_END << std::endl;
+	std::cout << COLOR_YELLOW_B;
+	std::map<char, int>	A;
+	A.insert(std::make_pair('d', 0));
+	A.insert(std::make_pair('b', -2));
+	A.insert(std::make_pair('f', 2));
+	A.insert(std::make_pair('c', -1));
+	A.insert(std::make_pair('e', 1));
+	A.insert(std::make_pair('a', -3));
+	A.insert(std::make_pair('g', 3));
+	std::cout << "std::map -> ";
+	std::map<char, int>::iterator	itlow;
+	std::map<char, int>::iterator	itup;
+	itlow = A.lower_bound('c');
+	itup = A.lower_bound('e');
+	std::cout << "bound:";
+	for (; itlow != itup; ++itlow)
+		std::cout << " " << itlow->first;
+	itlow = A.lower_bound('c');
+	itup = A.lower_bound('x');
+	std::cout << " bound:";
+	for (; itlow != itup; ++itlow)
+		std::cout << " " << itlow->first;
+	std::cout << '.' << COLOR_END << std::endl;
+
+	std::cout << COLOR_GREEN_B;
+	ft::map<char, int>	ft_A;
+	ft_A.insert(ft::make_pair('d', 0));
+	ft_A.insert(ft::make_pair('b', -2));
+	ft_A.insert(ft::make_pair('f', 2));
+	ft_A.insert(ft::make_pair('c', -1));
+	ft_A.insert(ft::make_pair('e', 1));
+	ft_A.insert(ft::make_pair('a', -3));
+	ft_A.insert(ft::make_pair('g', 3));
+	std::cout << "ft::map  -> ";
+	ft::map<char, int>::iterator	ft_itlow;
+	ft::map<char, int>::iterator	ft_itup;
+	ft_itlow = ft_A.lower_bound('c');
+	ft_itup = ft_A.lower_bound('e');
+	std::cout << "bound:";
+	for (; ft_itlow != ft_itup; ++ft_itlow)
+		std::cout << " " << ft_itlow->first;
+	ft_itlow = ft_A.lower_bound('c');
+	ft_itup = ft_A.lower_bound('x');
+	std::cout << " bound:";
+	for (; ft_itlow != ft_itup; ++ft_itlow)
+		std::cout << " " << ft_itlow->first;
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
@@ -805,6 +860,7 @@ void	map_test()
 	example11();
 	example12();
 	example13();
+	example14();
 }
 
 #endif

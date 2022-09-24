@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:30:35 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/24 13:52:03 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/24 14:35:08 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,15 +97,19 @@ namespace	ft
 
 		/* Operations */
 		public:
-			node_ptr			search(node_ptr head, const value_type &pair) const;
-			node_ptr			search(const value_type &pair) const;
+			node_ptr			search(node_ptr head, const value_type &data) const;
+			node_ptr			search(const value_type &data) const;
 
 			/* Count */
 			void				count_in_level(node_ptr head, \
-								const value_type &pair, int level, \
+								const value_type &data, int level, \
 								size_type &count) const;
-			size_type			count(node_ptr head, const value_type &pair) const;
-			size_type			count(const value_type &pair) const;
+			size_type			count(node_ptr head, const value_type &data) const;
+			size_type			count(const value_type &data) const;
+
+			/* Bounds */
+			iterator			lower_bound(const value_type &data);
+			const_iterator		lower_bound(const value_type &data) const;
 
 		/* Tree walk */
 		public:
