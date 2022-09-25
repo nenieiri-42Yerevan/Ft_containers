@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:44:23 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/24 17:57:24 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/25 11:08:03 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ namespace	ft
 
 		/* Modifires */
 		public:
-			void	insert(const value_type &val);
+			ft::pair<iterator, bool>		insert(const value_type &val);
 			//insert
 			//erase
 			//swap

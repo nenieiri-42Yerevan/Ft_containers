@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:30:35 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/24 17:58:48 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/25 11:26:19 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include "../Iterators/bidirectional_iterator.hpp"
 # include "../Iterators/reverse_iterator.hpp"
 # include "../Other/functional.hpp"
+# include "../Other/utility.hpp"
 
 namespace	ft
 {
@@ -139,10 +140,10 @@ namespace	ft
 
 		/* Insert and delete */
 		public:
-			int					tree_insert(node_ptr new_node);
-			int					tree_insert(value_type value);
-			void				tree_delete(node_ptr old_node);
-			void				tree_delete(value_type value);
+			ft::pair<iterator, bool>	tree_insert(node_ptr new_node);
+			ft::pair<iterator, bool>	tree_insert(const value_type &value);
+			void						tree_delete(node_ptr old_node);
+			void						tree_delete(value_type value);
 
 		/* Iterators */
 		public:

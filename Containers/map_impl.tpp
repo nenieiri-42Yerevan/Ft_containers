@@ -188,10 +188,18 @@ namespace	ft
 	/*            Modifires             */
 	/*==================================*/
 
-	template <typename Key, typename T, typename Compare, typename Allocator>
-	void	map<Key, T, Compare, Allocator>::insert(const value_type &val)
+	template <
+		typename Key,
+		typename T,
+		typename Compare,
+		typename Allocator
+	> ft::pair<
+			typename map<Key, T, Compare, Allocator>::iterator,
+			bool
+			>
+		map<Key, T, Compare, Allocator>::insert(const value_type &val)
 	{
-		this->_tree.tree_insert(val);
+		return (this->_tree.tree_insert(val));
 	}
 
 	/*==================================*/

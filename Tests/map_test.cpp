@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:41:32 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/24 18:14:16 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/25 11:45:39 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -895,6 +895,55 @@ static void	example14()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
+static void	example15()
+{
+	/* Example 15 */
+	/* Example for inserts */
+
+	std::cout << COLOR_PURPLE_B << "Example 15" << COLOR_END << std::endl;
+	std::cout << COLOR_YELLOW_B;
+	std::map<char, int>	A;
+	A.insert(std::make_pair('d', 0));
+	A.insert(std::make_pair('b', -2));
+	A.insert(std::make_pair('f', 2));
+	A.insert(std::make_pair('c', -1));
+	A.insert(std::make_pair('e', 1));
+	A.insert(std::make_pair('a', -3));
+	std::cout << "std::map -> ";
+	std::cout << " size " << A.size();
+	std::pair<std::map<char, int>::iterator, bool>	res;
+	res = A.insert(std::make_pair('g', 3));
+	std::cout << ", bool " << res.second;
+	std::cout << ", val " << res.first->second;
+	std::cout << ", size " << A.size();
+	res = A.insert(std::pair<char, int>('f', 8));
+	std::cout << ", bool " << res.second;
+	std::cout << ", val " << res.first->second;
+	std::cout << ", size " << A.size();
+	std::cout << '.' << COLOR_END << std::endl;
+
+	std::cout << COLOR_GREEN_B;
+	ft::map<char, int>	ft_A;
+	ft_A.insert(ft::make_pair('d', 0));
+	ft_A.insert(ft::make_pair('b', -2));
+	ft_A.insert(ft::make_pair('f', 2));
+	ft_A.insert(ft::make_pair('c', -1));
+	ft_A.insert(ft::make_pair('e', 1));
+	ft_A.insert(ft::make_pair('a', -3));
+	std::cout << "ft::map  -> ";
+	std::cout << " size " << ft_A.size();
+	ft::pair<ft::map<char, int>::iterator, bool>	ft_res;
+	ft_res = ft_A.insert(ft::make_pair('g', 3));
+	std::cout << ", bool " << ft_res.second;
+	std::cout << ", val " << ft_res.first->second;
+	std::cout << ", size " << ft_A.size();
+	ft_res = ft_A.insert(ft::pair<char, int>('f', 8));
+	std::cout << ", bool " << ft_res.second;
+	std::cout << ", val " << ft_res.first->second;
+	std::cout << ", size " << ft_A.size();
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
+}
+
 void	map_test()
 {
 	example1();
@@ -911,6 +960,7 @@ void	map_test()
 	example12();
 	example13();
 	example14();
+	example15();
 }
 
 #endif
