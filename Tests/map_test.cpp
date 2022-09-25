@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:41:32 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/25 15:50:46 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/25 18:35:24 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -902,21 +902,21 @@ static void	example15()
 
 	std::cout << COLOR_PURPLE_B << "Example 15" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
-	std::map<char, int>	A;
-	A.insert(std::make_pair('d', 0));
-	A.insert(std::make_pair('b', -2));
-	A.insert(std::make_pair('f', 2));
-	A.insert(std::make_pair('c', -1));
-	A.insert(std::make_pair('e', 1));
-	A.insert(std::make_pair('a', -3));
+	std::map<int, int>	A;
+	A.insert(std::make_pair(4, 0));
+	A.insert(std::make_pair(2, -2));
+	A.insert(std::make_pair(6, 2));
+	A.insert(std::make_pair(3, -1));
+	A.insert(std::make_pair(5, 1));
+	A.insert(std::make_pair(1, -3));
 	std::cout << "std::map -> ";
 	std::cout << " size " << A.size();
-	std::pair<std::map<char, int>::iterator, bool>	res;
-	res = A.insert(std::make_pair('g', 3));
+	std::pair<std::map<int, int>::iterator, bool>	res;
+	res = A.insert(std::make_pair(7, 3));
 	std::cout << ", bool " << res.second;
 	std::cout << ", val " << res.first->second;
 	std::cout << ", size " << A.size();
-	res = A.insert(std::pair<char, int>('f', 8));
+	res = A.insert(std::pair<int, int>(6, 8));
 	std::cout << ", bool " << res.second;
 	std::cout << ", val " << res.first->second;
 	std::cout << ", size " << A.size();
@@ -949,25 +949,32 @@ static void	example15()
 	std::cout << ", res " << it5->first << ",";
 	for (std::map<int, int>::iterator it = B.begin(); it != B.end(); ++it)
 		std::cout << " " << it->second;
-	std::cout << ", size " << A.size();
+	std::cout << ", size " << B.size();
+	std::map<int, int>::iterator it10 = A.begin();
+	std::map<int, int>::iterator it11 = A.end();
+	B.insert(it10, it11);
+	std::cout << ", insert_iters";
+	for (std::map<int, int>::iterator it = B.begin(); it != B.end(); ++it)
+		std::cout << " " << it->second;
+	std::cout << ", size " << B.size();
 	std::cout << '.' << COLOR_END << std::endl;
 
 	std::cout << COLOR_GREEN_B;
-	ft::map<char, int>	ft_A;
-	ft_A.insert(ft::make_pair('d', 0));
-	ft_A.insert(ft::make_pair('b', -2));
-	ft_A.insert(ft::make_pair('f', 2));
-	ft_A.insert(ft::make_pair('c', -1));
-	ft_A.insert(ft::make_pair('e', 1));
-	ft_A.insert(ft::make_pair('a', -3));
+	ft::map<int, int>	ft_A;
+	ft_A.insert(ft::make_pair(4, 0));
+	ft_A.insert(ft::make_pair(2, -2));
+	ft_A.insert(ft::make_pair(6, 2));
+	ft_A.insert(ft::make_pair(3, -1));
+	ft_A.insert(ft::make_pair(5, 1));
+	ft_A.insert(ft::make_pair(1, -3));
 	std::cout << "ft::map  -> ";
 	std::cout << " size " << ft_A.size();
-	ft::pair<ft::map<char, int>::iterator, bool>	ft_res;
-	ft_res = ft_A.insert(ft::make_pair('g', 3));
+	ft::pair<ft::map<int, int>::iterator, bool>	ft_res;
+	ft_res = ft_A.insert(ft::make_pair(7, 3));
 	std::cout << ", bool " << ft_res.second;
 	std::cout << ", val " << ft_res.first->second;
 	std::cout << ", size " << ft_A.size();
-	ft_res = ft_A.insert(ft::pair<char, int>('f', 8));
+	ft_res = ft_A.insert(ft::pair<int, int>(6, 8));
 	std::cout << ", bool " << ft_res.second;
 	std::cout << ", val " << ft_res.first->second;
 	std::cout << ", size " << ft_A.size();
@@ -1000,7 +1007,14 @@ static void	example15()
 	std::cout << ", res " << ft_it5->first << ",";
 	for (ft::map<int, int>::iterator ft_it = ft_B.begin(); ft_it != ft_B.end(); ++ft_it)
 		std::cout << " " << ft_it->second;
-	std::cout << ", size " << ft_A.size();
+	std::cout << ", size " << ft_B.size();
+	ft::map<int, int>::iterator ft_it10 = ft_A.begin();
+	ft::map<int, int>::iterator ft_it11 = ft_A.end();
+	ft_B.insert(ft_it10, ft_it11);
+	std::cout << ", insert_iters";
+	for (ft::map<int, int>::iterator ft_it = ft_B.begin(); ft_it != ft_B.end(); ++ft_it)
+		std::cout << " " << ft_it->second;
+	std::cout << ", size " << ft_B.size();
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 

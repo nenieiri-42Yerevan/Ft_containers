@@ -213,6 +213,21 @@ namespace	ft
 		return(this->_tree.tree_insert(it, val));
 	}
 
+	template <
+		typename Key,
+		typename T,
+		typename Compare,
+		typename Allocator
+	> template <class InputIt> void \
+		map<Key, T, Compare, Allocator>::insert(InputIt first, InputIt last)
+	{
+		while (first != last)
+		{
+			this->_tree.tree_insert(*first);
+			++first;
+		}
+	}
+
 	/*==================================*/
 	/*            Observers             */
 	/*==================================*/
