@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:41:32 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/25 11:45:39 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/25 15:50:46 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -920,6 +920,36 @@ static void	example15()
 	std::cout << ", bool " << res.second;
 	std::cout << ", val " << res.first->second;
 	std::cout << ", size " << A.size();
+	std::map<int, int>	B;
+	B.insert(std::pair<int, int>(1, 100));
+	B.insert(std::pair<int, int>(-1, -100));
+	B.insert(std::pair<int, int>(2, 200));
+	std::map<int, int>::iterator	it5;
+	it5 = B.insert(B.begin(), std::pair<int, int>(3, 300));
+	std::cout << ", res " << it5->first;
+	it5 = B.insert(B.begin(), std::pair<int, int>(3, 300));
+	std::cout << ", res " << it5->first;
+	it5 = B.insert(B.end(), std::pair<int, int>(-30, -3000));
+	std::cout << ", res " << it5->first;
+	it5 = B.insert(B.end(), std::pair<int, int>(-30, -3000));
+	std::cout << ", res " << it5->first;
+	it5 = B.insert(--B.end(), std::pair<int, int>(-2, -200));
+	std::cout << ", res " << it5->first;
+	it5 = B.insert(--B.end(), std::pair<int, int>(-2, -200));
+	std::cout << ", res " << it5->first;
+	it5 = B.insert(++(++B.begin()), std::pair<int, int>(-8, -800));
+	std::cout << ", res " << it5->first;
+	it5 = B.insert(++(++B.begin()), std::pair<int, int>(-8, -800));
+	std::cout << ", res " << it5->first;
+	it5 = B.insert(--(--(--B.end())), std::pair<int, int>(1000, 100000));
+	std::cout << ", res " << it5->first;
+	it5 = B.insert(--(--(--B.end())), std::pair<int, int>(1000, 100000));
+	std::cout << ", res " << it5->first;
+	it5 = B.insert(--(--(--B.end())), std::pair<int, int>(1000, 100000));
+	std::cout << ", res " << it5->first << ",";
+	for (std::map<int, int>::iterator it = B.begin(); it != B.end(); ++it)
+		std::cout << " " << it->second;
+	std::cout << ", size " << A.size();
 	std::cout << '.' << COLOR_END << std::endl;
 
 	std::cout << COLOR_GREEN_B;
@@ -940,6 +970,36 @@ static void	example15()
 	ft_res = ft_A.insert(ft::pair<char, int>('f', 8));
 	std::cout << ", bool " << ft_res.second;
 	std::cout << ", val " << ft_res.first->second;
+	std::cout << ", size " << ft_A.size();
+	ft::map<int, int>	ft_B;
+	ft_B.insert(ft::pair<int, int>(1, 100));
+	ft_B.insert(ft::pair<int, int>(-1, -100));
+	ft_B.insert(ft::pair<int, int>(2, 200));
+	ft::map<int, int>::iterator	ft_it5;
+	ft_it5 = ft_B.insert(ft_B.begin(), ft::pair<int, int>(3, 300));
+	std::cout << ", res " << ft_it5->first;
+	ft_it5 = ft_B.insert(ft_B.begin(), ft::pair<int, int>(3, 300));
+	std::cout << ", res " << ft_it5->first;
+	ft_it5 = ft_B.insert(ft_B.end(), ft::pair<int, int>(-30, -3000));
+	std::cout << ", res " << ft_it5->first;
+	ft_it5 = ft_B.insert(ft_B.end(), ft::pair<int, int>(-30, -3000));
+	std::cout << ", res " << ft_it5->first;
+	ft_it5 = ft_B.insert(--ft_B.end(), ft::pair<int, int>(-2, -200));
+	std::cout << ", res " << ft_it5->first;
+	ft_it5 = ft_B.insert(--ft_B.end(), ft::pair<int, int>(-2, -200));
+	std::cout << ", res " << ft_it5->first;
+	ft_it5 = ft_B.insert(++(++ft_B.begin()), ft::pair<int, int>(-8, -800));
+	std::cout << ", res " << ft_it5->first;
+	ft_it5 = ft_B.insert(++(++ft_B.begin()), ft::pair<int, int>(-8, -800));
+	std::cout << ", res " << ft_it5->first;
+	ft_it5 = ft_B.insert(--(--(--ft_B.end())), ft::pair<int, int>(1000, 100000));
+	std::cout << ", res " << ft_it5->first;
+	ft_it5 = ft_B.insert(--(--(--ft_B.end())), ft::pair<int, int>(1000, 100000));
+	std::cout << ", res " << ft_it5->first;
+	ft_it5 = ft_B.insert(--(--(--ft_B.end())), ft::pair<int, int>(1000, 100000));
+	std::cout << ", res " << ft_it5->first << ",";
+	for (ft::map<int, int>::iterator ft_it = ft_B.begin(); ft_it != ft_B.end(); ++ft_it)
+		std::cout << " " << ft_it->second;
 	std::cout << ", size " << ft_A.size();
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }

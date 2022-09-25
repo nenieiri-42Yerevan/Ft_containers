@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:30:35 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/25 11:26:19 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/25 14:24:03 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,7 +140,9 @@ namespace	ft
 
 		/* Insert and delete */
 		public:
+			ft::pair<iterator, bool>	tree_insert(node_ptr head, node_ptr new_node);
 			ft::pair<iterator, bool>	tree_insert(node_ptr new_node);
+			iterator					tree_insert(iterator hint, const value_type &value);
 			ft::pair<iterator, bool>	tree_insert(const value_type &value);
 			void						tree_delete(node_ptr old_node);
 			void						tree_delete(value_type value);

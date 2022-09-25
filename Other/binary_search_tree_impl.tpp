@@ -985,12 +985,12 @@ namespace	ft
 			bool
 			>
 		binary_search_tree<T, KeyOfValue, Compare, Alloc, multivalues>::tree_insert
-		(node_ptr new_node)
+		(node_ptr head, node_ptr new_node)
 	{
 		node_ptr	tmp;
 		node_ptr	parent;
 
-		tmp = this->_head;
+		tmp = head;
 		parent = this->_null_node;
 		while (tmp != this->_null_node)
 		{
@@ -1028,6 +1028,61 @@ namespace	ft
 			parent->right = new_node;
 		++(this->_size);
 		return (ft::pair<iterator, bool>(iterator(_head, new_node), true));
+	}
+
+	template <
+		typename T,
+		typename KeyOfValue,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> ft::pair<
+			typename binary_search_tree<T, KeyOfValue, Compare, Alloc, multivalues>::iterator,
+			bool
+			>
+		binary_search_tree<T, KeyOfValue, Compare, Alloc, multivalues>::tree_insert
+		(node_ptr new_node)
+	{
+		return (tree_insert(_head, new_node));
+	}
+
+	template <
+		typename T,
+		typename KeyOfValue,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> typename binary_search_tree<T, KeyOfValue, Compare, Alloc, multivalues>::iterator
+		binary_search_tree<T, KeyOfValue, Compare, Alloc, multivalues>::tree_insert
+		(iterator hint, const value_type &value)
+	{
+		node_ptr					new_node;
+		node_ptr					head_node;
+		ft::pair<iterator, bool>	res;
+
+		new_node = this->create_node(value);
+		head_node = hint.get_elem();
+		while (head_node != _null_node)
+		{
+			if (head_node->p != _null_node && \
+				head_node->p->left == head_node && \
+				comp_data(value, head_node->p->data))
+				break ;
+			if (head_node->p != _null_node && \
+				head_node->p->right == head_node && \
+				comp_data(head_node->p->data, value))
+				break ;
+			head_node = head_node->p;
+		}
+		if (head_node == _null_node)
+			head_node = this->_head;
+		res = this->tree_insert(head_node, new_node);
+		if (res.second == false)
+		{
+			this->_alloc_node.destroy(new_node);
+			this->_alloc_node.deallocate(new_node, 1);
+		}
+		return (res.first);
 	}
 
 	template <

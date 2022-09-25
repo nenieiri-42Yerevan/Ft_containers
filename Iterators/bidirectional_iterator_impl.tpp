@@ -156,6 +156,13 @@ namespace	ft
 	}
 
 	template <typename T, typename pair_type>
+	typename bidirectional_iterator<T, pair_type>::node_pointer \
+		bidirectional_iterator<T, pair_type>::get_elem() const
+	{
+		return (this->_elem);
+	}
+
+	template <typename T, typename pair_type>
 	bool	bidirectional_iterator<T, pair_type>::operator==
 		(const bidirectional_iterator &other) const
 	{

@@ -202,6 +202,17 @@ namespace	ft
 		return (this->_tree.tree_insert(val));
 	}
 
+	template <
+		typename Key,
+		typename T,
+		typename Compare,
+		typename Allocator
+	> typename map<Key, T, Compare, Allocator>::iterator \
+		map<Key, T, Compare, Allocator>::insert(iterator it, const value_type &val)
+	{
+		return(this->_tree.tree_insert(it, val));
+	}
+
 	/*==================================*/
 	/*            Observers             */
 	/*==================================*/
