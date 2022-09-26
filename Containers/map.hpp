@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:44:23 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/26 12:00:24 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/26 18:18:37 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,7 +137,9 @@ namespace	ft
 			const_iterator					lower_bound(const key_type &key) const;
 			iterator						upper_bound(const key_type &key);
 			const_iterator					upper_bound(const key_type &key) const;
-			//equal_range
+			ft::pair<iterator, iterator>	equal_range(const Key &key);
+			ft::pair<const_iterator, \
+						const_iterator>		equal_range(const Key &key) const;
 
 		/* Allocator */
 		public:

@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:30:35 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/26 12:02:52 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/26 18:46:00 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,10 @@ namespace	ft
 			const_iterator		lower_bound(const value_type &data) const;
 			iterator			upper_bound(const value_type &data);
 			const_iterator		upper_bound(const value_type &data) const;
+
+			ft::pair<iterator, iterator> equal_range(const value_type &data);
+			ft::pair<const_iterator, \
+						const_iterator> equal_range(const value_type &data) const;
 
 		/* Tree walk */
 		public:

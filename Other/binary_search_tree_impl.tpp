@@ -683,6 +683,9 @@ namespace	ft
 	{
 		const_iterator	it1;
 		const_iterator	it2;
+
+		it1 = this->begin();
+		it2 = this->end();
 		while (it1 != it2)
 		{
 			if (this->comp_data(data, *it1))
@@ -690,10 +693,44 @@ namespace	ft
 			++it1;
 		}
 
-		it1 = this->begin();
-		it2 = this->end();
-
 		return (it1);
+	}
+
+	template <
+		typename T,
+		typename KeyOfValue,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> ft::pair<
+		typename binary_search_tree<T, KeyOfValue, Compare, Alloc, multivalues>::iterator,
+		typename binary_search_tree<T, KeyOfValue, Compare, Alloc, multivalues>::iterator
+		>
+		binary_search_tree<T, KeyOfValue, Compare, Alloc, multivalues>::equal_range
+		(const value_type &data)
+	{
+		return (ft::pair<iterator, iterator>(this->lower_bound(data), \
+												this->upper_bound(data)));
+	}
+
+	template <
+		typename T,
+		typename KeyOfValue,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> ft::pair<
+		typename binary_search_tree<T, KeyOfValue, Compare, Alloc, multivalues>::
+			const_iterator,
+		typename binary_search_tree<T, KeyOfValue, Compare, Alloc, multivalues>::
+			const_iterator
+		>
+		binary_search_tree<T, KeyOfValue, Compare, Alloc, multivalues>::equal_range
+		(const value_type &data) const
+	{
+		return (ft::pair<const_iterator, const_iterator> \
+					(this->lower_bound(data), this->upper_bound(data)) \
+				);
 	}
 
 	/*=====================================*/

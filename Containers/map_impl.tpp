@@ -395,6 +395,38 @@ namespace	ft
 		return (_tree.upper_bound(tmp));
 	}
 
+	template <
+		typename Key,
+		typename T,
+		typename Compare,
+		typename Allocator
+	> ft::pair<
+				typename map<Key, T, Compare, Allocator>::iterator, \
+				typename map<Key, T, Compare, Allocator>::iterator \
+		>			
+		map<Key, T, Compare, Allocator>::equal_range(const key_type &key)
+	{
+		value_type		tmp(key, T());
+
+		return (_tree.equal_range(tmp));
+	}
+
+	template <
+		typename Key,
+		typename T,
+		typename Compare,
+		typename Allocator
+	> ft::pair<
+				typename map<Key, T, Compare, Allocator>::const_iterator, \
+				typename map<Key, T, Compare, Allocator>::const_iterator \
+		>			
+		map<Key, T, Compare, Allocator>::equal_range(const key_type &key) const
+	{
+		value_type		tmp(key, T());
+
+		return (_tree.equal_range(tmp));
+	}
+
 	/*==================================*/
 	/*            Allocator             */
 	/*==================================*/
