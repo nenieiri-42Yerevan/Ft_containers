@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:41:32 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/26 10:30:56 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/26 12:55:50 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1030,6 +1030,89 @@ static void	example15()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
+static void	example16()
+{
+	/* Example 16 */
+	/* Example for count */
+
+	std::cout << COLOR_PURPLE_B << "Example 16" << COLOR_END << std::endl;
+	std::cout << COLOR_YELLOW_B;
+	std::map<int, int>	A;
+	A.insert(std::make_pair(0, 0));
+	A.insert(std::make_pair(-2, -2));
+	A.insert(std::make_pair(2, 2));
+	A.insert(std::make_pair(-1, -1));
+	A.insert(std::make_pair(1, 1));
+	A.insert(std::make_pair(-3, -3));
+	A.insert(std::make_pair(3, 3));
+	A.insert(std::make_pair(-4, -4));
+	A.insert(std::make_pair(4, 4));
+	std::cout << "std::map -> ";
+	std::cout << "size: " << A.size() << ", before_erase:";
+	for (std::map<int, int>::iterator first = A.begin(); first != A.end(); ++first)
+		std::cout << " " << first->second;
+	std::map<int, int>::iterator	it1;
+	std::map<int, int>::iterator	it2;
+	it1 = A.find(-1);
+	it2 = A.find(1);
+	A.erase(it1, it2);
+	std::cout << ", after_erase:";
+	for (std::map<int, int>::iterator first = A.begin(); first != A.end(); ++first)
+		std::cout << " " << first->second;
+	std::cout << ", size: " << A.size() << ", after_erase:";
+	A.erase(A.find(-2));
+	A.erase(A.find(2));
+	for (std::map<int, int>::iterator first = A.begin(); first != A.end(); ++first)
+		std::cout << " " << first->second;
+	std::cout << ", size: " << A.size() << ", after_erase:";
+	A.erase(A.find(-3));
+	A.erase(A.find(4));
+	for (std::map<int, int>::iterator first = A.begin(); first != A.end(); ++first)
+		std::cout << " " << first->second;
+	std::cout << ", size: " << A.size();
+	A.clear();
+	std::cout << ", size: " << A.size();
+	std::cout << '.' << COLOR_END << std::endl;
+
+	std::cout << COLOR_GREEN_B;
+	ft::map<int, int>	ft_A;
+	ft_A.insert(ft::make_pair(0, 0));
+	ft_A.insert(ft::make_pair(-2, -2));
+	ft_A.insert(ft::make_pair(2, 2));
+	ft_A.insert(ft::make_pair(-1, -1));
+	ft_A.insert(ft::make_pair(1, 1));
+	ft_A.insert(ft::make_pair(-3, -3));
+	ft_A.insert(ft::make_pair(3, 3));
+	ft_A.insert(ft::make_pair(-4, -4));
+	ft_A.insert(ft::make_pair(4, 4));
+	std::cout << "ft::map  -> ";
+	std::cout << "size: " << ft_A.size() << ", before_erase:";
+	for (ft::map<int, int>::iterator first = ft_A.begin(); first != ft_A.end(); ++first)
+		std::cout << " " << first->second;
+	ft::map<int, int>::iterator	ft_it1;
+	ft::map<int, int>::iterator	ft_it2;
+	ft_it1 = ft_A.find(-1);
+	ft_it2 = ft_A.find(1);
+	ft_A.erase(ft_it1, ft_it2);
+	std::cout << ", after_erase:";
+	for (ft::map<int, int>::iterator first = ft_A.begin(); first != ft_A.end(); ++first)
+		std::cout << " " << first->second;
+	std::cout << ", size: " << ft_A.size() << ", after_erase:";
+	ft_A.erase(ft_A.find(-2));
+	ft_A.erase(ft_A.find(2));
+	for (ft::map<int, int>::iterator first = ft_A.begin(); first != ft_A.end(); ++first)
+		std::cout << " " << first->second;
+	std::cout << ", size: " << ft_A.size() << ", after_erase:";
+	ft_A.erase(-3);
+	ft_A.erase(4);
+	for (ft::map<int, int>::iterator first = ft_A.begin(); first != ft_A.end(); ++first)
+		std::cout << " " << first->second;
+	std::cout << ", size: " << ft_A.size();
+	ft_A.clear();
+	std::cout << ", size: " << ft_A.size();
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
+}
+
 void	map_test()
 {
 	example1();
@@ -1047,6 +1130,7 @@ void	map_test()
 	example13();
 	example14();
 	example15();
+	example16();
 }
 
 #endif
