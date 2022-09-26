@@ -228,6 +228,16 @@ namespace	ft
 		}
 	}
 
+	template <
+		typename Key,
+		typename T,
+		typename Compare,
+		typename Allocator
+	> void	map<Key, T, Compare, Allocator>::clear()
+	{
+		this->_tree.clear();
+	}
+
 	/*==================================*/
 	/*            Observers             */
 	/*==================================*/

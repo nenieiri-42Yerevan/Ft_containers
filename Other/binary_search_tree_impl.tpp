@@ -178,7 +178,8 @@ namespace	ft
 	{
 		if (this != &other)
 		{
-			this->delete_all(this->_head);
+			if (_head != 0 && _head != _null_node)
+				this->clear(this->_head);
 
 			this->_alloc = other._alloc;
 			this->_alloc_node = other._alloc_node;
@@ -199,10 +200,14 @@ namespace	ft
 		bool multivalues
 	> binary_search_tree<T, KeyOfValue, Compare, Alloc, multivalues>::~binary_search_tree()
 	{
-		this->delete_all(this->_head);
-		this->_alloc_node.destroy(this->_null_node);
-		this->_alloc_node.deallocate(this->_null_node, 1);
-		this->_head = 0;
+		if (_head != 0 && _head != _null_node)
+			this->clear(this->_head);
+		if (_null_node != 0)
+		{
+			this->_alloc_node.destroy(_null_node);
+			this->_alloc_node.deallocate(_null_node, 1);
+			_null_node = 0;
+		}
 	}
 
 	/*======================================*/
@@ -1156,6 +1161,38 @@ namespace	ft
 		this->tree_delete(this->search(value));
 	}
 
+	template <
+		typename T,
+		typename KeyOfValue,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> void	binary_search_tree<T, KeyOfValue, Compare, Alloc, multivalues>::clear
+		(node_ptr head)
+	{
+		if (head != this->_null_node)
+		{
+			this->clear(head->left);
+			this->clear(head->right);
+			this->_alloc_node.destroy(head);
+			this->_alloc_node.deallocate(head, 1);
+			--(this->_size);
+		}
+	}
+
+	template <
+		typename T,
+		typename KeyOfValue,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> void	binary_search_tree<T, KeyOfValue, Compare, Alloc, multivalues>::clear
+		()
+	{
+		this->clear(_head);
+		_head = 0;
+	}
+
 	/*=====================================*/
     /*               Iterators             */
     /*=====================================*/
@@ -1302,24 +1339,6 @@ namespace	ft
 			u->p->right = v;
 		if (v != this->_null_node)
 			v->p = u->p;
-	}
-
-	template <
-		typename T,
-		typename KeyOfValue,
-		typename Compare,
-		typename Alloc,
-		bool multivalues
-	> void	binary_search_tree<T, KeyOfValue, Compare, Alloc, multivalues>::delete_all
-		(node_ptr head)
-	{
-		if (head != this->_null_node)
-		{
-			this->delete_all(head->left);
-			this->delete_all(head->right);
-			this->_alloc_node.destroy(head);
-			this->_alloc_node.deallocate(head, 1);
-		}
 	}
 
 	template <

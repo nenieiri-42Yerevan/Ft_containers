@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:30:35 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/25 14:24:03 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/26 10:04:52 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,6 +146,8 @@ namespace	ft
 			ft::pair<iterator, bool>	tree_insert(const value_type &value);
 			void						tree_delete(node_ptr old_node);
 			void						tree_delete(value_type value);
+			void						clear(node_ptr head);
+			void						clear();
 
 		/* Iterators */
 		public:
@@ -165,7 +167,6 @@ namespace	ft
 		/* Helper methods */
 		private:
 			void				transplant(node_ptr u, node_ptr v);
-			void				delete_all(node_ptr head);
 			void				deep_copy(node_ptr other_node);
 			bool				comp_data(value_type v1, value_type v2) const;
 

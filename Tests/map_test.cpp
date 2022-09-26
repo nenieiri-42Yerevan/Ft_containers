@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:41:32 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/25 18:35:24 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/26 10:30:56 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -769,6 +769,8 @@ static void	example13()
 	std::cout << "count:";
 	for (char c = 'a'; c < 'k'; ++c)
 		std::cout << " " << A.count(c);
+	A.clear();
+	std::cout << ", size " << A.size();
 	std::cout << '.' << COLOR_END << std::endl;
 
 	std::cout << COLOR_GREEN_B;
@@ -787,6 +789,8 @@ static void	example13()
 	std::cout << "count:";
 	for (char c = 'a'; c < 'k'; ++c)
 		std::cout << " " << ft_A.count(c);
+	ft_A.clear();
+	std::cout << ", size " << ft_A.size();
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
@@ -843,6 +847,8 @@ static void	example14()
 	std::cout << ", up_low_bound:";
 	for (; itlow != itup; ++itlow)
 		std::cout << " " << itlow->first;
+	A.clear();
+	std::cout << ", size " << A.size();
 	std::cout << '.' << COLOR_END << std::endl;
 
 	std::cout << COLOR_GREEN_B;
@@ -892,6 +898,8 @@ static void	example14()
 	std::cout << ", up_low_bound:";
 	for (; ft_itlow != ft_itup; ++ft_itlow)
 		std::cout << " " << ft_itlow->first;
+	ft_A.clear();
+	std::cout << ", size " << ft_A.size();
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
@@ -957,6 +965,8 @@ static void	example15()
 	for (std::map<int, int>::iterator it = B.begin(); it != B.end(); ++it)
 		std::cout << " " << it->second;
 	std::cout << ", size " << B.size();
+	B.clear();
+	std::cout << ", size " << B.size();
 	std::cout << '.' << COLOR_END << std::endl;
 
 	std::cout << COLOR_GREEN_B;
@@ -1014,6 +1024,8 @@ static void	example15()
 	std::cout << ", insert_iters";
 	for (ft::map<int, int>::iterator ft_it = ft_B.begin(); ft_it != ft_B.end(); ++ft_it)
 		std::cout << " " << ft_it->second;
+	std::cout << ", size " << ft_B.size();
+	ft_B.clear();
 	std::cout << ", size " << ft_B.size();
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }

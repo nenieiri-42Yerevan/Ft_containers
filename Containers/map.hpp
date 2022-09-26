@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:44:23 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/25 18:14:23 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/26 10:06:28 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ namespace	ft
 			template <class InputIt> void	insert(InputIt first, InputIt last);
 			//erase
 			//swap
-			//clear
+			void							clear();
 
 		/* Observers */
 		public:
