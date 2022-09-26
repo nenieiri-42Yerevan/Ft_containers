@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:44:23 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/26 11:46:56 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/26 12:00:24 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ namespace	ft
 			template <class InputIt> void	insert(InputIt first, InputIt last);
 			void							erase(iterator pos);
 			void							erase(iterator first, iterator last);
-			//size_type						erase(const key_type &key);
+			size_type						erase(const key_type &key);
 			//swap
 			void							clear();
 

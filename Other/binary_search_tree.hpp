@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:30:35 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/26 11:47:23 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/26 12:02:52 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,7 +145,7 @@ namespace	ft
 			iterator					insert(iterator hint, const value_type &value);
 			ft::pair<iterator, bool>	insert(const value_type &value);
 			void						erase(node_ptr old_node);
-			void						erase(value_type value);
+			size_type					erase(value_type value);
 			void						erase(iterator pos);
 			void						clear(node_ptr head);
 			void						clear();

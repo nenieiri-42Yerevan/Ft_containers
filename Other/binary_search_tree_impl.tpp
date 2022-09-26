@@ -1155,10 +1155,30 @@ namespace	ft
 		typename Compare,
 		typename Alloc,
 		bool multivalues
-	> void	binary_search_tree<T, KeyOfValue, Compare, Alloc, multivalues>::erase
+	> typename binary_search_tree<T, KeyOfValue, Compare, Alloc, multivalues>::size_type
+		binary_search_tree<T, KeyOfValue, Compare, Alloc, multivalues>::erase
 		(value_type value)
 	{
-		this->erase(this->search(value));
+		size_type	count;
+		node_ptr	found;
+
+		count = 0;
+		found = this->search(value);
+		if (multivalues == false)
+		{
+			this->erase(found);
+			++count;
+		}
+		else
+		{
+			while (found != _null_node)
+			{
+				this->erase(found);
+				++count;
+				found = this->search(value);
+			}
+		}
+		return (count);
 	}
 
 	template <

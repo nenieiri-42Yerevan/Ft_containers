@@ -259,6 +259,19 @@ namespace	ft
 			this->_tree.erase(first++);
 	}
 
+	template <
+		typename Key,
+		typename T,
+		typename Compare,
+		typename Allocator
+	> typename map<Key, T, Compare, Allocator>::size_type \
+		map<Key, T, Compare, Allocator>::erase(const key_type &key)
+	{
+		value_type	tmp(key, T());
+
+		return (this->_tree.erase(tmp));
+	}
+
 	/*==================================*/
 	/*            Observers             */
 	/*==================================*/
