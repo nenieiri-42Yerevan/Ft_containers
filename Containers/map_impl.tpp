@@ -199,7 +199,7 @@ namespace	ft
 			>
 		map<Key, T, Compare, Allocator>::insert(const value_type &val)
 	{
-		return (this->_tree.tree_insert(val));
+		return (this->_tree.insert(val));
 	}
 
 	template <
@@ -210,7 +210,7 @@ namespace	ft
 	> typename map<Key, T, Compare, Allocator>::iterator \
 		map<Key, T, Compare, Allocator>::insert(iterator it, const value_type &val)
 	{
-		return(this->_tree.tree_insert(it, val));
+		return(this->_tree.insert(it, val));
 	}
 
 	template <
@@ -223,7 +223,7 @@ namespace	ft
 	{
 		while (first != last)
 		{
-			this->_tree.tree_insert(*first);
+			this->_tree.insert(*first);
 			++first;
 		}
 	}
@@ -236,6 +236,27 @@ namespace	ft
 	> void	map<Key, T, Compare, Allocator>::clear()
 	{
 		this->_tree.clear();
+	}
+
+	template <
+		typename Key,
+		typename T,
+		typename Compare,
+		typename Allocator
+	> void	map<Key, T, Compare, Allocator>::erase(iterator pos)
+	{
+		this->_tree.erase(pos);
+	}
+
+	template <
+		typename Key,
+		typename T,
+		typename Compare,
+		typename Allocator
+	> void	map<Key, T, Compare, Allocator>::erase(iterator first, iterator last)
+	{
+		while (first != last)
+			this->_tree.erase(first++);
 	}
 
 	/*==================================*/

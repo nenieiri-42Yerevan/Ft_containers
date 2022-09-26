@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:08:57 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/25 12:32:41 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/26 11:50:17 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ namespace	ft
 			bidirectional_iterator<T, pair_type>	operator--(int);
 			pair_type								&operator*() const;
 			pair_type								*operator->() const;
-			node_pointer							get_elem() const;
+			node_pointer							get_node() const;
 
 			bool		operator==(const bidirectional_iterator &other) const;
 			bool		operator!=(const bidirectional_iterator &other) const;

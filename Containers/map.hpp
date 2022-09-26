@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:44:23 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/26 10:06:28 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/26 11:46:56 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,9 @@ namespace	ft
 			ft::pair<iterator, bool>		insert(const value_type &val);
 			iterator						insert(iterator it, const value_type &val);
 			template <class InputIt> void	insert(InputIt first, InputIt last);
-			//erase
+			void							erase(iterator pos);
+			void							erase(iterator first, iterator last);
+			//size_type						erase(const key_type &key);
 			//swap
 			void							clear();
 

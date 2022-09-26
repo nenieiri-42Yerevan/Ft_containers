@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:30:35 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/26 10:04:52 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/26 11:47:23 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,14 +138,15 @@ namespace	ft
 			void				print_tree(node_ptr head) const;
 			void				print_tree() const;
 
-		/* Insert and delete */
+		/* Insert and erase */
 		public:
-			ft::pair<iterator, bool>	tree_insert(node_ptr head, node_ptr new_node);
-			ft::pair<iterator, bool>	tree_insert(node_ptr new_node);
-			iterator					tree_insert(iterator hint, const value_type &value);
-			ft::pair<iterator, bool>	tree_insert(const value_type &value);
-			void						tree_delete(node_ptr old_node);
-			void						tree_delete(value_type value);
+			ft::pair<iterator, bool>	insert(node_ptr head, node_ptr new_node);
+			ft::pair<iterator, bool>	insert(node_ptr new_node);
+			iterator					insert(iterator hint, const value_type &value);
+			ft::pair<iterator, bool>	insert(const value_type &value);
+			void						erase(node_ptr old_node);
+			void						erase(value_type value);
+			void						erase(iterator pos);
 			void						clear(node_ptr head);
 			void						clear();
 
