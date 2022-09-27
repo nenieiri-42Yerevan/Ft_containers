@@ -36,12 +36,30 @@ namespace	ft
 					const allocator_type &alloc)
 	{
 	}
-
-	template <typename Key, typename T, typename Compare, typename Allocator>
-	map<Key, T, Compare, Allocator>::map(const map &x)
+*/
+	template <
+		typename Key,
+		typename T,
+		typename Compare,
+		typename Allocator
+	> map<Key, T, Compare, Allocator>::map(const map &other) :
+		_tree(other._tree)
 	{
 	}
-*/
+
+	template <
+		typename Key,
+		typename T,
+		typename Compare,
+		typename Allocator
+	> map<Key, T, Compare, Allocator>	&
+		map<Key, T, Compare, Allocator>::operator=(const map &other)
+	{
+		if (this != &other)
+			this->_tree = other._tree;
+		return (*this);
+	}
+
 	/*==================================*/
 	/*            Iterators             */
 	/*==================================*/

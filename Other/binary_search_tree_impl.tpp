@@ -178,7 +178,7 @@ namespace	ft
 	{
 		if (this != &other)
 		{
-			if (_head != 0 && _head != _null_node)
+			if (_head != _null_node)
 				this->clear(this->_head);
 
 			this->_alloc = other._alloc;
@@ -187,7 +187,7 @@ namespace	ft
 			this->_head = this->_null_node;
 			this->_comp = other._comp;
 			this->_size = other._size;
-			this->deep_copy(other.get_head());
+			this->deep_copy(other.get_head(), other._null_node);
 		}
 		return (*this);
 	}
@@ -200,7 +200,7 @@ namespace	ft
 		bool multivalues
 	> binary_search_tree<T, KeyOfValue, Compare, Alloc, multivalues>::~binary_search_tree()
 	{
-		if (_head != 0 && _head != _null_node)
+		if (_head != _null_node)
 			this->clear(this->_head);
 		if (_null_node != 0)
 		{
@@ -1259,7 +1259,7 @@ namespace	ft
 		()
 	{
 		this->clear(_head);
-		_head = 0;
+		_head = _null_node;
 	}
 
 	/*=====================================*/
@@ -1417,13 +1417,13 @@ namespace	ft
 		typename Alloc,
 		bool multivalues
 	> void	binary_search_tree<T, KeyOfValue, Compare, Alloc, multivalues>::deep_copy
-		(node_ptr other_node)
+		(node_ptr other_node, node_ptr other_null)
 	{
-		if (other_node != this->_null_node)
+		if (other_node != other_null)
 		{
 			this->insert(create_node(other_node->data));
-			this->deep_copy(other_node->left);
-			this->deep_copy(other_node->right);
+			this->deep_copy(other_node->left, other_null);
+			this->deep_copy(other_node->right, other_null);
 		}
 	}
 	
