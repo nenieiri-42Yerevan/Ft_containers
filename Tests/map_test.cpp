@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:41:32 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/26 12:55:50 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/27 12:35:04 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1033,7 +1033,7 @@ static void	example15()
 static void	example16()
 {
 	/* Example 16 */
-	/* Example for count */
+	/* Example for erase */
 
 	std::cout << COLOR_PURPLE_B << "Example 16" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
@@ -1113,6 +1113,55 @@ static void	example16()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
+static void	example17()
+{
+	/* Example 17 */
+	/* Example for equal_range */
+
+	std::cout << COLOR_PURPLE_B << "Example 17" << COLOR_END << std::endl;
+	std::cout << COLOR_YELLOW_B;
+	std::map<int, int>	A;
+	A.insert(std::make_pair(0, 0));
+	A.insert(std::make_pair(-2, -2));
+	A.insert(std::make_pair(2, 2));
+	A.insert(std::make_pair(-1, -1));
+	A.insert(std::make_pair(1, 1));
+	A.insert(std::make_pair(-3, -3));
+	A.insert(std::make_pair(3, 3));
+	A.insert(std::make_pair(-4, -4));
+	A.insert(std::make_pair(4, 4));
+	std::pair<std::map<int, int>::iterator, std::map<int, int>::iterator>	p;
+	p = A.equal_range(-1);
+	std::cout << "std::map -> ";
+	std::cout << "lower " << p.first->first;
+	std::cout << ", upper " << p.second->first;
+	p = A.equal_range(-4);
+	std::cout << ", lower " << p.first->first;
+	std::cout << ", upper " << p.second->first;
+	std::cout << '.' << COLOR_END << std::endl;
+
+	std::cout << COLOR_GREEN_B;
+	ft::map<int, int>	ft_A;
+	ft_A.insert(ft::make_pair(0, 0));
+	ft_A.insert(ft::make_pair(-2, -2));
+	ft_A.insert(ft::make_pair(2, 2));
+	ft_A.insert(ft::make_pair(-1, -1));
+	ft_A.insert(ft::make_pair(1, 1));
+	ft_A.insert(ft::make_pair(-3, -3));
+	ft_A.insert(ft::make_pair(3, 3));
+	ft_A.insert(ft::make_pair(-4, -4));
+	ft_A.insert(ft::make_pair(4, 4));
+	ft::pair<ft::map<int, int>::iterator, ft::map<int, int>::iterator>	ft_p;
+	ft_p = ft_A.equal_range(-1);
+	std::cout << "ft::map  -> ";
+	std::cout << "lower " << ft_p.first->first;
+	std::cout << ", upper " << ft_p.second->first;
+	ft_p = ft_A.equal_range(-4);
+	std::cout << ", lower " << ft_p.first->first;
+	std::cout << ", upper " << ft_p.second->first;
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
+}
+
 void	map_test()
 {
 	example1();
@@ -1131,6 +1180,7 @@ void	map_test()
 	example14();
 	example15();
 	example16();
+	example17();
 }
 
 #endif
