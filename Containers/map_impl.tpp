@@ -23,20 +23,31 @@ namespace	ft
 	/*     Constructors and destructors    */
 	/*=====================================*/
 
-	template <typename Key, typename T, typename Compare, typename Allocator>
-	map<Key, T, Compare, Allocator>::map(const key_compare &comp, \
-		const allocator_type &alloc) : _tree(comp, alloc)
+	template <
+		typename Key,
+		typename T,
+		typename Compare,
+		typename Allocator
+	> map<Key, T, Compare, Allocator>::map(const key_compare &comp, \
+		const allocator_type &alloc) :
+		_tree(comp, alloc)
 	{
 	}
-/*
-	template <typename Key, typename T, typename Compare, typename Allocator>
-	template <typename InputIterator>
-	map<Key, T, Compare, Allocator>::map(InputIterator first, \
-					InputIterator last, const key_compare &comp, \
-					const allocator_type &alloc)
+
+	template <
+		typename Key,
+		typename T,
+		typename Compare,
+		typename Allocator
+	> template <typename InputIterator>
+		map<Key, T, Compare, Allocator>::map \
+		(InputIterator first, InputIterator last, const key_compare &comp, \
+		const allocator_type &alloc) :
+		_tree(comp, alloc)
 	{
+		this->insert(first, last);
 	}
-*/
+
 	template <
 		typename Key,
 		typename T,
@@ -58,6 +69,15 @@ namespace	ft
 		if (this != &other)
 			this->_tree = other._tree;
 		return (*this);
+	}
+
+	template <
+		typename Key,
+		typename T,
+		typename Compare,
+		typename Allocator
+	> map<Key, T, Compare, Allocator>::~map()
+	{
 	}
 
 	/*==================================*/

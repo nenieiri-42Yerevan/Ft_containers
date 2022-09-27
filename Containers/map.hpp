@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:44:23 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/27 12:42:45 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/27 14:50:25 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,14 +81,13 @@ namespace	ft
 		public:
 			explicit	map(const key_compare &comp = key_compare(),
 							const allocator_type &alloc = allocator_type());
-/*
 			template <typename InputIterator>
 			map(InputIterator first, InputIterator last,
 					const key_compare &comp = key_compare(),
 					const allocator_type &alloc = allocator_type());
-*/
 			map(const map &other);
 			map	&operator=(const map &other);
+			~map();
 
 
 		/* Iterators */

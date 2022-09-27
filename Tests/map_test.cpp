@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:41:32 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/27 13:36:03 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/27 14:57:38 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1116,7 +1116,7 @@ static void	example16()
 static void	example17()
 {
 	/* Example 17 */
-	/* Example for equal_range */
+	/* Example for equal_range and constructors*/
 
 	std::cout << COLOR_PURPLE_B << "Example 17" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
@@ -1162,6 +1162,10 @@ static void	example17()
 	std::cout << ", A_after=:";
 	for (std::map<int, int>::iterator f = A.begin(); f != A.end(); ++f)
 		std::cout << " " << f->second;
+	std::map<int, int>	D(B.begin(), B.end());
+	std::cout << ", D:";
+	for (std::map<int, int>::iterator f = D.begin(); f != D.end(); ++f)
+		std::cout << " " << f->second;
 	std::cout << '.' << COLOR_END << std::endl;
 
 	std::cout << COLOR_GREEN_B;
@@ -1206,6 +1210,10 @@ static void	example17()
 	ft_A = ft_C;
 	std::cout << ", A_after=:";
 	for (ft::map<int, int>::iterator f = ft_A.begin(); f != ft_A.end(); ++f)
+		std::cout << " " << f->second;
+	ft::map<int, int>	ft_D(ft_B.begin(), ft_B.end());
+	std::cout << ", D:";
+	for (ft::map<int, int>::iterator f = ft_D.begin(); f != ft_D.end(); ++f)
 		std::cout << " " << f->second;
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
