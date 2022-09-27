@@ -271,16 +271,6 @@ namespace	ft
 		typename T,
 		typename Compare,
 		typename Allocator
-	> void	map<Key, T, Compare, Allocator>::clear()
-	{
-		this->_tree.clear();
-	}
-
-	template <
-		typename Key,
-		typename T,
-		typename Compare,
-		typename Allocator
 	> void	map<Key, T, Compare, Allocator>::erase(iterator pos)
 	{
 		this->_tree.erase(pos);
@@ -308,6 +298,31 @@ namespace	ft
 		value_type	tmp(key, T());
 
 		return (this->_tree.erase(tmp));
+	}
+
+	template <
+		typename Key,
+		typename T,
+		typename Compare,
+		typename Allocator
+	> void	map<Key, T, Compare, Allocator>::swap(map &other)
+	{
+		binary_search_tree<value_type, select_first<value_type>, \
+							key_compare, allocator_type, false>	tmp;
+
+		tmp = this->_tree;
+		this->_tree = other._tree;
+		other._tree = tmp;
+	}
+
+	template <
+		typename Key,
+		typename T,
+		typename Compare,
+		typename Allocator
+	> void	map<Key, T, Compare, Allocator>::clear()
+	{
+		this->_tree.clear();
 	}
 
 	/*==================================*/
@@ -478,6 +493,21 @@ namespace	ft
 		map<Key, T, Compare, Allocator>::get_allocator() const
 	{
 		return (this->_tree.get_allocator());
+	}
+
+	/*============================*/
+	/* 	  Non-member functions    */
+	/*============================*/
+
+	template <
+		typename Key,
+		typename T,
+		typename Compare,
+		typename Alloc
+	> void	swap(ft::map<Key, T, Compare, Alloc> &lhs, \
+			ft::map<Key, T, Compare, Alloc> &rhs)
+	{
+		lhs.swap(rhs);
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:44:23 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/27 14:50:25 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/27 18:49:03 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ namespace	ft
 			void							erase(iterator pos);
 			void							erase(iterator first, iterator last);
 			size_type						erase(const key_type &key);
-			//swap
+			void							swap(map &other);
 			void							clear();
 
 		/* Observers */
@@ -150,6 +150,14 @@ namespace	ft
 			binary_search_tree<value_type, select_first<value_type>, \
 								key_compare, allocator_type, false> _tree;
 	};
+
+	/*========================================================================*/
+	/*                       	   Non-member functions                       */
+	/*========================================================================*/
+
+	template <typename Key, typename T, typename Compare, typename Alloc>
+	void	swap(ft::map<Key, T, Compare, Alloc> &lhs, \
+				ft::map<Key, T, Compare, Alloc> &rhs);
 }
 
 # include "map_impl.tpp"
