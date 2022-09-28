@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:44:23 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/27 18:49:03 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/28 17:59:55 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "../Other/utility.hpp"
 # include "../Other/binary_search_tree.hpp"
 # include "../Other/functional.hpp"
+# include "../Other/algorithm.hpp"
 
 namespace	ft
 {
@@ -158,6 +159,30 @@ namespace	ft
 	template <typename Key, typename T, typename Compare, typename Alloc>
 	void	swap(ft::map<Key, T, Compare, Alloc> &lhs, \
 				ft::map<Key, T, Compare, Alloc> &rhs);
+
+	template <typename Key, typename T, typename Compare, typename Alloc>
+	bool	operator==(const ft::map<Key, T, Compare, Alloc> &lhs, \
+						const ft::map<Key, T, Compare, Alloc> &rhs);
+
+	template <typename Key, typename T, typename Compare, typename Alloc>
+	bool	operator!=(const ft::map<Key, T, Compare, Alloc> &lhs, \
+						const ft::map<Key, T, Compare, Alloc> &rhs);
+
+	template <typename Key, typename T, typename Compare, typename Alloc>
+	bool	operator<(const ft::map<Key, T, Compare, Alloc> &lhs, \
+						const ft::map<Key, T, Compare, Alloc> &rhs);
+
+	template <typename Key, typename T, typename Compare, typename Alloc>
+	bool	operator<=(const ft::map<Key, T, Compare, Alloc> &lhs, \
+						const ft::map<Key, T, Compare, Alloc> &rhs);
+
+	template <typename Key, typename T, typename Compare, typename Alloc>
+	bool	operator>(const ft::map<Key, T, Compare, Alloc> &lhs, \
+						const ft::map<Key, T, Compare, Alloc> &rhs);
+
+	template <typename Key, typename T, typename Compare, typename Alloc>
+	bool	operator>=(const ft::map<Key, T, Compare, Alloc> &lhs, \
+						const ft::map<Key, T, Compare, Alloc> &rhs);
 }
 
 # include "map_impl.tpp"

@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:41:32 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/28 14:33:07 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/28 18:20:00 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1315,6 +1315,89 @@ static void	example18()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
+static void	example19()
+{
+	/* Example 19 */
+	/* Example for comparison functions */
+
+	std::cout << COLOR_PURPLE_B << "Example 19" << COLOR_END << std::endl;
+	std::cout << COLOR_YELLOW_B;
+	std::map<int, int>	A;
+	A.insert(std::make_pair(0, 0));
+	A.insert(std::make_pair(-2, -2));
+	A.insert(std::make_pair(2, 2));
+	std::map<int, int>	B;
+	B.insert(std::pair<int, int>(0, 0));
+	B.insert(std::pair<int, int>(-100, -10000));
+	B.insert(std::pair<int, int>(200, 20000));
+	std::map<int, int>	C;
+	C.insert(std::make_pair(0, 0));
+	C.insert(std::make_pair(-2, -2));
+	C.insert(std::make_pair(2, 2));
+	std::map<int, int>	D;
+	D.insert(std::pair<int, int>(0, 0));
+	D.insert(std::pair<int, int>(-1, 1));
+	D.insert(std::pair<int, int>(200, -20000));
+	std::cout << "std::map -> ";
+	std::cout << "==: " << (A == B);
+	std::cout << ", ==: " << (A == C);
+	std::cout << ", ==: " << (A == D);
+	std::cout << ", !=: " << (A != B);
+	std::cout << ", !=: " << (A != C);
+	std::cout << ", !=: " << (A != D);
+	std::cout << ", <: " << (A < B);
+	std::cout << ", <: " << (A < C);
+	std::cout << ", <: " << (A < D);
+	std::cout << ", <=: " << (A <= B);
+	std::cout << ", <=: " << (A <= C);
+	std::cout << ", <=: " << (A <= D);
+	std::cout << ", >: " << (A > B);
+	std::cout << ", >: " << (A > C);
+	std::cout << ", >: " << (A > D);
+	std::cout << ", >=: " << (A >= B);
+	std::cout << ", >=: " << (A >= C);
+	std::cout << ", >=: " << (A >= D);
+	std::cout << '.' << COLOR_END << std::endl;
+
+	std::cout << COLOR_GREEN_B;
+	ft::map<int, int>	ft_A;
+	ft_A.insert(ft::make_pair(0, 0));
+	ft_A.insert(ft::make_pair(-2, -2));
+	ft_A.insert(ft::make_pair(2, 2));
+	ft::map<int, int>	ft_B;
+	ft_B.insert(ft::pair<int, int>(0, 0));
+	ft_B.insert(ft::pair<int, int>(100, 10000));
+	ft_B.insert(ft::pair<int, int>(-200, -20000));
+	ft::map<int, int>	ft_C;
+	ft_C.insert(ft::make_pair(0, 0));
+	ft_C.insert(ft::make_pair(-2, -2));
+	ft_C.insert(ft::make_pair(2, 2));
+	ft::map<int, int>	ft_D;
+	ft_D.insert(ft::pair<int, int>(0, 0));
+	ft_D.insert(ft::pair<int, int>(-1, -1));
+	ft_D.insert(ft::pair<int, int>(200, 20000));
+	std::cout << "ft::map  -> ";
+	std::cout << "==: " << (ft_A == ft_B);
+	std::cout << ", ==: " << (ft_A == ft_C);
+	std::cout << ", ==: " << (ft_A == ft_D);
+	std::cout << ", !=: " << (ft_A != ft_B);
+	std::cout << ", !=: " << (ft_A != ft_C);
+	std::cout << ", !=: " << (ft_A != ft_D);
+	std::cout << ", <: " << (ft_A < ft_B);
+	std::cout << ", <: " << (ft_A < ft_C);
+	std::cout << ", <: " << (ft_A < ft_D);
+	std::cout << ", <=: " << (ft_A <= ft_B);
+	std::cout << ", <=: " << (ft_A <= ft_C);
+	std::cout << ", <=: " << (ft_A <= ft_D);
+	std::cout << ", >: " << (ft_A > ft_B);
+	std::cout << ", >: " << (ft_A > ft_C);
+	std::cout << ", >: " << (ft_A > ft_D);
+	std::cout << ", >=: " << (ft_A >= ft_B);
+	std::cout << ", >=: " << (ft_A >= ft_C);
+	std::cout << ", >=: " << (ft_A >= ft_D);
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
+}
+
 void	map_test()
 {
 	example1();
@@ -1335,6 +1418,7 @@ void	map_test()
 	example16();
 	example17();
 	example18();
+	example19();
 }
 
 #endif
