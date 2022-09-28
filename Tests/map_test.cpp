@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:41:32 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/27 14:57:38 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/28 14:33:07 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1218,6 +1218,103 @@ static void	example17()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
+static void	example18()
+{
+	/* Example 18 */
+	/* Example for swap */
+
+	std::cout << COLOR_PURPLE_B << "Example 18" << COLOR_END << std::endl;
+	std::cout << COLOR_YELLOW_B;
+	std::map<int, int>	A;
+	A.insert(std::make_pair(0, 0));
+	A.insert(std::make_pair(-2, -2));
+	A.insert(std::make_pair(2, 2));
+	A.insert(std::make_pair(-1, -1));
+	A.insert(std::make_pair(1, 1));
+	A.insert(std::make_pair(-3, -3));
+	A.insert(std::make_pair(3, 3));
+	std::map<int, int>	B;
+	B.insert(std::pair<int, int>(100, 10000));
+	B.insert(std::pair<int, int>(-100, -10000));
+	B.insert(std::pair<int, int>(200, 20000));
+	std::map<int, int>::iterator	it5;
+	it5 = B.insert(B.begin(), std::pair<int, int>(30, 3000));
+	it5 = B.insert(B.end(), std::pair<int, int>(-300, -30000));
+	std::cout << "std::map -> ";
+	std::cout << "A:";
+	for (std::map<int, int>::iterator f = A.begin(); f != A.end(); ++f)
+		std::cout << " " << f->second;
+	std::cout << ", A_size: " << A.size();
+	std::cout << ", B:";
+	for (std::map<int, int>::iterator f = B.begin(); f != B.end(); ++f)
+		std::cout << " " << f->second;
+	std::cout << ", B_size: " << B.size();
+	A.swap(B);
+	std::cout << ", A_after=:";
+	for (std::map<int, int>::iterator f = A.begin(); f != A.end(); ++f)
+		std::cout << " " << f->second;
+	std::cout << ", A_size: " << A.size();
+	std::cout << ", B_after=:";
+	for (std::map<int, int>::iterator f = B.begin(); f != B.end(); ++f)
+		std::cout << " " << f->second;
+	std::cout << ", B_size: " << B.size();
+	swap(A, B);
+	std::cout << ", A_after=:";
+	for (std::map<int, int>::iterator f = A.begin(); f != A.end(); ++f)
+		std::cout << " " << f->second;
+	std::cout << ", A_size: " << A.size();
+	std::cout << ", B_after=:";
+	for (std::map<int, int>::iterator f = B.begin(); f != B.end(); ++f)
+		std::cout << " " << f->second;
+	std::cout << ", B_size: " << B.size();
+	std::cout << '.' << COLOR_END << std::endl;
+
+	std::cout << COLOR_GREEN_B;
+	ft::map<int, int>	ft_A;
+	ft_A.insert(ft::make_pair(0, 0));
+	ft_A.insert(ft::make_pair(-2, -2));
+	ft_A.insert(ft::make_pair(2, 2));
+	ft_A.insert(ft::make_pair(-1, -1));
+	ft_A.insert(ft::make_pair(1, 1));
+	ft_A.insert(ft::make_pair(-3, -3));
+	ft_A.insert(ft::make_pair(3, 3));
+	ft::map<int, int>	ft_B;
+	ft_B.insert(ft::pair<int, int>(100, 10000));
+	ft_B.insert(ft::pair<int, int>(-100, -10000));
+	ft_B.insert(ft::pair<int, int>(200, 20000));
+	ft::map<int, int>::iterator	ft_it5;
+	ft_it5 = ft_B.insert(ft_B.begin(), ft::pair<int, int>(30, 3000));
+	ft_it5 = ft_B.insert(ft_B.end(), ft::pair<int, int>(-300, -30000));
+	std::cout << "ft::map  -> ";
+	std::cout << "A:";
+	for (ft::map<int, int>::iterator f = ft_A.begin(); f != ft_A.end(); ++f)
+		std::cout << " " << f->second;
+	std::cout << ", A_size: " << ft_A.size();
+	std::cout << ", B:";
+	for (ft::map<int, int>::iterator f = ft_B.begin(); f != ft_B.end(); ++f)
+		std::cout << " " << f->second;
+	std::cout << ", B_size: " << ft_B.size();
+	ft_A.swap(ft_B);
+	std::cout << ", A_after=:";
+	for (ft::map<int, int>::iterator f = ft_A.begin(); f != ft_A.end(); ++f)
+		std::cout << " " << f->second;
+	std::cout << ", A_size: " << ft_A.size();
+	std::cout << ", B_after=:";
+	for (ft::map<int, int>::iterator f = ft_B.begin(); f != ft_B.end(); ++f)
+		std::cout << " " << f->second;
+	std::cout << ", B_size: " << ft_B.size();
+	swap(ft_A, ft_B);
+	std::cout << ", A_after=:";
+	for (ft::map<int, int>::iterator f = ft_A.begin(); f != ft_A.end(); ++f)
+		std::cout << " " << f->second;
+	std::cout << ", A_size: " << ft_A.size();
+	std::cout << ", B_after=:";
+	for (ft::map<int, int>::iterator f = ft_B.begin(); f != ft_B.end(); ++f)
+		std::cout << " " << f->second;
+	std::cout << ", B_size: " << ft_B.size();
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
+}
+
 void	map_test()
 {
 	example1();
@@ -1237,6 +1334,7 @@ void	map_test()
 	example15();
 	example16();
 	example17();
+	example18();
 }
 
 #endif

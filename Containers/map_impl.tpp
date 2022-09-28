@@ -508,7 +508,7 @@ namespace	ft
 			ft::map<Key, T, Compare, Alloc> &rhs)
 	{
 		lhs.swap(rhs);
-	}
+ 	}
 }
 
 #endif

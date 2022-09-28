@@ -186,8 +186,8 @@ namespace	ft
 
 			this->_head = this->_null_node;
 			this->_comp = other._comp;
-			this->_size = other._size;
 			this->deep_copy(other.get_head(), other._null_node);
+			this->_size = other._size;
 		}
 		return (*this);
 	}
