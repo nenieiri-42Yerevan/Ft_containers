@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:44:23 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/28 17:59:55 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/29 14:12:36 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ namespace	ft
 
 		/* Element access */
 		public:
-			//mapped_type						&operator[](const key_type &key);
+			mapped_type						&operator[](const key_type &key);
 			//at
 
 		/* Modifires */

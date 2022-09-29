@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:41:32 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/28 18:20:00 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/29 14:39:48 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1398,6 +1398,37 @@ static void	example19()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
+static void	example20()
+{
+	/* Example 20 */
+	/* Example for operator[] and at() */
+
+	std::cout << COLOR_PURPLE_B << "Example 20" << COLOR_END << std::endl;
+	std::cout << COLOR_YELLOW_B;
+	std::map<char, char>	A;
+	A['a'] = 'A';
+	A['b'] = 'B';
+	A['c'] = A['b'];
+	std::cout << "std::map -> ";
+	std::cout << "[a]=" << A['a'];
+	std::cout << ", [b]=" << A['b'];
+	std::cout << ", [c]=" << A['c'];
+	std::cout << ", [d]=" << A['d'];
+	std::cout << '.' << COLOR_END << std::endl;
+
+	std::cout << COLOR_GREEN_B;
+	ft::map<char, char>	ft_A;
+	ft_A['a'] = 'A';
+	ft_A['b'] = 'B';
+	ft_A['c'] = ft_A['b'];
+	std::cout << "ft::map  -> ";
+	std::cout << "[a]=" << ft_A['a'];
+	std::cout << ", [b]=" << ft_A['b'];
+	std::cout << ", [c]=" << ft_A['c'];
+	std::cout << ", [d]=" << ft_A['d'];
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
+}
+
 void	map_test()
 {
 	example1();
@@ -1419,6 +1450,7 @@ void	map_test()
 	example17();
 	example18();
 	example19();
+	example20();
 }
 
 #endif

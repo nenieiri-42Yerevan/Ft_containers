@@ -211,17 +211,18 @@ namespace	ft
 	/*==================================*/
 	/*         Element access           */
 	/*==================================*/
-/*
+
 	template <
 		typename Key,
 		typename T,
 		typename Compare,
 		typename Allocator
 	> typename map<Key, T, Compare, Allocator>::mapped_type & \
-		operator[](const key_type &key)
+		map<Key, T, Compare, Allocator>::operator[](const key_type &key)
 	{
+		return (this->_tree.insert(ft::make_pair(key, mapped_type())).first->second);
 	}
-*/
+
 	/*==================================*/
 	/*            Modifires             */
 	/*==================================*/
