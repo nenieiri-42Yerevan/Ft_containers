@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:41:32 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/29 14:39:48 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/29 17:17:49 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1414,6 +1414,20 @@ static void	example20()
 	std::cout << ", [b]=" << A['b'];
 	std::cout << ", [c]=" << A['c'];
 	std::cout << ", [d]=" << A['d'];
+	A.at('a') = 'a';
+	A.at('b') = 'b';
+	A.at('c') = 'c';
+	std::cout << ", at(a)=" << A.at('a');
+	std::cout << ", at(b)=" << A.at('b');
+	std::cout << ", at(c)=" << A.at('c');
+	try
+	{
+		A.at('t');
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << " " << e.what();
+	}
 	std::cout << '.' << COLOR_END << std::endl;
 
 	std::cout << COLOR_GREEN_B;
@@ -1426,6 +1440,20 @@ static void	example20()
 	std::cout << ", [b]=" << ft_A['b'];
 	std::cout << ", [c]=" << ft_A['c'];
 	std::cout << ", [d]=" << ft_A['d'];
+	ft_A.at('a') = 'a';
+	ft_A.at('b') = 'b';
+	ft_A.at('c') = 'c';
+	std::cout << ", at(a)=" << ft_A.at('a');
+	std::cout << ", at(b)=" << ft_A.at('b');
+	std::cout << ", at(c)=" << ft_A.at('c');
+	try
+	{
+		ft_A.at('t');
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << " " << e.what();
+	}
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 

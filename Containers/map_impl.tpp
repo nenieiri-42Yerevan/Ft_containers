@@ -223,6 +223,38 @@ namespace	ft
 		return (this->_tree.insert(ft::make_pair(key, mapped_type())).first->second);
 	}
 
+	template <
+		typename Key,
+		typename T,
+		typename Compare,
+		typename Allocator
+	> typename map<Key, T, Compare, Allocator>::mapped_type & \
+		map<Key, T, Compare, Allocator>::at(const key_type &key)
+	{
+		iterator	it;
+		
+		it = this->find(key);
+		if (it == this->end())
+			throw std::out_of_range("map::at:  key not found");
+		return (it->second);
+	}
+
+	template <
+		typename Key,
+		typename T,
+		typename Compare,
+		typename Allocator
+	> const typename map<Key, T, Compare, Allocator>::mapped_type & \
+		map<Key, T, Compare, Allocator>::at(const key_type &key) const
+	{
+		iterator	it;
+		
+		it = this->find(key);
+		if (it == this->end())
+			throw std::out_of_range("map::at");
+		return (it->second);
+	}
+
 	/*==================================*/
 	/*            Modifires             */
 	/*==================================*/

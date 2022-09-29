@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:44:23 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/29 14:12:36 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/29 17:04:57 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_MAP_HPP
 
 # include <memory>
+# include <stdexcept>
 # include "../Other/utility.hpp"
 # include "../Other/binary_search_tree.hpp"
 # include "../Other/functional.hpp"
@@ -111,7 +112,8 @@ namespace	ft
 		/* Element access */
 		public:
 			mapped_type						&operator[](const key_type &key);
-			//at
+			mapped_type						&at(const key_type &key);
+			const mapped_type				&at(const key_type &key) const;
 
 		/* Modifires */
 		public:
