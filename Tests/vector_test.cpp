@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 18:10:37 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/06 16:45:46 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/29 18:37:02 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1436,14 +1436,13 @@ static void	example24()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-class A
+struct	A
 {
-	public:
-		A* operator &() const
-		{
-			std::cout << "operator&()" << std::endl;;
-			return (0);
-		}
+	A* operator &() const
+	{
+		std::cout << "error" << std::endl;;
+		return (0);
+	}
 };
 
 static void	example25()
@@ -1499,5 +1498,5 @@ void	vector_test()
 	example22();
 	example23();
 	example24();
-	example25();
+	kxample25();
 }
