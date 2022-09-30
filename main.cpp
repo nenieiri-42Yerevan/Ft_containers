@@ -21,35 +21,9 @@ void	vector_test();
 void	stack_test();
 void	map_test();
 
-/*
-int	barev()
-{
-	A.insert(std::make_pair(-2, "C"));
-	A.insert(std::make_pair(2, "D"));
-	A.insert(std::make_pair(-3, "E"));
-	A.insert(std::make_pair(1, "G"));
-	A.insert(std::make_pair(3, "H"));
-	A.insert(std::make_pair(4, "H"));
-	A.insert(std::make_pair(5, "H"));
-	A.insert(std::make_pair(6, "H"));
-	A.insert(std::make_pair(7, "H"));
-	A.insert(std::make_pair(8, "H"));
-	A.insert(std::make_pair(9, "H"));
-
-	std::map<int, std::string>::iterator	it;
-
-	it = A.begin();
-	++it;
-	++it;
-	//++it;
-
-	std::cout << it->first << std::endl;
-	return (0);
-}
-*/
 int	main()
 {
-//	vector_test();
+	vector_test();
 //	stack_test();
-	map_test();
+//	map_test();
 }

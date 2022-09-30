@@ -506,7 +506,7 @@ namespace	ft
 			for (size_type t = this->_size + count - 1; t >= start; --t)
 			{
 				if (t >= start && t < start + count)
-					this->_alloc.construct(this->_array + t, *(first++));
+					this->_alloc.construct(this->_array + t, *(--last));
 				else if (t >= this->_size)
 					this->_alloc.construct(this->_array + t, this->_array[t - count]);
 				else if (t <= this->_size && t >= start + count)

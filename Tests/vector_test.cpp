@@ -1469,6 +1469,72 @@ static void	example25()
 	std::cout << "ft::vector  -> capacity: " << ft_vec.capacity();
 	std::cout << ", size: " << ft_vec.size();
 	std::cout << ", values:";
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
+}
+
+static void	example26()
+{
+	/* Example 26 */
+	/* Example from mil tests for insert2 */
+
+	const int cut = 3;
+	std::cout << COLOR_PURPLE_B << "Example 26" << COLOR_END << std::endl;
+	std::cout << COLOR_YELLOW_B;
+	std::vector<int> vct(5);
+	std::vector<int> vct2;
+	for (unsigned long int i = 0; i < vct.size(); ++i)
+		vct[i] = (vct.size() - i) * 7;
+	std::cout << "std::vector ->";
+	std::cout << " values:";
+	for (unsigned long int i = 0; i < vct.size(); ++i)
+		std::cout << " " << vct[i];
+
+	vct2.insert(vct2.begin(), vct.begin(), vct.begin() + cut);
+	std::cout << ", values:";
+	for (unsigned long int i = 0; i < vct2.size(); ++i)
+		std::cout << " " << vct2[i];
+	vct2.insert(vct2.begin(), vct.begin() + cut, vct.end());
+	std::cout << ", values:";
+	for (unsigned long int i = 0; i < vct2.size(); ++i)
+		std::cout << " " << vct2[i];
+	vct2.insert(vct2.end(), vct.begin(), vct.begin() + cut);
+	std::cout << ", values:";
+	for (unsigned long int i = 0; i < vct2.size(); ++i)
+		std::cout << " " << vct2[i];
+	std::cout << ", " << *vct2.insert(vct2.end(), 42) << ", ";
+	std::cout << *vct2.insert(vct2.begin() + 5, 84);
+	std::cout << ", values:";
+	for (unsigned long int i = 0; i < vct2.size(); ++i)
+		std::cout << " " << vct2[i];
+	std::cout << '.' << COLOR_END << std::endl;
+
+	std::cout << COLOR_GREEN_B;
+	ft::vector<int> ft_vct(5);
+	ft::vector<int> ft_vct2;
+	for (unsigned long int i = 0; i < ft_vct.size(); ++i)
+		ft_vct[i] = (ft_vct.size() - i) * 7;
+	std::cout << "std::vector ->";
+	std::cout << " values:";
+	for (unsigned long int i = 0; i < ft_vct.size(); ++i)
+		std::cout << " " << ft_vct[i];
+
+	ft_vct2.insert(ft_vct2.begin(), ft_vct.begin(), ft_vct.begin() + cut);
+	std::cout << ", values:";
+	for (unsigned long int i = 0; i < ft_vct2.size(); ++i)
+		std::cout << " " << ft_vct2[i];
+	ft_vct2.insert(ft_vct2.begin(), ft_vct.begin() + cut, ft_vct.end());
+	std::cout << ", values:";
+	for (unsigned long int i = 0; i < ft_vct2.size(); ++i)
+		std::cout << " " << ft_vct2[i];
+	ft_vct2.insert(ft_vct2.end(), ft_vct.begin(), ft_vct.begin() + cut);
+	std::cout << ", values:";
+	for (unsigned long int i = 0; i < ft_vct2.size(); ++i)
+		std::cout << " " << ft_vct2[i];
+	std::cout << ", " << *ft_vct2.insert(ft_vct2.end(), 42) << ", ";
+	std::cout << *ft_vct2.insert(ft_vct2.begin() + 5, 84);
+	std::cout << ", values:";
+	for (unsigned long int i = 0; i < ft_vct2.size(); ++i)
+		std::cout << " " << ft_vct2[i];
 	std::cout << '.' << COLOR_END << std::endl;
 }
 
@@ -1498,5 +1564,6 @@ void	vector_test()
 	example22();
 	example23();
 	example24();
-	kxample25();
+	example25();
+	example26();
 }
