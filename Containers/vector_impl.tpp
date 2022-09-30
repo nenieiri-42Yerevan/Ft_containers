@@ -66,7 +66,7 @@ namespace	ft
 	{
 		difference_type	n;
 
-		n = distance(first, last);
+		n = ft::distance(first, last);
 		_alloc = alloc;
 		_array = this->_alloc.allocate(n);
 		_capacity = n;

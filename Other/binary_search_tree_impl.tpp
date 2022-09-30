@@ -186,8 +186,8 @@ namespace	ft
 		this->_null_node->p = this->_null_node;
 
 		this->_head = this->_null_node;
+		this->deep_copy(other.get_head(), other._null_node);
 		this->_size = other._size;
-		this->deep_copy(other.get_head());
 	}
 
 	template <
