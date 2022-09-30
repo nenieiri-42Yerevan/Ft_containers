@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:41:32 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/29 18:44:44 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/09/30 11:31:39 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -494,6 +494,7 @@ static void	example7()
 	++ft_it2;
 	std::cout << " ==: " << (ft_it2 == ft_it1);
 	std::cout << ", !=: " << (ft_it2 != ft_it1);
+	++ft_it1;
 	++ft_it1;
 	std::cout << ", ==: " << (ft_it2 == ft_it1);
 	std::cout << ", !=: " << (ft_it2 != ft_it1);

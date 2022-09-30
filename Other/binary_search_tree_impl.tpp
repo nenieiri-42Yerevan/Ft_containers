@@ -118,7 +118,15 @@ namespace	ft
 		_comp(comp)
 	{
 		this->_null_node = this->_alloc_node.allocate(1);
-		this->_alloc_node.construct(this->_null_node);
+		try
+		{
+			this->_alloc_node.construct(this->_null_node);
+		}
+		catch (...)
+		{
+			this->_alloc_node.deallocate(this->_null_node, 1);
+			throw ;
+		}
 		this->_null_node->p = this->_null_node;
 
 		this->_size = 0;
@@ -138,7 +146,15 @@ namespace	ft
 		_comp(comp)
 	{
 		this->_null_node = this->_alloc_node.allocate(1);
-		this->_alloc_node.construct(this->_null_node);
+		try
+		{
+			this->_alloc_node.construct(this->_null_node);
+		}
+		catch (...)
+		{
+			this->_alloc_node.deallocate(this->_null_node, 1);
+			throw ;
+		}
 		this->_null_node->p = this->_null_node;
 
 		this->_size = 1;
@@ -158,7 +174,15 @@ namespace	ft
 		_comp(other._comp)
 	{
 		this->_null_node = this->_alloc_node.allocate(1);
-		this->_alloc_node.construct(this->_null_node);
+		try
+		{
+			this->_alloc_node.construct(this->_null_node);
+		}
+		catch (...)
+		{
+			this->_alloc_node.deallocate(this->_null_node, 1);
+			throw ;
+		}
 		this->_null_node->p = this->_null_node;
 
 		this->_head = this->_null_node;
@@ -227,7 +251,15 @@ namespace	ft
 		node_ptr	new_node;
 
 		new_node = this->_alloc_node.allocate(1);
-		this->_alloc_node.construct(new_node, data);
+		try
+		{
+			this->_alloc_node.construct(new_node, data);
+		}
+		catch (...)
+		{
+			this->_alloc_node.deallocate(new_node, 1);
+			throw ;
+		}
 		new_node->left = _null_node;
 		new_node->right = _null_node;
 		new_node->p = _null_node;

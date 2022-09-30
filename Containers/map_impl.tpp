@@ -251,7 +251,7 @@ namespace	ft
 		
 		it = this->find(key);
 		if (it == this->end())
-			throw std::out_of_range("map::at");
+			throw std::out_of_range("map::at:  key not found");
 		return (it->second);
 	}
 
