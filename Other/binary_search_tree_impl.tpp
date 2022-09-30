@@ -1235,8 +1235,11 @@ namespace	ft
 		found = this->search(value);
 		if (multivalues == false)
 		{
-			this->erase(found);
-			++count;
+			if (found != _null_node)
+			{
+				this->erase(found);
+				++count;
+			}
 		}
 		else
 		{

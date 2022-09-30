@@ -54,8 +54,7 @@ namespace	ft
 			template <typename InputIterator>
 			vector(InputIterator first, InputIterator last,
 					const allocator_type &alloc = allocator_type(),
-			typename enable_if<!is_integral<InputIterator>::value, 
-								bool>::type = true);
+			typename enable_if<!is_integral<InputIterator>::value, bool>::type = true);
 
 			vector(const vector &other);
 			vector	&operator=(const vector &other);

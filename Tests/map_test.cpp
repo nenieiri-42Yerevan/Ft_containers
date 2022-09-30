@@ -16,6 +16,7 @@
 #include <utility>
 #include <string>
 #include <map>
+#include <list>
 #include <functional>
 #include "../Containers/map.hpp"
 
@@ -1241,6 +1242,8 @@ static void	example18()
 	std::map<int, int>::iterator	it5;
 	it5 = B.insert(B.begin(), std::pair<int, int>(30, 3000));
 	it5 = B.insert(B.end(), std::pair<int, int>(-300, -30000));
+	std::map<int, int>::iterator	it11 = A.begin();
+	std::map<int, int>::iterator	it22 = B.begin();
 	std::cout << "std::map -> ";
 	std::cout << "A:";
 	for (std::map<int, int>::iterator f = A.begin(); f != A.end(); ++f)
@@ -1259,6 +1262,8 @@ static void	example18()
 	for (std::map<int, int>::iterator f = B.begin(); f != B.end(); ++f)
 		std::cout << " " << f->second;
 	std::cout << ", B_size: " << B.size();
+	std::cout << ", iter: " << (it11 == B.begin());
+	std::cout << ", " << (it22 == A.begin());
 	swap(A, B);
 	std::cout << ", A_after=:";
 	for (std::map<int, int>::iterator f = A.begin(); f != A.end(); ++f)
@@ -1286,6 +1291,8 @@ static void	example18()
 	ft::map<int, int>::iterator	ft_it5;
 	ft_it5 = ft_B.insert(ft_B.begin(), ft::pair<int, int>(30, 3000));
 	ft_it5 = ft_B.insert(ft_B.end(), ft::pair<int, int>(-300, -30000));
+	ft::map<int, int>::iterator	ft_it11 = ft_A.begin();
+	ft::map<int, int>::iterator	ft_it22 = ft_B.begin();
 	std::cout << "ft::map  -> ";
 	std::cout << "A:";
 	for (ft::map<int, int>::iterator f = ft_A.begin(); f != ft_A.end(); ++f)
@@ -1304,6 +1311,8 @@ static void	example18()
 	for (ft::map<int, int>::iterator f = ft_B.begin(); f != ft_B.end(); ++f)
 		std::cout << " " << f->second;
 	std::cout << ", B_size: " << ft_B.size();
+	std::cout << ", iter: " << (ft_it11 == ft_B.begin());
+	std::cout << ", " << (ft_it22 == ft_A.begin());
 	swap(ft_A, ft_B);
 	std::cout << ", A_after=:";
 	for (ft::map<int, int>::iterator f = ft_A.begin(); f != ft_A.end(); ++f)
@@ -1458,6 +1467,77 @@ static void	example20()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
+static void	example21()
+{
+	/* Example 21 */
+	/* Example from mli-tester about erase */
+
+	unsigned int lst_size = 6;
+
+	std::cout << COLOR_PURPLE_B << "Example 21" << COLOR_END << std::endl;
+	std::cout << COLOR_YELLOW_B;
+	std::list<std::pair<const int, std::string> > lst;
+	for (unsigned int i = 0; i < lst_size; ++i)
+		lst.push_back(std::make_pair(i, std::string((lst_size - i), i + 65)));
+	std::map<const int, std::string> mp(lst.begin(), lst.end());
+	std::cout << "std::map -> ";
+	std::cout << "size: " << mp.size();
+	std::cout << ", value:";
+	for (std::map<const int, std::string>::iterator it = mp.begin(); it != mp.end(); ++it)
+		std::cout << " " << it->first;
+	for (int i = 2; i < 4; ++i)
+		mp.erase(i);
+	std::cout << ", value:";
+	for (std::map<const int, std::string>::iterator it = mp.begin(); it != mp.end(); ++it)
+		std::cout << " " << it->first;
+	mp.erase(mp.begin()->first);
+	mp.erase((--mp.end())->first);
+	std::cout << ", value:";
+	for (std::map<const int, std::string>::iterator it = mp.begin(); it != mp.end(); ++it)
+		std::cout << " " << it->first;
+	mp[-1] = "Hello";
+	mp[10] = "Hi there";
+	mp[10] = "Hi there";
+	std::cout << ", size: " << mp.size();
+	mp.erase(0);
+	mp.erase(1);
+	std::cout << ", value:";
+	for (std::map<const int, std::string>::iterator it = mp.begin(); it != mp.end(); ++it)
+		std::cout << " " << it->first;
+	std::cout << '.' << COLOR_END << std::endl;
+
+	std::list<ft::pair<const int, std::string> > ft_lst;
+	for (unsigned int i = 0; i < lst_size; ++i)
+		ft_lst.push_back(ft::make_pair(i, std::string((lst_size - i), i + 65)));
+	std::cout << COLOR_GREEN_B;
+	ft::map<const int, std::string> ft_mp(ft_lst.begin(), ft_lst.end());
+	std::cout << "ft::map  -> ";
+	std::cout << "size: " << ft_mp.size();
+	std::cout << ", value:";
+	for (ft::map<const int, std::string>::iterator it = ft_mp.begin(); it != ft_mp.end(); ++it)
+		std::cout << " " << it->first;
+	for (int i = 2; i < 4; ++i)
+		ft_mp.erase(i);
+	std::cout << ", value:";
+	for (ft::map<const int, std::string>::iterator it = ft_mp.begin(); it != ft_mp.end(); ++it)
+		std::cout << " " << it->first;
+	ft_mp.erase(ft_mp.begin()->first);
+	ft_mp.erase((--ft_mp.end())->first);
+	std::cout << ", value:";
+	for (ft::map<const int, std::string>::iterator it = ft_mp.begin(); it != ft_mp.end(); ++it)
+		std::cout << " " << it->first;
+	ft_mp[-1] = "Hello";
+	ft_mp[10] = "Hi there";
+	ft_mp[10] = "Hi there";
+	std::cout << ", size: " << ft_mp.size();
+	ft_mp.erase(0);
+	ft_mp.erase(1);
+	std::cout << ", value:";
+	for (ft::map<const int, std::string>::iterator it = ft_mp.begin(); it != ft_mp.end(); ++it)
+		std::cout << " " << it->first;
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
+}
+
 void	map_test()
 {
 	example1();
@@ -1480,6 +1560,7 @@ void	map_test()
 	example18();
 	example19();
 	example20();
+	example21();
 }
 
 #endif
