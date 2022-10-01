@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 18:10:37 by vismaily          #+#    #+#             */
-/*   Updated: 2022/10/01 13:35:53 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/10/01 18:59:30 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1624,6 +1624,39 @@ static void	example27()
 	std::cout << ", vct_size: " << ft_vct.size();
 	std::cout << ", vct_range_size: " << ft_vct_range.size();
 	std::cout << ", vct_copy_size: " << ft_vct_copy.size();
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
+}
+
+static void	example28()
+{
+	/* Example 28 */
+	/* Example tests insert(fill) */
+
+	std::cout << COLOR_PURPLE_B << "Example 28" << COLOR_END << std::endl;
+	std::cout << COLOR_YELLOW_B;
+	std::cout << "std::vector ->";
+	std::vector<int> vct;
+	std::vector<int> v;
+	vct.assign(1000, 1);
+	vct.insert(vct.end() - 50, 42000000, 2);
+	v.push_back(vct.size());
+	v.push_back(vct.capacity());
+	std::cout << " value:";
+	for (std::vector<int>::iterator first = v.begin(); first != v.end(); ++first)
+		std::cout << " " << *first;
+	std::cout << '.' << COLOR_END << std::endl;
+
+	std::cout << COLOR_GREEN_B;
+	std::cout << "ft::vector  ->";
+	ft::vector<int> ft_vct;
+	ft::vector<int> ft_v;
+	ft_vct.assign(1000, 1);
+	ft_vct.insert(ft_vct.end() - 50, 42000000, 2);
+	ft_v.push_back(ft_vct.size());
+	ft_v.push_back(ft_vct.capacity());
+	std::cout << " value:";
+	for (ft::vector<int>::iterator first = ft_v.begin(); first != ft_v.end(); ++first)
+		std::cout << " " << *first;
 	std::cout << '.' << COLOR_END << std::endl;
 }
 
@@ -1656,4 +1689,5 @@ void	vector_test()
 	example25();
 	example26();
 	example27();
+	example28();
 }

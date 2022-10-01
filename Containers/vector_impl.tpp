@@ -405,9 +405,8 @@ namespace	ft
 			throw std::length_error("vector:insert error");
 		if (this->_size + count > this->_capacity)
 		{
-			size_type	tmp_cap = this->_capacity == 0 ? 1 : this->_capacity * 2;
-			while (tmp_cap < this->_size + count)
-				tmp_cap *= 2;
+			size_type	tmp_cap = (_capacity * 2 >= this->_size + count) ? \
+								 (this->_capacity * 2) : (this->_size + count);
 			tmp = this->_alloc.allocate(tmp_cap);
 			try
 			{
@@ -423,7 +422,7 @@ namespace	ft
 			catch (...)
 			{
 				for (size_type t = 0; t < i + j; t++)
-                	this->_alloc.destroy(tmp + i + j);
+                	this->_alloc.destroy(tmp + t);
 				this->_alloc.deallocate(tmp, this->_size + count);
 				throw ;
 			}
@@ -474,9 +473,8 @@ namespace	ft
 			throw std::length_error("vector:insert error");
 		if (this->_size + count > this->_capacity)
 		{
-			size_type	tmp_cap = this->_capacity == 0 ? 1 : this->_capacity * 2;
-			while (tmp_cap < this->_size + count)
-				tmp_cap *= 2;
+			size_type	tmp_cap = (_capacity * 2 >= this->_size + count) ? \
+								 (this->_capacity * 2) : (this->_size + count);
 			tmp = this->_alloc.allocate(tmp_cap);
 			try
 			{
@@ -492,7 +490,7 @@ namespace	ft
 			catch (...)
 			{
 				for (size_type t = 0; t < i + j; t++)
-                	this->_alloc.destroy(tmp + i + j);
+                	this->_alloc.destroy(tmp + t);
 				this->_alloc.deallocate(tmp, this->_size + count);
 				throw ;
 			}
