@@ -338,14 +338,10 @@ namespace	ft
 		typename T,
 		typename Compare,
 		typename Allocator
-	> void	map<Key, T, Compare, Allocator>::swap(map &other)
+	> void	map<Key, T, Compare, Allocator>:: \
+		swap(map<Key, T, Compare, Allocator> &other)
 	{
-		binary_search_tree<value_type, select_first<value_type>, \
-							key_compare, allocator_type, false>	tmp;
-
-		tmp = this->_tree;
-		this->_tree = other._tree;
-		other._tree = tmp;
+		this->_tree.swap(other._tree);
 	}
 
 	template <

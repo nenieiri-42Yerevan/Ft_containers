@@ -665,15 +665,15 @@ namespace	ft
 	{
 		const_iterator	it1;
 		const_iterator	it2;
+
+		it1 = this->begin();
+		it2 = this->end();
 		while (it1 != it2)
 		{
 			if (!this->comp_data(*it1, data))
 				break ;
 			++it1;
 		}
-
-		it1 = this->begin();
-		it2 = this->end();
 
 		return (it1);
 	}
@@ -1044,9 +1044,9 @@ namespace	ft
 		this->print_tree(this->_head);
 	}
 
-	/*=====================================*/
-    /*          Insert and erase           */
-    /*=====================================*/
+	/*========================================*/
+    /*          Insert, erase, swap           */
+    /*========================================*/
 
 	template <
 		typename T,
@@ -1295,6 +1295,32 @@ namespace	ft
 	{
 		this->clear(_head);
 		_head = _null_node;
+	}
+
+	template <
+		typename T,
+		typename KeyOfValue,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> void	binary_search_tree<T, KeyOfValue, Compare, Alloc, multivalues>:: \
+	swap(binary_search_tree<T, KeyOfValue, Compare, Alloc, multivalues> &other)
+	{
+		node_ptr	tmp_head = this->_head;
+		this->_head = other._head;
+		other._head = tmp_head;
+
+		node_ptr	tmp_null = this->_null_node;
+		this->_null_node = other._null_node;
+		other._null_node = tmp_null;
+
+		size_type	tmp_size = this->_size;
+		this->_size = other._size;
+		other._size = tmp_size;
+
+		key_compare	tmp_comp = this->_comp;
+		this->_comp = other._comp;
+		other._comp = tmp_comp;
 	}
 
 	/*=====================================*/

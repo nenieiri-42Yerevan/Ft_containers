@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:30:35 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/27 13:32:18 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/10/01 15:07:39 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,7 @@ namespace	ft
 			void				print_tree(node_ptr head) const;
 			void				print_tree() const;
 
-		/* Insert and erase */
+		/* Insert, erase, swap */
 		public:
 			ft::pair<iterator, bool>	insert(node_ptr head, node_ptr new_node);
 			ft::pair<iterator, bool>	insert(node_ptr new_node);
@@ -153,6 +153,7 @@ namespace	ft
 			void						erase(iterator pos);
 			void						clear(node_ptr head);
 			void						clear();
+			void						swap(binary_search_tree &other);
 
 		/* Iterators */
 		public:
