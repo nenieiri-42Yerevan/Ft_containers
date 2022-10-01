@@ -77,7 +77,6 @@ namespace	ft
 			{
 				this->push_back(*first);
 				++first;
-				this->_size += 1;
 			}
 		}
 		catch (...)
@@ -92,7 +91,7 @@ namespace	ft
 	vector<T, Allocator>::vector(const vector &other)
 	{
 		this->_alloc = other._alloc;
-		_array = this->_alloc.allocate(other._capacity);
+		this->_array = this->_alloc.allocate(other._capacity);
 		this->_capacity = other._capacity;
 		this->_size = 0;
 		while (this->_size != other._size)
@@ -349,7 +348,7 @@ namespace	ft
 	typename enable_if<!is_integral<InputIt>::value, bool>::type)
 	{
 		this->erase(this->begin(), this->end());
-		this->reserve(last - first);
+		this->reserve(ft::distance(first, last));
 		this->insert(this->begin(), first, last);
 	}
 	
@@ -463,7 +462,7 @@ namespace	ft
 		size_type	j;
 		size_type	count;
 
-		count = static_cast<size_type>(last - first);
+		count = static_cast<size_type>(ft::distance(first, last));
 		start = static_cast<size_type>(pos - this->begin());
 		i = 0;
 		j = 0;

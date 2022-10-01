@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 18:10:37 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/29 18:37:02 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/10/01 13:35:53 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1475,7 +1475,7 @@ static void	example25()
 static void	example26()
 {
 	/* Example 26 */
-	/* Example from mil tests for insert2 */
+	/* Example tests for insert2 */
 
 	const int cut = 3;
 	std::cout << COLOR_PURPLE_B << "Example 26" << COLOR_END << std::endl;
@@ -1535,6 +1535,95 @@ static void	example26()
 	std::cout << ", values:";
 	for (unsigned long int i = 0; i < ft_vct2.size(); ++i)
 		std::cout << " " << ft_vct2[i];
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
+}
+
+static void	example27()
+{
+	/* Example 27 */
+	/* Example tests for copy-constructor */
+
+	std::cout << COLOR_PURPLE_B << "Example 27" << COLOR_END << std::endl;
+	std::cout << COLOR_YELLOW_B;
+	std::cout << "std::vector ->";
+	std::vector<int> vct(5);
+	std::vector<int>::iterator	it = vct.begin();
+	std::vector<int>::iterator	ite = vct.end();
+	std::cout << " len: " << (ite - it);
+	for (; it != ite; ++it)
+		*it = (ite - it);
+	it = vct.begin();
+	std::vector<int> vct_range(it, --(--ite));
+	for (int i = 0; it != ite; ++it)
+		*it = ++i * 5;
+	it = vct.begin();
+	std::vector<int> vct_copy(vct);
+	for (int i = 0; it != ite; ++it)
+		*it = ++i * 7;
+	vct_copy.push_back(42);
+	vct_copy.push_back(21);
+	std::cout << ", vct_size: " << vct.size();
+	std::cout << ", vct_range_size: " << vct_range.size();
+	std::cout << ", vct_copy_size: " << vct_copy.size();
+	vct = vct_copy;
+	vct_copy = vct_range;
+	vct_range.clear();
+	it = vct.begin();
+	std::cout << ", vct_values:";
+	for (; it != vct.end(); ++it)
+		std::cout << " " << *it;
+	it = vct_range.begin();
+	std::cout << ", vct_range_values:";
+	for (; it != vct_range.end(); ++it)
+		std::cout << " " << *it;
+	it = vct_copy.begin();
+	std::cout << ", vct_copy_values:";
+	for (; it != vct_copy.end(); ++it)
+		std::cout << " " << *it;
+	std::cout << ", vct_size: " << vct.size();
+	std::cout << ", vct_range_size: " << vct_range.size();
+	std::cout << ", vct_copy_size: " << vct_copy.size();
+	std::cout << '.' << COLOR_END << std::endl;
+
+	std::cout << COLOR_GREEN_B;
+	std::cout << "ft::vector  ->";
+	ft::vector<int> ft_vct(5);
+	ft::vector<int>::iterator	ft_it = ft_vct.begin();
+	ft::vector<int>::iterator	ft_ite = ft_vct.end();
+	std::cout << " len: " << (ft_ite - ft_it);
+	for (; ft_it != ft_ite; ++ft_it)
+		*ft_it = (ft_ite - ft_it);
+	ft_it = ft_vct.begin();
+	ft::vector<int> ft_vct_range(ft_it, --(--ft_ite));
+	for (int i = 0; ft_it != ft_ite; ++ft_it)
+		*ft_it = ++i * 5;
+	ft_it = ft_vct.begin();
+	ft::vector<int> ft_vct_copy(ft_vct);
+	for (int i = 0; ft_it != ft_ite; ++ft_it)
+		*ft_it = ++i * 7;
+	ft_vct_copy.push_back(42);
+	ft_vct_copy.push_back(21);
+	std::cout << ", vct_size: " << ft_vct.size();
+	std::cout << ", vct_range_size: " << ft_vct_range.size();
+	std::cout << ", vct_copy_size: " << ft_vct_copy.size();
+	ft_vct = ft_vct_copy;
+	ft_vct_copy = ft_vct_range;
+	ft_vct_range.clear();
+	ft_it = ft_vct.begin();
+	std::cout << ", vct_values:";
+	for (; ft_it != ft_vct.end(); ++ft_it)
+		std::cout << " " << *ft_it;
+	ft_it = ft_vct_range.begin();
+	std::cout << ", vct_range_values:";
+	for (; ft_it != ft_vct_range.end(); ++ft_it)
+		std::cout << " " << *ft_it;
+	ft_it = ft_vct_copy.begin();
+	std::cout << ", vct_copy_values:";
+	for (; ft_it != ft_vct_copy.end(); ++ft_it)
+		std::cout << " " << *ft_it;
+	std::cout << ", vct_size: " << ft_vct.size();
+	std::cout << ", vct_range_size: " << ft_vct_range.size();
+	std::cout << ", vct_copy_size: " << ft_vct_copy.size();
 	std::cout << '.' << COLOR_END << std::endl;
 }
 
@@ -1566,4 +1655,5 @@ void	vector_test()
 	example24();
 	example25();
 	example26();
+	example27();
 }

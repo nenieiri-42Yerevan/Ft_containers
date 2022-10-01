@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 15:47:53 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/30 12:23:02 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/10/01 13:31:59 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ namespace	ft
 	{
 		typename ft::iterator_traits<InputIt>::difference_type	dist = 0;
 
-		if (first != last)
+		while (first != last)
 		{
 			++dist;
 			++first;
