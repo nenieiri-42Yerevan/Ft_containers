@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 18:10:37 by vismaily          #+#    #+#             */
-/*   Updated: 2022/10/01 18:59:30 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/10/02 16:58:00 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1440,7 +1440,7 @@ struct	A
 {
 	A* operator &() const
 	{
-		std::cout << "error" << std::endl;;
+		std::cout << "error ";
 		return (0);
 	}
 };
