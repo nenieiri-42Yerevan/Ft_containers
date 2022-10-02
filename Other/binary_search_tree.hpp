@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 12:30:35 by vismaily          #+#    #+#             */
-/*   Updated: 2022/10/01 15:07:39 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/10/02 14:16:48 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "../Iterators/reverse_iterator.hpp"
 # include "../Other/functional.hpp"
 # include "../Other/utility.hpp"
+# include "../Other/binary_node.hpp"
 
 namespace	ft
 {
@@ -31,38 +32,25 @@ namespace	ft
 		bool multivalues = false
 	> class	binary_search_tree
 	{
-		/* Node */
-		private:
-		struct	node
-		{
-			node();
-			node(const T &elem);
-			node(const node &other);
-			node		&operator=(const node &other);
-			~node();
-
-			T			data;
-			node		*left;
-			node		*right;
-			node		*p;
-			bool		multi;
-		};
-
 		/* Member types */
 		public:
 			typedef T								value_type;
 			typedef Compare							key_compare;
 			typedef Alloc							allocator_type;
-			typedef node							*node_ptr;
+			typedef ft::binary_node<value_type>		*node_ptr;
 			typedef size_t							size_type;
 
-			typedef bidirectional_iterator<node, T>				iterator;
-			typedef bidirectional_iterator<const node, const T>	const_iterator;
-			typedef reverse_iterator<const_iterator>			const_reverse_iterator;
-			typedef reverse_iterator<iterator>					reverse_iterator;
+			typedef bidirectional_iterator<binary_node<value_type>, T>	\
+													iterator;
+			typedef bidirectional_iterator<const binary_node<value_type>, const T>
+													const_iterator;
+			typedef reverse_iterator<const_iterator>	\
+													const_reverse_iterator;
+			typedef reverse_iterator<iterator>		reverse_iterator;
 		private:
-			typedef typename allocator_type::template rebind<node>::other \
-														allocator_node_type;
+			typedef typename allocator_type:: \
+				template rebind<binary_node<value_type> >::other \
+													allocator_node_type;
 
 		/* Constructors and destructors */
 		public:

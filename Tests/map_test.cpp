@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:41:32 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/30 11:31:39 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/10/02 13:59:28 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <utility>
 #include <string>
 #include <map>
+#include <vector>
 #include <list>
 #include <functional>
 #include "../Containers/map.hpp"
@@ -1538,6 +1539,51 @@ static void	example21()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
+static void	example22()
+{
+	/* Example 22 */
+	/* Example from bounds */
+
+	std::cout << COLOR_PURPLE_B << "Example 22" << COLOR_END << std::endl;
+	std::cout << COLOR_YELLOW_B;
+	std::cout << "std::map -> ";
+    std::vector<int> v;
+	std::map<int, int, std::greater<int> > mp2;
+    mp2.insert(std::make_pair(20, 20));
+    mp2.insert(std::make_pair(30, 30));
+    mp2.insert(std::make_pair(40, 40));
+    mp2.insert(std::make_pair(50, 50));
+    mp2.insert(std::make_pair(60, 60));
+	std::map<int, int>::iterator it;
+    for (int i = 11; i < 70; i += 10) {
+        it = mp2.upper_bound(i);
+        v.push_back(it->first);
+    }
+	std::cout << "value:";
+	for (std::vector<int>::iterator it1 = v.begin(); it1 != v.end(); ++it1)
+		std::cout << " " << *it1;
+	std::cout << '.' << COLOR_END << std::endl;
+
+	std::cout << COLOR_GREEN_B;
+	std::cout << "ft::map  -> ";
+    std::vector<int> ft_v;
+	ft::map<int, int, std::greater<int> > ft_mp2;
+    ft_mp2.insert(ft::make_pair(20, 20));
+    ft_mp2.insert(ft::make_pair(30, 30));
+    ft_mp2.insert(ft::make_pair(40, 40));
+    ft_mp2.insert(ft::make_pair(50, 50));
+    ft_mp2.insert(ft::make_pair(60, 60));
+	ft::map<int, int>::iterator ft_it;
+    for (int i = 11; i < 70; i += 10) {
+        ft_it = ft_mp2.upper_bound(i);
+        ft_v.push_back(ft_it->first);
+    }
+	std::cout << "value:";
+	for (std::vector<int>::iterator ft_it1 = ft_v.begin(); ft_it1 != ft_v.end(); ++ft_it1)
+		std::cout << " " << *ft_it1;
+	std::cout << '.' << COLOR_END << std::endl << std::endl;
+}
+
 void	map_test()
 {
 	example1();
@@ -1561,6 +1607,7 @@ void	map_test()
 	example19();
 	example20();
 	example21();
+	example22();
 }
 
 #endif
