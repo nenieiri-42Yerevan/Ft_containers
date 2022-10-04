@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   binary_search_tree.hpp                             :+:      :+:    :+:   */
+/*   rb_tree.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/09 12:30:35 by vismaily          #+#    #+#             */
-/*   Updated: 2022/10/04 16:14:45 by vismaily         ###   ########.fr       */
+/*   Created: 2022/10/04 16:13:14 by vismaily          #+#    #+#             */
+/*   Updated: 2022/10/04 17:01:51 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BINARY_SEARCH_TREE_HPP
-# define FT_BINARY_SEARCH_TREE_HPP
+#ifndef FT_RB_TREE_HPP
+# define FT_RB_TREE_HPP
 
 # include <iostream>
 # include <memory>
@@ -19,7 +19,7 @@
 # include "../Iterators/reverse_iterator.hpp"
 # include "../Other/functional.hpp"
 # include "../Other/utility.hpp"
-# include "../Other/binary_node.hpp"
+# include "../Other/rb_node.hpp"
 
 namespace	ft
 {
@@ -29,38 +29,38 @@ namespace	ft
 		typename Compare = ft::less<T>,
 		typename Alloc = std::allocator<T>,
 		bool multivalues = false
-	> class	binary_search_tree
+	> class	rb_tree
 	{
 		/* Member types */
 		public:
 			typedef T								value_type;
 			typedef Compare							key_compare;
 			typedef Alloc							allocator_type;
-			typedef ft::binary_node<value_type>		*node_ptr;
+			typedef ft::rb_node<value_type>			*node_ptr;
 			typedef size_t							size_type;
 
-			typedef bidirectional_iterator<binary_node<value_type>, T>	\
+			typedef bidirectional_iterator<rb_node<value_type>, T>	\
 													iterator;
-			typedef bidirectional_iterator<const binary_node<value_type>, const T>
+			typedef bidirectional_iterator<const rb_node<value_type>, const T>
 													const_iterator;
 			typedef reverse_iterator<const_iterator>	\
 													const_reverse_iterator;
 			typedef reverse_iterator<iterator>		reverse_iterator;
 		private:
 			typedef typename allocator_type:: \
-				template rebind<binary_node<value_type> >::other \
+				template rebind<rb_node<value_type> >::other \
 													allocator_node_type;
 
 		/* Constructors and destructors */
 		public:
-			binary_search_tree(const key_compare &comp = key_compare(), \
-								const allocator_type &alloc = allocator_type());
-			binary_search_tree(const node_ptr head, \
-								const key_compare &comp = key_compare(), \
-								const allocator_type &alloc = allocator_type());
-			binary_search_tree(const binary_search_tree &other);
-			binary_search_tree	&operator=(const binary_search_tree &other);
-			~binary_search_tree();
+			rb_tree(const key_compare &comp = key_compare(), \
+					const allocator_type &alloc = allocator_type());
+			rb_tree(const node_ptr head, \
+					const key_compare &comp = key_compare(), \
+					const allocator_type &alloc = allocator_type());
+			rb_tree(const rb_tree &other);
+			rb_tree	&operator=(const rb_tree &other);
+			~rb_tree();
 
 		/* Tree functional */
 		public:
@@ -114,17 +114,8 @@ namespace	ft
 			void				postorder_tree_walk(node_ptr head) const;
 			void				postorder_tree_walk() const;
 
-			void				preorder_tree_walk_reverse(node_ptr head) const;
-			void				preorder_tree_walk_reverse() const;
-			void				inorder_tree_walk_reverse(node_ptr head) const;
-			void				inorder_tree_walk_reverse() const;
-			void				postorder_tree_walk_reverse(node_ptr head) const;
-			void				postorder_tree_walk_reverse() const;
-
 			void				print_level(node_ptr head, int level) const;
 			void				print_level(int level) const;
-			void				print_level_reverse(node_ptr head, int level) const;
-			void				print_level_reverse(int level) const;
 
 			void				print_tree(node_ptr head) const;
 			void				print_tree() const;
@@ -140,7 +131,7 @@ namespace	ft
 			void						erase(iterator pos);
 			void						clear(node_ptr head);
 			void						clear();
-			void						swap(binary_search_tree &other);
+			void						swap(rb_tree &other);
 
 		/* Iterators */
 		public:
@@ -174,6 +165,6 @@ namespace	ft
 	};
 }
 
-# include "binary_search_tree_impl.tpp"
+# include "rb_tree_impl.tpp"
 
 #endif
