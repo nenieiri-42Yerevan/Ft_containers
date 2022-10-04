@@ -508,19 +508,9 @@ namespace	ft
 		size_type	count;
 
 		count = 0;
-		if (multivalues == true)
-		{
-			int	level = 0;
-			int	tree_height = this->height(head);
-			while (++level <= tree_height)
-				count_in_level(head, data, level, count);
-		}
-		else
-		{
-			node_ptr	res = search(head, data);
-			if (res != this->_null_node)
-				++count;
-		}
+		node_ptr	res = search(head, data);
+		if (res != this->_null_node)
+			++count;
 		return (count);
 	}
 
@@ -863,11 +853,6 @@ namespace	ft
 			{
 				if (multivalues == false)
 					return (ft::pair<iterator, bool>(iterator(_head, tmp), false));
-				if (tmp->multi == false)
-					tmp = tmp->right;
-				else
-					tmp = tmp->left;
-				parent->multi = !(parent->multi);
 			}
 			else if (this->comp_data(new_node->data, tmp->data))
 				tmp = tmp->left;
@@ -877,14 +862,14 @@ namespace	ft
 		new_node->p = parent;
 		if (parent == this->_null_node)
 			this->_head = new_node;
-		else if (!this->comp_data(new_node->data, parent->data) && \
+		/*else if (!this->comp_data(new_node->data, parent->data) && \
 				!this->comp_data(parent->data, new_node->data))
 		{
 			if (parent->multi == true)
 				parent->right = new_node;
 			else
 				parent->left = new_node;
-		}
+		}*/
 		else if (this->comp_data(new_node->data, parent->data))
 			parent->left = new_node;
 		else
@@ -1022,22 +1007,10 @@ namespace	ft
 
 		count = 0;
 		found = this->search(value);
-		if (multivalues == false)
+		if (found != _null_node)
 		{
-			if (found != _null_node)
-			{
-				this->erase(found);
-				++count;
-			}
-		}
-		else
-		{
-			while (found != _null_node)
-			{
-				this->erase(found);
-				++count;
-				found = this->search(value);
-			}
+			this->erase(found);
+			++count;
 		}
 		return (count);
 	}
