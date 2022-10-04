@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   binary_node.hpp                                    :+:      :+:    :+:   */
+/*   rb_node.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/02 14:14:03 by vismaily          #+#    #+#             */
+/*   Created: 2022/10/04 17:21:57 by vismaily          #+#    #+#             */
 /*   Updated: 2022/10/04 17:24:21 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BINARY_NODE_HPP
-# define FT_BINARY_NODE_HPP
+#ifndef FT_RB_NODE_HPP
+# define FT_RB_NODE_HPP
 
 namespace	ft
 {
 	template <typename T>
-	struct	binary_node
+	struct	rb_node
 	{
-		binary_node();
-		binary_node(const T &elem);
-		binary_node(const binary_node &other);
-		binary_node		&operator=(const binary_node &other);
-		~binary_node();
+		rb_node();
+		rb_node(const T &elem);
+		rb_node(const binary_node &other);
+		rb_node		&operator=(const rb_node &other);
+		~rb_node();
 
 		T			data;
-		binary_node	*left;
-		binary_node	*right;
-		binary_node	*p;
-		bool		multi;
+		rb_node		*left;
+		rb_node		*right;
+		rb_node		*p;
 	};
 }
 
-# include "binary_node_impl.tpp"
+# include "rb_node_impl.tpp"
 
 #endif
