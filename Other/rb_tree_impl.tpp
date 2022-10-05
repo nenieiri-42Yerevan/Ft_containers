@@ -1261,6 +1261,58 @@ namespace	ft
 	{
 		return (_comp(KeyOfValue()(v1), KeyOfValue()(v2)));
 	}
+
+	template <
+		typename T,
+		typename KeyOfValue,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> void	rb_tree<T, KeyOfValue, Compare, Alloc, multivalues>::rotate_left \
+		(node_ptr node)
+	{
+		node_ptr	y;
+
+		y = node.right;
+		node.right = y.left;
+		if (y.left != _null_node)
+			y.left.p = node;
+		y.p = node.p;
+		if (node.p == _null_node)
+			_head = y;
+		else if (node == node.p.left)
+			node.p.left = y;
+		else
+			node.p.right = y;
+		y.left = node;
+		node.p = y;
+	}
+
+	template <
+		typename T,
+		typename KeyOfValue,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> void	rb_tree<T, KeyOfValue, Compare, Alloc, multivalues>::rotate_right \
+		(node_ptr node)
+	{
+		node_ptr	y;
+
+		y = node.left;
+		node.left = y.right;
+		if (y.right != _null_node)
+			y.right.p = node;
+		y.p = node.p;
+		if (node.p == _null_node)
+			_head = y;
+		else if (node == node.p.left)
+			node.p.left = y;
+		else
+			node.p.right = y;
+		y.right = node;
+		node.p = y;
+	}
 }
 
 #endif

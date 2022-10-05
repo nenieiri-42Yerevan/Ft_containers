@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 16:13:14 by vismaily          #+#    #+#             */
-/*   Updated: 2022/10/04 17:11:20 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/10/05 11:47:21 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,6 +153,8 @@ namespace	ft
 			void				transplant(node_ptr u, node_ptr v);
 			void				deep_copy(node_ptr other_node, node_ptr other_null);
 			bool				comp_data(value_type v1, value_type v2) const;
+			void				rotate_left(node_ptr node);
+			void				rotate_right(node_ptr node);
 
 		/* Member data */
 		private:
