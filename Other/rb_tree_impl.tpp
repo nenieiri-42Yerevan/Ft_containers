@@ -35,17 +35,18 @@ namespace	ft
 		_alloc_node(allocator_node_type()),
 		_comp(comp)
 	{
-		this->_null_node = this->_alloc_node.allocate(1);
+		_null_node = this->_alloc_node.allocate(1);
 		try
 		{
-			this->_alloc_node.construct(this->_null_node);
+			this->_alloc_node.construct(_null_node);
 		}
 		catch (...)
 		{
-			this->_alloc_node.deallocate(this->_null_node, 1);
+			this->_alloc_node.deallocate(_null_node, 1);
 			throw ;
 		}
-		this->_null_node->p = this->_null_node;
+		_null_node->p = _null_node;
+		_null_node->color = ft::BLACK;
 		this->_size = 0;
 		this->_head = this->_null_node;
 	}
@@ -73,6 +74,7 @@ namespace	ft
 			throw ;
 		}
 		this->_null_node->p = this->_null_node;
+		_null_node->color = ft::BLACK;
 		this->_size = 1;
 		this->_head = head;
 	}
@@ -100,6 +102,7 @@ namespace	ft
 			throw ;
 		}
 		this->_null_node->p = this->_null_node;
+		_null_node->color = ft::BLACK;
 		this->_head = this->_null_node;
 		this->deep_copy(other.get_head(), other._null_node);
 		this->_size = other._size;
@@ -679,7 +682,7 @@ namespace	ft
 	{
 		if (head != this->_null_node)
 		{
-			std::cout << head->data << ' ';
+			std::cout << KeyOfValue()(head->data) << ' ';
 			preorder_tree_walk(head->left);
 			preorder_tree_walk(head->right);
 		}
@@ -709,7 +712,7 @@ namespace	ft
 		if (head != this->_null_node)
 		{
 			inorder_tree_walk(head->left);
-			std::cout << head->data << ' ';
+			std::cout << KeyOfValue()(head->data) << ' ';
 			inorder_tree_walk(head->right);
 		}
 	}
@@ -739,7 +742,7 @@ namespace	ft
 		{
 			postorder_tree_walk(head->left);
 			postorder_tree_walk(head->right);
-			std::cout << head->data << ' ';
+			std::cout << KeyOfValue()(head->data) << ' ';
 		}
 	}
 
@@ -767,7 +770,7 @@ namespace	ft
 		if (head != this->_null_node)
 		{
 			if (level == 1)
-				std::cout << head->data << " ";
+				std::cout << KeyOfValue()(head->data) << " ";
 			else if (level > 1)
 			{
 				print_level(head->left, level - 1);
@@ -875,6 +878,7 @@ namespace	ft
 		else
 			parent->right = new_node;
 		++(this->_size);
+		this->insert_fixup(new_node);
 		return (ft::pair<iterator, bool>(iterator(_head, new_node), true));
 	}
 
@@ -957,6 +961,67 @@ namespace	ft
 			this->_alloc_node.deallocate(new_node, 1);
 		}
 		return (res);
+	}
+
+	template <
+		typename T,
+		typename KeyOfValue,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> void	rb_tree<T, KeyOfValue, Compare, Alloc, multivalues>::insert_fixup \
+		(node_ptr new_node)
+	{
+		node_ptr	y;
+
+		while (new_node->p->color == ft::RED)
+		{
+			if (new_node->p == new_node->p->p->left)
+			{
+				y = new_node->p->p->right;
+				if (y->color == ft::RED)
+				{
+					y->color = ft::BLACK;
+					new_node->p->color = ft::BLACK;
+					new_node->p->p->color = ft::RED;
+					new_node = new_node->p->p;
+				}
+				else
+				{
+					if (new_node == new_node->p->right)
+					{
+						new_node = new_node->p;
+						rotate_left(new_node);
+					}
+					new_node->p->color = ft::BLACK;
+					new_node->p->p->color = ft::RED;
+					rotate_right(new_node->p->p);
+				}
+			}
+			else
+			{
+				y = new_node->p->p->left;
+				if (y->color == ft::RED)
+				{
+					y->color = ft::BLACK;
+					new_node->p->color = ft::BLACK;
+					new_node->p->p->color = ft::RED;
+					new_node = new_node->p->p;
+				}
+				else
+				{
+					if (new_node == new_node->p->left)
+					{
+						new_node = new_node->p;
+						rotate_right(new_node);
+					}
+					new_node->p->color = ft::BLACK;
+					new_node->p->p->color = ft::RED;
+					rotate_left(new_node->p->p);
+				}
+			}
+		}
+		_head->color = ft::BLACK;
 	}
 
 	template <
@@ -1273,19 +1338,19 @@ namespace	ft
 	{
 		node_ptr	y;
 
-		y = node.right;
-		node.right = y.left;
-		if (y.left != _null_node)
-			y.left.p = node;
-		y.p = node.p;
-		if (node.p == _null_node)
+		y = node->right;
+		node->right = y->left;
+		if (y->left != _null_node)
+			y->left->p = node;
+		y->p = node->p;
+		if (node->p == _null_node)
 			_head = y;
-		else if (node == node.p.left)
-			node.p.left = y;
+		else if (node == node->p->left)
+			node->p->left = y;
 		else
-			node.p.right = y;
-		y.left = node;
-		node.p = y;
+			node->p->right = y;
+		y->left = node;
+		node->p = y;
 	}
 
 	template <
@@ -1299,19 +1364,19 @@ namespace	ft
 	{
 		node_ptr	y;
 
-		y = node.left;
-		node.left = y.right;
-		if (y.right != _null_node)
-			y.right.p = node;
-		y.p = node.p;
-		if (node.p == _null_node)
+		y = node->left;
+		node->left = y->right;
+		if (y->right != _null_node)
+			y->right->p = node;
+		y->p = node->p;
+		if (node->p == _null_node)
 			_head = y;
-		else if (node == node.p.left)
-			node.p.left = y;
+		else if (node == node->p->left)
+			node->p->left = y;
 		else
-			node.p.right = y;
-		y.right = node;
-		node.p = y;
+			node->p->right = y;
+		y->right = node;
+		node->p = y;
 	}
 }
 

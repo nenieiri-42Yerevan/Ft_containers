@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 17:21:57 by vismaily          #+#    #+#             */
-/*   Updated: 2022/10/05 11:40:56 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/10/06 14:18:27 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,18 @@
 
 namespace	ft
 {
+	typedef enum e_rb_color
+	{
+		BLACK,
+		RED
+	}				t_rb_color;
+
 	template <typename T>
 	struct	rb_node
 	{
 		rb_node();
 		rb_node(const T &elem);
-		rb_node(const binary_node &other);
+		rb_node(const rb_node &other);
 		rb_node		&operator=(const rb_node &other);
 		~rb_node();
 
@@ -28,7 +34,7 @@ namespace	ft
 		rb_node		*left;
 		rb_node		*right;
 		rb_node		*p;
-		bool		color; // 0 == black; 1 == red
+		t_rb_color	color;
 	};
 }
 

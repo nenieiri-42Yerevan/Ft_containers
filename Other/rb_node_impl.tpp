@@ -26,7 +26,7 @@ namespace	ft
 		this->left = NULL;
 		this->right = NULL;
 		this->p = NULL;
-		this->color = 1;
+		this->color = ft::RED;
 	}
 
 	template <typename T>
@@ -35,7 +35,7 @@ namespace	ft
 		this->left = NULL;
 		this->right = NULL;
 		this->p = NULL;
-		this->color = 1;
+		this->color = ft::RED;
 	}
 
 	template <typename T>

@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:44:23 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/29 17:04:57 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/10/06 12:01:13 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 # include <memory>
 # include <stdexcept>
 # include "../Other/utility.hpp"
-# include "../Other/binary_search_tree.hpp"
+//# include "../Other/binary_search_tree.hpp"
+# include "../Other/rb_tree.hpp"
 # include "../Other/functional.hpp"
 # include "../Other/algorithm.hpp"
 
@@ -43,16 +44,16 @@ namespace	ft
 			typedef value_type				*pointer;
 			typedef const value_type		*const_pointer;
 
-			typedef typename binary_search_tree<value_type, \
+			typedef typename rb_tree<value_type, \
 					select_first<value_type>, key_compare, allocator_type, \
 					false>::iterator	iterator;
-			typedef typename binary_search_tree<value_type, \
+			typedef typename rb_tree<value_type, \
 					select_first<value_type>, key_compare, allocator_type, \
 					false>::const_iterator	const_iterator;
-			typedef typename binary_search_tree<value_type, \
+			typedef typename rb_tree<value_type, \
 					select_first<value_type>, key_compare, allocator_type, \
 					false>::reverse_iterator	reverse_iterator;
-			typedef typename binary_search_tree<value_type, \
+			typedef typename rb_tree<value_type, \
 					select_first<value_type>, key_compare, allocator_type, \
 					false>::const_reverse_iterator	const_reverse_iterator;
 
@@ -150,7 +151,7 @@ namespace	ft
 
 		/* Member data */
 		private:
-			binary_search_tree<value_type, select_first<value_type>, \
+			rb_tree<value_type, select_first<value_type>, \
 								key_compare, allocator_type, false> _tree;
 	};
 
