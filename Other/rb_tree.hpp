@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 16:13:14 by vismaily          #+#    #+#             */
-/*   Updated: 2022/10/05 12:23:20 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/10/06 16:28:00 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,7 @@ namespace	ft
 			void						erase(node_ptr old_node);
 			size_type					erase(value_type value);
 			void						erase(iterator pos);
+			void						erase_fixup(node_ptr x);
 			void						clear(node_ptr head);
 			void						clear();
 			void						swap(rb_tree &other);

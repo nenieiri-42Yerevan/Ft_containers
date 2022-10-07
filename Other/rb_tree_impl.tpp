@@ -45,10 +45,10 @@ namespace	ft
 			this->_alloc_node.deallocate(_null_node, 1);
 			throw ;
 		}
-		_null_node->p = _null_node;
+		this->_head = this->_null_node;
+		_null_node->p = this->_head;
 		_null_node->color = ft::BLACK;
 		this->_size = 0;
-		this->_head = this->_null_node;
 	}
 
 	template <
@@ -73,10 +73,10 @@ namespace	ft
 			this->_alloc_node.deallocate(this->_null_node, 1);
 			throw ;
 		}
-		this->_null_node->p = this->_null_node;
+		this->_head = head;
+		this->_null_node->p = this->_head;
 		_null_node->color = ft::BLACK;
 		this->_size = 1;
-		this->_head = head;
 	}
 
 	template <
@@ -101,9 +101,9 @@ namespace	ft
 			this->_alloc_node.deallocate(this->_null_node, 1);
 			throw ;
 		}
-		this->_null_node->p = this->_null_node;
-		_null_node->color = ft::BLACK;
 		this->_head = this->_null_node;
+		this->_null_node->p = this->_head;
+		_null_node->color = ft::BLACK;
 		this->deep_copy(other.get_head(), other._null_node);
 		this->_size = other._size;
 	}
@@ -855,7 +855,7 @@ namespace	ft
 				!this->comp_data(tmp->data, new_node->data))
 			{
 				if (multivalues == false)
-					return (ft::pair<iterator, bool>(iterator(_head, tmp), false));
+					return (ft::pair<iterator, bool>(iterator(_null_node, tmp), false));
 			}
 			else if (this->comp_data(new_node->data, tmp->data))
 				tmp = tmp->left;
@@ -879,7 +879,8 @@ namespace	ft
 			parent->right = new_node;
 		++(this->_size);
 		this->insert_fixup(new_node);
-		return (ft::pair<iterator, bool>(iterator(_head, new_node), true));
+		this->_null_node->p = this->_head;
+		return (ft::pair<iterator, bool>(iterator(_null_node, new_node), true));
 	}
 
 	template <
@@ -1034,27 +1035,47 @@ namespace	ft
 		(node_ptr old_node)
 	{
 		node_ptr	u;
+		node_ptr	x;
+		t_rb_color	u_original_color;
 
+		u = old_node;
+		u_original_color = u->color;
+		if (old_node == _null_node)
+			return ;
 		if (old_node->left == this->_null_node)
+		{
+			x = old_node->right;
 			this->transplant(old_node, old_node->right);
+		}
 		else if (old_node->right == this->_null_node)
+		{
+			x = old_node->left;
 			this->transplant(old_node, old_node->left);
+		}
 		else
 		{
 			u = this->min(old_node->right);
+			u_original_color = u->color;
+			x = u->right;
 			if (u != old_node->right)
 			{
 				this->transplant(u, u->right);
 				u->right = old_node->right;
 				u->right->p = u;
 			}
+			else
+				x->p = u;
 			this->transplant(old_node, u);
 			u->left = old_node->left;
 			u->left->p = u;
+			u->color = old_node->color;
 		}
 		this->_alloc_node.destroy(old_node);
 		this->_alloc_node.deallocate(old_node, 1);
 		--(this->_size);
+		if (u_original_color == ft::BLACK)
+			erase_fixup(x);
+		this->_null_node->p = this->_head;
 	}
 
 	template <
@@ -1090,6 +1111,85 @@ namespace	ft
 		(iterator pos)
 	{
 		this->erase(pos.get_node());
+	}
+
+	template <
+		typename T,
+		typename KeyOfValue,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
+	> void	rb_tree<T, KeyOfValue, Compare, Alloc, multivalues>::erase_fixup \
+		(node_ptr x)
+	{
+		node_ptr	w;
+
+		while (x != _head && x->color == ft::BLACK)
+		{
+			if (x == x->p->left)
+			{
+				w = x->p->right;
+				if (w->color == ft::RED)
+				{
+					w->color = ft::BLACK;
+					x->p->color = ft::RED;
+					rotate_left(x->p);
+					w = x->p->right;
+				}
+				if (w->left->color == ft::BLACK && w->right->color == ft::BLACK)
+				{
+					w->color = ft::RED;
+					x = x->p;
+				}
+				else
+				{
+					if (w->right->color == ft::BLACK)
+					{
+						w->left->color = ft::BLACK;
+						w->color = ft::RED;
+						rotate_right(w);
+						w = x->p->right;
+					}
+					w->color = x->p->color;
+					x->p->color = ft::BLACK;
+					w->right->color = ft::BLACK;
+					rotate_left(x->p);
+					x = _head;
+				}
+			}
+			else
+			{
+				w = x->p->left;
+				if (w->color == ft::RED)
+				{
+					w->color = ft::BLACK;
+					x->p->color = ft::RED;
+					rotate_right(x->p);
+					w = x->p->left;
+				}
+				if (w->right->color == ft::BLACK && w->left->color == ft::BLACK)
+				{
+					w->color = ft::RED;
+					x = x->p;
+				}
+				else
+				{
+					if (w->left->color == ft::BLACK)
+					{
+						w->right->color = ft::BLACK;
+						w->color = ft::RED;
+						rotate_left(w);
+						w = x->p->left;
+					}
+					w->color = x->p->color;
+					x->p->color = ft::BLACK;
+					w->left->color = ft::BLACK;
+					rotate_right(x->p);
+					x = _head;
+				}
+			}
+		}
+		x->color = ft::BLACK;
 	}
 
 	template <
@@ -1162,7 +1262,7 @@ namespace	ft
 	> typename rb_tree<T, KeyOfValue, Compare, Alloc, multivalues>::iterator \
 		rb_tree<T, KeyOfValue, Compare, Alloc, multivalues>::begin()
 	{
-		return (iterator(this->_head, this->min()));
+		return (iterator(this->_null_node, this->min()));
 	}
 
 	template <
@@ -1175,7 +1275,7 @@ namespace	ft
 		const_iterator rb_tree<T, KeyOfValue, Compare, Alloc, multivalues>:: \
 		begin() const
 	{
-		return (const_iterator(this->_head, this->min()));
+		return (const_iterator(this->_null_node, this->min()));
 	}
 
 	template <
@@ -1187,7 +1287,7 @@ namespace	ft
 	> typename rb_tree<T, KeyOfValue, Compare, Alloc, multivalues>::iterator \
 		rb_tree<T, KeyOfValue, Compare, Alloc, multivalues>::end()
 	{
-		return (iterator(this->_head, this->_null_node));
+		return (iterator(this->_null_node, this->_null_node));
 	}
 
 	template <
@@ -1200,7 +1300,7 @@ namespace	ft
 		const_iterator rb_tree<T, KeyOfValue, Compare, Alloc, multivalues>:: \
 		end() const
 	{
-		return (const_iterator(this->_head, this->_null_node));
+		return (const_iterator(this->_null_node, this->_null_node));
 	}
 
 	template <
@@ -1285,16 +1385,13 @@ namespace	ft
 	> void	rb_tree<T, KeyOfValue, Compare, Alloc, multivalues>::transplant \
 		(node_ptr u, node_ptr v)
 	{
-		if (u == this->_null_node)
-			return ;
-		if (u->p == this->_null_node)
+		if (u->p == _null_node)
 			this->_head = v;
 		else if (u == u->p->left)
 			u->p->left = v;
 		else
 			u->p->right = v;
-		if (v != this->_null_node)
-			v->p = u->p;
+		v->p = u->p;
 	}
 
 	template <

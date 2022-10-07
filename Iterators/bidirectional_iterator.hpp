@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 15:08:57 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/26 11:50:17 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/10/07 18:23:11 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ namespace	ft
 			typedef typename iterator<bidirectional_iteraotr_tag, pair_type>::reference	reference;
 		public:
 			bidirectional_iterator();
-			bidirectional_iterator(node_pointer head, node_pointer ptr);
+			bidirectional_iterator(node_pointer null_node, node_pointer ptr);
 			bidirectional_iterator(const bidirectional_iterator &other);
 			bidirectional_iterator		&operator=(const bidirectional_iterator &other);
 			operator					bidirectional_iterator<const T, const pair_type> () const;
@@ -52,7 +52,7 @@ namespace	ft
 			bool		operator==(const bidirectional_iterator &other) const;
 			bool		operator!=(const bidirectional_iterator &other) const;
 		private:
-			node_pointer							_head;
+			node_pointer							_null_node;
 			node_pointer							_elem;
 	};
 }

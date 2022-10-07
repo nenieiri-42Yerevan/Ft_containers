@@ -21,15 +21,15 @@ namespace	ft
 {
 	template <typename T, typename pair_type>
 	bidirectional_iterator<T, pair_type>::bidirectional_iterator() :
-		_head(),
+		_null_node(),
 		_elem()
 	{
 	}
 
 	template <typename T, typename pair_type>
 	bidirectional_iterator<T, pair_type>::bidirectional_iterator \
-		(node_pointer head, node_pointer ptr) :
-		_head(head),
+		(node_pointer null_node, node_pointer ptr) :
+		_null_node(null_node),
 		_elem(ptr)
 	{
 	}
@@ -38,7 +38,7 @@ namespace	ft
 	bidirectional_iterator<T, pair_type>::bidirectional_iterator
 		(const bidirectional_iterator &other)
 	{
-		this->_head = other._head;
+		this->_null_node = other._null_node;
 		this->_elem = other._elem;
 	}
 
@@ -46,7 +46,7 @@ namespace	ft
 	bidirectional_iterator<T, pair_type>::operator \
 		bidirectional_iterator<const T, const pair_type> () const
 	{
-		return (bidirectional_iterator<const T, const pair_type>(this->_head, this->_elem));
+		return (bidirectional_iterator<const T, const pair_type>(this->_null_node, this->_elem));
 	}
 
 	template <typename T, typename pair_type>
@@ -56,7 +56,7 @@ namespace	ft
 	{
 		if (this != &other)
 		{
-			this->_head = other._head;
+			this->_null_node = other._null_node;
 			this->_elem = other._elem;
 		}
 		return (*this);
@@ -71,10 +71,10 @@ namespace	ft
 	bidirectional_iterator<T, pair_type>	&
 		bidirectional_iterator<T, pair_type>::operator++()
 	{
-		if (this->_elem->right != this->_head->p)
+		if (this->_elem->right != this->_null_node)
 		{
 			this->_elem = this->_elem->right;
-			while (this->_elem->left != this->_head->p)
+			while (this->_elem->left != this->_null_node)
 				this->_elem = this->_elem->left;
 		}
 		else
@@ -98,6 +98,7 @@ namespace	ft
 		bidirectional_iterator<T, pair_type>	tmp;
 
 		tmp = *this;
+
 		this->operator++();
 		return (tmp);
 	}
@@ -106,16 +107,16 @@ namespace	ft
 	bidirectional_iterator<T, pair_type>	&
 		bidirectional_iterator<T, pair_type>::operator--()
 	{
-		if (this->_elem == this->_head->p)
+		if (this->_elem == this->_null_node)
 		{
-			this->_elem = this->_head;
-			while (this->_elem->right != this->_head->p)
+			this->_elem = this->_null_node->p;
+			while (this->_elem->right != this->_null_node)
 				this->_elem = this->_elem->right;
 		}
-		else if (this->_elem->left != this->_head->p)
+		else if (this->_elem->left != this->_null_node)
 		{
 			this->_elem = this->_elem->left;
-			while (this->_elem->right != this->_head->p)
+			while (this->_elem->right != this->_null_node)
 				this->_elem = this->_elem->right;
 		}
 		else
