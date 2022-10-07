@@ -200,6 +200,18 @@ namespace	ft
 		typename Compare,
 		typename Alloc,
 		bool multivalues
+	> typename rb_tree<T, KeyOfValue, Compare, Alloc, multivalues>::node_ptr
+		rb_tree<T, KeyOfValue, Compare, Alloc, multivalues>::get_null() const
+	{
+		return (this->_null_node);
+	}
+
+	template <
+		typename T,
+		typename KeyOfValue,
+		typename Compare,
+		typename Alloc,
+		bool multivalues
 	> int	rb_tree<T, KeyOfValue, Compare, Alloc, multivalues>::height
 		(node_ptr head) const
 	{

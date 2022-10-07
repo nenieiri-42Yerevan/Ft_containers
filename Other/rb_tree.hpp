@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 16:13:14 by vismaily          #+#    #+#             */
-/*   Updated: 2022/10/06 16:28:00 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/10/07 19:31:06 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ namespace	ft
 		public:
 			node_ptr			create_node(value_type data);
 			node_ptr			get_head() const;
+			node_ptr			get_null() const;
 			int					height(node_ptr head) const;
 			int					height() const;
 			node_ptr			min(node_ptr head) const;

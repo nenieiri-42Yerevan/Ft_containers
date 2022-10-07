@@ -393,7 +393,7 @@ namespace	ft
 		map<Key, T, Compare, Allocator>::find(const key_type &key)
 	{
 		value_type	tmp(key, T());
-		iterator	it(_tree.get_head(), _tree.search(tmp));
+		iterator	it(_tree.get_null(), _tree.search(tmp));
 		
 		return (it);
 	}
@@ -407,7 +407,7 @@ namespace	ft
 		map<Key, T, Compare, Allocator>::find(const key_type &key) const
 	{
 		value_type		tmp(key, T());
-		const_iterator	it(_tree.get_head(), _tree.search(tmp));
+		const_iterator	it(_tree.get_null(), _tree.search(tmp));
 		
 		return (it);
 	}
