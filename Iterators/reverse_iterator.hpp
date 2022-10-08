@@ -6,12 +6,14 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/02 14:36:06 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/22 19:22:33 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/10/08 13:10:41 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_REVERSE_ITERATOR_HPP
 # define FT_REVERSE_ITERATOR_HPP
+
+# include "iterator.hpp"
 
 namespace	ft
 {
@@ -19,12 +21,12 @@ namespace	ft
 	class	reverse_iterator
 	{
 		public:
-			typedef It												iterator_type;
-			typedef typename iterator_traits<It>::iterator_category	iterator_category;
-			typedef typename iterator_traits<It>::value_type		value_type;
-			typedef typename iterator_traits<It>::difference_type	difference_type;
-			typedef typename iterator_traits<It>::pointer			pointer;
-			typedef typename iterator_traits<It>::reference			reference;
+			typedef It													iterator_type;
+			typedef typename ft::iterator_traits<It>::iterator_category	iterator_category;
+			typedef typename ft::iterator_traits<It>::value_type		value_type;
+			typedef typename ft::iterator_traits<It>::difference_type	difference_type;
+			typedef typename ft::iterator_traits<It>::pointer			pointer;
+			typedef typename ft::iterator_traits<It>::reference			reference;
 		public:
 			reverse_iterator();
 			explicit		reverse_iterator(iterator_type it);

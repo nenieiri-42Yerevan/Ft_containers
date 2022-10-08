@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 15:47:53 by vismaily          #+#    #+#             */
-/*   Updated: 2022/10/01 13:31:59 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/10/08 13:27:33 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ namespace	ft
 
 	struct	input_iterator_tag {};
 	struct	output_iterator_tag {};
-	struct	forward_iterator_tag : public input_iterator_tag {};
-	struct	bidirectional_iteraotr_tag : public forward_iterator_tag {};
-	struct	random_access_iterator_tag : public bidirectional_iteraotr_tag {};
+	struct	forward_iterator_tag : public ft::input_iterator_tag {};
+	struct	bidirectional_iterator_tag : public ft::forward_iterator_tag {};
+	struct	random_access_iterator_tag : public bidirectional_iterator_tag {};
 
 	/*=================================*/
 	/*           Iterator              */
@@ -96,8 +96,5 @@ namespace	ft
 		return (dist);
 	}
 }
-
-# include "random_access_iterator.hpp"
-# include "reverse_iterator.hpp"
 
 #endif

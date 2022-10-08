@@ -6,26 +6,28 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 13:36:50 by vismaily          #+#    #+#             */
-/*   Updated: 2022/09/14 15:13:13 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/10/08 13:27:28 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_RANDOM_ACCESS_ITERATOR_HPP
 # define FT_RANDOM_ACCESS_ITERATOR_HPP
 
+# include "iterator.hpp"
+
 namespace	ft
 {
 	template <typename T>
-	class	random_access_iterator : public iterator<random_access_iterator_tag, T>
+	class	random_access_iterator : public ft::iterator<ft::random_access_iterator_tag, T>
 	{
 		public:
-			typedef typename iterator<random_access_iterator_tag, T>::iterator_category \
-				    										iterator_category;
-            typedef typename iterator<random_access_iterator_tag, T>::pointer	pointer;
-            typedef typename iterator<random_access_iterator_tag, T>::reference	reference;
-            typedef typename iterator<random_access_iterator_tag, T>::value_type	value_type;
-            typedef typename iterator<random_access_iterator_tag, T>::difference_type \
-															difference_type;
+            typedef std::iterator<ft::random_access_iterator_tag, T>	iterator_type;
+
+			typedef typename iterator_type::iterator_category	iterator_category;
+            typedef typename iterator_type::pointer				pointer;
+            typedef typename iterator_type::reference			reference;
+            typedef typename iterator_type::value_type			value_type;
+            typedef typename iterator_type::difference_type		difference_type;
 		public:
 			random_access_iterator();
 			random_access_iterator(pointer ptr);

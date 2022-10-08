@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:22:31 by vismaily          #+#    #+#             */
-/*   Updated: 2022/10/01 18:46:03 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/10/08 13:27:30 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 # include <cstddef>
 # include <stdexcept>
 # include <string>
-# include "../Iterators/iterator.hpp"
+# include "../Iterators/random_access_iterator.hpp"
+# include "../Iterators/reverse_iterator.hpp"
 # include "../Other/type_traits.hpp"
 # include "../Other/algorithm.hpp"
 
@@ -39,10 +40,10 @@ namespace	ft
 			typedef ptrdiff_t			difference_type;
 			typedef size_t				size_type;
 			/* Member types (iterators) */
-			typedef random_access_iterator<T>			iterator;
-			typedef random_access_iterator<const T>		const_iterator;
-			typedef reverse_iterator<const_iterator>	const_reverse_iterator;
-			typedef reverse_iterator<iterator>			reverse_iterator;
+			typedef ft::random_access_iterator<T>			iterator;
+			typedef ft::random_access_iterator<const T>		const_iterator;
+			typedef ft::reverse_iterator<const_iterator>	const_reverse_iterator;
+			typedef ft::reverse_iterator<iterator>			reverse_iterator;
 		
 		/* Constructers and Destructer */
 		public:
