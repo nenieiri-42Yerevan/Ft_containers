@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/07 16:41:32 by vismaily          #+#    #+#             */
-/*   Updated: 2022/10/07 18:43:11 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/10/08 14:21:31 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,7 +195,7 @@ static void	example3()
 	it2 = A.end();
 	std::cout << COLOR_PURPLE_B << "Example 3" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
-	std::cout << "std -> ";
+	std::cout << "std::map -> ";
 	std::cout << (it1 == it2);
 	A.insert(std::make_pair(0, "0A"));
 	A.insert(std::make_pair(-2, "-2B"));
@@ -226,7 +226,7 @@ static void	example3()
 	ft_it1 = ft_A.begin();
 	ft_it2 = ft_A.end();
 	std::cout << COLOR_GREEN_B;
-	std::cout << "ft  -> ";
+	std::cout << "ft::map  -> ";
 	std::cout << (ft_it1 == ft_it2);
 	ft_A.insert(ft::make_pair(0, "0A"));
 	ft_A.insert(ft::make_pair(-2, "-2B"));
@@ -264,7 +264,7 @@ static void	example4()
 	it2 = A.end();
 	std::cout << COLOR_PURPLE_B << "Example 4" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
-	std::cout << "std -> ";
+	std::cout << "std::map -> ";
 	std::cout << (it1 == it2);
 	A.insert(std::make_pair(0, "0A"));
 	A.insert(std::make_pair(-2, "-2B"));
@@ -298,7 +298,7 @@ static void	example4()
 	ft_it1 = ft_A.begin();
 	ft_it2 = ft_A.end();
 	std::cout << COLOR_GREEN_B;
-	std::cout << "ft  -> ";
+	std::cout << "ft::map  -> ";
 	std::cout << (ft_it1 == ft_it2);
 	ft_A.insert(ft::make_pair(0, "0A"));
 	ft_A.insert(ft::make_pair(-2, "-2B"));
@@ -518,7 +518,7 @@ static void	example8()
 	it2 = A.end();
 	std::cout << COLOR_PURPLE_B << "Example 8" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
-	std::cout << "std -> ";
+	std::cout << "std::map -> ";
 	std::cout << (it1 == it2);
 	A.insert(std::make_pair(0, "0A"));
 	A.insert(std::make_pair(-2, "-2B"));
@@ -549,7 +549,7 @@ static void	example8()
 	ft_it1 = ft_A.begin();
 	ft_it2 = ft_A.end();
 	std::cout << COLOR_GREEN_B;
-	std::cout << "ft  -> ";
+	std::cout << "ft::map  -> ";
 	std::cout << (ft_it1 == ft_it2);
 	ft_A.insert(ft::make_pair(0, "0A"));
 	ft_A.insert(ft::make_pair(-2, "-2B"));
@@ -587,7 +587,7 @@ static void	example9()
 	it2 = A.rend();
 	std::cout << COLOR_PURPLE_B << "Example 9" << COLOR_END << std::endl;
 	std::cout << COLOR_YELLOW_B;
-	std::cout << "std -> ";
+	std::cout << "std::map -> ";
 	std::cout << (it1 == it2);
 	A.insert(std::make_pair(0, "0A"));
 	A.insert(std::make_pair(-2, "-2B"));
@@ -616,7 +616,7 @@ static void	example9()
 	ft_it1 = ft_A.rbegin();
 	ft_it2 = ft_A.rend();
 	std::cout << COLOR_GREEN_B;
-	std::cout << "ft  -> ";
+	std::cout << "ft::map  -> ";
 	std::cout << (ft_it1 == ft_it2);
 	ft_A.insert(ft::make_pair(0, "0A"));
 	ft_A.insert(ft::make_pair(-2, "-2B"));
@@ -654,7 +654,7 @@ static void	example10()
 	std::pair<char, int> highest = *(A.rbegin());
 	std::map<char, int>::iterator	it = A.begin();
 	std::cout << COLOR_YELLOW_B;
-	std::cout << "std ->";
+	std::cout << "std::map ->";
 	do
 	{
 		std::cout << " " << it->first << " => " << it->second;
@@ -674,7 +674,7 @@ static void	example10()
 	ft_A.insert(ft::make_pair('z', 3003));
 	ft::pair<char, int> ft_highest = *(ft_A.rbegin());
 	ft::map<char, int>::iterator	ft_it = ft_A.begin();
-	std::cout << "ft  ->";
+	std::cout << "ft::map  ->";
 	do
 	{
 		std::cout << " " << ft_it->first << " => " << ft_it->second;
@@ -1581,7 +1581,7 @@ static void	example22()
 	std::cout << "value:";
 	for (std::vector<int>::iterator ft_it1 = ft_v.begin(); ft_it1 != ft_v.end(); ++ft_it1)
 		std::cout << " " << *ft_it1;
-	std::cout << '.' << COLOR_END << std::endl << std::endl;
+	std::cout << '.' << COLOR_END << std::endl;
 }
 
 void	map_test()

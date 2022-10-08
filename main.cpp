@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 12:20:25 by vismaily          #+#    #+#             */
-/*   Updated: 2022/10/02 12:44:32 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/10/08 14:12:52 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	map_test();
 
 int	main()
 {
-	//vector_test();
-//	stack_test();
+	vector_test();
+	stack_test();
 	map_test();
 }

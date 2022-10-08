@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 18:10:37 by vismaily          #+#    #+#             */
-/*   Updated: 2022/10/02 16:58:00 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/10/08 14:19:27 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1513,7 +1513,7 @@ static void	example26()
 	ft::vector<int> ft_vct2;
 	for (unsigned long int i = 0; i < ft_vct.size(); ++i)
 		ft_vct[i] = (ft_vct.size() - i) * 7;
-	std::cout << "std::vector ->";
+	std::cout << "ft::vector ->";
 	std::cout << " values:";
 	for (unsigned long int i = 0; i < ft_vct.size(); ++i)
 		std::cout << " " << ft_vct[i];
