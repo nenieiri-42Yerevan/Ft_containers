@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 18:10:37 by vismaily          #+#    #+#             */
-/*   Updated: 2022/10/08 14:19:27 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/12/09 18:57:01 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -469,65 +469,6 @@ static void	example10()
 static void	example11()
 {
 	/* Example 11 */
-	/* Example for const and non-const iterators comparison */
-
-	std::vector<int> vec;
-	std::cout << COLOR_PURPLE_B << "Example 11" << COLOR_END << std::endl;
-	std::cout << COLOR_YELLOW_B;
-	std::cout << "std::vector -> ";
-
-	for (size_t i = 50; i < 55; ++i)
-		vec.push_back(i);
-	std::cout << "values:";
-	for (size_t i = 0; i < vec.size(); ++i)
-		std::cout << ' ' << vec[i];
-	std::vector<const int>::iterator	it1 = vec.begin();
-	std::vector<int>::iterator	it2 = vec.begin() + 2;
-	std::cout << ", it2 - it1: " << (it2 - it1);
-	std::cout << ", it2 > it1: " << (it2 > it1);
-	std::cout << ", it2 < it1: " << (it2 < it1);
-	std::cout << ", it2 >= it1: " << (it2 >= it1);
-	std::cout << ", it2 <= it1: " << (it2 <= it1);
-	std::cout << ", it2 == it1: " << (it2 == it1);
-	std::cout << ", it2 != it1: " << (it2 != it1);
-	std::vector<const int>::iterator	it3 = vec.begin() + 2;
-	std::vector<int>::iterator	it4 = vec.begin() + 2;
-	std::cout << ", it2 >= it1: " << (it4 >= it3);
-	std::cout << ", it2 <= it1: " << (it4 <= it3);
-	std::cout << ", it2 == it1: " << (it4 == it3);
-	std::cout << ", it2 != it1: " << (it4 != it3);
-	std::cout << '.' << COLOR_END << std::endl;
-
-	ft::vector<int> ft_vec;
-	std::cout << COLOR_GREEN_B;
-	std::cout << "ft::vector  -> ";
-
-	for (size_t i = 50; i < 55; ++i)
-		ft_vec.push_back(i);
-	std::cout << "values:";
-	for (size_t i = 0; i < ft_vec.size(); ++i)
-		std::cout << ' ' << ft_vec[i];
-	ft::vector<const int>::iterator	ft_it1 = ft_vec.begin();
-	ft::vector<int>::iterator	ft_it2 = ft_vec.begin() + 2;
-	std::cout << ", it2 - it1: " << (ft_it2 - ft_it1);
-	std::cout << ", it2 > it1: " << (ft_it2 > ft_it1);
-	std::cout << ", it2 < it1: " << (ft_it2 < ft_it1);
-	std::cout << ", it2 >= it1: " << (ft_it2 >= ft_it1);
-	std::cout << ", it2 <= it1: " << (ft_it2 <= ft_it1);
-	std::cout << ", it2 == it1: " << (ft_it2 == ft_it1);
-	std::cout << ", it2 != it1: " << (ft_it2 != ft_it1);
-	ft::vector<const int>::iterator	ft_it3 = ft_vec.begin() + 2;
-	ft::vector<int>::iterator	ft_it4 = ft_vec.begin() + 2;
-	std::cout << ", it2 >= it1: " << (ft_it4 >= ft_it3);
-	std::cout << ", it2 <= it1: " << (ft_it4 <= ft_it3);
-	std::cout << ", it2 == it1: " << (ft_it4 == ft_it3);
-	std::cout << ", it2 != it1: " << (ft_it4 != ft_it3);
-	std::cout << '.' << COLOR_END << std::endl << std::endl;
-}
-
-static void	example12()
-{
-	/* Example 12 */
 	/* Example for copy constructors */
 
 	std::vector<double> vec(2, double(58));
@@ -572,9 +513,9 @@ static void	example12()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-static void	example13()
+static void	example12()
 {
-	/* Example 13 */
+	/* Example 12 */
 	/* Example for insert */
 
 	std::vector<int> vec(5, int(58));
@@ -633,9 +574,9 @@ static void	example13()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-static void	example14()
+static void	example13()
 {
-	/* Example 14 */
+	/* Example 13 */
 	/* Example for insert part 2 */
 
 	std::vector<int> vec(5, int(58));
@@ -702,9 +643,9 @@ static void	example14()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-static void	example15()
+static void	example14()
 {
-	/* Example 15 */
+	/* Example 14 */
 	/* Example for insert */
 
 	std::vector<int> vec(5, int(58));
@@ -759,9 +700,9 @@ static void	example15()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-static void	example16()
+static void	example15()
 {
-	/* Example 16 */
+	/* Example 15 */
 	/* Example for erase */
 
 	std::vector<int> vec;
@@ -848,9 +789,9 @@ static void	example16()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-static void	example17()
+static void	example16()
 {
-	/* Example 17 */
+	/* Example 16 */
 	/* Example for resize */
 
 	std::vector<int> vec(5, int(42));
@@ -911,9 +852,9 @@ static void	example17()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-static void	example18()
+static void	example17()
 {
-	/* Example 18 */
+	/* Example 17 */
 	/* Example for assign */
 
 	std::vector<int> vec(5, int(42));
@@ -972,9 +913,9 @@ static void	example18()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-static void	example19()
+static void	example18()
 {
-	/* Example 19 */
+	/* Example 18 */
 	/* Example for assign part 2 */
 
 	std::vector<int> vec(5, int(42));
@@ -1037,9 +978,9 @@ static void	example19()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-static void	example20()
+static void	example19()
 {
-	/* Example 20 */
+	/* Example 19 */
 	/* Example for swaps */
 
 	std::vector<int> vec(3, int(42));
@@ -1096,9 +1037,9 @@ static void	example20()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-static void	example21()
+static void	example20()
 {
-	/* Example 21 */
+	/* Example 20 */
 	/* Example for swaps part 2 */
 
 	std::vector<int> vec(3, int(42));
@@ -1155,9 +1096,9 @@ static void	example21()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-static void	example22()
+static void	example21()
 {
-	/* Example 22 */
+	/* Example 21 */
 	/* Example for relational operators */
 
 	std::vector<char> vec1;
@@ -1278,9 +1219,9 @@ static void	example22()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-static void	example23()
+static void	example22()
 {
-	/* Example 23 */
+	/* Example 22 */
 	/* Example for reverse iterator */
 
 	std::vector<int> vec;
@@ -1353,9 +1294,9 @@ static void	example23()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-static void	example24()
+static void	example23()
 {
-	/* Example 24 */
+	/* Example 23 */
 	/* Example for rbegin, rend */
 
 	std::vector<int> vec;
@@ -1445,9 +1386,9 @@ struct	A
 	}
 };
 
-static void	example25()
+static void	example24()
 {
-	/* Example 25 */
+	/* Example 24 */
 	/* Example for & and address */
 
 	std::vector<A> vec;
@@ -1472,9 +1413,9 @@ static void	example25()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-static void	example26()
+static void	example25()
 {
-	/* Example 26 */
+	/* Example 25 */
 	/* Example tests for insert2 */
 
 	const int cut = 3;
@@ -1538,9 +1479,9 @@ static void	example26()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-static void	example27()
+static void	example26()
 {
-	/* Example 27 */
+	/* Example 26 */
 	/* Example tests for copy-constructor */
 
 	std::cout << COLOR_PURPLE_B << "Example 27" << COLOR_END << std::endl;
@@ -1627,9 +1568,9 @@ static void	example27()
 	std::cout << '.' << COLOR_END << std::endl << std::endl;
 }
 
-static void	example28()
+static void	example27()
 {
-	/* Example 28 */
+	/* Example 27 */
 	/* Example tests insert(fill) */
 
 	std::cout << COLOR_PURPLE_B << "Example 28" << COLOR_END << std::endl;
@@ -1689,5 +1630,4 @@ void	vector_test()
 	example25();
 	example26();
 	example27();
-	example28();
 }

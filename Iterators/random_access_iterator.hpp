@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 13:36:50 by vismaily          #+#    #+#             */
-/*   Updated: 2022/10/08 13:27:28 by vismaily         ###   ########.fr       */
+/*   Updated: 2022/10/28 20:02:24 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ namespace	ft
 	class	random_access_iterator : public ft::iterator<ft::random_access_iterator_tag, T>
 	{
 		public:
-            typedef std::iterator<ft::random_access_iterator_tag, T>	iterator_type;
+            typedef ft::iterator<ft::random_access_iterator_tag, T>	iterator_type;
 
 			typedef typename iterator_type::iterator_category	iterator_category;
             typedef typename iterator_type::pointer				pointer;
