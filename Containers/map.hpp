@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 16:44:23 by vismaily          #+#    #+#             */
-/*   Updated: 2022/10/06 12:01:13 by vismaily         ###   ########.fr       */
+/*   Updated: 2023/01/06 19:32:15 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ namespace	ft
 					false>::const_iterator	const_iterator;
 			typedef typename rb_tree<value_type, \
 					select_first<value_type>, key_compare, allocator_type, \
-					false>::reverse_iterator	reverse_iterator;
+					false>::reverse_iterator_t	reverse_iterator;
 			typedef typename rb_tree<value_type, \
 					select_first<value_type>, key_compare, allocator_type, \
 					false>::const_reverse_iterator	const_reverse_iterator;

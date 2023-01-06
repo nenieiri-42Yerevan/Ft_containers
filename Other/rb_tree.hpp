@@ -6,7 +6,7 @@
 /*   By: vismaily <nenie_iri@mail.ru>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 16:13:14 by vismaily          #+#    #+#             */
-/*   Updated: 2022/10/07 19:31:06 by vismaily         ###   ########.fr       */
+/*   Updated: 2023/01/06 19:33:52 by vismaily         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ namespace	ft
 													const_iterator;
 			typedef reverse_iterator<const_iterator>	\
 													const_reverse_iterator;
-			typedef reverse_iterator<iterator>		reverse_iterator;
+			typedef reverse_iterator<iterator>		reverse_iterator_t;
 		private:
 			typedef typename allocator_type:: \
 				template rebind<rb_node<value_type> >::other \
@@ -142,9 +142,9 @@ namespace	ft
 			const_iterator			begin() const;
 			iterator				end();
 			const_iterator			end() const;
-			reverse_iterator		rbegin();
+			reverse_iterator_t		rbegin();
 			const_reverse_iterator	rbegin() const;
-			reverse_iterator		rend();
+			reverse_iterator_t		rend();
 			const_reverse_iterator	rend() const;
 
 		/* Allocator */

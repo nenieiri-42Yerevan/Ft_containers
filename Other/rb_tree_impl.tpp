@@ -1322,10 +1322,10 @@ namespace	ft
 		typename Alloc,
 		bool multivalues
 	> typename rb_tree<T, KeyOfValue, Compare, Alloc, multivalues>:: \
-		reverse_iterator rb_tree<T, KeyOfValue, Compare, Alloc, multivalues>:: \
+		reverse_iterator_t rb_tree<T, KeyOfValue, Compare, Alloc, multivalues>:: \
 		rbegin()
 	{
-		return (reverse_iterator(this->end()));
+		return (reverse_iterator_t(this->end()));
 	}
 
 	template <
@@ -1348,10 +1348,10 @@ namespace	ft
 		typename Alloc,
 		bool multivalues
 	> typename rb_tree<T, KeyOfValue, Compare, Alloc, multivalues>:: \
-		reverse_iterator rb_tree<T, KeyOfValue, Compare, Alloc, multivalues>:: \
+		reverse_iterator_t rb_tree<T, KeyOfValue, Compare, Alloc, multivalues>:: \
 		rend()
 	{
-		return (reverse_iterator(this->begin()));
+		return (reverse_iterator_t(this->begin()));
 	}
 
 	template <
